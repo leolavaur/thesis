@@ -1,0 +1,318 @@
+
+%%% Switch case in latex
+%%% https://tex.stackexchange.com/a/343306
+\makeatletter
+\newcommand\addcase[3]{\expandafter\def\csname\string#1@case@#2\endcsname{#3}}
+\newcommand\makeswitch[2][]{%
+    \newcommand#2[1]{%
+        \ifcsname\string#2@case@##1\endcsname\csname\string#2@case@##1\endcsname\else#1\fi%
+  }%
+}
+\makeatother
+
+%%%% Il faut adapter la taille des logos dans certains cas (e.g., EGAAL, 2 etablissements)
+\newcommand\hauteurlogos[3]{
+    \hauteurlogoecole{#1}
+    \hauteurlogoetablissementA{#2}
+    \hauteurlogoetablissementB{#3}
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% ECOLES DOCTORALES %%%%%%%%%%%%%%%%
+
+%%%% #1: dossier des images, #2: numero ED, #3: couleur ED recto, #4: couleur ED verso, #5-#6: nom complet sur plusieurs lignes
+\newcommand\addecoledoctorale[6]{
+    \direcole{#1}
+    \numeroecole{#2}
+    \definecolor{couleur-ecole-recto}{RGB}{#3}
+    \definecolor{couleur-ecole-verso}{RGB}{#4}
+    \nomecoleA{#5}
+    \nomecoleB{#6}
+}
+
+\makeswitch[default]\ecoledoctorale{}
+
+\addcase\ecoledoctorale{ALL}{\addecoledoctorale
+    {ALL}
+    {595}
+    {255,165,139}
+    {232,86,18}
+    {Arts, Lettres, Langues}
+    {}
+}
+\addcase\ecoledoctorale{DSP}{\addecoledoctorale
+    {DSP}
+    {599}
+    {255,241,170}
+    {255,214,12}
+    {Droit et Science politiques}
+    {}
+}
+\addcase\ecoledoctorale{EDGE}{\addecoledoctorale
+    {EDGE}
+    {597}
+    {255,254,101}
+    {255,237,0}
+    {Sciences \'{e}conomiques et sciences de gestion - Bretagne}
+    {}
+}
+\addcase\ecoledoctorale{EGAAL}{\addecoledoctorale
+    {EGAAL}
+    {600}
+    {0,118,0}
+    {0,93,49}
+    {\'{E}cologie, G\'{e}osciences, Agronomie, Alimentation}
+    {}
+    \couleurpolice{white}
+}
+\addcase\ecoledoctorale{ELICCE}{\addecoledoctorale
+    {ELICCE}
+    {646}
+    {255,207,114}
+    {252,199,82}
+    {\'{E}ducation, Langages, Interactions, Cognition, Clinique, Expertise}
+    {}
+}
+\addcase\ecoledoctorale{ESC}{\addecoledoctorale
+    {ESC}
+    {645}
+    {255,164,85}
+    {240,138,0}
+    {Espaces, Soci\'{e}\'{e}s, Civilisations}
+    {}
+}
+\addcase\ecoledoctorale{MathSTICBO}{\addecoledoctorale
+    {MathSTICBO}
+    {644}
+    {190,212,233}
+    {139,181,221}
+    {Math\'{e}matiques et Sciences et Technologies}
+    {de l'Information et de la Communication en Bretagne Oc\'{e}ane}
+}
+\addcase\ecoledoctorale{MATISSE}{\addecoledoctorale
+    {MATISSE}
+    {601}
+    {0,112,237}
+    {0,84,160}
+    {Math\'{e}matiques, T\'{e}l\'{e}communications, Informatique, Signal, Syst\`{e}mes,}
+    {\'{E}lectronique}
+    \hauteurlogos{1.8cm}{1.8cm}{1.8cm}
+    \couleurpolice{white}
+}
+\addcase\ecoledoctorale{S3M}{\addecoledoctorale
+    {S3M}
+    {638}
+    {159,19,90}
+    {156,42,100}
+    {Sciences de la Mati\`{e}re, des Mol\'{e}cules et Mat\'{e}riaux}
+    {}
+    \couleurpolice{white}
+}
+\addcase\ecoledoctorale{SML}{\addecoledoctorale
+    {SML}
+    {598}
+    {19,139,112}
+    {0,93,102}
+    {Sciences de la Mer et du Littoral}
+    {}
+    \couleurpolice{white}
+}
+\addcase\ecoledoctorale{SPI}{\addecoledoctorale
+    {SPI}
+    {647}
+    {136,191,255}
+    {63,133,193}
+    {Sciences pour l'Ing\'{e}nieur}
+    {}
+}
+\addcase\ecoledoctorale{SPIN}{\addecoledoctorale
+    {SPIN}
+    {648}
+    {161,173,255}
+    {80,92,162}
+    {Sciences pour l'Ing\'{e}nieur et le Num\'{e}rique}
+    {}
+}
+\addcase\ecoledoctorale{SVS}{\addecoledoctorale
+    {SVS}
+    {637}
+    {228,255,122}
+    {200,210,0}
+    {Sciences de la Vie et de la Sant\'{e}}
+    {}
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% ETABLISSEMENTS %%%%%%%%%%%%%%%%
+
+%%%% #1 nom du logo, #2-#4: nom complet sur plusieurs lignes
+\newcommand\addetablissement[4]{
+    \logoetablissementB{#1}
+    \nometablissementC{#2}
+    \nometablissementD{#3}
+    \nometablissementE{#4}
+}
+
+\makeswitch[default]\etablissement{}
+
+\addcase\etablissement{CS}{\addetablissement
+    {CS}
+    {}
+    {}
+    {CentraleSup\'{e}lec}
+}
+\addcase\etablissement{EHESP}{\addetablissement
+    {EHESP}
+    {}
+    {l'\'{E}cole des Hautes \'{E}tudes}
+    {en Sant\'{e} Publique}
+    \hauteurlogos{2cm}{}{2.5cm}
+}
+\addcase\etablissement{ENIB}{\addetablissement
+    {ENIB}
+    {}
+    {}
+    {l'\'{E}cole Nationale d'Ing\'{e}nieurs de Brest}
+}
+\addcase\etablissement{ENS}{\addetablissement
+    {ENS}
+    {}
+    {}
+    {l'\'{E}cole Normale Sup\'{e}rieure de Rennes}
+}
+\addcase\etablissement{ENSAI}{\addetablissement
+    {ENSAI}
+    {}
+    {l'\'{E}cole Nationale de la Statistique}
+    {et de l'Analyse de l'Information}
+}
+\addcase\etablissement{ENSCR}{\addetablissement
+    {ENSCR}
+    {}
+    {l'\'{E}cole Nationale Sup\'{e}rieure}
+    {de Chimie Rennes}
+}
+\addcase\etablissement{ENSTA}{\addetablissement
+    {ENSTA}
+    {}
+    {l'\'{E}cole Nationale Sup\'{e}rieure}
+    {de Techniques Avanc\'{e}es Bretagne}
+}
+\addcase\etablissement{IMTA}{\addetablissement
+    {IMTA}
+    {l'\'{E}cole Nationale Sup\'{e}rieure}
+    {Mines-T\'{e}l\'{e}com Atlantique Bretagne}
+    {Pays de la Loire -- IMT Atlantique}
+}
+\addcase\etablissement{INSA}{\addetablissement
+    {INSA}
+    {}
+    {l'Institut National des}
+    {Sciences Appliqu\'{e}es de Rennes}
+    \hauteurlogos{1.8cm}{}{2cm}
+}
+\addcase\etablissement{InstitutAgro}{\addetablissement
+    {InstitutAgro}
+    {}
+    {}
+    {l'Institut Agro Rennes Angers}
+}
+\addcase\etablissement{UBO}{\addetablissement
+    {UBO}
+    {}
+    {}
+    {l'Universit\'{e} de Bretagne Occidentale}
+}
+\addcase\etablissement{UBS}{\addetablissement
+    {UBS}
+    {}
+    {}
+    {l'Universit\'{e} Bretagne Sud}
+}
+\addcase\etablissement{UR}{\addetablissement
+    {UR}
+    {}
+    {}
+    {l'Universit\'{e} de Rennes}
+}
+\addcase\etablissement{UR2}{\addetablissement
+    {UR2}
+    {}
+    {}
+    {l'Universit\'{e} Rennes 2}
+}
+
+%%%% #1-#2: nom des deux logos, #3-#7: nom complet de la double affiliation sur plusieurs lignes
+\newcommand\addpairetablissements[7]{
+    \logoetablissementA{#1}
+    \logoetablissementB{#2}
+    \nometablissementA{#3}
+    \nometablissementB{#4}
+    \nometablissementC{#5}
+    \nometablissementD{#6}
+    \nometablissementE{#7}
+}
+
+% ALL, ESC: ENSAB-UR2
+\addcase\etablissement{ENSAB-UR2}{\addpairetablissements
+    {ENSAB}
+    {UR2}
+    {}
+    {l'\'{E}cole Nationale Sup\'{e}rieure}
+    {d'Architecture de Bretagne}
+    {d\'{e}livr\'{e}e conjointement avec}
+    {l'Universit\'{e} Rennes 2}
+    \hauteurlogos{2cm}{1.2cm}{2cm}
+}
+% DSP, MATISSE, SVS: UR2-UR
+\addcase\etablissement{UR2-UR}{\addpairetablissements
+    {UR2}
+    {UR}
+    {}
+    {}
+    {l'Universit\'{e} Rennes 2}
+    {d\'{e}livr\'{e}e conjointement avec}
+    {l'Universit\'{e} de Rennes}
+    \hauteurlogos{1.8cm}{1.8cm}{1.5cm}
+}
+% DSP, EDGE: EHESP-UR
+\addcase\etablissement{EHESP-UR}{\addpairetablissements
+    {EHESP}
+    {UR}
+    {}
+    {l'\'{E}cole des Hautes \'{E}tudes}
+    {en Sant\'{e} Publique}
+    {d\'{e}livr\'{e}e conjointement avec}
+    {l'Universit\'{e} de Rennes}
+    \hauteurlogos{2cm}{2cm}{1.5cm}
+}
+% MATISSE: InstitutAgro-UR
+\addcase\etablissement{InstitutAgro-UR}{\addpairetablissements
+    {InstitutAgro}
+    {UR}
+    {}
+    {l'Institut Agro}
+    {Rennes Angers}
+    {d\'{e}livr\'{e}e conjointement avec}
+    {l'Universit\'{e} de Rennes}
+    \hauteurlogos{1.8cm}{1.2cm}{1.2cm}
+}
+% SPI: ENIB-UBO
+\addcase\etablissement{ENIB-UBO}{\addpairetablissements
+    {ENIB}
+    {UBO}
+    {}
+    {l'\'{E}cole Nationale}
+    {d'Ing\'{e}nieurs de Brest}
+    {d\'{e}livr\'{e}e conjointement avec}
+    {l'Universit\'{e} de Bretagne Occidentale}
+    \hauteurlogos{2cm}{1.6cm}{1.6cm}
+}

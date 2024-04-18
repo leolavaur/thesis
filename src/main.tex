@@ -1,0 +1,114 @@
+\documentclass{these-dbl}
+\usepackage{config}
+
+\hypersetup{
+  pdfauthor   = {Léo Lavaur},
+  pdftitle    = {PhD Thesis of Léo Lavaur},
+  pdfsubject  = {On Federated Learning as a Framework for Collaborative Intrusion Detection},
+  pdfkeywords = {Federated Learning, Collaborative Intrusion Detection, Machine Learning, Cybersecurity},
+}
+
+\includeonly{
+  % content/chapters/01_introduction/main,
+  content/chapters/02_sota/main,
+  % content/chapters/03_application/main,
+  % content/chapters/04_topologies/main,
+  % content/chapters/05_assessment/main,
+  % content/chapters/06_trust-fids/main,
+  % content/chapters/07_future/main,
+  % content/chapters/08_conclusion/main,
+}
+
+\addbibresource{biblio/lavaur}
+\addbibresource{biblio/references}
+
+\begin{document}
+
+
+% Front cover; most of the settings are in `template/` and are adapted from the official template for the "Collège Doctoral de Bretagne" by ED Mathisse.
+\input{frontcover.tex}
+
+\selectlanguage{english} % My thesis is in English
+
+% Acknowledgements
+\clearemptydoublepage
+\input{content/acknowledgment.tex}
+
+% This command will generate the front cover
+\frontmatter
+\clearemptydoublepage
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents %sommaire %table of content
+
+\mainmatter
+
+% Chapter 1: Introduction
+\clearemptydoublepage
+\include{content/chapters/01_introduction/main}
+
+% Part I
+\clearemptydoublepage
+\part{Federated Learning to build CIDSs\label{part:fids}}
+
+% Chapter 2: State of the Art
+\clearemptydoublepage
+\include{content/chapters/02_sota/main}
+
+% Chapter 3: Application
+\clearemptydoublepage
+\include{content/chapters/03_application/main}
+
+% Part II
+\clearemptydoublepage
+\part{Quantifying the Limitations of FIDSs\label{part:limitations}}
+
+% Chapter 4: Topology Generation
+\clearemptydoublepage
+\include{content/chapters/04_topologies/main}
+
+% Chapter 5: Assessment
+\clearemptydoublepage
+\include{content/chapters/05_assessment/main}
+
+% Part III
+\clearemptydoublepage
+\part{Providing Solutions\label{part:solutions}}
+
+% Chapter 6: Trust-FIDS
+\clearemptydoublepage
+\include{content/chapters/06_trust-fids/main}
+
+% Chapter 7: Future FIDS
+\clearemptydoublepage
+\include{content/chapters/07_future/main}
+
+% Conclusion
+\clearemptydoublepage
+\bookmarksetup{startatroot}
+\include{content/chapters/08_conclusion/main}
+
+\backmatter
+% Bibliography chapter
+\clearemptydoublepage
+\phantomsection % To have a correct link in the table of contents
+\addcontentsline{toc}{chapter}{Bibliography}
+
+% nocite: In order to cite all the references included biblio
+% \nocite{*}
+% \printbibliography[heading=primary,keyword=primary]
+% \newpage
+%\nocite{*}
+%\printbibliography[heading=secondary,keyword=secondary]
+
+\printbibliography
+
+
+\clearemptydoublepage
+% To have the back cover on an even page
+\cleartoevenpage[\thispagestyle{empty}]
+\input{./template/resume}
+
+\end{document}
+
+
+

@@ -1,0 +1,9 @@
+{
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build",
+
+    "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
+    "ltex.latex.commands": {
+        "\\bookmarksetup{}": "ignore",
+    },
+}

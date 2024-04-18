@@ -18,7 +18,7 @@
           inherit system;
         };
         latex = inputs.latex-toolbox.lib.${system}.latex;
-      in rec {
+      in {
         
         packages = rec {
           document = latex.mkDocument { src = ./src; main = "document.tex"; };
@@ -27,7 +27,9 @@
 
         devShells = {
           default = pkgs.mkShell {
-            buildInputs = packages.document.buildInputs;
+            buildInputs = with pkgs; [
+              texliveFull
+            ];
           };
         };
 
