@@ -1,0 +1,122 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{lavaur_Federatedlearningenabler_2022}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=4d7c1c3a5d559d8ea6b63f23c41e534c}{%
+           family={Lavaur},
+           familyi={L\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=1adcf0649bf10c9da6cd561cd26fa1ee}{%
+           family={Coste},
+           familyi={C\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8828c4cf5faefcb7f0157ee50e618a6f}{%
+           family={Pahl},
+           familyi={P\bibinitperiod},
+           given={Marc-Oliver},
+           giveni={M\bibinithyphendelim O\bibinitperiod}}}%
+        {{hash=f0bfb9464fd04350ddf819db868053a7}{%
+           family={Busnel},
+           familyi={B\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=428f1e21fb14bf299127cb7ef544d632}{%
+           family={Autrel},
+           familyi={A\bibinitperiod},
+           given={Fabien},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{aed36fdd1b9c3e9501e55288bfee6c6e}
+      \strng{fullhash}{d3328de42107df96899b1b92ce4fb895}
+      \strng{bibnamehash}{aed36fdd1b9c3e9501e55288bfee6c6e}
+      \strng{authorbibnamehash}{aed36fdd1b9c3e9501e55288bfee6c6e}
+      \strng{authornamehash}{aed36fdd1b9c3e9501e55288bfee6c6e}
+      \strng{authorfullhash}{d3328de42107df96899b1b92ce4fb895}
+      \field{extraname}{1}
+      \field{labelalpha}{Lav+}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 29th Computer \& Electronics Security Application Rendezvous ({{C}}\&{{ESAR}}): {{Ensuring}} Trust in a Decentralized World}
+      \field{title}{Federated Learning as Enabler for Collaborative Security between Not Fully-Trusting Distributed Parties}
+      \field{pages}{65\bibrangedash 80}
+      \range{pages}{16}
+      \verb{urlraw}
+      \verb http://ceur-ws.org/Vol-3329/paper-04.pdf
+      \endverb
+      \verb{url}
+      \verb http://ceur-ws.org/Vol-3329/paper-04.pdf
+      \endverb
+      \keyw{⛔ No DOI found}
+    \endentry
+    \entry{lavaur_EvolutionFederatedLearningbased_2022}{article}{}
+      \name{author}{4}{}{%
+        {{hash=4d7c1c3a5d559d8ea6b63f23c41e534c}{%
+           family={Lavaur},
+           familyi={L\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=8828c4cf5faefcb7f0157ee50e618a6f}{%
+           family={Pahl},
+           familyi={P\bibinitperiod},
+           given={Marc-Oliver},
+           giveni={M\bibinithyphendelim O\bibinitperiod}}}%
+        {{hash=f0bfb9464fd04350ddf819db868053a7}{%
+           family={Busnel},
+           familyi={B\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=428f1e21fb14bf299127cb7ef544d632}{%
+           family={Autrel},
+           familyi={A\bibinitperiod},
+           given={Fabien},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{aed36fdd1b9c3e9501e55288bfee6c6e}
+      \strng{fullhash}{a6a630306080356b2135a372e9dc96c3}
+      \strng{bibnamehash}{aed36fdd1b9c3e9501e55288bfee6c6e}
+      \strng{authorbibnamehash}{aed36fdd1b9c3e9501e55288bfee6c6e}
+      \strng{authornamehash}{aed36fdd1b9c3e9501e55288bfee6c6e}
+      \strng{authorfullhash}{a6a630306080356b2135a372e9dc96c3}
+      \field{extraname}{2}
+      \field{labelalpha}{Lav+22}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In 2016, Google introduced the concept of Federated Learning (FL), enabling collaborative Machine Learning (ML). FL does not share local data but ML models, offering applications in diverse domains. This paper focuses on the application of FL to Intrusion Detection Systems (IDSs). There, common criteria to compare existing solutions are missing. In particular, this survey shows: (i) how FL-based IDSs are used in different domains; (ii) what differences exist between architectures; (iii) the state of the art of FL-based IDS. With a structured literature survey, this work identifies the relevant state of the art in FL--based intrusion detection from its creation in 2016 until 2021. It provides a reference architecture and a taxonomy to serve as guidelines to compare and design FL- based IDSs. Both are validated with the existing works. Finally, it identifies research directions for the application of FL to intrusion detection systems.}
+      \field{journaltitle}{IEEE Transactions on Network and Service Management}
+      \field{month}{6}
+      \field{series}{Special {{Issue}} on {{Network Security Management}}}
+      \field{shortjournal}{TNSM}
+      \field{title}{The {{Evolution}} of {{Federated Learning-based Intrusion Detection}} and {{Mitigation}}: A {{Survey}}}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \keyw{+survey}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

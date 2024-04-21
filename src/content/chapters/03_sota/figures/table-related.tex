@@ -1,0 +1,98 @@
+\begin{table*}[]
+  \caption{
+    Related works, their topics, contributions, and number of citations according to Google Scholar -- Oct. 2021.
+    \label{tbl:sota.related}
+  }
+  \centering
+  \resizebox{.9\textwidth}{!}{% %used to resize the tikz figure
+
+
+
+      \newcommand*\rott[1]{\hbox to1.5em{\hss\rotatebox[origin=br]{-50}{#1}}}
+      \newcommand*\rotbb[1]{\hbox to1.5em{\hss\rotatebox[origin=tr]{20}{#1}}} % kept to rotate the bottom row if needed
+      \newcommand*\rotl[1]{\hbox to1em{\hss\rotatebox{90}{#1}}}
+      \newcommand*\rotb[1]{#1}
+      \newcommand*\yes{\CIRCLE}
+      \newcommand*\partly{\LEFTcircle}
+      \newcommand*\no{\Circle}
+      \begin{threeparttable}
+          \begin{tabular}{cclc@{}c@{}cc@{}c@{}cc@{}c@{}c@{}c@{}cc@{}c@{}c@{}c@{}c@{}cr}
+              \textbf{Domain}                                                                                                             & \textbf{Year} & \textbf{Reference}                  & \rott{Security} & \rott{Privacy} & \rott{Trust} & \rott{Detection}  & \rott{Defense/Mitigation}  & \rott{Cyber-awareness}  & \rott{Data} & \rott{Models} & \rott{Events} & \rott{Indicators} & \rott{Defensive measures} & \rott{Qualitative literature review} & \rott{Quantitative literature review} & \rott{Taxonomy} & \rott{Reference architecture} & \rott{Performance evaluation} & \rott{Research directions} & \multicolumn{1}{c}{\textbf{Cited}}  \\ \midrule
+              \multirow{4}{*}{Sharing---\labelcref{topic:share}}                                                                          & 2016          & \citet{Skopik2016}                  & \no             & \no            & \no          & \no               & \no                        & \yes                    & \no         & \no           & \yes          & \yes              & \no                       & \yes                                 & \no                                   & \no             & \no                           & \no                           & \yes                       & 170                                 \\ 
+                                                                                                                                          & 2018          & \citet{Tounsi2018}                  & \no             & \no            & \partly      & \no               & \no                        & \yes                    & \no         & \no           & \no           & \yes              & \no                       & \yes                                 & \yes                                  & \no             & \no                           & \no                           & \yes                       & 181                                 \\
+                                                                                                                                          & 2019          & \citet{Wagner2019}                  & \yes            & \yes           & \yes         & \no               & \no                        & \yes                    & \no         & \no           & \no           & \yes              & \no                       & \yes                                 & \yes                                  & \no             & \no                           & \no                           & \yes                       & 45                                  \\
+                                                                                                                                          & 2019          & \citet{Pala2019}                    & \yes            & \no            & \yes         & \no               & \no                        & \yes                    & \no         & \no           & \no           & \yes              & \yes                      & \yes                                 & \yes                                  & \no             & \yes                          & \no                           & \yes                       & 13                                  \\ \cmidrule(l){2-20}
+              \multirow{4}{*}{Detection---\labelcref{topic:detect}}                                                                       & 2016          & \citet{Buczak2016}                  & \no             & \no            & \no          & \yes              & \no                        & \no                     & \no         & \no           & \no           & \no               & \no                       & \yes                                 & \no                                   & \no             & \no                           & \no                           & \partly                    & 1749                                \\ 
+                                                                                                                                          & 2018          & \citet{Meng2018}                    & \no             & \no            & \no          & \yes              & \no                        & \no                     & \yes        & \no           & \yes          & \no               & \no                       & \yes                                 & \no                                   & \no             & \no                           & \no                           & \yes                       & 338                                 \\ 
+                                                                                                                                          & 2019          & \citet{Chaabouni2019}               & \no             & \no            & \no          & \yes              & \yes                       & \no                     & \no         & \no           & \no           & \no               & \no                       & \yes                                 & \no                                   & \partly         & \no                           & \no                           & \yes                       & 246                                 \\
+                                                                                                                                          & 2019          & \citet{DaCosta2019}                 & \no             & \no            & \no          & \yes              & \no                        & \no                     & \no         & \no           & \no           & \no               & \no                       & \yes                                 & \no                                   & \no             & \no                           & \no                           & \yes                       & 152                                 \\ \cmidrule(l){2-20}
+              \multirow{2}{*}{\begin{tabular}{@{}c@{}}Collaborative \\ detection---\labelcref{topic:detect,topic:collab_ml}\end{tabular}} & 2010          & \citet{Zhou2010}                    & \partly         & \yes           & \partly      & \yes              & \no                        & \no                     & \yes        & \no           & \yes          & \no               & \no                       & \yes                                 & \no                                   & \no             & \no                           & \no                           & \yes                       & 474                                 \\ 
+                                                                                                                                          & 2015          & \citet{Vasilomanolakis2015}         & \partly         & \yes           & \partly      & \yes              & \no                        & \no                     & \yes        & \no           & \yes          & \no               & \no                       & \yes                                 & \no                                   & \yes            & \no                           & \no                           & \yes                       & 270                                 \\ \cmidrule(l){2-20}
+              \multirow{5}{*}{FL---\labelcref{topic:collab_ml}}                                                                           & 2020          & \citet{Aledhari2020}                & \yes            & \yes           & \partly      & \no               & \no                        & \no                     & \no         & \yes          & \no           & \no               & \no                       & \yes                                 & \no                                   & \no             & \no                           & \no                           & \no                        & 83                                  \\
+                                                                                                                                          & 2020          & \citet{Lyu2020}                     & \yes            & \yes           & \no          & \no               & \no                        & \no                     & \no         & \yes          & \no           & \no               & \no                       & \yes                                 & \no                                   & \no             & \no                           & \no                           & \yes                       & 101                                 \\ 
+                                                                                                                                          & 2020          & \citet{Shen2020}                    & \yes            & \yes           & \partly      & \no               & \no                        & \no                     & \no         & \yes          & \no           & \no               & \no                       & \yes                                 & \no                                   & \no             & \no                           & \no                           & \yes                       & 4                                   \\ 
+                                                                                                                                          & 2021          & \citet{Mothukuri2021}               & \yes            & \yes           & \no          & \no               & \no                        & \no                     & \no         & \yes          & \no           & \no               & \no                       & \yes                                 & \no                                   & \yes            & \no                           & \no                           & \yes                       & 81                                  \\
+                                                                                                                                          & 2021          & \citet{Lo2021}                      & \yes            & \yes           & \no          & \no               & \no                        & \no                     & \no         & \yes          & \no           & \no               & \no                       & \yes                                 & \yes                                  & \no             & \no                           & \no                           & \yes                       & 18                                  \\ \cmidrule(l){2-20}
+              \multirow{4}{*}{FIDS}                                                                                                       & 2021          & \citet{Agrawal2021}                 & \yes            & \yes           & \partly      & \yes              & \no                        & \no                     & \no         & \yes          & \no           & \no               & \no                       & \yes                                 & \no                                   & \no             & \no                           & \no                           & \yes                       & 1                                   \\
+                                                                                                                                          & 2021          & \citet{Alazab2021}                  & \yes            & \yes           & \yes         & \partly           & \partly                    & \partly                 & \no         & \yes          & \no           & \no               & \no                       & \yes                                 & \no                                   & \no             & \no                           & \no                           & \yes                       & 0                                   \\ 
+                                                                                                                                          & 2021          & \citet{Campos2021}                  & \yes            & \yes           & \partly      & \yes              & \no                        & \no                     & \no         & \yes          & \no           & \no               & \no                       & \yes                                 & \no                                   & \no             & \no                           & \yes                          & \yes                       & 0                                   \\ 
+                                                                                                                                          & 2022          & \textbf{Lavaur \emph{et al.}}       & \yes            & \yes           & \partly      & \yes              & \partly                    & \no                     & \no         & \yes          & \no           & \no               & \no                       & \yes                                 & \yes                                  & \yes            & \yes                          & \no                           & \yes                       & -                                   \\ \midrule
+                                                                                                                                          &               &                                     & \multicolumn{3}{c}{Focus}                       & \multicolumn{3}{c}{Objective}                                            & \multicolumn{5}{c}{Sharing}                                                                 & \multicolumn{6}{c}{Contributions}                                                                                                                                                           &                                     \\ 
+          \end{tabular}
+          \begin{tablenotes}
+              \item \hfil\yes\hspace{.1em} covers topic; \partly\hspace{.1em} partly addresses topic; \no\hspace{.1em} does not cover topic;\hfil
+          \end{tablenotes}
+      \end{threeparttable}
+  }
+\end{table*}
+
+% 
+% <!-- Markdown table kept for reference
+% | Reference             | Topics                                                       | Cited |
+% |-----------------------|--------------------------------------------------------------|------:|
+% | Chantzios et al. 2019 | \gls{cti}; information sharing                               |     1 |
+% | ENISA 2017            | information sharing; standardization                         |   N/A |
+% | Wagner et al. 2019    | \gls{apt}; \gls{cti}; information sharing; trust             |    15 |
+% | Pala et al. 2019      | security; information sharing                                |     6 |
+% | Tounsi et al. 2018    | cyber crime; \gls{ioc}; \gls{cti}; threat sharing            |   111 |
+% | Skopik et al. 2016    | incident reporting; security; information sharing            |   150 |
+% | Lin et al. 2018       | \gls{iot}; security; privacy; fog/edge-computing             |  1300 |
+% | Sha et al. 2020       | \gls{iot}; privacy; detection; fog/edge-computing            |    20 |
+% | Neshenko et al. 2019  | \gls{iot}; security; vulnerabilities                         |   139 |
+% | Sengupta et al. 2020  | \gls{iiot}; security; privacy; blockchain;                   |    76 |
+% | Panchal et al. 2018   | \gls{iiot}; security                                         |    17 |
+% | Meng et al. 2018      | blockchain; information sharing; detection; trust management |   236 |
+% | Jiang et al. 2019     | \gls{ics}; \gls{ml}; detection                               |   N/A |
+% | Aledhari et al. 2020  | \gls{fl}; collaborative \gls{ai}; security; privacy           |    20 |
+% | Mothukuri et al. 2021 | \gls{ai}; \gls{fl}; security; privacy                         |     7 |
+% | Lyu et al. 2020       | \gls{fl}; \gls{ai}; privacy preservation;                     |    30 |
+% | Decker 1987           | \gls{ai}; distributed processing; problem-solving            |   318 |
+% | Radulescu et al. 2019 | \gls{momas}; \gls{dm}; \gls{rl}                              |    12 |
+% : Reference table -->
+
+% \begin{table*}[]
+%     \centering
+%     \caption{Related works, their topics and number of citation according to Google Shcolar -- Jan. 2021}
+%     \label{tbl:related}
+%     \begin{tabular}{llr}
+%         \toprule
+%         \textbf{Reference}    & \textbf{Topics}                                              & \textbf{Cited} \\ \midrule
+%         Chantzios et al. 2019 & \gls{cti}; information sharing                               & 1              \\ \midrule
+%         ENISA 2017            & information sharing; standardization                         & N/A            \\ \midrule
+%         Wagner et al. 2019    & \gls{apt}; \gls{cti}; information sharing; trust             & 15             \\ \midrule
+%         Pala et al. 2019      & security; information sharing                                & 6              \\ \midrule
+%         Tounsi et al. 2018    & cyber crime; \gls{ioc}; \gls{cti}; threat sharing            & 111            \\ \midrule
+%         Skopik et al. 2016    & incident reporting; security; information sharing            & 150            \\ \midrule
+%         Lin et al. 2018       & \gls{iot}; security; privacy; fog/edge-computing             & 1300           \\ \midrule
+%         Sha et al. 2020       & \gls{iot}; privacy; detection; fog/edge-computing            & 20             \\ \midrule
+%         Neshenko et al. 2019  & \gls{iot}; security; vulnerabilities                         & 139            \\ \midrule
+%         Sengupta et al. 2020  & \gls{iiot}; security; privacy; blockchain;                   & 76             \\ \midrule
+%         Panchal et al. 2018   & \gls{iiot}; security                                         & 17             \\ \midrule
+%         Meng et al. 2018      & blockchain; information sharing; detection; trust management & 236            \\ \midrule
+%         Jiang et al. 2019     & \gls{ics}; \gls{ml}; detection                               & N/A            \\ \midrule
+%         Aledhari et al. 2020  & \gls{fl}; collaborative \gls{ai}; security; privacy           & 20             \\ \midrule
+%         Mothukuri et al. 2021 & \gls{ai}; \gls{fl}; security; privacy                         & 7              \\ \midrule
+%         Lyu et al. 2020       & \gls{fl}; \gls{ai}; privacy preservation;                     & 30             \\ \midrule
+%         Radulescu et al. 2019 & \gls{momas}; \gls{dm}; \gls{rl}                              & 12             \\ \bottomrule
+%     \end{tabular}
+% \end{table*}

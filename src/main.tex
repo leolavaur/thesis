@@ -10,17 +10,22 @@
 
 \includeonly{
   % content/chapters/01_introduction/main,
-  content/chapters/02_sota/main,
-  % content/chapters/03_application/main,
-  % content/chapters/04_topologies/main,
-  % content/chapters/05_assessment/main,
-  % content/chapters/06_trust-fids/main,
-  % content/chapters/07_future/main,
-  % content/chapters/08_conclusion/main,
+  % content/chapters/02_background/main,
+  content/chapters/03_sota/main,
+  % content/chapters/04_application/main,
+  % content/chapters/05_topologies/main,
+  % content/chapters/06_assessment/main,
+  % content/chapters/07_trust-fids/main,
+  % content/chapters/08_future/main,
+  % content/chapters/09_conclusion/main,
 }
 
-\addbibresource{biblio/lavaur}
-\addbibresource{biblio/references}
+\addbibresource{biblio/lavaur.bib}
+\addbibresource{biblio/references.bib}
+
+\makenoidxglossaries
+\loadglsentries{content/glossary}
+
 
 \begin{document}
 
@@ -30,64 +35,105 @@
 
 \selectlanguage{english} % My thesis is in English
 
+\frontmatter
+\renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
+
+% Abstracts
+\clearemptydoublepage
+\chapter*{Abstracts\label{chap:abstracts}}
+\addcontentsline{toc}{chapter}{Abstracts}
+\setcounter{page}{1}
+\input{content/abstracts.tex}
+
 % Acknowledgements
 \clearemptydoublepage
-\input{content/acknowledgment.tex}
+\chapter*{Acknowledgements\label{chap:ack}}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\input{content/acknowledgment}
 
-% This command will generate the front cover
-\frontmatter
+% ToC
 \clearemptydoublepage
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents %sommaire %table of content
+\addcontentsline{toc}{chapter}{Table of Contents}
+
+% List of figures
+\clearemptydoublepage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\pagebreak % to ensure the numbering changes
 
 \mainmatter
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
 
-% Chapter 1: Introduction
+% PART I -- Introduction
+% -------------------------------------
+\part{Introduction\label{part:introduction}}
+
+%% Introduction
 \clearemptydoublepage
-\include{content/chapters/01_introduction/main}
+\subincludefrom{content/chapters/01_introduction/}{main}
 
-% Part I
+
+%% Preliminaries
+\clearemptydoublepage
+\subincludefrom{content/chapters/02_background/}{main}
+
+% Part II -- FIDS
+% -------------------------------------
 \clearemptydoublepage
 \part{Federated Learning to build CIDSs\label{part:fids}}
 
-% Chapter 2: State of the Art
+%% State of the Art
 \clearemptydoublepage
-\include{content/chapters/02_sota/main}
+\subincludefrom{content/chapters/03_sota/}{main}
 
-% Chapter 3: Application
+%% Application
 \clearemptydoublepage
-\include{content/chapters/03_application/main}
+\subincludefrom{content/chapters/04_application/}{main}
 
-% Part II
+% Part III -- Quantifying Limitations
+% -------------------------------------
 \clearemptydoublepage
 \part{Quantifying the Limitations of FIDSs\label{part:limitations}}
 
-% Chapter 4: Topology Generation
+%% Topology Generation
 \clearemptydoublepage
-\include{content/chapters/04_topologies/main}
+\subincludefrom{content/chapters/05_topologies/}{main}
 
-% Chapter 5: Assessment
+%% Assessment
 \clearemptydoublepage
-\include{content/chapters/05_assessment/main}
+\subincludefrom{content/chapters/06_assessment/}{main}
 
-% Part III
+% Part III -- Providing Solutions
+% -------------------------------------
 \clearemptydoublepage
 \part{Providing Solutions\label{part:solutions}}
 
-% Chapter 6: Trust-FIDS
+%% Trust-FIDS
 \clearemptydoublepage
-\include{content/chapters/06_trust-fids/main}
+\subincludefrom{content/chapters/07_trust-fids/}{main}
 
-% Chapter 7: Future FIDS
+%% Future FIDS
 \clearemptydoublepage
-\include{content/chapters/07_future/main}
+\subincludefrom{content/chapters/08_future/}{main}
 
-% Conclusion
+% Part IV -- Conclusion
+% -------------------------------------
 \clearemptydoublepage
-\bookmarksetup{startatroot}
-\include{content/chapters/08_conclusion/main}
+\part{Conclusion\label{part:conclusion}}
+
+%% Conclusion
+\clearemptydoublepage
+\subincludefrom{content/chapters/09_conclusion/}{main}
+
+
 
 \backmatter
+
+\bookmarksetup{startatroot}
+
 % Bibliography chapter
 \clearemptydoublepage
 \phantomsection % To have a correct link in the table of contents
@@ -102,6 +148,19 @@
 
 \printbibliography
 
+% Glossary
+\clearemptydoublepage
+\phantomsection % To have a correct link in the table of contents
+\addcontentsline{toc}{chapter}{Glossary}
+\printnoidxglossary
+
+% Appendices
+\clearemptydoublepage
+\chapter*{Appendices\label{part:appendices}}
+\addcontentsline{toc}{chapter}{Appendices}
+\selectlanguage{french}
+\input{content/french}
+\selectlanguage{english}
 
 \clearemptydoublepage
 % To have the back cover on an even page

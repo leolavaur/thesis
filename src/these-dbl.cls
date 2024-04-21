@@ -159,8 +159,8 @@
 \RequirePackage[hyperref,backend=biber,
   % Exemples de styles: alphabetic, ieee, nature, numeric, verbose-trad1 (en utilisant \footcite{}).
   % https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles
-  style=verbose-trad1
-  ]{biblatex}
+  style=alphabetic
+]{biblatex}
 
 % Style biblatex avec gestion des mots cl\'{e}s des entr\'{e}es bibliographiques
 % + les abbr\'{e}viations idem, ibidem, op cit. Pr\'{e}voir un fichier bib
@@ -178,7 +178,7 @@
 %\DeclareFieldFormat{pages}{page(s): #1} % page(s) en toutes lettres, si on veut...
 
 % Locutions latines en italique (comme ibid, loc.cit. , etc.) Merci \`{a} Josquin Debaz
-\renewcommand{\mkibid}[1]{\emph{#1}}
+%\renewcommand{\mkibid}[1]{\emph{#1}}
 
 % Et pour mettre le in en italique dans la ref\'{e}rence biblio (merci encore \`{a} Josquin Debaz)
 \DefineBibliographyStrings{english}{%
@@ -549,7 +549,7 @@
 % la boite
 \node[rectangle,draw=fondtitre!100,fill=fonddeboite!100,inner sep=10pt, inner ysep=20pt] (mabox)
 {
-\begin{minipage}{12cm}
+\begin{minipage}{0.9\textwidth}
 #2
 \end{minipage}
 };
@@ -562,7 +562,7 @@
 %%%%%% boitesimple %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand*{\boitesimple}[1]{%
 \begin{center}
-\begin{minipage}{12cm}
+\begin{minipage}{0.9\textwidth}
 \begin{shaded}
 	#1
 \end{shaded}
