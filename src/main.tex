@@ -1,5 +1,11 @@
 \documentclass{these-dbl}
-\usepackage{config}
+
+
+% While it's common practice to move most of the preamble to a package (`.sty` extension), the VSCode LaTeX-Workshop
+% extention cannot parse `.sty` files. 
+
+%\usepackage{config}
+\input{config.tex}
 
 \hypersetup{
   pdfauthor   = {Léo Lavaur},

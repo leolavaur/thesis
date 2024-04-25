@@ -5,8 +5,20 @@
 \RequirePackage{bookmark}  % allow chapters outside of parts the toc
 \RequirePackage{etoc}  % for local table of contents inside chapters
 \RequirePackage{import} % for importing chapters with subdirectories
-\RequirePackage[acronyms]{glossaries}
+\RequirePackage[
+  acronyms,
+]{glossaries}
 \RequirePackage{enumerate}
 \RequirePackage[inline,shortlabels]{enumitem} % for custom enumeration labels
 \RequirePackage{lipsum} % for dummy text
 \RequirePackage{cleveref} % for clever references
+\RequirePackage{threeparttable}
+\RequirePackage{booktabs}
+\RequirePackage{multirow}
+\RequirePackage{wasysym}
+\RequirePackage[
+  labelfont=bf,
+  skip=0.7\baselineskip,
+]{caption}
+
+\glsdisablehyper

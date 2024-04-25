@@ -19,6 +19,656 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global}
+    \entry{agrawal_FederatedLearningIntrusion_2021}{unpublished}{}
+      \name{author}{8}{}{%
+        {{hash=4c90001405b4d623598a84b37edee16d}{%
+           family={Agrawal},
+           familyi={A\bibinitperiod},
+           given={Shaashwat},
+           giveni={S\bibinitperiod}}}%
+        {{hash=fa0c8a57e01b3d2b2748cd9c34b0f59a}{%
+           family={Sarkar},
+           familyi={S\bibinitperiod},
+           given={Sagnik},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c774d2ae7e05cc111480149cdfadefe7}{%
+           family={Aouedi},
+           familyi={A\bibinitperiod},
+           given={Ons},
+           giveni={O\bibinitperiod}}}%
+        {{hash=f2edf883d67d61800ccfd4df673131bf}{%
+           family={Yenduri},
+           familyi={Y\bibinitperiod},
+           given={Gokul},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c5f0258983779f1e3369c4581ea7d57b}{%
+           family={Piamrat},
+           familyi={P\bibinitperiod},
+           given={Kandaraj},
+           giveni={K\bibinitperiod}}}%
+        {{hash=3c7d0f46776893206908192820b4f676}{%
+           family={Bhattacharya},
+           familyi={B\bibinitperiod},
+           given={Sweta},
+           giveni={S\bibinitperiod}}}%
+        {{hash=1ccf1f693c09a46480091807a5ae6b6a}{%
+           family={Maddikunta},
+           familyi={M\bibinitperiod},
+           given={Praveen\bibnamedelimb Kumar\bibnamedelima Reddy},
+           giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=7ac9945d951cbe5c1fe607093cfc29c4}{%
+           family={Gadekallu},
+           familyi={G\bibinitperiod},
+           given={Thippa\bibnamedelima Reddy},
+           giveni={T\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{2c0b3e350d34e79a304f97d46276bf0b}
+      \strng{fullhash}{93d64afec21a0d0a8502746d781ba077}
+      \strng{bibnamehash}{2c0b3e350d34e79a304f97d46276bf0b}
+      \strng{authorbibnamehash}{2c0b3e350d34e79a304f97d46276bf0b}
+      \strng{authornamehash}{2c0b3e350d34e79a304f97d46276bf0b}
+      \strng{authorfullhash}{93d64afec21a0d0a8502746d781ba077}
+      \field{labelalpha}{Agr+21}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The rapid development of the Internet and smart devices trigger surge in network traffic making its infrastructure more complex and heterogeneous. The predominated usage of mobile phones, wearable devices and autonomous vehicles are examples of distributed networks which generate huge amount of data each and every day. The computational power of these devices have also seen steady progression which has created the need to transmit information, store data locally and drive network computations towards edge devices. Intrusion detection systems play a significant role in ensuring security and privacy of such devices. Machine Learning and Deep Learning with Intrusion Detection Systems have gained great momentum due to their achievement of high classification accuracy. However the privacy and security aspects potentially gets jeopardised due to the need of storing and communicating data to centralized server. On the contrary, federated learning (FL) fits in appropriately as a privacy-preserving decentralized learning technique that does not transfer data but trains models locally and transfers the parameters to the centralized server. The present paper aims to present an extensive and exhaustive review on the use of FL in intrusion detection system. In order to establish the need for FL, various types of IDS, relevant ML approaches and its associated issues are discussed. The paper presents detailed overview of the implementation of FL in various aspects of anomaly detection. The allied challenges of FL implementations are also identified which provides idea on the scope of future direction of research. The paper finally presents the plausible solutions associated with the identified challenges in FL based intrusion detection system implementation acting as a baseline for prospective research.}
+      \field{day}{16}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arxiv}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{shorttitle}{Federated {{Learning}} for {{Intrusion Detection System}}}
+      \field{title}{Federated {{Learning}} for {{Intrusion Detection System}}: {{Concepts}}, {{Challenges}} and {{Future Directions}}}
+      \field{urlday}{2}
+      \field{urlmonth}{12}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{eprint}
+      \verb 2106.09527
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2106.09527
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2106.09527
+      \endverb
+      \keyw{\_processed,+survey,⛔ No DOI found,Computer Science - Cryptography and Security,Computer Science - Machine Learning}
+    \endentry
+    \entry{alazab_FederatedLearningCybersecurity_2021}{article}{}
+      \name{author}{6}{}{%
+        {{hash=a102edcc6b0d82c41e14761c9a5a8a61}{%
+           family={Alazab},
+           familyi={A\bibinitperiod},
+           given={Mamoun},
+           giveni={M\bibinitperiod}}}%
+        {{hash=544f6958f638fccf6b1a82130660dea8}{%
+           family={R\bibnamedelima M},
+           familyi={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Swarna\bibnamedelima Priya},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=1d5b3122fd31a9e0adc87645b75f8075}{%
+           family={M},
+           familyi={M\bibinitperiod},
+           given={Parimala},
+           giveni={P\bibinitperiod}}}%
+        {{hash=1e8d93c797a5f8a623ab6ef9d027c05a}{%
+           family={Reddy},
+           familyi={R\bibinitperiod},
+           given={Praveen},
+           giveni={P\bibinitperiod}}}%
+        {{hash=7ac9945d951cbe5c1fe607093cfc29c4}{%
+           family={Gadekallu},
+           familyi={G\bibinitperiod},
+           given={Thippa\bibnamedelima Reddy},
+           giveni={T\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=8dbd362e1ddf3ddfba75df1a5ea661fd}{%
+           family={Pham},
+           familyi={P\bibinitperiod},
+           given={Quoc-Viet},
+           giveni={Q\bibinithyphendelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3fe7e810fc1981c9bbc575e02dce48a}
+      \strng{fullhash}{cd4340991fa2af86bd30b10925aed96b}
+      \strng{bibnamehash}{d3fe7e810fc1981c9bbc575e02dce48a}
+      \strng{authorbibnamehash}{d3fe7e810fc1981c9bbc575e02dce48a}
+      \strng{authornamehash}{d3fe7e810fc1981c9bbc575e02dce48a}
+      \strng{authorfullhash}{cd4340991fa2af86bd30b10925aed96b}
+      \field{labelalpha}{Ala+21}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Federated learning (FL) is a recent development in artificial intelligence which is typically based on the concept of decentralized data. As cyber-attacks are frequently happening in the various applications deployed in real-time, most industrialists are hesitating to move forward in adopting the technology of the Internet of Everything (IoE). This paper aims to provide an extensive study on how FL could be utilized for providing better cybersecurity and prevent various cyber-attacks in real-time. We present an extensive survey of the various FL models currently developed by researchers for providing authentication, privacy, trust management and attack detection. We also discuss few realtime use cases that have been deployed recently and how FL is adopted in them for preserving privacy of data and improving the performance of the system. Based on the study, we conclude the paper with some prominent challenges and future directions on which the researchers can focus for adopting FL in real-time scenarios.}
+      \field{issn}{1551-3203, 1941-0050}
+      \field{journaltitle}{IEEE Transactions on Industrial Informatics}
+      \field{langid}{english}
+      \field{shortjournal}{IEEE Trans. Ind. Inf.}
+      \field{shorttitle}{Federated {{Learning}} for {{Cybersecurity}}}
+      \field{title}{Federated {{Learning}} for {{Cybersecurity}}: {{Concepts}}, {{Challenges}} and {{Future Directions}}}
+      \field{urlday}{2}
+      \field{urlmonth}{12}
+      \field{urlyear}{2021}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 1}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10/gnm4dj
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/9566732/
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/9566732/
+      \endverb
+      \keyw{\_processed,+survey}
+    \endentry
+    \entry{aledhari_FederatedLearningSurvey_2020}{article}{}
+      \name{author}{4}{}{%
+        {{hash=78f10d0d58461308e357653e5408e067}{%
+           family={Aledhari},
+           familyi={A\bibinitperiod},
+           given={Mohammed},
+           giveni={M\bibinitperiod}}}%
+        {{hash=129c5ac484e2aa74d859b48a07bd01fa}{%
+           family={Razzak},
+           familyi={R\bibinitperiod},
+           given={Rehma},
+           giveni={R\bibinitperiod}}}%
+        {{hash=8ee13bda3a9aa624880f1ab33f75c60a}{%
+           family={Parizi},
+           familyi={P\bibinitperiod},
+           given={Reza\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=5eb3626a904abac6d67b0abb32afd23a}{%
+           family={Saeed},
+           familyi={S\bibinitperiod},
+           given={Fahad},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{2a2c2663e7a945bbb2c4aa883deb5707}
+      \strng{fullhash}{3050d417d4b8dd91441ef0dd292932a5}
+      \strng{bibnamehash}{2a2c2663e7a945bbb2c4aa883deb5707}
+      \strng{authorbibnamehash}{2a2c2663e7a945bbb2c4aa883deb5707}
+      \strng{authornamehash}{2a2c2663e7a945bbb2c4aa883deb5707}
+      \strng{authorfullhash}{3050d417d4b8dd91441ef0dd292932a5}
+      \field{labelalpha}{Ale+20}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper provides a comprehensive study of Federated Learning (FL) with an emphasis on enabling software and hardware platforms, protocols, real-life applications and use-cases. FL can be applicable to multiple domains but applying it to different industries has its own set of obstacles. FL is known as collaborative learning, where algorithm(s) get trained across multiple devices or servers with decentralized data samples without having to exchange the actual data. This approach is radically different from other more established techniques such as getting the data samples uploaded to servers or having data in some form of distributed infrastructure. FL on the other hand generates more robust models without sharing data, leading to privacy-preserved solutions with higher security and access privileges to data. This paper starts by providing an overview of FL. Then, it gives an overview of technical details that pertain to FL enabling technologies, protocols, and applications. Compared to other survey papers in the field, our objective is to provide a more thorough summary of the most relevant protocols, platforms, and real-life use-cases of FL to enable data scientists to build better privacy-preserving solutions for industries in critical need of FL. We also provide an overview of key challenges presented in the recent literature and provide a summary of related research work. Moreover, we explore both the challenges and advantages of FL and present detailed service use-cases to illustrate how different architectures and protocols that use FL can fit together to deliver desired results.}
+      \field{issn}{2169-3536}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{Federated {{Learning}}: {{A Survey}} on {{Enabling Technologies}}, {{Protocols}}, and {{Applications}}}
+      \field{volume}{8}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{pages}{140699\bibrangedash 140725}
+      \range{pages}{27}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2020.3013541
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/9153560/
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/9153560/
+      \endverb
+    \endentry
+    \entry{buczak_SurveyDataMining_2016}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a7dbacfa7b99d0b23fc9901d0e99adc2}{%
+           family={Buczak},
+           familyi={B\bibinitperiod},
+           given={Anna\bibnamedelima L.},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=ca492a63ce68debbf7cf28473884add0}{%
+           family={Guven},
+           familyi={G\bibinitperiod},
+           given={Erhan},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{fd0a16e639b0a4587c91080d4a6f90e0}
+      \strng{fullhash}{fd0a16e639b0a4587c91080d4a6f90e0}
+      \strng{bibnamehash}{fd0a16e639b0a4587c91080d4a6f90e0}
+      \strng{authorbibnamehash}{fd0a16e639b0a4587c91080d4a6f90e0}
+      \strng{authornamehash}{fd0a16e639b0a4587c91080d4a6f90e0}
+      \strng{authorfullhash}{fd0a16e639b0a4587c91080d4a6f90e0}
+      \field{labelalpha}{BG16}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This survey paper describes a focused literature survey of machine learning (ML) and data mining (DM) methods for cyber analytics in support of intrusion detection. Short tutorial descriptions of each ML/DM method are provided. Based on the number of citations or the relevance of an emerging method, papers representing each method were identified, read, and summarized. Because data are so important in ML/DM approaches, some well-known cyber data sets used in ML/DM are described. The complexity of ML/DM algorithms is addressed, discussion of challenges for using ML/DM for cyber security is presented, and some recommendations on when to use a given method are provided.}
+      \field{eventtitle}{{{IEEE Communications Surveys Tutorials}}}
+      \field{issn}{1553-877X}
+      \field{journaltitle}{IEEE Communications Surveys Tutorials}
+      \field{number}{2}
+      \field{title}{A {{Survey}} of {{Data Mining}} and {{Machine Learning Methods}} for {{Cyber Security Intrusion Detection}}}
+      \field{volume}{18}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{pages}{1153\bibrangedash 1176}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1109/COMST.2015.2494502
+      \endverb
+      \keyw{\_read,+survey,Computer security,Cyber analytics,Cyber Analytics,data mining,Data mining,Data Mining,Data models,IP networks,machine learning,Machine Learning,Measurement,Ports (Computers),Protocols}
+    \endentry
+    \entry{campos_EvaluatingFederatedLearning_2022}{article}{}
+      \name{author}{7}{}{%
+        {{hash=d43b5a436c13674f374bef4aa1bde004}{%
+           family={Campos},
+           familyi={C\bibinitperiod},
+           given={Enrique\bibnamedelima Mármol},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=fbecc6b2f1835618e1e63b32e2211885}{%
+           family={Saura},
+           familyi={S\bibinitperiod},
+           given={Pablo\bibnamedelima Fernández},
+           giveni={P\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=71fbff1ad14031af98d4c8ff82d23b25}{%
+           family={González-Vidal},
+           familyi={G\bibinithyphendelim V\bibinitperiod},
+           given={Aurora},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2013cf6a202c93c9db49651880c07c44}{%
+           family={Hernández-Ramos},
+           familyi={H\bibinithyphendelim R\bibinitperiod},
+           given={José\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=3e756969dcd8d4ab0c70293fedf35936}{%
+           family={Bernabé},
+           familyi={B\bibinitperiod},
+           given={Jorge\bibnamedelima Bernal},
+           giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=41c06f4fdd293f6b77923d083605442e}{%
+           family={Baldini},
+           familyi={B\bibinitperiod},
+           given={Gianmarco},
+           giveni={G\bibinitperiod}}}%
+        {{hash=770163542e02c56701cd798d6797e01b}{%
+           family={Skarmeta},
+           familyi={S\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a9a1b6cb3e85a9b8d18fbee8d11faba}
+      \strng{fullhash}{ef94c4a2c20103e06df1f9a3c65dda16}
+      \strng{bibnamehash}{5a9a1b6cb3e85a9b8d18fbee8d11faba}
+      \strng{authorbibnamehash}{5a9a1b6cb3e85a9b8d18fbee8d11faba}
+      \strng{authornamehash}{5a9a1b6cb3e85a9b8d18fbee8d11faba}
+      \strng{authorfullhash}{ef94c4a2c20103e06df1f9a3c65dda16}
+      \field{labelalpha}{Cam+22}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The application of Machine Learning (ML) techniques to the well-known intrusion detection systems (IDS) is key to cope with increasingly sophisticated cybersecurity attacks through an effective and efficient detection process. In the context of the Internet of Things (IoT), most ML-enabled IDS approaches use centralized approaches where IoT devices share their data with data centers for further analysis. To mitigate privacy concerns associated with centralized approaches, in recent years the use of Federated Learning (FL) has attracted a significant interest in different sectors, including healthcare and transport systems. However, the development of FL-enabled IDS for IoT is in its infancy, and still requires research efforts from various areas, in order to identify the main challenges for the deployment in real-world scenarios. In this direction, our work evaluates a FL-enabled IDS approach based on a multiclass classifier considering different data distributions for the detection of different attacks in an IoT scenario. In particular, we use three different settings that are obtained by partitioning the recent ToN\_IoT dataset according to IoT devices' IP address and types of attack. Furthermore, we evaluate the impact of different aggregation functions according to such setting by using the recent IBMFL framework as FL implementation. Additionally, we identify a set of challenges and future directions based on the existing literature and the analysis of our evaluation results.}
+      \field{day}{11}
+      \field{issn}{1389-1286}
+      \field{journaltitle}{Computer Networks}
+      \field{month}{2}
+      \field{shortjournal}{Computer Networks}
+      \field{shorttitle}{Evaluating {{Federated Learning}} for Intrusion Detection in {{Internet}} of {{Things}}}
+      \field{title}{Evaluating {{Federated Learning}} for Intrusion Detection in {{Internet}} of {{Things}}: {{Review}} and Challenges}
+      \field{urlday}{25}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{203}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{108661}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.comnet.2021.108661
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1389128621005405
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1389128621005405
+      \endverb
+      \keyw{\_processed,+survey,⛔ No DOI found,Computer Science - Cryptography and Security,Computer Science - Machine Learning,Computer Science - Networking and Internet Architecture,Federated Learning,Internet of Things,Intrusion detection systems}
+    \endentry
+    \entry{chaabouni_NetworkIntrusionDetection_2019}{article}{}
+      \name{author}{5}{}{%
+        {{hash=5a9826f3a62f34424eacc193b8576d82}{%
+           family={Chaabouni},
+           familyi={C\bibinitperiod},
+           given={Nadia},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4e0de2a85fb803b5c4c8aa2b358040fd}{%
+           family={Mosbah},
+           familyi={M\bibinitperiod},
+           given={Mohamed},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7116b7a500dd9e6fe0906122f1e96900}{%
+           family={Zemmari},
+           familyi={Z\bibinitperiod},
+           given={Akka},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5b3686ab7b955cb6da9719e7d9055400}{%
+           family={Sauvignac},
+           familyi={S\bibinitperiod},
+           given={Cyrille},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ba8070a4fe0e8b52b1dcd768c74a8dbe}{%
+           family={Faruki},
+           familyi={F\bibinitperiod},
+           given={Parvez},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{a9198b62c1075f5b75b10e7941988f56}
+      \strng{fullhash}{6ebda5adadbd565448261e8d2b7acb04}
+      \strng{bibnamehash}{a9198b62c1075f5b75b10e7941988f56}
+      \strng{authorbibnamehash}{a9198b62c1075f5b75b10e7941988f56}
+      \strng{authornamehash}{a9198b62c1075f5b75b10e7941988f56}
+      \strng{authorfullhash}{6ebda5adadbd565448261e8d2b7acb04}
+      \field{labelalpha}{Cha+19}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Pervasive growth of Internet of Things (IoT) is visible across the globe. The 2016 Dyn cyberattack exposed the critical fault-lines among smart networks. Security of IoT has become a critical concern. The danger exposed by infested Internet-connected Things not only affects the security of IoT but also threatens the complete Internet eco-system which can possibly exploit the vulnerable Things (smart devices) deployed as botnets. Mirai malware compromised the video surveillance devices and paralyzed Internet via distributed denial of service attacks. In the recent past, security attack vectors have evolved bothways, in terms of complexity and diversity. Hence, to identify and prevent or detect novel attacks, it is important to analyze techniques in IoT context. This survey classifies the IoT security threats and challenges for IoT networks by evaluating existing defense techniques. Our main focus is on network intrusion detection systems (NIDSs); hence, this paper reviews existing NIDS implementation tools and datasets as well as free and open-source network sniffing software. Then, it surveys, analyzes, and compares state-of-the-art NIDS proposals in the IoT context in terms of architecture, detection methodologies, validation strategies, treated threats, and algorithm deployments. The review deals with both traditional and machine learning (ML) NIDS techniques and discusses future directions. In this survey, our focus is on IoT NIDS deployed via ML since learning algorithms have a good success rate in security and privacy. The survey provides a comprehensive review of NIDSs deploying different aspects of learning techniques for IoT, unlike other top surveys targeting the traditional systems. We believe that, this paper will be useful for academia and industry research, first, to identify IoT threats and challenges, second, to implement their own NIDS and finally to propose new smart techniques in IoT context considering IoT limitations. Moreover, the survey will enable security individuals differentiate IoT NIDS from traditional ones.}
+      \field{issn}{1553-877X}
+      \field{journaltitle}{IEEE Communications Surveys \& Tutorials}
+      \field{number}{3}
+      \field{title}{Network {{Intrusion Detection}} for {{IoT Security Based}} on {{Learning Techniques}}}
+      \field{volume}{21}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{pages}{2671\bibrangedash 2701}
+      \range{pages}{31}
+      \verb{doi}
+      \verb 10.1109/COMST.2019.2896380
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/8629941/
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/8629941/
+      \endverb
+      \keyw{+survey}
+    \endentry
+    \entry{dacosta_InternetThingssurvey_2019}{article}{}
+      \name{author}{5}{}{%
+        {{useprefix=true,hash=229ea5a33f9931067b3ae7fd0e9f80ee}{%
+           family={Costa},
+           familyi={C\bibinitperiod},
+           given={Kelton\bibnamedelima A.P.},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={da},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=3fc34ba27bcdf9f7068c78695e4935be}{%
+           family={Papa},
+           familyi={P\bibinitperiod},
+           given={João\bibnamedelima P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=9704deb51a463fad29a7d08138b79d5d}{%
+           family={Lisboa},
+           familyi={L\bibinitperiod},
+           given={Celso\bibnamedelima O.},
+           giveni={C\bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=6673b13d9dab73d0b6f612abfd2977e1}{%
+           family={Munoz},
+           familyi={M\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+        {{useprefix=true,hash=a663e17599fd715ff5806bf41a9c7242}{%
+           family={Albuquerque},
+           familyi={A\bibinitperiod},
+           given={Victor\bibnamedelimb Hugo\bibnamedelima C.},
+           giveni={V\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim C\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier B.V.}%
+      }
+      \strng{namehash}{b907c0240d12007d8bfeca7803ae2523}
+      \strng{fullhash}{2f9abff041b8f99d144ce4638bab4149}
+      \strng{bibnamehash}{b907c0240d12007d8bfeca7803ae2523}
+      \strng{authorbibnamehash}{b907c0240d12007d8bfeca7803ae2523}
+      \strng{authornamehash}{b907c0240d12007d8bfeca7803ae2523}
+      \strng{authorfullhash}{2f9abff041b8f99d144ce4638bab4149}
+      \field{labelalpha}{dCos+19}
+      \field{sortinit}{d}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In the world scenario, concerns with security and privacy regarding computer networks are always increasing. Computer security has become a necessity due to the proliferation of information technologies in everyday life. The increase in the number of Internet accesses and the emergence of new technologies, such as the Internet of Things (IoT paradigm, are accompanied by new and modern attempts to invade computer systems and networks. Companies are increasingly investing in studies to optimize the detection of these attacks. Institutions are selecting intelligent techniques to test and verify by comparing the best rates of accuracy. This research, therefore, focuses on rigorous state-of-the-art literature on Machine Learning Techniques applied in Internet-of-Things and Intrusion Detection for computer network security. The work aims, therefore, recent and in-depth research of relevant works that deal with several intelligent techniques and their applied intrusion detection architectures in computer networks with emphasis on the Internet of Things and machine learning. More than 95 works on the subject were surveyed, spanning across different themes related to security issues in IoT environments.}
+      \field{issn}{13891286}
+      \field{journaltitle}{Computer Networks}
+      \field{month}{3}
+      \field{title}{Internet of {{Things}}: {{A}} Survey on Machine Learning-Based Intrusion Detection Approaches}
+      \field{volume}{151}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{pages}{147\bibrangedash 157}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/j.comnet.2019.01.023
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.comnet.2019.01.023
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.comnet.2019.01.023
+      \endverb
+      \keyw{+survey}
+    \endentry
+    \entry{fedorchenko_ComparativeReviewIntrusion_2022}{article}{}
+      \name{author}{3}{}{%
+        {{hash=409f5820469b835317e8f0edb1b5ae41}{%
+           family={Fedorchenko},
+           familyi={F\bibinitperiod},
+           given={Elena},
+           giveni={E\bibinitperiod}}}%
+        {{hash=bb349101b45a24865462c83a18722403}{%
+           family={Novikova},
+           familyi={N\bibinitperiod},
+           given={Evgenia},
+           giveni={E\bibinitperiod}}}%
+        {{hash=62b349e9711d40e9e1bcaa927ca04aee}{%
+           family={Shulepov},
+           familyi={S\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Multidisciplinary Digital Publishing Institute}%
+      }
+      \strng{namehash}{e6b0833846c79e8296f8c94498194002}
+      \strng{fullhash}{e6b0833846c79e8296f8c94498194002}
+      \strng{bibnamehash}{e6b0833846c79e8296f8c94498194002}
+      \strng{authorbibnamehash}{e6b0833846c79e8296f8c94498194002}
+      \strng{authornamehash}{e6b0833846c79e8296f8c94498194002}
+      \strng{authorfullhash}{e6b0833846c79e8296f8c94498194002}
+      \field{labelalpha}{FNS22}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{In order to provide an accurate and timely response to different types of the attacks, intrusion and anomaly detection systems collect and analyze a lot of data that may include personal and other sensitive data. These systems could be considered a source of privacy-aware risks. Application of the federated learning paradigm for training attack and anomaly detection models may significantly decrease such risks as the data generated locally are not transferred to any party, and training is performed mainly locally on data sources. Another benefit of the usage of federated learning for intrusion detection is its ability to support collaboration between entities that could not share their dataset for confidential or other reasons. While this approach is able to overcome the aforementioned challenges it is rather new and not well-researched. The challenges and research questions appear while using it to implement analytical systems. In this paper, the authors review existing solutions for intrusion and anomaly detection based on the federated learning, and study their advantages as well as open challenges still facing them. The paper analyzes the architecture of the proposed intrusion detection systems and the approaches used to model data partition across the clients. The paper ends with discussion and formulation of the open challenges.}
+      \field{issn}{1999-4893}
+      \field{issue}{7}
+      \field{journaltitle}{Algorithms}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{number}{7}
+      \field{shorttitle}{Comparative {{Review}} of the {{Intrusion Detection Systems Based}} on {{Federated Learning}}}
+      \field{title}{Comparative {{Review}} of the {{Intrusion Detection Systems Based}} on {{Federated Learning}}: {{Advantages}} and {{Open Challenges}}}
+      \field{urlday}{24}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{15}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{247}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/a15070247
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/1999-4893/15/7/247
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/1999-4893/15/7/247
+      \endverb
+      \keyw{+survey,artificial intelligence,data partition,federated learning,Internet of Things,intrusion detection,machine learning,system architecture}
+    \endentry
+    \entry{ghimire_RecentAdvancesFederated_2022}{article}{}
+      \name{author}{2}{}{%
+        {{hash=445cc960d71d5ef9bbaca8fa405eaa0a}{%
+           family={Ghimire},
+           familyi={G\bibinitperiod},
+           given={Bimal},
+           giveni={B\bibinitperiod}}}%
+        {{hash=5a1491689ec393cdcbb3b403b7932109}{%
+           family={Rawat},
+           familyi={R\bibinitperiod},
+           given={Danda\bibnamedelima B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{bc2f0b490f74dd7026ce4ade69eadcfe}
+      \strng{fullhash}{bc2f0b490f74dd7026ce4ade69eadcfe}
+      \strng{bibnamehash}{bc2f0b490f74dd7026ce4ade69eadcfe}
+      \strng{authorbibnamehash}{bc2f0b490f74dd7026ce4ade69eadcfe}
+      \strng{authornamehash}{bc2f0b490f74dd7026ce4ade69eadcfe}
+      \strng{authorfullhash}{bc2f0b490f74dd7026ce4ade69eadcfe}
+      \field{labelalpha}{GR22}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Decentralized paradigm in the field of cybersecurity and machine learning (ML) for the emerging Internet of Things (IoT) has gained a lot of attention from the government, academia, and industries in recent years. Federated cybersecurity (FC) is regarded as a revolutionary concept to make the IoT safer and more efficient in the future. This emerging concept has the potential of detecting security threats, taking countermeasures, and limiting the spreading of threats over the IoT network system efficiently. An objective of cybersecurity is achieved by forming the federation of the learned and shared model on top of various participants. Federated learning (FL), which is regarded as a privacy-aware ML model, is particularly useful to secure the vulnerable IoT environment. In this article, we start with background and comparison of centralized learning, distributed on-site learning, and FL, which is then followed by a survey of the application of FL to cybersecurity for IoT. This survey primarily focuses on the security aspect but it also discusses several approaches that address the performance issues (e.g., accuracy, latency, resource constraint, and others) associated with FL, which may impact the security and overall performance of the IoT. To anticipate the future evolution of this new paradigm, we discuss the main ongoing research efforts, challenges, and research trends in this area. With this article, readers can have a more thorough understanding of FL for cybersecurity as well as cybersecurity for FL, different security attacks, and countermeasures.}
+      \field{eventtitle}{{{IEEE Internet}} of {{Things Journal}}}
+      \field{issn}{2327-4662}
+      \field{journaltitle}{IEEE Internet of Things Journal}
+      \field{month}{6}
+      \field{number}{11}
+      \field{title}{Recent {{Advances}} on {{Federated Learning}} for {{Cybersecurity}} and {{Cybersecurity}} for {{Federated Learning}} for {{Internet}} of {{Things}}}
+      \field{urlday}{12}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{9}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{8229\bibrangedash 8249}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1109/JIOT.2022.3150363
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/abstract/document/9709603
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/abstract/document/9709603
+      \endverb
+      \keyw{Cloud computing,Collaborative work,Computational modeling,Computer security,Cybersecurity,Data models,data offloading,federated cybersecurity (FC),federated learning (FL),Machine learning,machine learning (ML),Sensors}
+    \endentry
+    \entry{ismaila_ReviewApproachesFederated_2024}{article}{}
+      \name{author}{4}{}{%
+        {{hash=5becb6a354700edd5eb5730b2d94292f}{%
+           family={Isma'ila},
+           familyi={I\bibinitperiod},
+           given={Umar\bibnamedelima Audi},
+           giveni={U\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=98480c4813d1bebd7f87bdd12a096448}{%
+           family={Danyaro},
+           familyi={D\bibinitperiod},
+           given={Kamaluddeen\bibnamedelima Usman},
+           giveni={K\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
+        {{hash=cfbdbed9a3a7a657bdb342488a982598}{%
+           family={Muazu},
+           familyi={M\bibinitperiod},
+           given={Aminu\bibnamedelima Aminu},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=c499f8f0f2f8100639cabb580d20fa75}{%
+           family={Maiwada},
+           familyi={M\bibinitperiod},
+           given={Umar\bibnamedelima Danjuma},
+           giveni={U\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{b15a9eca070b866c3abea6fa5619f062}
+      \strng{fullhash}{dafb6d7fde3557e7da03e22f145477db}
+      \strng{bibnamehash}{b15a9eca070b866c3abea6fa5619f062}
+      \strng{authorbibnamehash}{b15a9eca070b866c3abea6fa5619f062}
+      \strng{authornamehash}{b15a9eca070b866c3abea6fa5619f062}
+      \strng{authorfullhash}{dafb6d7fde3557e7da03e22f145477db}
+      \field{labelalpha}{Ism+24}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The novelty of Federated Learning (FL) has emerged as a promising alternative to centralized machine learning systems in the context of anomaly-based intrusion detection systems (AIDS) deployed on Internet of Things (IoT) devices. Unlike traditional centralized models, FL allows on-device model training and updates, reducing privacy concerns and issues such as single points of failure and high false alarm rates (FAR). This approach, termed `Fed-AIDS,' offers a more secure and efficient solution. However, the development of Fed-AIDS models faces challenges related to limited training data and the diverse nature of IoT datasets. Additionally, FL's decentralized nature introduces weight divergence issues arising from non-Independently and Identically Distributed (non-IID) clients. To address these challenges and optimize Fed-AIDS modeling, interdisciplinary research efforts are vital. The primary objective of this study is to conduct an up-to-date review by adopting a Systematic Literature Review (SLR) approach to analyze existing studies of Fed-AIDS modeling procedures for IoT devices. Data from the published studies were retrieved from Scopus database, which covered major publishers such as IEEE, Elsevier and others. Specifically, our review conducted from the following Fed-AIDS perspectives: workflow and tools, training dataset, complexities of non-IID data in Fed-AIDS models, classification tasks, aggregation tasks, and model validation metrics. Based on the research findings, the study highlights a series of challenges and proposes potential solutions to stand in future research in Fed-AIDS modeling, aiming to advance the field of IoT device security.}
+      \field{eventtitle}{{{IEEE Access}}}
+      \field{issn}{2169-3536}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{Review on {{Approaches}} of {{Federated Modeling}} in {{Anomaly-Based Intrusion Detection}} for {{IoT Devices}}}
+      \field{urlday}{24}
+      \field{urlmonth}{4}
+      \field{urlyear}{2024}
+      \field{volume}{12}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{30941\bibrangedash 30961}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2024.3369915
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/10445150
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/10445150
+      \endverb
+      \keyw{aggregation function,Anomaly detection,anomaly-based intrusion detection,Data models,Federated learning,Federated learning modeling,Internet of Things,Intrusion detection,IoT devices,Machine learning,non-IDD data,Performance evaluation,Reviews,Security,Systematics,Training}
+    \endentry
+    \entry{kitchenham_Guidelinesperformingsystematic_2007}{report}{}
+      \name{author}{2}{}{%
+        {{hash=a6a5d6592277cbb0df47f0006e20abf5}{%
+           family={Kitchenham},
+           familyi={K\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=478f6ea40e6922c074e0ed67a3cc9697}{%
+           family={Charters},
+           familyi={C\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb3b9c7d54bcba2cc63e742ddbc45606}
+      \strng{fullhash}{eb3b9c7d54bcba2cc63e742ddbc45606}
+      \strng{bibnamehash}{eb3b9c7d54bcba2cc63e742ddbc45606}
+      \strng{authorbibnamehash}{eb3b9c7d54bcba2cc63e742ddbc45606}
+      \strng{authornamehash}{eb3b9c7d54bcba2cc63e742ddbc45606}
+      \strng{authorfullhash}{eb3b9c7d54bcba2cc63e742ddbc45606}
+      \field{labelalpha}{KC07}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The objective of this report is to propose comprehensive guidelines for systematic literature reviews appropriate for software engineering researchers, including PhD students. A systematic literature review is a means of evaluating and interpreting all available research relevant to a particular research question, topic area, or phenomenon of interest. Systematic reviews aim to present a fair evaluation of a research topic by using a trustworthy, rigorous, and auditable methodology. The guidelines presented in this report were derived from three existing guidelines used by medical researchers, two books produced by researchers with social science backgrounds and discussions with researchers from other disciplines who are involved in evidence-based practice. The guidelines have been adapted to reflect the specific problems of software engineering research. The guidelines cover three phases of a systematic literature review: planning the review, conducting the review and reporting the review. They provide a relatively high level description. They do not consider the impact of the research questions on the review procedures, nor do they specify in detail the mechanisms needed to perform meta-analysis.}
+      \field{number}{EBSE-2007-01}
+      \field{title}{Guidelines for Performing Systematic Literature Reviews in Software Engineering}
+      \field{year}{2007}
+      \field{dateera}{ce}
+    \endentry
     \entry{lavaur_Federatedlearningenabler_2022}{inproceedings}{}
       \name{author}{5}{}{%
         {{hash=4d7c1c3a5d559d8ea6b63f23c41e534c}{%
@@ -54,13 +704,16 @@
       \strng{authornamehash}{aed36fdd1b9c3e9501e55288bfee6c6e}
       \strng{authorfullhash}{d3328de42107df96899b1b92ce4fb895}
       \field{extraname}{1}
-      \field{labelalpha}{Lav+}
+      \field{labelalpha}{Lav+22}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extraalpha}{1}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 29th Computer \& Electronics Security Application Rendezvous ({{C}}\&{{ESAR}}): {{Ensuring}} Trust in a Decentralized World}
       \field{title}{Federated Learning as Enabler for Collaborative Security between Not Fully-Trusting Distributed Parties}
+      \field{year}{2022}
+      \field{dateera}{ce}
       \field{pages}{65\bibrangedash 80}
       \range{pages}{16}
       \verb{urlraw}
@@ -104,6 +757,7 @@
       \field{labelalpha}{Lav+22}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extraalpha}{2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{In 2016, Google introduced the concept of Federated Learning (FL), enabling collaborative Machine Learning (ML). FL does not share local data but ML models, offering applications in diverse domains. This paper focuses on the application of FL to Intrusion Detection Systems (IDSs). There, common criteria to compare existing solutions are missing. In particular, this survey shows: (i) how FL-based IDSs are used in different domains; (ii) what differences exist between architectures; (iii) the state of the art of FL-based IDS. With a structured literature survey, this work identifies the relevant state of the art in FL--based intrusion detection from its creation in 2016 until 2021. It provides a reference architecture and a taxonomy to serve as guidelines to compare and design FL- based IDSs. Both are validated with the existing works. Finally, it identifies research directions for the application of FL to intrusion detection systems.}
@@ -116,7 +770,711 @@
       \field{dateera}{ce}
       \keyw{+survey}
     \endentry
+    \entry{lo_SystematicLiteratureReview_2021}{article}{}
+      \name{author}{5}{}{%
+        {{hash=a48383e4cb8d26564438c1ce8df73c9c}{%
+           family={Lo},
+           familyi={L\bibinitperiod},
+           given={Sin\bibnamedelima Kit},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=1d1fb06f744e43890d04aa354a1016ed}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Qinghua},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=147b8560865739e558b0631402b38ee6}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Chen},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3860caa35e41f2298e205fce79437f5a}{%
+           family={Paik},
+           familyi={P\bibinitperiod},
+           given={Hye-Young},
+           giveni={H\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=c10b260d67a13ae922e9d8c5819ce74d}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Liming},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{8ef82adf2796e69f181b03b9da3d33b5}
+      \strng{fullhash}{608c883203e31e59aab99017b10a2760}
+      \strng{bibnamehash}{8ef82adf2796e69f181b03b9da3d33b5}
+      \strng{authorbibnamehash}{8ef82adf2796e69f181b03b9da3d33b5}
+      \strng{authornamehash}{8ef82adf2796e69f181b03b9da3d33b5}
+      \strng{authorfullhash}{608c883203e31e59aab99017b10a2760}
+      \field{labelalpha}{Lo+21}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Federated learning is an emerging machine learning paradigm where clients train models locally and formulate a global model based on the local model updates. To identify the state-of-the-art in federated learning and explore how to develop federated learning systems, we perform a systematic literature review from a software engineering perspective, based on 231 primary studies. Our data synthesis covers the lifecycle of federated learning system development that includes background understanding, requirement analysis, architecture design, implementation, and evaluation. We highlight and summarise the findings from the results, and identify future trends to encourage researchers to advance their current work.}
+      \field{eprinttype}{arxiv}
+      \field{issn}{0360-0300, 1557-7341}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{number}{5}
+      \field{shortjournal}{ACM Comput. Surv.}
+      \field{shorttitle}{A {{Systematic Literature Review}} on {{Federated Machine Learning}}}
+      \field{title}{A {{Systematic Literature Review}} on {{Federated Machine Learning}}: {{From A Software Engineering Perspective}}}
+      \field{urlday}{4}
+      \field{urlmonth}{10}
+      \field{urlyear}{2021}
+      \field{volume}{54}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 39}
+      \range{pages}{39}
+      \verb{doi}
+      \verb 10.1145/3450288
+      \endverb
+      \verb{eprint}
+      \verb 2007.11354
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2007.11354
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2007.11354
+      \endverb
+      \keyw{{Computer Science - Distributed,Parallel,and Cluster Computing},\_read,+survey,Computer Science - Machine Learning,Computer Science - Software Engineering}
+    \endentry
+    \entry{lyu_ThreatsFederatedLearning_2020}{article}{}
+      \name{author}{3}{}{%
+        {{hash=7e1d31c5353122e341c7f68ce1668d99}{%
+           family={Lyu},
+           familyi={L\bibinitperiod},
+           given={Lingjuan},
+           giveni={L\bibinitperiod}}}%
+        {{hash=3bc00eaaae64ce0f841d2e4a139c4ee9}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Han},
+           giveni={H\bibinitperiod}}}%
+        {{hash=55242d2a60270145342841e4d4238da0}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Qiang},
+           giveni={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{99848b3cd9a335bd3ac10b13a861ee66}
+      \strng{fullhash}{99848b3cd9a335bd3ac10b13a861ee66}
+      \strng{bibnamehash}{99848b3cd9a335bd3ac10b13a861ee66}
+      \strng{authorbibnamehash}{99848b3cd9a335bd3ac10b13a861ee66}
+      \strng{authornamehash}{99848b3cd9a335bd3ac10b13a861ee66}
+      \strng{authorfullhash}{99848b3cd9a335bd3ac10b13a861ee66}
+      \field{labelalpha}{LYY20}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With the emergence of data silos and popular privacy awareness, the traditional centralized approach of training artificial intelligence (AI) models is facing strong challenges. Federated learning (FL) has recently emerged as a promising solution under this new reality. Existing FL protocol design has been shown to exhibit vulnerabilities which can be exploited by adversaries both within and without the system to compromise data privacy. It is thus of paramount importance to make FL system designers to be aware of the implications of future FL algorithm design on privacy-preservation. Currently, there is no survey on this topic. In this paper, we bridge this important gap in FL literature. By providing a concise introduction to the concept of FL, and a unique taxonomy covering threat models and two major attacks on FL: 1) poisoning attacks and 2) inference attacks, this paper provides an accessible review of this important topic. We highlight the intuitions, key techniques as well as fundamental assumptions adopted by various attacks, and discuss promising future research directions towards more robust privacy preservation in FL.}
+      \field{day}{4}
+      \field{journaltitle}{arXiv}
+      \field{month}{3}
+      \field{title}{Threats to {{Federated Learning}}: {{A Survey}}}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2003.02133
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2003.02133
+      \endverb
+      \keyw{⛔ No DOI found}
+    \endentry
+    \entry{meng_WhenIntrusionDetection_2018}{article}{}
+      \name{author}{5}{}{%
+        {{hash=447d0faa9b0633e00ba97021b6ef4af6}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Weizhi},
+           giveni={W\bibinitperiod}}}%
+        {{hash=b86b337feec6617830a04261e2885c7d}{%
+           family={Tischhauser},
+           familyi={T\bibinitperiod},
+           given={Elmar\bibnamedelima Wolfgang},
+           giveni={E\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=db214d8bc42dfacfb0b3ed42cbb5d03b}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Qingju},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=b2eccb185095fccfeb40fdffd8b2105f}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=58ef801cccd181562fe1611441ddb29e}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Jinguang},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{60c6aead81dc8613721b1d5c61d93578}
+      \strng{fullhash}{022a34e59f63d30cf85048bc576f84e6}
+      \strng{bibnamehash}{60c6aead81dc8613721b1d5c61d93578}
+      \strng{authorbibnamehash}{60c6aead81dc8613721b1d5c61d93578}
+      \strng{authornamehash}{60c6aead81dc8613721b1d5c61d93578}
+      \strng{authorfullhash}{022a34e59f63d30cf85048bc576f84e6}
+      \field{labelalpha}{Men+18}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With the purpose of identifying cyber threats and possible incidents, intrusion detection systems (IDSs) are widely deployed in various computer networks. In order to enhance the detection capability of a single IDS, collaborative intrusion detection networks (or collaborative IDSs) have been developed, which allow IDS nodes to exchange data with each other. However, data and trust management still remain two challenges for current detection architectures, which may degrade the effectiveness of such detection systems. In recent years, blockchain technology has shown its adaptability in many fields, such as supply chain management, international payment, interbanking, and so on. As blockchain can protect the integrity of data storage and ensure process transparency, it has a potential to be applied to intrusion detection domain. Motivated by this, this paper provides a review regarding the intersection of IDSs and blockchains. In particular, we introduce the background of intrusion detection and blockchain, discuss the applicability of blockchain to intrusion detection, and identify open challenges in this direction.}
+      \field{issn}{2169-3536}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{When {{Intrusion Detection Meets Blockchain Technology}}: {{A Review}}}
+      \field{volume}{6}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{pages}{10179\bibrangedash 10188}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2018.2799854
+      \endverb
+      \verb{urlraw}
+      \verb http://ieeexplore.ieee.org/document/8274922/
+      \endverb
+      \verb{url}
+      \verb http://ieeexplore.ieee.org/document/8274922/
+      \endverb
+    \endentry
+    \entry{mothukuri_surveysecurityprivacy_2021}{article}{}
+      \name{author}{6}{}{%
+        {{hash=dbd80ca28bb1107e885cfccd5e56fc76}{%
+           family={Mothukuri},
+           familyi={M\bibinitperiod},
+           given={Viraaji},
+           giveni={V\bibinitperiod}}}%
+        {{hash=8ee13bda3a9aa624880f1ab33f75c60a}{%
+           family={Parizi},
+           familyi={P\bibinitperiod},
+           given={Reza\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=1e9e32d03b237b8928965f0d445b6c4f}{%
+           family={Pouriyeh},
+           familyi={P\bibinitperiod},
+           given={Seyedamin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c85126decc8fb002d0c215d2a31a306d}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=013202c34f21e205bb277e697e5ffd5b}{%
+           family={Dehghantanha},
+           familyi={D\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=940fa42d495ac87907ebc0a4bf68f580}{%
+           family={Srivastava},
+           familyi={S\bibinitperiod},
+           given={Gautam},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier B.V.}%
+      }
+      \strng{namehash}{6753fba7b215165ee108890603ef74d7}
+      \strng{fullhash}{e3b6fc121fa170bec90a12dfd6ef26e9}
+      \strng{bibnamehash}{6753fba7b215165ee108890603ef74d7}
+      \strng{authorbibnamehash}{6753fba7b215165ee108890603ef74d7}
+      \strng{authornamehash}{6753fba7b215165ee108890603ef74d7}
+      \strng{authorfullhash}{e3b6fc121fa170bec90a12dfd6ef26e9}
+      \field{extraname}{1}
+      \field{labelalpha}{Mot+21}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Federated learning (FL) is a new breed of Artificial Intelligence (AI) that builds upon decentralized data and training that brings learning to the edge or directly on-device. FL is a new research area often referred to as a new dawn in AI, is in its infancy, and has not yet gained much trust in the community, mainly because of its (unknown) security and privacy implications. To advance the state of the research in this area and to realize extensive utilization of the FL approach and its mass adoption, its security and privacy concerns must be first identified, evaluated, and documented. FL is preferred in use-cases where security and privacy are the key concerns and having a clear view and understanding of risk factors enable an implementer/adopter of FL to successfully build a secure environment and gives researchers a clear vision on possible research areas. This paper aims to provide a comprehensive study concerning FL's security and privacy aspects that can help bridge the gap between the current state of federated AI and a future in which mass adoption is possible. We present an illustrative description of approaches and various implementation styles with an examination of the current challenges in FL and establish a detailed review of security and privacy concerns that need to be considered in a thorough and clear context. Findings from our study suggest that overall there are fewer privacy-specific threats associated with FL compared to security threats. The most specific security threats currently are communication bottlenecks, poisoning, and backdoor attacks while inference-based attacks are the most critical to the privacy of FL. We conclude the paper with much needed future research directions to make FL adaptable in realistic scenarios.}
+      \field{issn}{0167739X}
+      \field{journaltitle}{Future Generation Computer Systems}
+      \field{month}{2}
+      \field{title}{A Survey on Security and Privacy of Federated Learning}
+      \field{volume}{115}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{pages}{619\bibrangedash 640}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1016/j.future.2020.10.007
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.future.2020.10.007
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.future.2020.10.007
+      \endverb
+    \endentry
+    \entry{mothukuri_FederatedLearningbasedAnomaly_2021}{article}{}
+      \name{author}{6}{}{%
+        {{hash=dbd80ca28bb1107e885cfccd5e56fc76}{%
+           family={Mothukuri},
+           familyi={M\bibinitperiod},
+           given={Viraaji},
+           giveni={V\bibinitperiod}}}%
+        {{hash=4462e041ca468808efbc7262d97f5e9b}{%
+           family={Khare},
+           familyi={K\bibinitperiod},
+           given={Prachi},
+           giveni={P\bibinitperiod}}}%
+        {{hash=8ee13bda3a9aa624880f1ab33f75c60a}{%
+           family={Parizi},
+           familyi={P\bibinitperiod},
+           given={Reza\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=1e9e32d03b237b8928965f0d445b6c4f}{%
+           family={Pouriyeh},
+           familyi={P\bibinitperiod},
+           given={Seyedamin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=013202c34f21e205bb277e697e5ffd5b}{%
+           family={Dehghantanha},
+           familyi={D\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=940fa42d495ac87907ebc0a4bf68f580}{%
+           family={Srivastava},
+           familyi={S\bibinitperiod},
+           given={Gautam},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{6753fba7b215165ee108890603ef74d7}
+      \strng{fullhash}{37b3c2e808860b10e117daa482aca18d}
+      \strng{bibnamehash}{6753fba7b215165ee108890603ef74d7}
+      \strng{authorbibnamehash}{6753fba7b215165ee108890603ef74d7}
+      \strng{authornamehash}{6753fba7b215165ee108890603ef74d7}
+      \strng{authorfullhash}{37b3c2e808860b10e117daa482aca18d}
+      \field{extraname}{2}
+      \field{labelalpha}{Mot+21}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Internet of Things (IoT) is made up of billions of physical devices connected to the Internet via networks that perform tasks independently with less human intervention. Such brilliant automation of mundane tasks requires a considerable amount of user data in digital format, which in turn makes IoT networks an open-source of Personally Identifiable Information data for malicious attackers to steal, manipulate and perform nefarious activities. Huge interest has developed over the past years in applying machine learning (ML)-assisted approaches in the IoT security space. However, the assumption in many current works is that big training data is widely available and transferable to the main server because data is born at the edge and is generated continuously by IoT devices. This is to say that classic ML works on the legacy set of entire data located on a central server, which makes it the least preferred option for domains with privacy concerns on user data. To address this issue, we propose federated learning (FL)-based anomaly detection approach to proactively recognize intrusion in IoT networks using decentralized on-device data. Our approach uses federated training rounds on Gated Recurrent Units (GRUs) models and keeps the data intact on local IoT devices by sharing only the learned weights with the central server of the FL. Also, the approach's ensembler part aggregates the updates from multiple sources to optimize the global ML model's accuracy. Our experimental results demonstrate that our approach outperforms the classic/centralized machine learning (non-FL) versions in securing the privacy of user data and provides an optimal accuracy rate in attack detection.}
+      \field{eventtitle}{{{IEEE Internet}} of {{Things Journal}}}
+      \field{issn}{2327-4662}
+      \field{journaltitle}{IEEE Internet of Things Journal}
+      \field{title}{Federated {{Learning-based Anomaly Detection}} for {{IoT Security Attacks}}}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{pages}{1\bibrangedash 1}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10/gmhhmw
+      \endverb
+      \keyw{\_read,Anomaly detection,Computer architecture,Data models,Federated Learning,Gated Recurrent Units.,Internet of Things,Logic gates,Recurrent neural networks,Security,Servers,Training}
+    \endentry
+    \entry{pala_InformationSharingCybersecurity_2019}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6ca31939e3a29d843fb0378f26505870}{%
+           family={Pala},
+           familyi={P\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=feecf7d9a563f29edc9c534b6e595ec9}{%
+           family={Zhuang},
+           familyi={Z\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{804490bd32c8f9d7ead17fdd0294d434}
+      \strng{fullhash}{804490bd32c8f9d7ead17fdd0294d434}
+      \strng{bibnamehash}{804490bd32c8f9d7ead17fdd0294d434}
+      \strng{authorbibnamehash}{804490bd32c8f9d7ead17fdd0294d434}
+      \strng{authornamehash}{804490bd32c8f9d7ead17fdd0294d434}
+      \strng{authorfullhash}{804490bd32c8f9d7ead17fdd0294d434}
+      \field{labelalpha}{PZ19}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this survey, we review the cybersecurity information-sharing literature, categorizing the identified papers based on their main focus and methodological approaches implemented to the cybersecurity information-sharing problem. We constitute our research framework on the major considerations of firms, governments, citizens, and adversaries. This includes actors involved, types of information to be shared, current legal baseline, information-sharing organizations/policies/architectures, benefits of sharing, and concerns/costs/barriers of sharing. We observe that both qualitative and quantitative approaches are implemented in the literature. In general, quantitative approaches have been dedicated to discuss the challenges and barriers of public/private collaboration in information sharing, such as privacy and liability, and to propose secure and effective sharing mechanisms. On the other hand, quantitative approaches have been more interested in developing models that balance cybersecurity investment and information sharing as well as provide effective incentive mechanisms. This review summarizes the academic efforts in cybersecurity information sharing by analyzing 82 identified papers with their methodological approaches. The papers using game-theoretical models are dominant in the literature as we spend more time summarizing those efforts. We conclude the review by providing potential research gaps and future research directions.}
+      \field{issn}{1545-8490}
+      \field{journaltitle}{Decision Analysis}
+      \field{month}{9}
+      \field{number}{3}
+      \field{title}{Information {{Sharing}} in {{Cybersecurity}}: {{A Review}}}
+      \field{volume}{16}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{pages}{172\bibrangedash 196}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1287/deca.2018.0387
+      \endverb
+      \verb{urlraw}
+      \verb http://pubsonline.informs.org/doi/10.1287/deca.2018.0387
+      \endverb
+      \verb{url}
+      \verb http://pubsonline.informs.org/doi/10.1287/deca.2018.0387
+      \endverb
+    \endentry
+    \entry{shen_DistributedMachineLearning_2020}{article}{}
+      \name{author}{5}{}{%
+        {{hash=0e8faef8660b332360bc58caaa793303}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Sheng},
+           giveni={S\bibinitperiod}}}%
+        {{hash=38825be0aab94d6bf45e462f9e6033e1}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Tianqing},
+           giveni={T\bibinitperiod}}}%
+        {{hash=65027af5f4f54f2e6c7bb140253872e2}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Di},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f27ec46ccd272a021fd78bdac92dd490}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=326fe33c559d548361e164113f494b80}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Wanlei},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{5b55c0d3a605dc8a5606c88e9b86feed}
+      \strng{fullhash}{59961c1efd7115a304303c6f8d34e92b}
+      \strng{bibnamehash}{5b55c0d3a605dc8a5606c88e9b86feed}
+      \strng{authorbibnamehash}{5b55c0d3a605dc8a5606c88e9b86feed}
+      \strng{authornamehash}{5b55c0d3a605dc8a5606c88e9b86feed}
+      \strng{authorfullhash}{59961c1efd7115a304303c6f8d34e92b}
+      \field{labelalpha}{She+20}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Federated learning is an improved version of distributed machine learning that further offloads operations which would usually be performed by a central server. The server becomes more like an assistant coordinating clients to work together rather than micro-managing the workforce as in traditional DML. One of the greatest advantages of federated learning is the additional privacy and security guarantees it affords. Federated learning architecture relies on smart devices, such as smartphones and IoT sensors, that collect and process their own data, so sensitive information never has to leave the client device. Rather, clients train a sub-model locally and send an encrypted update to the central server for aggregation into the global model. These strong privacy guarantees make federated learning an attractive choice in a world where data breaches and information theft are common and serious threats. This survey outlines the landscape and latest developments in data privacy and security for federated learning. We identify the different mechanisms used to provide privacy and security, such as differential privacy, secure multi-party computation and secure aggregation. We also survey the current attack models, identifying the areas of vulnerability and the strategies adversaries use to penetrate federated systems. The survey concludes with a discussion on the open challenges and potential directions of future work in this increasingly popular learning paradigm.}
+      \field{day}{23}
+      \field{eprinttype}{arxiv}
+      \field{issn}{1532-0626, 1532-0634}
+      \field{journaltitle}{Concurrency and Computation: Practice and Experience}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{shortjournal}{Concurrency Computat Pract Exper}
+      \field{shorttitle}{From {{Distributed Machine Learning To Federated Learning}}}
+      \field{title}{From {{Distributed Machine Learning To Federated Learning}}: {{In The View Of Data Privacy And Security}}}
+      \field{urlday}{4}
+      \field{urlmonth}{10}
+      \field{urlyear}{2021}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{cpe.6002}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1002/cpe.6002
+      \endverb
+      \verb{eprint}
+      \verb 2010.09258
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2010.09258
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2010.09258
+      \endverb
+      \keyw{{Computer Science - Distributed,Parallel,and Cluster Computing},\_read}
+    \endentry
+    \entry{skopik_problemsharedproblem_2016}{article}{}
+      \name{author}{3}{}{%
+        {{hash=c29cdd77c994d74c6bdaf638e9a9d0f8}{%
+           family={Skopik},
+           familyi={S\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=b826fd5657a49c675d5139c79fc59a8f}{%
+           family={Settanni},
+           familyi={S\bibinitperiod},
+           given={Giuseppe},
+           giveni={G\bibinitperiod}}}%
+        {{hash=37bbaa3f755ba03f4773bd9c547fc579}{%
+           family={Fiedler},
+           familyi={F\bibinitperiod},
+           given={Roman},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Ltd}%
+      }
+      \strng{namehash}{0825dd9b095e9fbba80b44d91b955b32}
+      \strng{fullhash}{0825dd9b095e9fbba80b44d91b955b32}
+      \strng{bibnamehash}{0825dd9b095e9fbba80b44d91b955b32}
+      \strng{authorbibnamehash}{0825dd9b095e9fbba80b44d91b955b32}
+      \strng{authornamehash}{0825dd9b095e9fbba80b44d91b955b32}
+      \strng{authorfullhash}{0825dd9b095e9fbba80b44d91b955b32}
+      \field{labelalpha}{SSF16}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The Internet threat landscape is fundamentally changing. A major shift away from hobby hacking toward well-organized cyber crime can be observed. These attacks are typically carried out for commercial reasons in a sophisticated and targeted manner, and specifically in a way to circumvent common security measures. Additionally, networks have grown to a scale and complexity, and have reached a degree of interconnectedness, that their protection can often only be guaranteed and financed as shared efforts. Consequently, new paradigms are required for detecting contemporary attacks and mitigating their effects. Today, many attack detection tasks are performed within individual organizations, and there is little cross-organizational information sharing. However, information sharing is a crucial step to acquiring a thorough understanding of large-scale cyber-attack situations, and is therefore seen as one of the key concepts to protect future networks. Discovering covert cyber attacks and new malware, issuing early warnings, advice about how to secure networks, and selectively distribute threat intelligence data are just some of the many use cases. In this survey article we provide a structured overview about the dimensions of cyber security information sharing. First, we motivate the need in more detail and work out the requirements for an information sharing system. Second, we highlight legal aspects and efforts from standardization bodies such as ISO and the National Institute of Standards and Technology (NIST). Third, we survey implementations in terms of both organizational and technological matters. In this regard, we study the structures of Computer Emergency Response Teams (CERTs) and Computer Security Incident Response Teams (CSIRTs), and evaluate what we could learn from them in terms of applied processes, available protocols and implemented tools. We conclude with a critical review of the state of the art and highlight important considerations when building effective security information sharing platforms for the future.}
+      \field{issn}{01674048}
+      \field{journaltitle}{Computers \& Security}
+      \field{title}{A Problem Shared Is a Problem Halved: {{A}} Survey on the Dimensions of Collective Cyber Defense through Security Information Sharing}
+      \field{volume}{60}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{pages}{154\bibrangedash 176}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1016/j.cose.2016.04.003
+      \endverb
+    \endentry
+    \entry{tounsi_surveytechnicalthreat_2018}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7f0dcbb474774d4de254c5ed6f0ff7d3}{%
+           family={Tounsi},
+           familyi={T\bibinitperiod},
+           given={Wiem},
+           giveni={W\bibinitperiod}}}%
+        {{hash=e556250df0a1be7975daa25d37231d2a}{%
+           family={Rais},
+           familyi={R\bibinitperiod},
+           given={Helmi},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier Ltd}%
+      }
+      \strng{namehash}{bc0d4b1ad039073ad2fcadefc534de05}
+      \strng{fullhash}{bc0d4b1ad039073ad2fcadefc534de05}
+      \strng{bibnamehash}{bc0d4b1ad039073ad2fcadefc534de05}
+      \strng{authorbibnamehash}{bc0d4b1ad039073ad2fcadefc534de05}
+      \strng{authornamehash}{bc0d4b1ad039073ad2fcadefc534de05}
+      \strng{authorfullhash}{bc0d4b1ad039073ad2fcadefc534de05}
+      \field{labelalpha}{TR18}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Today's cyber attacks require a new line of security defenses. The static approach of traditional security based on heuristic and signature does not match the dynamic nature of new generation of threats that are known to be evasive, resilient and complex. Organizations need to gather and share real-time cyber threat information and to transform it to threat intelligence in order to prevent attacks or at least execute timely disaster recovery. Threat Intelligence (TI) means evidence-based knowledge representing threats that can inform decisions. There is a general awareness for the need of threat intelligence while vendors today are rushing to provide a diverse array of threat intelligence products, specifically focusing on Technical Threat Intelligence (TTI). Although threat intelligence is being increasingly adopted, there is little consensus on what it actually is, or how to use it. Without any real understanding of this need, organizations risk investing large amounts of time and money without solving existing security problems. Our paper aims to classify and make distinction among existing threat intelligence types. We focus particularly on the TTI issues, emerging researches, trends and standards. Our paper also explains why there is a reluctance among organizations to share threat intelligence. We provide sharing strategies based on trust and anonymity, so participating organizations can do away with the risks of business leak. We also show in this paper why having a standardized representation of threat information can improve the quality of TTI, thus providing better automated analytics solutions on large volumes of TTI which are often non-uniform and redundant. Finally, we evaluate most popular open source/free threat intelligence tools, and compare their features with those of a new AlliaCERT TI tool.}
+      \field{issn}{01674048}
+      \field{journaltitle}{Computers \& Security}
+      \field{month}{1}
+      \field{title}{A Survey on Technical Threat Intelligence in the Age of Sophisticated Cyber Attacks}
+      \field{volume}{72}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{pages}{212\bibrangedash 233}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1016/j.cose.2017.09.001
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.cose.2017.09.001
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.cose.2017.09.001
+      \endverb
+    \endentry
+    \entry{vasilomanolakis_TaxonomySurveyCollaborative_2015}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8d904ede5534b164d0ee671142b17a65}{%
+           family={Vasilomanolakis},
+           familyi={V\bibinitperiod},
+           given={Emmanouil},
+           giveni={E\bibinitperiod}}}%
+        {{hash=def2da19ac072f629f49607a2eb0a8d7}{%
+           family={Karuppayah},
+           familyi={K\bibinitperiod},
+           given={Shankar},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a91061db0efe4b25d6bacbc4f42f2b92}{%
+           family={Fischer},
+           familyi={F\bibinitperiod},
+           given={Mathias},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{c7afc484968945f24ccd7d014113437e}
+      \strng{fullhash}{c7afc484968945f24ccd7d014113437e}
+      \strng{bibnamehash}{c7afc484968945f24ccd7d014113437e}
+      \strng{authorbibnamehash}{c7afc484968945f24ccd7d014113437e}
+      \strng{authornamehash}{c7afc484968945f24ccd7d014113437e}
+      \strng{authorfullhash}{c7afc484968945f24ccd7d014113437e}
+      \field{labelalpha}{VKF15}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{number}{4}
+      \field{title}{Taxonomy and {{Survey}} of {{Collaborative Intrusion Detection}}}
+      \field{volume}{47}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{pages}{33}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1145/2716260
+      \endverb
+      \keyw{\_processed,+survey}
+    \endentry
+    \entry{wagner_Cyberthreatintelligence_2019a}{article}{}
+      \name{author}{4}{}{%
+        {{hash=3643cf3b86bff3066aa270ec40bb5746}{%
+           family={Wagner},
+           familyi={W\bibinitperiod},
+           given={Thomas\bibnamedelima D.},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=444ecd22f338c9d8cb1df9336c918ba5}{%
+           family={Mahbub},
+           familyi={M\bibinitperiod},
+           given={Khaled},
+           giveni={K\bibinitperiod}}}%
+        {{hash=ebec533dfb0a3fef04d254f82450dd2e}{%
+           family={Palomar},
+           familyi={P\bibinitperiod},
+           given={Esther},
+           giveni={E\bibinitperiod}}}%
+        {{hash=29508f3b59859d40188d1ccb0b43eed1}{%
+           family={Abdallah},
+           familyi={A\bibinitperiod},
+           given={Ali\bibnamedelima E.},
+           giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{fc6a7ab0645f709c51310b9133379e54}
+      \strng{fullhash}{c1db68dc46b15cbb51d29ffc717d6ace}
+      \strng{bibnamehash}{fc6a7ab0645f709c51310b9133379e54}
+      \strng{authorbibnamehash}{fc6a7ab0645f709c51310b9133379e54}
+      \strng{authornamehash}{fc6a7ab0645f709c51310b9133379e54}
+      \strng{authorfullhash}{c1db68dc46b15cbb51d29ffc717d6ace}
+      \field{labelalpha}{Wag+19}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Cyber Threat Intelligence (CTI) sharing has become a novel weapon in the arsenal of cyber defenders to proactively mitigate increasing cyber attacks. Automating the process of CTI sharing, and even the basic consumption, has raised new challenges for researchers and practitioners. This extensive literature survey explores the current state-of-the-art and approaches different problem areas of interest pertaining to the larger field of sharing cyber threat intelligence. The motivation for this research stems from the recent emergence of sharing cyber threat intelligence and the involved challenges of automating its processes. This work comprises a considerable amount of articles from academic and gray literature, and focuses on technical and non-technical challenges. Moreover, the findings reveal which topics were widely discussed, and hence considered relevant by the authors and cyber threat intelligence sharing communities.}
+      \field{issn}{01674048}
+      \field{journaltitle}{Computers \& Security}
+      \field{title}{Cyber Threat Intelligence Sharing: {{Survey}} and Research Directions}
+      \field{volume}{87}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{pages}{101589}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.cose.2019.101589
+      \endverb
+    \endentry
+    \entry{wagner_CyberThreatIntelligence_2019}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=3643cf3b86bff3066aa270ec40bb5746}{%
+           family={Wagner},
+           familyi={W\bibinitperiod},
+           given={Thomas\bibnamedelima D},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{3643cf3b86bff3066aa270ec40bb5746}
+      \strng{fullhash}{3643cf3b86bff3066aa270ec40bb5746}
+      \strng{bibnamehash}{3643cf3b86bff3066aa270ec40bb5746}
+      \strng{authorbibnamehash}{3643cf3b86bff3066aa270ec40bb5746}
+      \strng{authornamehash}{3643cf3b86bff3066aa270ec40bb5746}
+      \strng{authorfullhash}{3643cf3b86bff3066aa270ec40bb5746}
+      \field{labelalpha}{Wag19}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Cyber Threat Intelligence (CTI) programs have gained momentum across the cybersecurity community. Whether they are vendor based or open source solutions, practitioners should be able to find an appropriate solution to enhance security for their IT infrastructure. The tangible world, i.e. (Industrial) Internet of Things (I)IoT products and embedded components have not been considered yet in the CTI world with few exceptions from industry-specific vendors and Information Sharing Analysis Centres (ISACs). This extended abstract presents a work in progress to establish a CTI program for ``things'', especially the generation, consumption and distribution of product-specific CTI.}
+      \field{booktitle}{2019 {{International Conference}} on {{Cyber Situational Awareness}}, {{Data Analytics And Assessment}} ({{Cyber SA}})}
+      \field{isbn}{978-1-72810-232-0}
+      \field{month}{6}
+      \field{title}{Cyber {{Threat Intelligence}} for ``{{Things}}''}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{pages}{1\bibrangedash 2}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1109/CyberSA.2019.8899384
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/8899384/
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/8899384/
+      \endverb
+    \endentry
+    \entry{zhou_surveycoordinatedattacks_2010}{article}{}
+      \name{author}{3}{}{%
+        {{hash=f76f7f15e9790d5d861215b25b316cf8}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Chenfeng\bibnamedelima Vincent},
+           giveni={C\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=ca68b3ca9b0efe6a415326392e0e8920}{%
+           family={Leckie},
+           familyi={L\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=a2e9731f57f67457354b0bf748912612}{%
+           family={Karunasekera},
+           familyi={K\bibinitperiod},
+           given={Shanika},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{7c57b94d6dc631594d67aeb8f2839b15}
+      \strng{fullhash}{7c57b94d6dc631594d67aeb8f2839b15}
+      \strng{bibnamehash}{7c57b94d6dc631594d67aeb8f2839b15}
+      \strng{authorbibnamehash}{7c57b94d6dc631594d67aeb8f2839b15}
+      \strng{authornamehash}{7c57b94d6dc631594d67aeb8f2839b15}
+      \strng{authorfullhash}{7c57b94d6dc631594d67aeb8f2839b15}
+      \field{labelalpha}{ZLK10}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Coordinated attacks, such as large-scale stealthy scans, worm outbreaks and distributed denial-of-service (DDoS) attacks, occur in multiple networks simultaneously. Such attacks are extremely difficult to detect using isolated intrusion detection systems (IDSs) that monitor only a limited portion of the Internet. In this paper, we summarize the current research directions in detecting such attacks using collaborative intrusion detection systems (CIDSs). In particular, we highlight two main challenges in CIDS research: CIDS architectures and alert correlation algorithms. We review the current CIDS approaches in terms of these two challenges. We conclude by highlighting opportunities for an integrated solution to large-scale collaborative intrusion detection.}
+      \field{issn}{01674048}
+      \field{journaltitle}{Computers \& Security}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{number}{1}
+      \field{shortjournal}{Computers \& Security}
+      \field{title}{A Survey of Coordinated Attacks and Collaborative Intrusion Detection}
+      \field{urlday}{21}
+      \field{urlmonth}{7}
+      \field{urlyear}{2021}
+      \field{volume}{29}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{124\bibrangedash 140}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.cose.2009.06.008
+      \endverb
+      \verb{urlraw}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S016740480900073X
+      \endverb
+      \verb{url}
+      \verb https://linkinghub.elsevier.com/retrieve/pii/S016740480900073X
+      \endverb
+      \keyw{\_read,+survey}
+    \endentry
   \enddatalist
+  \missing{campos_EvaluatingFederatedLearning_2021}
 \endrefsection
 \endinput
 

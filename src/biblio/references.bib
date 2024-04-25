@@ -753,14 +753,19 @@
   keywords = {Auto-Encoder (AE),Collaborative work,Deep Learning (DL),Federated Learning (FL),Fluids,Intrusion detection,Intrusion Detection System (IDS),Machine Learning (ML),Privacy,Semi-Supervised Learning,Semisupervised learning,Supervised learning,Training}
 }
 
-@article{aouedi_IntrusiondetectionSoftwarized_2022,
+@inproceedings{aouedi_IntrusiondetectionSoftwarized_2022,
   title = {Intrusion Detection for {{Softwarized Networks}} with {{Semi-supervised Federated Learning}}},
+  booktitle = {{{ICC}} 2022 - {{IEEE International Conference}} on {{Communications}}},
   author = {Aouedi, Ons and Piamrat, Kandaraj and Muller, Guillaume and Singh, Kamal},
-  date = {2022},
-  pages = {7},
+  date = {2022-05},
+  pages = {5244--5249},
+  issn = {1938-1883},
+  doi = {10.1109/ICC45855.2022.9839042},
+  url = {https://ieeexplore.ieee.org/document/9839042},
+  urldate = {2024-04-25},
   abstract = {With the increasing development of 5G/Beyond 5G and network softwarization techniques, we have more flexibility and agility in the network. This can be exploited by Machine Learning (ML) to integrate intelligence in the network and improve network as well as service management in edge-cloud environment. Intrusion detection systems (IDS) is one of the challenging issues for managing network. However, traditional approaches in this domain require all data (and their associated labels) to be centralized at the same location. In this context, such approaches lead to: (i) a large bandwidth overhead, as raw data needs to be transmitted to the server, (ii) low incentives for devices to send their private data, and (iii) large computing and storage resources needed on the server side to label and treat all this data. In this paper, to cope with the above limitations, we propose a semi-supervised federated learning model for IDS. Moreover, we use network softwarisation for automation and deployment. Our model combines Federated Learning and Semi-Supervised Learning where the clients train unsupervised models (using unlabeled data) to learn the representative and low-dimensional features and the server conducts a supervised model (using labeled data). We evaluate this approach on the well-known UNSW-NB15 dataset and the experimental results demonstrate that our approach can achieve accuracy and detection rates up to 84.32\% and 83.10\%, respectively while keeping the data private with limited overhead.},
-  langid = {english},
-  keywords = {\_read,⛔ No DOI found}
+  eventtitle = {{{ICC}} 2022 - {{IEEE International Conference}} on {{Communications}}},
+  keywords = {\_read,⛔ No DOI found,Automation,Bandwidth,Computational modeling,Deep Learning,Federated Learning,Image edge detection,Internet of Things,Intrusion detection,Intrusion Detection,Machine learning,Machine Learning,Semi-supervised learning,Semisupervised learning}
 }
 
 @article{apruzzese_AppConMitigatingEvasion_2020,
@@ -1697,19 +1702,21 @@
   langid = {english}
 }
 
-@unpublished{campos_EvaluatingFederatedLearning_2021,
-  title = {Evaluating {{Federated Learning}} for {{Intrusion Detection}} in {{Internet}} of {{Things}}: {{Review}} and {{Challenges}}},
-  shorttitle = {Evaluating {{Federated Learning}} for {{Intrusion Detection}} in {{Internet}} of {{Things}}},
-  author = {Campos, Enrique M\'armol and Saura, Pablo Fern\'andez and Gonz\'alez-Vidal, Aurora and Hern\'andez-Ramos, Jos\'e L. and Bernabe, Jorge Bernal and Baldini, Gianmarco and Skarmeta, Antonio},
-  date = {2021-08-02},
-  eprint = {2108.00974},
-  eprinttype = {arxiv},
-  eprintclass = {cs},
-  url = {http://arxiv.org/abs/2108.00974},
-  urldate = {2021-12-02},
-  abstract = {The application of Machine Learning (ML) techniques to the well-known intrusion detection systems (IDS) is key to cope with increasingly sophisticated cybersecurity attacks through an effective and efficient detection process. In the context of the Internet of Things (IoT), most ML-enabled IDS approaches use centralized approaches where IoT devices share their data with data centers for further analysis. To mitigate privacy concerns associated with centralized approaches, in recent years the use of Federated Learning (FL) has attracted a significant interest in different sectors, including healthcare and transport systems. However, the development of FL-enabled IDS for IoT is in its infancy, and still requires research efforts from various areas, in order to identify the main challenges for the deployment in real-world scenarios. In this direction, our work evaluates a FL-enabled IDS approach based on a multiclass classifier considering different data distributions for the detection of different attacks in an IoT scenario. In particular, we use three different settings that are obtained by partitioning the recent ToN IoT dataset according to IoT devices' IP address and types of attack. Furthermore, we evaluate the impact of different aggregation functions according to such setting by using the recent IBMFL framework as FL implementation. Additionally, we identify a set of challenges and future directions based on the existing literature and the analysis of our evaluation results.},
-  langid = {english},
-  keywords = {\_processed,+survey,⛔ No DOI found,Computer Science - Cryptography and Security,Computer Science - Machine Learning,Computer Science - Networking and Internet Architecture}
+@article{campos_EvaluatingFederatedLearning_2022,
+  title = {Evaluating {{Federated Learning}} for Intrusion Detection in {{Internet}} of {{Things}}: {{Review}} and Challenges},
+  shorttitle = {Evaluating {{Federated Learning}} for Intrusion Detection in {{Internet}} of {{Things}}},
+  author = {Campos, Enrique M\'armol and Saura, Pablo Fern\'andez and Gonz\'alez-Vidal, Aurora and Hern\'andez-Ramos, Jos\'e L. and Bernab\'e, Jorge Bernal and Baldini, Gianmarco and Skarmeta, Antonio},
+  date = {2022-02-11},
+  journaltitle = {Computer Networks},
+  shortjournal = {Computer Networks},
+  volume = {203},
+  pages = {108661},
+  issn = {1389-1286},
+  doi = {10.1016/j.comnet.2021.108661},
+  url = {https://www.sciencedirect.com/science/article/pii/S1389128621005405},
+  urldate = {2024-04-25},
+  abstract = {The application of Machine Learning (ML) techniques to the well-known intrusion detection systems (IDS) is key to cope with increasingly sophisticated cybersecurity attacks through an effective and efficient detection process. In the context of the Internet of Things (IoT), most ML-enabled IDS approaches use centralized approaches where IoT devices share their data with data centers for further analysis. To mitigate privacy concerns associated with centralized approaches, in recent years the use of Federated Learning (FL) has attracted a significant interest in different sectors, including healthcare and transport systems. However, the development of FL-enabled IDS for IoT is in its infancy, and still requires research efforts from various areas, in order to identify the main challenges for the deployment in real-world scenarios. In this direction, our work evaluates a FL-enabled IDS approach based on a multiclass classifier considering different data distributions for the detection of different attacks in an IoT scenario. In particular, we use three different settings that are obtained by partitioning the recent ToN\_IoT dataset according to IoT devices' IP address and types of attack. Furthermore, we evaluate the impact of different aggregation functions according to such setting by using the recent IBMFL framework as FL implementation. Additionally, we identify a set of challenges and future directions based on the existing literature and the analysis of our evaluation results.},
+  keywords = {\_processed,+survey,⛔ No DOI found,Computer Science - Cryptography and Security,Computer Science - Machine Learning,Computer Science - Networking and Internet Architecture,Federated Learning,Internet of Things,Intrusion detection systems}
 }
 
 @unpublished{cao_CoFEDCrosssiloHeterogeneous_2022,
@@ -3411,37 +3418,20 @@
   title = {Comparative {{Review}} of the {{Intrusion Detection Systems Based}} on {{Federated Learning}}: {{Advantages}} and {{Open Challenges}}},
   shorttitle = {Comparative {{Review}} of the {{Intrusion Detection Systems Based}} on {{Federated Learning}}},
   author = {Fedorchenko, Elena and Novikova, Evgenia and Shulepov, Anton},
-  date = {2022-07-15},
+  date = {2022-07},
   journaltitle = {Algorithms},
-  shortjournal = {Algorithms},
   volume = {15},
   number = {7},
   pages = {247},
+  publisher = {Multidisciplinary Digital Publishing Institute},
   issn = {1999-4893},
   doi = {10.3390/a15070247},
   url = {https://www.mdpi.com/1999-4893/15/7/247},
-  urldate = {2022-08-11},
+  urldate = {2024-04-24},
   abstract = {In order to provide an accurate and timely response to different types of the attacks, intrusion and anomaly detection systems collect and analyze a lot of data that may include personal and other sensitive data. These systems could be considered a source of privacy-aware risks. Application of the federated learning paradigm for training attack and anomaly detection models may significantly decrease such risks as the data generated locally are not transferred to any party, and training is performed mainly locally on data sources. Another benefit of the usage of federated learning for intrusion detection is its ability to support collaboration between entities that could not share their dataset for confidential or other reasons. While this approach is able to overcome the aforementioned challenges it is rather new and not well-researched. The challenges and research questions appear while using it to implement analytical systems. In this paper, the authors review existing solutions for intrusion and anomaly detection based on the federated learning, and study their advantages as well as open challenges still facing them. The paper analyzes the architecture of the proposed intrusion detection systems and the approaches used to model data partition across the clients. The paper ends with discussion and formulation of the open challenges.},
+  issue = {7},
   langid = {english},
-  keywords = {+survey}
-}
-
-@article{fedorchenko_ComparativeReviewIntrusion_2022a,
-  title = {Comparative {{Review}} of the {{Intrusion Detection Systems Based}} on {{Federated Learning}}: {{Advantages}} and {{Open Challenges}}},
-  shorttitle = {Comparative {{Review}} of the {{Intrusion Detection Systems Based}} on {{Federated Learning}}},
-  author = {Fedorchenko, Elena and Novikova, Evgenia and Shulepov, Anton},
-  date = {2022-07-15},
-  journaltitle = {Algorithms},
-  shortjournal = {Algorithms},
-  volume = {15},
-  number = {7},
-  pages = {247},
-  issn = {1999-4893},
-  doi = {10.3390/a15070247},
-  url = {https://www.mdpi.com/1999-4893/15/7/247},
-  urldate = {2024-04-12},
-  abstract = {In order to provide an accurate and timely response to different types of the attacks, intrusion and anomaly detection systems collect and analyze a lot of data that may include personal and other sensitive data. These systems could be considered a source of privacy-aware risks. Application of the federated learning paradigm for training attack and anomaly detection models may significantly decrease such risks as the data generated locally are not transferred to any party, and training is performed mainly locally on data sources. Another benefit of the usage of federated learning for intrusion detection is its ability to support collaboration between entities that could not share their dataset for confidential or other reasons. While this approach is able to overcome the aforementioned challenges it is rather new and not well-researched. The challenges and research questions appear while using it to implement analytical systems. In this paper, the authors review existing solutions for intrusion and anomaly detection based on the federated learning, and study their advantages as well as open challenges still facing them. The paper analyzes the architecture of the proposed intrusion detection systems and the approaches used to model data partition across the clients. The paper ends with discussion and formulation of the open challenges.},
-  langid = {english}
+  keywords = {+survey,artificial intelligence,data partition,federated learning,Internet of Things,intrusion detection,machine learning,system architecture}
 }
 
 @article{feng_SemiSupervisedFederatedHeterogeneous_2022,
@@ -3973,6 +3963,23 @@
   author = {Gough, David and Oliver, Sandy and Thomas, James},
   date = {2017},
   publisher = {Sage}
+}
+
+@article{gu_BadNetsEvaluatingBackdooring_2019,
+  title = {{{BadNets}}: {{Evaluating Backdooring Attacks}} on {{Deep Neural Networks}}},
+  shorttitle = {{{BadNets}}},
+  author = {Gu, Tianyu and Liu, Kang and Dolan-Gavitt, Brendan and Garg, Siddharth},
+  date = {2019},
+  journaltitle = {IEEE Access},
+  volume = {7},
+  pages = {47230--47244},
+  issn = {2169-3536},
+  doi = {10.1109/ACCESS.2019.2909068},
+  url = {https://ieeexplore.ieee.org/document/8685687},
+  urldate = {2024-04-22},
+  abstract = {Deep learning-based techniques have achieved state-of-the-art performance on a wide variety of recognition and classification tasks. However, these networks are typically computationally expensive to train, requiring weeks of computation on many GPUs; as a result, many users outsource the training procedure to the cloud or rely on pre-trained models that are then fine-tuned for a specific task. In this paper, we show that the outsourced training introduces new security risks: an adversary can create a maliciously trained network (a backdoored neural network, or a BadNet) that has the state-of-the-art performance on the user's training and validation samples but behaves badly on specific attacker-chosen inputs. We first explore the properties of BadNets in a toy example, by creating a backdoored handwritten digit classifier. Next, we demonstrate backdoors in a more realistic scenario by creating a U.S. street sign classifier that identifies stop signs as speed limits when a special sticker is added to the stop sign; we then show in addition that the backdoor in our U.S. street sign detector can persist even if the network is later retrained for another task and cause a drop in an accuracy of 25\% on average when the backdoor trigger is present. These results demonstrate that backdoors in neural networks are both powerful and-because the behavior of neural networks is difficult to explicate-stealthy. This paper provides motivation for further research into techniques for verifying and inspecting neural networks, just as we have developed tools for verifying and debugging software.},
+  eventtitle = {{{IEEE Access}}},
+  keywords = {Biological neural networks,Computational modeling,Computer security,machine learning,Machine learning,neural networks,Perturbation methods,Security,Training}
 }
 
 @inproceedings{guembe_TrustworthyMachineLearning_2022,
@@ -4976,6 +4983,22 @@
   abstract = {Many variants of Federated Learning have been proposed to settle different challenges that come with numerous practical applications, one of which is dealing with non-IID data sources. As decentralized data sources in real life are bound to be non-IID, this is one of the hardest challenges, and yet the earliest federated algorithms struggle to resolve this issue, resulting in worse non-IID performance. Also, applications that require capturing really intricate insights from data while upholding the latest data privacy standards, such as Intrusion Detection Systems (IDS) have enabled the use of FL in those domains. In this article, we propose a novel Disparity-Aware federated learning approach that tackles non-IID and data imbalance from both global and local learning steps of FL. Our method capitalizes on state-of-the-art loss functions to tackle data imbalance at the client level and a class distribution-dependent clustering algorithm at the server to tackle class distribution skew. The nature of the process renders it applicable even in asynchronous federated learning schemes. Experiments with multiple benchmark intrusion detection datasets reveal improved performance over traditional deep learning approaches as well as earlier federated learning techniques.},
   isbn = {9798400708787},
   keywords = {Disparity-awareness,Federated Learning,Imbalanced Learning,Intrusion Detection,Non-IID,NSL-KDD,UNSW-NB15}
+}
+
+@article{ismaila_ReviewApproachesFederated_2024,
+  title = {Review on {{Approaches}} of {{Federated Modeling}} in {{Anomaly-Based Intrusion Detection}} for {{IoT Devices}}},
+  author = {Isma'ila, Umar Audi and Danyaro, Kamaluddeen Usman and Muazu, Aminu Aminu and Maiwada, Umar Danjuma},
+  date = {2024},
+  journaltitle = {IEEE Access},
+  volume = {12},
+  pages = {30941--30961},
+  issn = {2169-3536},
+  doi = {10.1109/ACCESS.2024.3369915},
+  url = {https://ieeexplore.ieee.org/document/10445150},
+  urldate = {2024-04-24},
+  abstract = {The novelty of Federated Learning (FL) has emerged as a promising alternative to centralized machine learning systems in the context of anomaly-based intrusion detection systems (AIDS) deployed on Internet of Things (IoT) devices. Unlike traditional centralized models, FL allows on-device model training and updates, reducing privacy concerns and issues such as single points of failure and high false alarm rates (FAR). This approach, termed `Fed-AIDS,' offers a more secure and efficient solution. However, the development of Fed-AIDS models faces challenges related to limited training data and the diverse nature of IoT datasets. Additionally, FL's decentralized nature introduces weight divergence issues arising from non-Independently and Identically Distributed (non-IID) clients. To address these challenges and optimize Fed-AIDS modeling, interdisciplinary research efforts are vital. The primary objective of this study is to conduct an up-to-date review by adopting a Systematic Literature Review (SLR) approach to analyze existing studies of Fed-AIDS modeling procedures for IoT devices. Data from the published studies were retrieved from Scopus database, which covered major publishers such as IEEE, Elsevier and others. Specifically, our review conducted from the following Fed-AIDS perspectives: workflow and tools, training dataset, complexities of non-IID data in Fed-AIDS models, classification tasks, aggregation tasks, and model validation metrics. Based on the research findings, the study highlights a series of challenges and proposes potential solutions to stand in future research in Fed-AIDS modeling, aiming to advance the field of IoT device security.},
+  eventtitle = {{{IEEE Access}}},
+  keywords = {aggregation function,Anomaly detection,anomaly-based intrusion detection,Data models,Federated learning,Federated learning modeling,Internet of Things,Intrusion detection,IoT devices,Machine learning,non-IDD data,Performance evaluation,Reviews,Security,Systematics,Training}
 }
 
 @online{jadidi_SecurityMachineLearningBased_2022,
@@ -6133,8 +6156,8 @@
   title = {Federated Learning as Enabler for Collaborative Security between Not Fully-Trusting Distributed Parties},
   booktitle = {Proceedings of the 29th Computer \& Electronics Security Application Rendezvous ({{C}}\&{{ESAR}}): {{Ensuring}} Trust in a Decentralized World},
   author = {Lavaur, Leo and Coste, Benjamin and Pahl, Marc-Oliver and Busnel, Yann and Autrel, Fabien},
+  date = {2022},
   pages = {65--80},
-  date = {2022-11},
   url = {http://ceur-ws.org/Vol-3329/paper-04.pdf},
   crossref = {CESAR2022},
   keywords = {⛔ No DOI found}
@@ -6566,22 +6589,6 @@
   abstract = {Software-defined industrial Internet of things (SD-IIoT) exploits federated learning to process the sensitive data at edges, while adaptive poisoning attacks threat the security of SD-IIoT. To address this problem, this paper proposes a multi-tentacle federated learning (MTFL) framework, which is essential to guarantee the trustness of training data in SD-IIoT. In MTFL, participants with similar learning tasks are assigned to the same tentacle group. To identify adaptive poisoning attacks, a tentacle distribution-based efficient poisoning attack detection (TD-EPAD) algorithm is presented. And also, to minimize the impact of adaptive poisoning data, a stochastic tentacle data exchanging (STDE) protocol is also proposed. Simultaneously, to protect the tentacle's privacy in STDE, all exchanged data will be processed by differential privacy technology. A MTFL prototype system is implemented, which provides extensive ablation experiments and comparison experiments, demonstrating that the accuracy of the global model under attack scenario can be improved with 40\%.},
   eventtitle = {{{IEEE Transactions}} on {{Industrial Informatics}}},
   keywords = {Adaptation models,Collaborative work,Data models,Differential Privacy,Industrial Internet of Things,Informatics,Multi-Tentacle Federated Learning,Poisoning Attacks,Protocols,Software-Defined Industrial Internet of Things (SD-IIoT),Training}
-}
-
-@article{li_Reviewsecurityfederated_2023,
-  title = {Review on Security of Federated Learning and Its Application in Healthcare},
-  author = {Li, Hao and Li, Chengcheng and Wang, Jian and Yang, Aimin and Ma, Zezhong and Zhang, Zunqian and Hua, Dianbo},
-  date = {2023-07-01},
-  journaltitle = {Future Generation Computer Systems},
-  shortjournal = {Future Generation Computer Systems},
-  volume = {144},
-  pages = {271--290},
-  issn = {0167-739X},
-  doi = {10.1016/j.future.2023.02.021},
-  url = {https://www.sciencedirect.com/science/article/pii/S0167739X23000626},
-  urldate = {2024-04-12},
-  abstract = {Artificial intelligence (AI) has led to a high rate of development in healthcare, and good progress has been made on many complex medical problems. However, there is a lack of patient electronic medical records standards and legal and ethical requirements for patient information privacy. The fragmentation of medical data has hindered the widespread use of AI in healthcare. Federated learning has emerged to address the problem of data fragmentation, and in combination with privacy-preserving algorithms can go a long way to address privacy concerns. Federated learning can also be combined with blockchain, edge computing, and other technologies to improve security and computational efficiency. The paper combs through recent papers on federated learning and medical industry applications, outline several architectures and classification models of federated learning, researches the application of federated learning in healthcare, and analyses the advantages of federated learning in medical applications. The paper also analyzes the security of federated learning and medical applications and analyses the various risks and attacks faced by the applications. Several standard privacy protection methods are introduced, and the current stage of the application of federated learning and healthcare is discussed. Finally, a summary and outlook on the application and security of federated learning in healthcare are presented.},
-  keywords = {Blockchain,Distributed,Federated learning,Healthcare,Privacy protection}
 }
 
 @inproceedings{li_SamplelevelDataSelection_2021,
@@ -9601,6 +9608,23 @@
   keywords = {6G,Autonomous aerial vehicles,Centralized Learning,Closed box,Data models,Decision making,Explainable AI,Federated learning,Federated Learning,Privacy,Security,Security management}
 }
 
+@article{ruzafa-alcazar_IntrusionDetectionBased_2023,
+  title = {Intrusion {{Detection Based}} on {{Privacy-Preserving Federated Learning}} for the {{Industrial IoT}}},
+  author = {Ruzafa-Alc\'azar, Pedro and Fern\'andez-Saura, Pablo and M\'armol-Campos, Enrique and Gonz\'alez-Vidal, Aurora and Hern\'andez-Ramos, Jos\'e L. and Bernal-Bernabe, Jorge and Skarmeta, Antonio F.},
+  date = {2023-02},
+  journaltitle = {IEEE Transactions on Industrial Informatics},
+  volume = {19},
+  number = {2},
+  pages = {1145--1154},
+  issn = {1941-0050},
+  doi = {10.1109/TII.2021.3126728},
+  url = {https://ieeexplore.ieee.org/document/9609643},
+  urldate = {2024-04-24},
+  abstract = {Federated learning (FL) has attracted significant interest given its prominent advantages and applicability in many scenarios. However, it has been demonstrated that sharing updated gradients/weights during the training process can lead to privacy concerns. In the context of the Internet of Things (IoT), this can be exacerbated due to intrusion detection systems (IDSs), which are intended to detect security attacks by analyzing the devices' network traffic. Our work provides a comprehensive evaluation of differential privacy techniques, which are applied during the training of an FL-enabled IDS for industrial IoT. Unlike previous approaches, we deal with nonindependent and identically distributed data over the recent ToN\_IoT dataset, and compare the accuracy obtained considering different privacy requirements and aggregation functions, namely FedAvg and the recently proposed Fed+. According to our evaluation, the use of Fed+ in our setting provides similar results even when noise is included in the federated training process.},
+  eventtitle = {{{IEEE Transactions}} on {{Industrial Informatics}}},
+  keywords = {Collaborative work,Data models,Differential privacy,Differential privacy (DP),federated learning (FL),Informatics,Internet of Things (IoT),Intrusion detection,intrusion detection systems (IDSs),machine learning,Privacy,Training}
+}
+
 @article{safaeipour_ComprehendingIoTcyber_2019,
   title = {Comprehending the {{IoT}} Cyber Threat Landscape: {{A}} Data Dimensionality Reduction Technique to Infer and Characterize {{Internet-scale IoT}} Probing Campaigns},
   author = {Safaei Pour, Morteza and Bou-Harb, Elias and Varma, Kavita and Neshenko, Nataliia and Pados, Dimitris A. and Choo, Kim-Kwang Raymond},
@@ -9701,6 +9725,24 @@
   langid = {english},
   pubstate = {preprint},
   keywords = {Computer Science - Networking and Internet Architecture}
+}
+
+@article{sarhan_StandardFeatureSet_2022,
+  title = {Towards a {{Standard Feature Set}} for {{Network Intrusion Detection System Datasets}}},
+  author = {Sarhan, Mohanad and Layeghy, Siamak and Portmann, Marius},
+  date = {2022-02-01},
+  journaltitle = {Mobile Networks and Applications},
+  shortjournal = {Mobile Netw Appl},
+  volume = {27},
+  number = {1},
+  pages = {357--370},
+  issn = {1572-8153},
+  doi = {10.1007/s11036-021-01843-0},
+  url = {https://doi.org/10.1007/s11036-021-01843-0},
+  urldate = {2024-04-23},
+  abstract = {Network Intrusion Detection Systems (NIDSs) are important tools for the protection of computer networks against increasingly frequent and sophisticated cyber attacks. Recently, a lot of research effort has been dedicated to the development of Machine Learning (ML) based NIDSs. As in any ML-based application, the availability of high-quality datasets is critical for the training and evaluation of ML-based NIDS. One of the key problems with the currently available NIDS datasets is the lack of a standard feature set. The use of a unique and proprietary set of features for each of the publicly available datasets makes it virtually impossible to compare the performance of ML-based traffic classifiers on different datasets, and hence to evaluate the ability of these systems to generalise across different network scenarios. To address that limitation, this paper proposes and evaluates standard NIDS feature sets based on the NetFlow network meta-data collection protocol and system. We evaluate and compare two NetFlow-based feature set variants, a version with 12 features, and another one with 43 features. For our evaluation, we converted four widely used NIDS datasets (UNSW-NB15, BoT-IoT, ToN-IoT, CSE-CIC-IDS2018) into new variants with our proposed NetFlow based feature sets. Based on an Extra Tree classifier, we compared the classification performance of the NetFlow-based feature sets with the proprietary feature sets provided with the original datasets. While the smaller feature set cannot match the classification performance of the proprietary feature sets, the larger set with 43 NetFlow features, surprisingly achieves a consistently higher classification performance compared to the original feature set, which was tailored to each of the considered NIDS datasets. The proposed NetFlow-based NIDS feature set, together with four benchmark datasets, made available to the research community, allow a fair comparison of ML-based network traffic classifiers across different NIDS datasets. We believe that having a standard feature set is critical for allowing a more rigorous and thorough evaluation of ML-based NIDSs and that it can help bridge the gap between academic research and the practical deployment of such systems.},
+  langid = {english},
+  keywords = {Machine learning,NetFlow,Network intrusion detection system}
 }
 
 @inproceedings{saurabh_NFDLMLightweightNetwork_2022,
@@ -11413,19 +11455,6 @@
   url = {https://ieeexplore.ieee.org/document/8899384/},
   abstract = {Cyber Threat Intelligence (CTI) programs have gained momentum across the cybersecurity community. Whether they are vendor based or open source solutions, practitioners should be able to find an appropriate solution to enhance security for their IT infrastructure. The tangible world, i.e. (Industrial) Internet of Things (I)IoT products and embedded components have not been considered yet in the CTI world with few exceptions from industry-specific vendors and Information Sharing Analysis Centres (ISACs). This extended abstract presents a work in progress to establish a CTI program for ``things'', especially the generation, consumption and distribution of product-specific CTI.},
   isbn = {978-1-72810-232-0}
-}
-
-@article{wagner_Cyberthreatintelligence_2019,
-  title = {Cyber Threat Intelligence Sharing: {{Survey}} and Research Directions},
-  author = {Wagner, Thomas D. and Mahbub, Khaled and Palomar, Esther and Abdallah, Ali E.},
-  date = {2019},
-  journaltitle = {Computers \& Security},
-  volume = {87},
-  pages = {101589},
-  publisher = {Elsevier Ltd},
-  issn = {01674048},
-  doi = {10.1016/j.cose.2019.101589},
-  abstract = {Cyber Threat Intelligence (CTI) sharing has become a novel weapon in the arsenal of cyber defenders to proactively mitigate increasing cyber attacks. Automating the process of CTI sharing, and even the basic consumption, has raised new challenges for researchers and practitioners. This extensive literature survey explores the current state-of-the-art and approaches different problem areas of interest pertaining to the larger field of sharing cyber threat intelligence. The motivation for this research stems from the recent emergence of sharing cyber threat intelligence and the involved challenges of automating its processes. This work comprises a considerable amount of articles from academic and gray literature, and focuses on technical and non-technical challenges. Moreover, the findings reveal which topics were widely discussed, and hence considered relevant by the authors and cyber threat intelligence sharing communities.}
 }
 
 @article{wagner_Cyberthreatintelligence_2019a,

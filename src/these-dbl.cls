@@ -55,7 +55,7 @@
 \RequirePackage{setspace} % permet d'utiliser les commandes \spacing, doublespace (double interligne), singlespace (simple interligne) et onehalfspace (un interligne et demi)
 
 \RequirePackage{hyperref} %Utiliser pour une bibliographie interactive + sommaire et TOC interactifs (pour une sortie PDF, par exemple).
-\hypersetup{colorlinks=true, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black}
+\hypersetup{colorlinks=true, citecolor=teal, filecolor=black, linkcolor=violet, urlcolor=violet}
 
 \RequirePackage{eso-pic} % For \AddToShipoutPicture used for cover backgrounds
 \RequirePackage{framed} % utilise pour coloriser les encarts
@@ -148,42 +148,42 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%% REGLAGE DE LA BIBLIOGRAPHIE %%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%% ATTENTION, on utilise Biblatex %%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%% REGLAGE DE LA BIBLIOGRAPHIE %%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%% ATTENTION, on utilise Biblatex %%%%%%%%%%%%%
 
-% Les dernieres versions de biblatex pr\'{e}conisent l'option backend=biber
-% pour profiter des derni\`{e}res nouveaut\'{e}s. Si vous choisissez cette
-% option, il vous faut simplement compiler avec $biber nomdufichier (sans le
-% .tex). Pour utiliser bibtex, remplacer par backend=bibtex.
-\RequirePackage[hyperref,backend=biber,
-  % Exemples de styles: alphabetic, ieee, nature, numeric, verbose-trad1 (en utilisant \footcite{}).
-  % https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles
-  style=alphabetic
-]{biblatex}
+% % Les dernieres versions de biblatex pr\'{e}conisent l'option backend=biber
+% % pour profiter des derni\`{e}res nouveaut\'{e}s. Si vous choisissez cette
+% % option, il vous faut simplement compiler avec $biber nomdufichier (sans le
+% % .tex). Pour utiliser bibtex, remplacer par backend=bibtex.
+% \RequirePackage[hyperref,backend=biber,
+%   % Exemples de styles: alphabetic, ieee, nature, numeric, verbose-trad1 (en utilisant \footcite{}).
+%   % https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles
+%   style=alphabetic
+% ]{biblatex}
 
-% Style biblatex avec gestion des mots cl\'{e}s des entr\'{e}es bibliographiques
-% + les abbr\'{e}viations idem, ibidem, op cit. Pr\'{e}voir un fichier bib
-% contenant ces mots-cl\'{e}s, ici primary et secondary.
-\defbibheading{primary}{\section*{Sources primaires}}
-\defbibheading{secondary}{\section*{Sources secondaires}}
+% % Style biblatex avec gestion des mots cl\'{e}s des entr\'{e}es bibliographiques
+% % + les abbr\'{e}viations idem, ibidem, op cit. Pr\'{e}voir un fichier bib
+% % contenant ces mots-cl\'{e}s, ici primary et secondary.
+% \defbibheading{primary}{\section*{Sources primaires}}
+% \defbibheading{secondary}{\section*{Sources secondaires}}
 
 
-%%%% Ajustements pour la bibliographie
+% %%%% Ajustements pour la bibliographie
 
-\renewcommand*{\newunitpunct}{\addcomma\space} % Virgule entre les parties d'une reference (merci a Josquin Debaz)
+% \renewcommand*{\newunitpunct}{\addcomma\space} % Virgule entre les parties d'une reference (merci a Josquin Debaz)
 
-%\DeclareFieldFormat[article]{volume}{\textbf{#1}}  %Le numero de volume en gras
-\DeclareFieldFormat[article]{number}{\textit{#1}} %Le numero dans le volume en italique
-%\DeclareFieldFormat{pages}{page(s): #1} % page(s) en toutes lettres, si on veut...
+% %\DeclareFieldFormat[article]{volume}{\textbf{#1}}  %Le numero de volume en gras
+% \DeclareFieldFormat[article]{number}{\textit{#1}} %Le numero dans le volume en italique
+% %\DeclareFieldFormat{pages}{page(s): #1} % page(s) en toutes lettres, si on veut...
 
-% Locutions latines en italique (comme ibid, loc.cit. , etc.) Merci \`{a} Josquin Debaz
-%\renewcommand{\mkibid}[1]{\emph{#1}}
+% % Locutions latines en italique (comme ibid, loc.cit. , etc.) Merci \`{a} Josquin Debaz
+% %\renewcommand{\mkibid}[1]{\emph{#1}}
 
-% Et pour mettre le in en italique dans la ref\'{e}rence biblio (merci encore \`{a} Josquin Debaz)
-\DefineBibliographyStrings{english}{%
-        in = {\emph{in}}%
-}
+% % Et pour mettre le in en italique dans la ref\'{e}rence biblio (merci encore \`{a} Josquin Debaz)
+% \DefineBibliographyStrings{english}{%
+%         in = {\emph{in}}%
+% }
 
 
 

@@ -1,0 +1,47 @@
+\usepackage{bookmark}  % allow chapters outside of parts the toc
+\usepackage{etoc}  % for local table of contents inside chapters
+\usepackage{import} % for importing chapters with subdirectories
+\usepackage[
+  acronyms,
+]{glossaries}
+\usepackage{enumerate}
+\usepackage[inline,shortlabels]{enumitem} % for custom enumeration labels
+\usepackage{lipsum} % for dummy text
+\usepackage{cleveref} % for clever references
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{wasysym}
+\usepackage[
+  labelfont=bf,
+  skip=0.7\baselineskip,
+]{caption}
+
+\glsdisablehyper
+
+\setlength{\headheight}{13.59999pt}
+
+%% BIBLIOGRAPHY
+
+\usepackage[
+  hyperref,
+  backend=biber,
+  maxcitenames=1,
+  uniquelist=true,
+  % https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles
+  style=alphabetic
+]{biblatex}
+
+\renewcommand*{\newunitpunct}{\addcomma\space} % Virgule entre les parties d'une reference (merci a Josquin Debaz)
+
+%\DeclareFieldFormat[article]{volume}{\textbf{#1}}  %Le numero de volume en gras
+\DeclareFieldFormat[article]{number}{\textit{#1}} %Le numero dans le volume en italique
+%\DeclareFieldFormat{pages}{page(s): #1} % page(s) en toutes lettres, si on veut...
+
+% Locutions latines en italique (comme ibid, loc.cit. , etc.) Merci \`{a} Josquin Debaz
+%\renewcommand{\mkibid}[1]{\emph{#1}}
+
+% Et pour mettre le in en italique dans la ref\'{e}rence biblio (merci encore \`{a} Josquin Debaz)
+\DefineBibliographyStrings{english}{%
+        in = {\emph{in}}%
+}
