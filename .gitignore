@@ -317,4 +317,5 @@ TSWLatexianTemp*
 
 # End of https://www.toptal.com/developers/gitignore/api/direnv,latex
 
-./build  # LaTeX-Workshop build directory.
+# LaTeX-Workshop build directory.
+./build

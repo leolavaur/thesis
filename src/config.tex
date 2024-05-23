@@ -45,3 +45,27 @@
 \DefineBibliographyStrings{english}{%
         in = {\emph{in}}%
 }
+
+
+%% RESEARCH QUESTIONS
+
+\usepackage{amsthm}
+
+%\theoremstyle{plain}
+\newtheorem{innerRQ}{RQ}
+\crefname{innerRQ}{RQ}{RQs}
+\Crefname{innerRQ}{RQ}{RQs}
+
+\newenvironment{RQ}[1]
+  {\renewcommand\theinnerRQ{#1}\innerRQ}
+  {\endinnerRQ}
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+%% RESEARCH QUERIES
+
+\newlist{queries}{enumerate}{10}
+\setlist[queries]{(a)}
+\crefname{queriesi}{query}{queries}
+\Crefname{queriesi}{Query}{Queries}

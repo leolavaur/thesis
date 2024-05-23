@@ -15,9 +15,9 @@
 }
 
 \includeonly{
-  % content/chapters/01_introduction/main,
+  content/chapters/01_introduction/main,
   % content/chapters/02_background/main,
-  content/chapters/03_sota/main,
+  % content/chapters/03_sota/main,
   % content/chapters/04_application/main,
   % content/chapters/05_topologies/main,
   % content/chapters/06_assessment/main,
@@ -41,7 +41,7 @@
 
 \selectlanguage{english} % My thesis is in English
 
-\frontmatter
+%\frontmatter
 \renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
 
 % Abstracts
@@ -67,9 +67,12 @@
 \clearemptydoublepage
 \listoffigures
 \addcontentsline{toc}{chapter}{List of Figures}
-\pagebreak % to ensure the numbering changes
 
-\mainmatter
+%\pagebreak % to ensure the numbering changes
+
+%\mainmatter
+\vfill
+\pagebreak
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
 
