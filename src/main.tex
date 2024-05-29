@@ -16,12 +16,12 @@
 
 \includeonly{
   content/chapters/01_introduction/main,
-  % content/chapters/02_background/main,
-  % content/chapters/03_sota/main,
+  content/chapters/02_background/main,
+  content/chapters/03_sota/main,
   % content/chapters/04_application/main,
   % content/chapters/05_topologies/main,
   % content/chapters/06_assessment/main,
-  % content/chapters/07_trust-fids/main,
+  % content/chapters/07_radar/main,
   % content/chapters/08_future/main,
   % content/chapters/09_conclusion/main,
 }
@@ -58,9 +58,10 @@
 \input{content/acknowledgment}
 
 % ToC
+\setcounter{tocdepth}{1}
 \clearemptydoublepage
 \renewcommand{\contentsname}{Table of Contents}
-\tableofcontents %sommaire %table of content
+\tableofcontents
 \addcontentsline{toc}{chapter}{Table of Contents}
 
 % List of figures
@@ -78,21 +79,21 @@
 
 % PART I -- Introduction
 % -------------------------------------
-\part{Introduction\label{part:introduction}}
+%\part{Introduction\label{part:introduction}}
 
 %% Introduction
 \clearemptydoublepage
 \subincludefrom{content/chapters/01_introduction/}{main}
 
+% Part I -- FIDS
+% -------------------------------------
+\clearemptydoublepage
+\part{Federated Learning to build CIDSs\label{part:fids}}
 
 %% Preliminaries
 \clearemptydoublepage
 \subincludefrom{content/chapters/02_background/}{main}
 
-% Part II -- FIDS
-% -------------------------------------
-\clearemptydoublepage
-\part{Federated Learning to build CIDSs\label{part:fids}}
 
 %% State of the Art
 \clearemptydoublepage
@@ -102,7 +103,7 @@
 \clearemptydoublepage
 \subincludefrom{content/chapters/04_application/}{main}
 
-% Part III -- Quantifying Limitations
+% Part II -- Quantifying Limitations
 % -------------------------------------
 \clearemptydoublepage
 \part{Quantifying the Limitations of FIDSs\label{part:limitations}}
@@ -122,16 +123,16 @@
 
 %% Trust-FIDS
 \clearemptydoublepage
-\subincludefrom{content/chapters/07_trust-fids/}{main}
+\subincludefrom{content/chapters/07_radar/}{main}
 
 %% Future FIDS
 \clearemptydoublepage
 \subincludefrom{content/chapters/08_future/}{main}
 
-% Part IV -- Conclusion
-% -------------------------------------
-\clearemptydoublepage
-\part{Conclusion\label{part:conclusion}}
+% % Part IV -- Conclusion
+% % -------------------------------------
+% \clearemptydoublepage
+% \part{Conclusion\label{part:conclusion}}
 
 %% Conclusion
 \clearemptydoublepage

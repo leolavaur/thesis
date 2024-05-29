@@ -16,6 +16,7 @@
   labelfont=bf,
   skip=0.7\baselineskip,
 ]{caption}
+\usepackage{mwe}
 
 \glsdisablehyper
 
@@ -61,7 +62,34 @@
   {\endinnerRQ}
 
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
-\let\endchangemargin=\endlist 
+\let\endchangemargin=\endlist
+
+\newlist{questions}{enumerate}{2}
+\setlist[questions,1]{
+  label={RQ\arabic*.},
+  ref={RQ\arabic*},
+  before=\itshape,
+  font=\normalshape\bfseries,
+  labelindent=0pt,
+  leftmargin=*,
+  align=left,
+}
+\setlist[questions,2]{
+  label={\thequestionsi.\alph*.},
+  ref={\thequestionsi.\alph*},
+  before=\itshape,
+  font=\normalshape,
+}
+\crefname{questions}{question}{questions}
+\Crefname{questions}{Question}{Questions}
+
+% subquestions
+% environment with a parameter to refer to an existing question
+\newenvironment{subquestions}[1]
+  {\begin{questions}[label={\ref{#1}-\arabic*.}]}
+  {\end{questions}}
+
+
 
 %% RESEARCH QUERIES
 
@@ -69,3 +97,7 @@
 \setlist[queries]{(a)}
 \crefname{queriesi}{query}{queries}
 \Crefname{queriesi}{Query}{Queries}
+
+%% REFERENCES
+
+\newcommand{\needref}{\textbf{[?]}}
