@@ -1,8 +1,5 @@
 \chapter{Introduction\label{chap:intro}}
-
-\vspace{-9ex}
-\localtableofcontents
-\par\noindent\rule{\textwidth}{0.4pt}
+\localtoc
 
 \section{Context and Motivation\label{sec:intro.context}}
 
@@ -11,7 +8,7 @@ Because security by design in these conditions is an impossible task, security a
 For instance, the NIST Cybersecurity Framework~\cite{nationalinstituteofstandardsandtechnology_NISTCybersecurityFramework_2024} suggests a five-stage lifecycle for managing risks in information systems: identify, protect, detect, respond, and recover.
 
 Detection and response immensely benefit from the recent advances in \gls{ai} and \gls{ml}, enabling the analysis of more complex behaviors.
-Yet, because organization usually face similar threats, including large-scale campaigns such as Mirai in 2016 or NotPetya in 2017, they would greatly benefit from sharing insights on the intrusions they have encountered, or any knowledge that might help others to identify incident before the damages are too important.
+Yet, because organizations usually face similar threats, including large-scale campaigns such as Mirai in 2016 or NotPetya in 2017, they would greatly benefit from sharing insights on the intrusions they have encountered, or any knowledge that might help others to identify the incident before the damages are too important.
 Collaboration is further encouraged by regulation, for instance with the NIS~\cite{NIS2016} and NIS2~\cite{NIS2} European directives.
 Sharing data is made even more important for training \gls{ml} and \gls{dl} models, which require large amounts of data to be effective.
 Yet, stakeholders are often reluctant to involve their organization in data-sharing practices, fearing confidentiality and privacy breaches, reputation loss, or regulation non-compliance.
@@ -23,7 +20,7 @@ This architecture could also be used to disseminate information about esoteric a
 
 Consequently, applying \gls{fl} to \gls{ids} seems like a promising approach to collaboratively improve the local detection of cyber threats.
 This is supported by the amount of recent literature on the topic, which has grown exponentially since 2018~\cite{lavaur_EvolutionFederatedLearningbased_2022,ismaila_ReviewApproachesFederated_2024}.
-Yet, novel challenges arise in this context, such as how to handle the heterogeneity of data sources, how to deal with untrusted participants, or how to improve the performance of local models.
+Yet, novel challenges arise in this context, such as how to handle the heterogeneity of data sources or how to deal with untrusted participants.
 But more importantly, \emph{what makes applying \gls{fl} to \gls{ids} different from other applications? And is \gls{fl} even a suitable framework for collaborative \gls{ids}?}
 
 This dissertation aims to investigate the potential of \acrlong{fl} as a collaborative framework for \acrlong{ids}, which we will refer to as \gls{fids}.
@@ -41,16 +38,16 @@ This is particularly important for evaluation purposes, as it makes it easier to
 Consequently, this dissertation will focus on the use case of building collaborative \glspl{nids} by leveraging \gls{fl} on \gls{it} network data.
 In this context, \gls{fl} clients are assumed to be organizations that own or oversee an information system, and that are interested in improving their local \gls{ids} by sharing information with other organizations.
 However, the results of these works could theoretically be extended to other use cases.
-\Cref{fig:intro.usecase} illustrates the delineation of our use case.
+\Cref{fig:intro.usecase} illustrates this use case.
 
 \begin{figure}
   \centering
   \includegraphics[width=.8\textwidth]{example-image-golden}
-  \caption{Use case}
+  \caption{Illustration of \gls{fl} in a \gls{cids} use case.}
   \label{fig:intro.usecase}
 \end{figure}
 
-\section{Research Objectives\label{sec:intro.questions}}
+\subsection{Research Objectives\label{sec:intro.questions}}
 
 Based on the context and motivation laid out in the previous section, we formulize the general objectives of this dissertation as a set of research questions.
 The questions stated hereafter are intended to be completed and extended in the following chapters, some of which introduce their own research questions.

@@ -1,0 +1,160 @@
+
+
+\usetikzlibrary{trees,positioning,shapes,shadows,arrows,arrows.meta,angles,quotes}
+
+\definecolor{yellowfill}{HTML}{FFF2CC}
+\definecolor{yellowstroke}{HTML}{D6B656}
+
+\definecolor{grayfill}{HTML}{F5F5F5}
+\definecolor{graystroke}{HTML}{666666}
+
+\forestset{
+  forked edge'/.style={
+    edge={rotate/.option=!parent.grow},
+    edge path'={
+      (.child anchor)
+      -- ++(-\forestoption{fork sep},0)
+      |- (!u.parent anchor)
+    },
+  },
+}
+
+\newcommand{\lkbx}[1]{\mbox{#1\strut}}
+\newcommand{\fullcref}[1]{\nameref*{#1} \labelcref{#1}}
+
+
+
+        \begin{forest}
+        forked edges,
+        for tree={
+            rounded corners,
+            grow=east,
+            inner ysep=1.2ex, 
+            anchor=base west,
+            l sep+=3em,
+            fork sep=2.5em,
+            tier/.option=level,
+            where level=0{%
+                draw,
+                draw=yellowstroke,
+                fill=yellowfill,
+                inner sep=4ex,
+                font=\Large\bfseries,
+            }{},
+            where level=1{%
+                draw,
+                draw=graystroke,
+                fill=grayfill,
+                inner sep=3ex,
+                font=\Large,
+            }{},
+            where level=2{%
+                draw,
+                draw=graystroke,
+                fill=grayfill,
+                inner sep=3ex,
+                font=\large,
+            }{},
+        },
+        parent anchor=east,
+        [{Taxonomy of FIDS}
+            [Experimentation
+                [12. \lkbx{\fullcref{sec:sota.quali.metrics}}
+                    [Execution
+                        [Performance (\eg accuracy)]
+                        [Latency]
+                    ]
+                    [Federation
+                        [Communication]
+                        [Aggregation]
+                    ]
+                    [Training
+                        [Resources (\eg hardware)]
+                        [Time (\eg convergence)]
+                    ]
+                ]
+                [11. \lkbx{\fullcref{sec:sota.quali.dataset}}
+                    [Public / Known]
+                    [Published but custom]
+                    [Unpublished (as of now)]
+                ]
+            ]
+            [Aggregation
+                [10. \lkbx{\fullcref{sec:sota.quali.target}}
+                    [By-device]
+                    [Personalized model
+                        [By-class]
+                        [By performance]                
+                    ]
+                    [Generic model]
+                ]
+                [9. \lkbx{\fullcref{sec:sota.quali.agg}}
+                    [Parameter aggregation (\eg FedAvg)]
+                    [Weighted algorithms]
+                    [MPC-based aggregation]
+                ]
+                [8. \lkbx{\fullcref{sec:sota.quali.type}}
+                    [Horizontal Federated Learning]
+                    [Vertical Federated Learning]
+                    [Federated Transfer Learning]
+                ]
+            ]
+            [Federation
+                [7. \lkbx{\fullcref{sec:sota.quali.comm}}
+                    [Encryption]
+                    [Overhead reduction]
+                ]
+                [6. \lkbx{\fullcref{sec:sota.quali.fed}}
+                    [Client selection]
+                    [Reputation]
+                    [Architecture (\eg P2P)]
+                ]
+            ]
+            [Local operation
+                [5. \lkbx{\fullcref{sec:sota.quali.defense}}
+                    [Network reconfiguration (\eg SDN)]
+                    [On-device counter-measures]
+                ]
+                [4. \lkbx{\fullcref{sec:sota.quali.alg}}
+                    [Supervised ML
+                        [Classification]
+                        [Regression]
+                    ]
+                    [Unsupervised ML
+                        [Clustering]
+                        [Dimensionality reduction]
+                        [Outlier detection]
+                    ]
+                    % [Detection method
+                    %     [Anomaly-based]
+                    %     [Signature-based]
+                    %     [Specification-based]
+                    %     [Hybrid]
+                    % ]
+                ]
+                [3. \lkbx{\fullcref{sec:sota.quali.location}}
+                    [On device]
+                    [On gateway]
+                    [Dedicated device]
+                    [On server]
+                ]
+            ]
+            [Data
+                [2. \lkbx{\fullcref{sec:sota.quali.preprocess}}
+                    [Feature selection]
+                    [Feature extraction]
+                    [Dimensionality reduction]
+                ]
+                [1. \lkbx{\fullcref{sec:sota.quali.data}}
+                    [Source
+                        [Communication]
+                        [Usage]
+                    ]
+                    [Distribution
+                        [IID]
+                        [Non-IID]
+                    ]
+                ]
+            ]
+        ]
+    \end{forest}

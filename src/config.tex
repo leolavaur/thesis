@@ -17,6 +17,14 @@
   skip=0.7\baselineskip,
 ]{caption}
 \usepackage{mwe}
+\usepackage{layouts}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage[edges]{forest}
+
 
 \glsdisablehyper
 
@@ -44,7 +52,7 @@
 
 % Et pour mettre le in en italique dans la ref\'{e}rence biblio (merci encore \`{a} Josquin Debaz)
 \DefineBibliographyStrings{english}{%
-        in = {\emph{in}}%
+  in = {\emph{in}}%
 }
 
 
@@ -68,20 +76,25 @@
 \setlist[questions,1]{
   label={RQ\arabic*.},
   ref={RQ\arabic*},
-  before=\itshape,
   font=\normalshape\bfseries,
+  before=\itshape,
+  %after=\normalfont\mdseries\normalshape\normalsize,
   labelindent=0pt,
   leftmargin=*,
   align=left,
 }
 \setlist[questions,2]{
-  label={\thequestionsi.\alph*.},
-  ref={\thequestionsi.\alph*},
-  before=\itshape,
-  font=\normalshape,
+  label={\textbf{\arabic{questionsi}.\alph*.}},
+  ref={\thequestionsi\alph*},
+  %font=\normalshape,
+  before=\normalshape\small,
+  %after=\normalfont\mdseries\normalshape\normalsize,
+  % font=\normalshape,
 }
 \crefname{questions}{question}{questions}
 \Crefname{questions}{Question}{Questions}
+\crefname{questionsii}{question}{questions}
+\Crefname{questionsii}{Question}{Questions}
 
 % subquestions
 % environment with a parameter to refer to an existing question
@@ -101,3 +114,46 @@
 %% REFERENCES
 
 \newcommand{\needref}{\textbf{[?]}}
+
+%% TOCs
+\newcommand{\localtoc}{
+  \vspace{-9ex}
+  \localtableofcontents
+  \par\noindent\rule{\textwidth}{0.4pt}
+}
+
+%% Debug
+\makeatletter
+\newcommand{\printfontsize}[1]{{#1\the\dimexpr\f@size pt\relax}}
+\makeatother
+
+%% Matplotlib
+\def\mathdefault#1{#1}\everymath=\expandafter{\the\everymath\displaystyle}
+% \usepackage{fontspec}
+% \makeatletter\@ifpackageloaded{underscore}{}{\usepackage[strings]{underscore}}\makeatother  
+
+
+\makeatletter
+\newcommand*{\preventbreak}{\vspace{\baselineskip}\par\nobreak\@afterheading}
+\makeatother
+
+
+%
+% Properly spaced abbreviations
+% Taken from the CVPR's style package (https://stackoverflow.com/a/39363004)
+%
+\usepackage{xspace}
+
+% Add a period to the end of an abbreviation unless there's one
+% already, then \xspace.
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+%
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
+\def\cf{\emph{c.f}\onedot} \def\Cf{\emph{C.f}\onedot}
+\def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot}
+\makeatother

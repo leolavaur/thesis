@@ -7,10 +7,13 @@
 %\usepackage{config}
 \input{config.tex}
 
+\newcommand{\frtitle}{L'Apprentissage Fédéré comme Outil pour la Détection Collaborative d'Intrusions}
+\newcommand{\entitle}{On Federated Learning as a Framework for Collaborative Intrusion Detection}
+
 \hypersetup{
   pdfauthor   = {Léo Lavaur},
   pdftitle    = {PhD Thesis of Léo Lavaur},
-  pdfsubject  = {On Federated Learning as a Framework for Collaborative Intrusion Detection},
+  pdfsubject  = {\entitle},
   pdfkeywords = {Federated Learning, Collaborative Intrusion Detection, Machine Learning, Cybersecurity},
 }
 
@@ -24,6 +27,7 @@
   % content/chapters/07_radar/main,
   % content/chapters/08_future/main,
   % content/chapters/09_conclusion/main,
+  content/appendices/main,
 }
 
 \addbibresource{biblio/lavaur.bib}
@@ -31,7 +35,6 @@
 
 \makenoidxglossaries
 \loadglsentries{content/glossary}
-
 
 \begin{document}
 
@@ -48,8 +51,15 @@
 \clearemptydoublepage
 \chapter*{Abstracts\label{chap:abstracts}}
 \addcontentsline{toc}{chapter}{Abstracts}
-\setcounter{page}{1}
-\input{content/abstracts.tex}
+
+\selectlanguage{french}
+\section*{Résumé}
+\input{content/abstract-fr}
+\newpage
+\selectlanguage{english}
+\section*{Abstract}
+\input{content/abstract-en}
+
 
 % Acknowledgements
 \clearemptydoublepage
@@ -57,17 +67,36 @@
 \addcontentsline{toc}{chapter}{Acknowledgements}
 \input{content/acknowledgment}
 
+% \section*{Debugging}
+% Lengths:
+% \begin{itemize}
+%   \item \verb|\textwidth|: \printinunitsof{in}\prntlen{\textwidth}
+%   \item \verb|\linewidth|: \printinunitsof{in}\prntlen{\linewidth}
+%   \item \verb|\columnwidth|: \printinunitsof{in}\prntlen{\columnwidth}
+%   \item \verb|\marginparwidth|: \printinunitsof{in}\prntlen{\marginparwidth}
+%   \item \verb|\marginparsep|: \printinunitsof{in}\prntlen{\marginparsep}
+% \end{itemize}
+
+% Font sizes:
+% \begin{itemize}
+%   \item \verb|\tiny|: \printfontsize{\tiny}
+%   \item \verb|\scriptsize|: \printfontsize{\scriptsize}
+%   \item \verb|\footnotesize|: \printfontsize{\footnotesize}
+%   \item \verb|\small|: \printfontsize{\small}
+%   \item \verb|\normalsize|: \printfontsize{\normalsize}
+%   \item \verb|\large|: \printfontsize{\large}
+%   \item \verb|\Large|: \printfontsize{\Large}
+%   \item \verb|\LARGE|: \printfontsize{\LARGE}
+%   \item \verb|\huge|: \printfontsize{\huge}
+%   \item \verb|\Huge|: \printfontsize{\Huge}
+% \end{itemize}
+
 % ToC
 \setcounter{tocdepth}{1}
 \clearemptydoublepage
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 \addcontentsline{toc}{chapter}{Table of Contents}
-
-% List of figures
-\clearemptydoublepage
-\listoffigures
-\addcontentsline{toc}{chapter}{List of Figures}
 
 %\pagebreak % to ensure the numbering changes
 
@@ -158,6 +187,12 @@
 
 \printbibliography
 
+% List of figures
+\clearemptydoublepage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+
 % Glossary
 \clearemptydoublepage
 \phantomsection % To have a correct link in the table of contents
@@ -166,16 +201,13 @@
 
 % Appendices
 \clearemptydoublepage
-\chapter*{Appendices\label{part:appendices}}
-\addcontentsline{toc}{chapter}{Appendices}
-\selectlanguage{french}
-\input{content/french}
-\selectlanguage{english}
+\subincludefrom{content/appendices/}{main}
+
 
 \clearemptydoublepage
 % To have the back cover on an even page
 \cleartoevenpage[\thispagestyle{empty}]
-\input{./template/resume}
+\input{./backcover}
 
 \end{document}
 
