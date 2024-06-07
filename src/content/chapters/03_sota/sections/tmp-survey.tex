@@ -1,0 +1,463 @@
+% LTeX: enabled=false
+
+
+\subsection{Qualitative analysis}
+\label{sec:sota.quali}
+
+This section reviews the selected literature.
+The selected works are detailed, and compared using the taxonomy.
+\Cref{tbl:selected.comp} summarizes the information and helps identify differences between the works.
+It gives partial answers to research questions about the components of \glspl{fids} and how to measure their impact on performance (\Cref{rq:components,rq:metrics}), while \Cref{sec:sota.quali.agg} replies to \Cref{rq:techniques} about federation techniques.
+
+
+\input{figures/table-comp.tex}
+\input{figures/table-perf.tex}
+
+
+\subsubsection{Data source and type}
+\label{sec:sota.quali.data}
+
+Depending on the use case, there are two main approaches.
+The first one is the one used by \cite{zhang_BlockchainbasedFederatedLearning_2020,schneble_Attackdetectionusing_2019}, where the model is made on the sensors' values, which is analogous to the operation of \gls{hids}.
+Since~\cite{zhang_BlockchainbasedFederatedLearning_2020} targets medical devices, values include hearth rate, oxygen saturation, among others.
+The opposite strategy function at a higher level of abstraction, independent of the values.
+The analysis is then performed on network traffic, as for \gls{nids}.
+Most papers \cite{chen_Networkanomalydetection_2020,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,nguyen_DIoTFederatedSelflearning_2019,li_DeepFedFederatedDeep_2020,rahman_InternetThingsIntrusion_2020,Sun2020,Popoola2021, chen_Networkanomalydetection_2020b,hei_trustedfeatureaggregator_2020} use similar network features, such as source and destination, local and remote ports, TCP flags, protocol, and packet length.
+The authors of \cite{qin_LineSpeedScalableIntrusion_2020a} also target network features but at packet-level, all translated to 1D vectors: IP addresses, layer-4 protocol, ports, and IP packet length as a 120-bit input vector.
+\textcite{li_DeepFedFederatedDeep_2020b} also explore network-related features in their use case of satellite communications.
+
+These values can be completed with preprocessing (see \Cref{sec:sota.quali.preprocess}) to extract other features from the raw data.
+In both \cite{pahl_AllEyesYou_2018} and \cite{nguyen_DIoTFederatedSelflearning_2019}, the periodicity of packets is analyzed.
+This is important for volumetry attack detection notably.
+Furthermore, both work target \gls{iot} devices, which have a sporadic, but periodic and predicable traffic.
+Thus, anomaly in the packet-sequence, or in the inter-arrival time might indicate an attack.
+While following a similar approach, \gls{ftl} allows the authors of \cite{fan_IoTDefenderFederatedTransfer_2020} to address different features in each client's dataset.
+
+
+The research led by \textcite{pahl_AllEyesYou_2018} differs from the other on the source for the data.
+They use a middleware called \gls{vsl} to associate traffic with a device class (\emph{light}, \emph{router}, \emph{sensor}, \dots), thus allowing the training of per-class models with high accuracy.
+However, many \gls{ot} solutions do not provide such metadata.
+Training per-class models requires then a prior classification step, like in \cite{nguyen_DIoTFederatedSelflearning_2019}.
+
+Additionally, even when considering the same data type, use cases introduce significant differences in the available features.
+For instance, two systems targeting the communication between devices may encounter different protocols, services, and even communication support.
+Among the selected works, four use cases are considered, here sorted by representation:
+\begin{itemize}
+    \item \acrfull{it};
+    \item \acrfull{iot};
+    \item \acrfull{cps};
+    \item \acrfull{av}.
+\end{itemize}
+
+The work of \textcite{liu_BlockchainFederatedLearning_2021} is the only representative of the \gls{av} use case, although they do not use an according dataset.
+In fact, they train their model on network traffic, with similar features to \cite{rahman_InternetThingsIntrusion_2020,chen_Networkanomalydetection_2020,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,fan_IoTDefenderFederatedTransfer_2020}.
+With also similar features, \textcite{li_DeepFedFederatedDeep_2020b} apply \gls{fids} to the very specific use case of \gls{stin}.
+
+Finally, \cite{chen_Networkanomalydetection_2020b}, and partly  \cite{hei_trustedfeatureaggregator_2020}, address data distribution, especially knowing whether data are \gls{iid}.
+A non-\gls{iid} data distribution can negatively impact training performance~\cite{Yang2019}.
+However, most real-world scenarios generate non-\gls{iid} data, which is a major hurdle for algorithm that require to be trained on live data with non-supervised approaches.
+
+\subsubsection{Preprocessing}
+\label{sec:sota.quali.preprocess}
+
+The source data can be manipulated to extract new feature or reduce dimensionality through preprocessing.
+Three main non-exclusive approaches are distinguishable in the selected works: feature extraction, feature embedding, and feature selection:
+\begin{itemize}
+    \item \emph{Feature extraction} refers to the computation of numerical characteristics after the data collection; \eg \gls{iat} or number of packets per device in the context of traffic monitoring.
+This approach is taken by \textcite{pahl_AllEyesYou_2018} and \textcite{nguyen_DIoTFederatedSelflearning_2019} as they proceed with periodicity mining.
+Since they only process binary features, \textcite{qin_LineSpeedScalableIntrusion_2020a} extract numerical features, and convert them to 1D vectors.
+    \item \emph{Feature embedding} or \emph{dimensionality reduction} is used for algorithms that do not deal efficiently with high-dimensional vectors.
+To that end, they use data dimensionality reduction techniques, such as autoencoders~\cite{chen_Networkanomalydetection_2020} or \gls{pca}~\cite{kim_CollaborativeAnomalyDetection_2020}.
+    \item \emph{Feature selection} relates to the automated selection of relevant features, before learning.
+The authors of \cite{qin_FederatedLearningBasedNetwork_2021} use a greedy feature selection algorithm based on accuracy.
+Logistic regression-based selection~\cite{al-athbaal-marri_FederatedMimicLearning_2020} can also be used to eliminate features with a recursive algorithm.
+\end{itemize}
+
+The other works~\cite{zhang_BlockchainbasedFederatedLearning_2020,schneble_Attackdetectionusing_2019,li_DeepFedFederatedDeep_2020,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019} do not emphasize on their feature selection strategy.
+Moreover, some papers \cite{li_DeepFedFederatedDeep_2020,schneble_Attackdetectionusing_2019,zhao_MultiTaskNetworkAnomaly_2019} use datasets that contains computed features (\labelcref{sec:sota.quali.dataset}).
+For experiments on live prototypes, feature computation is required.
+
+Depending on the use case, additional features after \emph{feature selection} or \emph{extraction} may vary.
+Network analysis often relies on basic features, such as addresses and ports for source and destination, protocol, data type, packet length, and timestamp.
+However, these characteristics can also vary regarding their provenance: network capture~\cite{kddcup99,tavallaee_detailedanalysisKDD_2009} or abstracted communications~\cite{pahl_AllEyesYou_2018}.
+Extracted features are very common, such as inter-packet time, bytes sent per host, or bytes per packets~\cite{Buczak2016,Chaabouni2019}.
+
+Usage-based analysis, on the other hand, is entirely dependent on the monitored device.
+\textcite{schneble_Attackdetectionusing_2019} monitor health-related features, like arterial blood pressure or the raw ECG signals.
+The authors of \cite{zhang_BlockchainbasedFederatedLearning_2020} focus on air conditioners, and therefore measure related information such as water or air temperature.
+
+\subsubsection{ML location}
+\label{sec:sota.quali.location}
+
+As explained in \Cref{sec:sota.synthesis.taxonomy}, the location of \gls{ml} algorithm in a system influences the architecture.
+The proposed taxonomy (\labelcref{fig:taxonomy}) considers three types of locations: on-device, on-gateway, and on-server.
+However, a large majority of the literature concerns either on-device training, or uses a dedicated device acting as a gateway.
+Most selected works use a dedicated device to perform the analysis, while the others assume the devices can support their own processing.
+The on-server processing is not represented here, since it does not suit the definition of \gls{fl}.
+Some hybrid approaches are also represented, with multi-stage aggregation~\cite{liu_BlockchainFederatedLearning_2021}.
+
+The device types and architectural choices vary, depending on the use case.
+\textcite{zhang_BlockchainbasedFederatedLearning_2020} focus on a medical use case where the analyzed data is composed solely of sensor outputs (\Cref{sec:sota.quali.data}).
+Connected sensors are typically lightweight devices unable to process data.
+Thus, they require a gateway to be usable.
+Other works~\cite{li_DeepFedFederatedDeep_2020,chen_Networkanomalydetection_2020,schneble_Attackdetectionusing_2019,zhao_MultiTaskNetworkAnomaly_2019,Popoola2021,al-athbaal-marri_FederatedMimicLearning_2020, kim_CollaborativeAnomalyDetection_2020,chen_Networkanomalydetection_2020,li_DeepFedFederatedDeep_2020b} rely on gateways because they are more suitable for traffic analysis.
+It allows to capture all communications, even if the devices are connected with different supports (\eg IEEE 802.3 \emph{versus} IEEE 802.11).
+Gateway-based processing can also be motivated by the architecture of the monitored system.
+For instance, the authors of \cite{fan_IoTDefenderFederatedTransfer_2020} reuse the existing infrastructure of 5G by exploiting \gls{mec} gateways to capture traffic and perform analysis for a 5G \gls{iot} use case.
+
+
+While also using gateways, \textcite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019} differ by relying exclusively on \gls{sdn} switches to analyze the traffic and provide their counter-measures.
+In this case, learning and detection does not happen on the gateway itself (the \gls{sdn} switch), but on an \gls{sdn} controller in charge of managing a fleet of switches.
+While this approach employs an intermediary location for model training and decision-making, it cannot be considered as cloud based as the models are aggregated in a cloud server afterward.
+While they have a similar architecture, \textcite{qin_LineSpeedScalableIntrusion_2020a} propose the opposite approach.
+The algorithm is deployed on the \gls{sdn} switch, allowing faster response time by examining the traffic at packet-level.
+Their \gls{bnn} detection algorithm (\Cref{sec:sota.quali.alg}) enables local detection close to real-time, even with high packet throughput, such as during a \gls{dos} attack.
+The authors test both approaches, and find similar performance in terms of accuracy, precision, recall, and F1-score.
+
+\textcite{pahl_AllEyesYou_2018} take another approach and assume the \gls{iot} devices to be powerful enough to run their own analysis and training.
+Their design cuts out the gateway by using a middleware which allows \gls{p2p} communication between the agents, thus removing the need for a gateway.
+An \emph{\gls{iot} Microservice Store} provides federation and model aggregation, introducing different hierarchies of collaboration.
+This assumption is also taken in \cite{rahman_InternetThingsIntrusion_2020}, \cite{hei_trustedfeatureaggregator_2020} and \cite{qin_FederatedLearningBasedNetwork_2021}.
+\textcite{liu_BlockchainFederatedLearning_2021} also train their models "on-device" as their use case target \gls{av}.
+Such vehicles often carry consequent processing abilities for environment recognition alone, and are thus assumed to be able to perform \gls{ml} training.
+
+\subsubsection{Local algorithms}
+\label{sec:sota.quali.alg}
+
+Most \glspl{ids} fall into one of the following categories: anomaly-based, signature-based, or specification-based.
+Hybrid systems are also considered, but to the best of our knowledge, no example exist in the literature of \gls{fl}-based detection systems.
+Apart from preprocessing \cite{Kruegel2003}, \gls{ml}-based detection systems mostly rely on the detection of anomalies, and thus exclude signature- and specification-based detection.
+As introduced in \Cref{sec:background}, depending on the presence of labels, three approaches coexist:
+\begin{enumerate}[(1)]
+    \item Supervised learning transforms the anomaly detection into a binary classification problem.
+It requires a balanced labeled dataset for the training to be effective.
+However, it is harder to deploy in real condition as local training data are rarely labeled, and models can be skewed by unbalanced class distribution~\cite{Campos2021}.
+This approach is yet chosen by most of the selected works (16 out of 22).
+    \item Unsupervised learning is suitable for unlabeled data.
+In the specific use case of \gls{ids}, it assumes that
+    \begin{enumerate*}[(i)]
+        \item benign traffic is much more frequent that anomalies in the testing set~\cite{Chandola2009};
+        \item abnormal packets are statistically different from normal ones.
+    \end{enumerate*}
+    Unsupervised learning is used by 5 of the selected works.
+    \item Semi-supervised learning is a hybrid approach where only a small part of the training data is labeled.
+It can be used to bootstrap a detection model by using a public labeled dataset, but then training it on local captured data.
+This newer paradigm is almost not represented in the selection, but more recent works---published after the submission of this survey---focus on semi-supervised learning~\cite{Zhu2022,Aouedi2022}.
+
+\end{enumerate}
+
+Only four of the selected works adopt online learning~\cite{pahl_AllEyesYou_2018,nguyen_DIoTFederatedSelflearning_2019,schneble_Attackdetectionusing_2019,hei_trustedfeatureaggregator_2020}.
+Online learning refers to the ability to train a model continuously as data arrives.
+It provides great adaptability and allows the algorithm to follow the evolution of the monitored system.
+All online work in the selection use either unsupervised or semi-supervised approaches, as continuously feeding labeled data is impracticable.
+The opposite approach, offline learning, refers to a one-shot training on a defined training set.
+Between the two, re-training enables updating the models to fit more recent data, but this is not particularly addressed in the selected work.
+
+Further differences emerge between the chosen algorithms.
+There is a strong representation of solutions based on \gls{nn} (21 out of 22), as shown in \Cref{tbl:selected.perf}.
+However, few use the same approach.
+The selected components (\emph{layers}) differ.
+\textcite{nguyen_DIoTFederatedSelflearning_2019} leverage the capabilities \gls{rnn} to detect unusual packets, given a sequence of traffic.
+\gls{gru} are a type of \gls{rnn} known to be very efficient in terms of resource consumption.
+They allow to keep a \emph{history} of the precedent processed values, which is useful for context keeping or pattern recognition.
+In this case, the packet history is used to detect deviant traffic, and raise an alert.
+The authors of \cite{chen_Networkanomalydetection_2020b} also used a \gls{gru}--based \gls{nn}, but replaced the \code{Softmax} function of the last layer by a \gls{svm} one to improve performance, as it is stated to improve with linear functions.
+
+Other bricks can be used to improve the processing.
+\textcite{li_DeepFedFederatedDeep_2020} add a \gls{cnn} and a \gls{mlp} to improve their model performance, which is said to surpass both \cite{nguyen_DIoTFederatedSelflearning_2019,schneble_Attackdetectionusing_2019}.
+\Glspl{cnn} excel at analyzing complex pattern without performance issue.
+\textcite{fan_IoTDefenderFederatedTransfer_2020} also implement \gls{cnn} in the shared layers of their \gls{ftl} approach, the last layers being fully-connected ones.
+The authors of \cite{li_DeepFedFederatedDeep_2020b} also experiment on \gls{cnn} models, with one, two, or three hidden layers, but observe decreasing performance as the number of layers increases.
+
+While they can be used together, \gls{cnn} are often used as a replacement for standard \gls{mlp}.
+The authors of \cite{schneble_Attackdetectionusing_2019} use a single hidden-layer \gls{mlp} to classify the measurements as normal or abnormal.
+Since they use medical measurements as input (\Cref{sec:sota.quali.data}), the \gls{mlp} is trained to recognize out-of-range values or correlation issues (two linked values are supposed to evolve in the same way).
+\gls{mlp} is also used in \cite{rahman_InternetThingsIntrusion_2020,kim_CollaborativeAnomalyDetection_2020,hei_trustedfeatureaggregator_2020,liu_BlockchainFederatedLearning_2021}.
+While they provide significantly lower performance, their use in \gls{fl} research can be motivated by their potential for easy aggregation.
+Moreover, advances in \gls{fl} do not rely on the local algorithm, but more on federation strategies.
+
+In~\cite{zhang_BlockchainbasedFederatedLearning_2020}, the learning is performed with a \gls{nn} with two hidden layers.
+The last layer is a \code{Softmax} function which returns a probability of being in a class (normal or abnormal), which is applicable for most classification-based approaches~\cite{fan_IoTDefenderFederatedTransfer_2020,li_DeepFedFederatedDeep_2020,Popoola2021,rahman_InternetThingsIntrusion_2020,Sun2020,Sun2021,al-athbaal-marri_FederatedMimicLearning_2020}.
+\textcite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019} also rely on \gls{dl} and \gls{nn}, with an unspecified number of hidden layers.
+In their work, the authors of \cite{chen_Networkanomalydetection_2020} propose a combination of an autoencoder for dimensionality reduction, and a \gls{gmm} for classification.
+The entire process is autonomous and does not require labeled data.
+An autoencoder is also used by \cite{qin_FederatedLearningBasedNetwork_2021}, in combination with \glspl{elm}.
+\Glspl{elm} are feedforward \glspl{nn}, just as \glspl{mlp}, where the weights of the neurons are set once, and never updated.
+This leads to good generalization capabilities and fast training, but lower performance.
+While using \gls{dl}, \textcite{zhao_MultiTaskNetworkAnomaly_2019} also differ from the others by implementing \gls{mtl}, where different models are trained as declination of one common base model.
+The model is otherwise simpler, as it is mostly made of activation and dropout layers stacked.
+
+The approach of \textcite{qin_LineSpeedScalableIntrusion_2020a} differs in the type of \gls{nn} model used.
+To achieve \emph{line-speed} packet processing, their model needs to be executed on data-plain \gls{sdn} devices, which only support a subset of operations when compared to regular network devices.
+To cope with that limitation, the authors deploy a \gls{bnn} algorithm.
+\Glspl{bnn} are a category of \glspl{nn} with only binary weights, activation functions, and the according bitwise operations, allowing fast execution and efficient memory consumption.
+These characteristics make them suitable for low-level network detection.
+
+\textcite{pahl_AllEyesYou_2018} are the only ones not using \glspl{nn}, but simpler clustering algorithm \emph{k}-means, which require fewer data to be trained.
+Before that, and to optimize the speed of the \emph{k}-means algorithm, grid-based clustering is used to identify clusters quicker.
+The clustering is used for periodicity-mining (\Cref{sec:sota.quali.data}), on which the approach is based.
+Detection is based on both the difference between current and previous communications, and the likelihood of the message (depending on how often two devices communicate together).
+Moreover, while non-\gls{dl} machine learning is under-represented in the literature of \gls{fids}, the authors of \cite{pahl_AllEyesYou_2018} are not the only ones to experiment on non-\gls{dl} \gls{ml}.
+\textcite{hei_trustedfeatureaggregator_2020} review other alternatives like \gls{dt}, \gls{rf}, or \gls{svm}, but the \gls{mlp} obtains better performance overall.
+\textcite{schneble_Attackdetectionusing_2019} train \gls{knn}, \gls{dt}, \gls{sgd}, and \gls{svm} alongside their \acrlong{nn}.
+
+\input{figures/selected_works-perf.table.tex}
+
+\subsubsection{Defense capabilities}
+\label{sec:sota.quali.defense}
+
+Defense strategies are barely covered in the selected works.
+Only one paper provides actionable counter-measures.
+The work of \textcite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019} builds upon \gls{sdn}, which allows the controller to modify the network architecture in case of an attack.
+The proposed solution is tailored for \gls{dos} or flooding attacks, and therefore only needs to block the responsible traffic flow.
+
+\Glspl{fids} could also provide remediation capabilities, providing automated resilience of a monitored system \cite{Ghosh2007}.
+To the best of our knowledge, there is no such work in the literature.
+However, multiple works have been proposed to provide self-healing behaviors to information systems \cite{Elsadig2010,Ali-Tolppa2018}.
+Such functionalities could be considered to enhance \gls{fids} capabilities.
+
+
+\subsubsection{Federation strategy}
+\label{sec:sota.quali.fed}
+
+\Gls{fids} literature shows how the number of clients can impact performance.
+In \cite{nguyen_DIoTFederatedSelflearning_2019}, while the \gls{fpr} decreases to zero with the augmentation of clients, the \gls{tpr} also decreases slightly---from 95.43\% to 94.07\% by going from 5 to 15 clients. Other works observe only positive results, with a small accuracy increase (0.002\% from 1 to 8 clients) in \cite{schneble_Attackdetectionusing_2019} for instance, while \textcite{li_DeepFedFederatedDeep_2020} measured very stable results when going from 3 to 10 clients.
+
+Consequently, massive \gls{fl} applications often implement a client-selection algorithm which only train a subset of participant at each round, thus reducing the computing load and bandwidth consumption.
+This selection can even be done dynamically on performance metrics~\cite{Zhang2020}, but has not been found in the literature on \gls{fids}.
+
+On an architectural perspective, most of the selected work follow a client-server model, where clients train models locally and a centralized server proceeds with model aggregation.
+While relatively easy to deploy, such approach has caveats, such as the necessity of trusting the central server, or the \gls{spof} in the aggregation process~\cite{Aledhari2020}.
+
+Therefore, the authors of \cite{zhang_BlockchainbasedFederatedLearning_2020,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,liu_BlockchainFederatedLearning_2021,hei_trustedfeatureaggregator_2020} rely on decentralization in their design.
+\textcite{zhang_BlockchainbasedFederatedLearning_2020} justifies its use of blockchain as a way to ensure integrity for the detected anomaly, in a failure-detection context.
+On the other hand, the authors of \cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019} use the blockchain as a decentralized storage and aggregation service to improve resiliency by removing the \gls{spof}.
+\textcite{liu_BlockchainFederatedLearning_2021} rely on distributed ledgers for traceability and integrity, but also to support the aggregation between \glspl{rsu}, in a decentralized manner.
+Their aggregation process has two stages.
+Firstly, in \gls{p2p} between the vehicles themselves, and secondly between the \glspl{rsu}---which connect vehicles to the rest of the world in the \gls{v2x} paradigm.
+Finally, \textcite{hei_trustedfeatureaggregator_2020} use the Hyperledger Fabric~\cite{Androulaki2018} to provide integrity and redundancy.
+
+\subsubsection{Communication}
+\label{sec:sota.quali.comm}
+
+\Gls{fl} relies on communication to share models between participants, which can be compelling in constrained environments~\cite{qin_LineSpeedScalableIntrusion_2020a}.
+Therefore, some selected works try to reduce the communication overhead generated by their solution.
+\textcite{pahl_AllEyesYou_2018} show that their BIRCH cluster approach reduces packet size (from 169 bytes for the average packet to 96 per model), but also communication frequency by sending only one packet per minute.
+
+The authors of \cite{schneble_Attackdetectionusing_2019,zhang_BlockchainbasedFederatedLearning_2020} compare the communication used by their system in model sharing, and compare it with the dataset size, which would require to be transferred in non-\gls{fl} settings.
+While their results show that the relevance of \gls{fl} to limit communication usage can be questioned in small datasets, its strength is undeniable with standard use cases---above \(10^5\) bytes according to \cite{zhang_BlockchainbasedFederatedLearning_2020}.
+While the communication overhead is one of the advantages of \gls{fl} over centralized \gls{ml}, it is not often considered in the literature.
+
+Communicating the model parameters can also impact its confidentiality.
+The authors of \cite{li_DeepFedFederatedDeep_2020} and \cite{li_DeepFedFederatedDeep_2020b} use homomorphic encryption to aggregate the parameters without the server knowing the generated model.
+The Paillier cryptosystem supports addition~\cite{Paillier1999}, which is performed on the server, before the result is disseminated back to the clients.
+Each client can then decrypt the generated model, and devise the parameters by the number of participants to obtain the averaged biases and weights.
+
+\subsubsection{FL type}
+\label{sec:sota.quali.type}
+
+As introduced in \Cref{sec:background.collab_ml}, most \gls{fl} implementations use \gls{hfl}, 18 out of 22.
+\Gls{vfl} does not appear in the literature, and is yet to be applied to the use case of \gls{fids}.
+As \gls{vfl} requires having the same samples but different features, it is not applicable to collaborative \glspl{ids}.
+Having the same samples would mean that the different participants monitor the same devices, just using different features, which does not follow the motivations of this work.
+Nevertheless, \gls{vfl} might be relevant for correlation purposes in a local architecture.
+
+
+On the other hand, some papers show that \gls{ftl} can be used to train models in different but related contexts.
+For instance, a model trained on the periodicity of specific devices as in \cite{pahl_AllEyesYou_2018,nguyen_DIoTFederatedSelflearning_2019} would not perform well against devices with behaviors that are too different.
+However, with \gls{ftl}, one could quickly train a local model specific to his devices, using the knowledge acquired previously by others, as in \cite{fan_IoTDefenderFederatedTransfer_2020}.
+Another application of this concept is used by \cite{zhao_MultiTaskNetworkAnomaly_2019} with \gls{mtl}, where a same model is trained simultaneously for multiple tasks.
+Like in \gls{ftl}, the model is retrained after the sharing to have personalized behavior.
+
+\textcite{al-athbaal-marri_FederatedMimicLearning_2020} implement \gls{fml} to improve data privacy.
+Mimic learning is a technique that use two models and two datasets to train and share information afterward.
+\emph{Teacher} model is trained on the real and sensitive data, and used to label a public dataset.
+\emph{Student} model is then trained on the newly labeled public dataset, and shared with other participants after that.
+
+% However, private and public dataset must share both features and distribution for the student model to be accurate. 
+
+
+\subsubsection{Aggregation strategy}
+\label{sec:sota.quali.agg}
+The aggregation strategy is at the core of \gls{fl}.
+In 2016, Google proposed \code{FedSGD} \cite{McMahan2017} along with the concept of \gls{fl}.
+\code{FedSGD} is a weighted average of the local gradient.
+\Gls{sgd} is commonly used in \glspl{nn} as an optimization function; in fact, most research in the past was about adapting models, so they can be efficiently solved with \gls{sgd} \cite{McMahan2017,Goodfellow2016}.
+Thus, gradient aggregation is stated to be the most logic choice.
+However, aggregating the gradient at each epoch is costly in terms of bandwidth consumption and computing power.
+Therefore, the authors introduce \code{FedAvg}, with the aggregation of model parameters instead of gradient.
+This let each client training the model locally and only sharing the updates after multiple epochs.
+This approach is the base of most implementations going forward.
+
+Multiple articles~\cite{nguyen_DIoTFederatedSelflearning_2019,Popoola2021,qin_FederatedLearningBasedNetwork_2021,al-athbaal-marri_FederatedMimicLearning_2020,kim_CollaborativeAnomalyDetection_2020} use directly \code{FedAvg} in their work, just as \cite{rahman_InternetThingsIntrusion_2020}, their contributions being centered on the anomaly detection.
+In \cite{zhang_BlockchainbasedFederatedLearning_2020}, a variant of \code{FedAvg}, called \code{CDW\_FedAvg} is used.
+To enhance the performance of their system, the authors weight the average according to the distance between the positive and negative classes of the client using centroid distance.
+The \gls{cdw} average allows to reduce the impact of the heterogeneity in the IoT.
+The heterogeneity issue is a big motivation for finding alternate aggregation methods.
+While not focusing on intrusion detection, \textcite{Sun2020a} propose an asynchronous \gls{fl} strategy based on node clustering and a \gls{dqn} \gls{rl} algorithm that identifies the best aggregation frequency in real time.
+
+In~\cite{chen_Networkanomalydetection_2020b}, the authors propose another \code{FedAvg}--based approach which adds attention mechanism to decrease the communication cost by selecting clients.
+The clients measure the performance of their model, and update new weights accordingly, the larger the weight the better.
+When aggregating the client parameters, the server uses the weights as a representation of the client's importance, and thus the quality of its model.
+In fact, the number of considered clients has been shown to alter the results significantly (\Cref{sec:sota.quali.fed}).
+
+Other articles average the weights and bias in the \gls{nn} matrices \cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,schneble_Attackdetectionusing_2019,chen_Networkanomalydetection_2020}, while not mentioning \code{FedAvg} explicitly.
+Thus, the obtained matrix is used to define the hidden layer (often the last if there are more than one) of the model.
+\textcite{li_DeepFedFederatedDeep_2020b} propose further optimizations of the \gls{fl} algorithm to suit their use case of satellite-terrestrial communications.
+The aggregation of weights and biases is also used by \cite{fan_IoTDefenderFederatedTransfer_2020}, though not for \gls{hfl} but \gls{ftl}.
+The lower layers of \gls{dl} models learn the more generic features \cite{Yosinski2014}, thus allowing the sharing of only the relevant information, and letting the last layers learn personalized features only applicable to the local network.
+
+
+Because they use \glspl{bnn} with only binary values, the authors of \cite{qin_LineSpeedScalableIntrusion_2020a} cannot simply average the model parameters.
+While the last layer of the \gls{bnn} could be converted to numerical values to be aggregated more easily, the authors prefer the binary approach SignSGD~\cite{Bernstein2018}.
+This aggregation algorithm relies on majority voting to estimate the best weights for the layers.
+While their system performs well, the authors point out that updates that do not change the sign of the weights represent a waste of resources, since only two values are possible, \(+1\) or \(-1\).
+
+\textcite{pahl_AllEyesYou_2018} use \gls{birch} clusters, which have the particularity of being easily aggregated by simply adding the features of multiple clusters together.
+The model fusion is performed in a \emph{\gls{ms}-store} that distributes and monitors the stored models.
+Timestamps are also saved to detect the \emph{staleness} of the clusters.
+
+
+\subsubsection{Model target}
+\label{sec:sota.quali.target}
+
+Training an efficient generic model can be difficult, and yield unsatisfying results.
+As highlighted in \cite{nguyen_DIoTFederatedSelflearning_2019}, anomaly detection systems suffer from higher false positive rate, and lower sensitivity when monitoring different behavior at the same time.
+To solve this problem, \textcite{nguyen_DIoTFederatedSelflearning_2019} add an autonomous classification module~\cite{Marchal2019} that allow them to classify devices first, and then train per-class models afterward.
+The authors of \cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019} also train specific models with their \emph{traffic classifier}, but do not specify how.
+
+This classification problem is not a security-only issue, and standards have been proposed for devices to advertise information; \gls{mud} \cite{rfc8520} for instance allows devices to signal to the network what type of functionalities and authorizations they require to function properly.
+While they do not rely on an existing standard, \textcite{pahl_AllEyesYou_2018} use a middleware providing similar feature by communicating predefined classes attached with each device's requests.
+
+\textcite{fan_IoTDefenderFederatedTransfer_2020} differ in their strategy with their implementation of \gls{ftl}.
+While a global model is trained in the cloud, each client trains a personalized version of this model thanks to the \gls{tl} approach.
+This allows to train models accurately on the singularities of each network, while improving the overall performance of the system.
+\textcite{zhao_MultiTaskNetworkAnomaly_2019} also have a specific approach with \gls{mtl}, as it allows their model to target different problems at once.
+In their experiment, the same base model is then trained for anomaly detection, \gls{vpn} traffic classification, and TOR traffic recognition.
+
+In their work, the authors of \cite{Sun2020,Sun2021} also train multiple models, but not per class or environment.
+\Gls{sfl} is a dynamic approach that creates new models depending on the accuracy of the clients.
+When a client's accuracy is too far from the others, a new branch is created, and some clients' models are aggregated in a new \emph{segmented} cluster.
+
+
+\textcite{qin_FederatedLearningBasedNetwork_2021} propose another way of building different more specific models, by training models depending on the feature set used by the local device.
+They emit the hypothesis of building models per attack: devices could train a model for \emph{\gls{dos}} attacks, others for \emph{Probes}.
+
+The other works considered in this survey use a global model for their detection \cite{zhang_BlockchainbasedFederatedLearning_2020,schneble_Attackdetectionusing_2019,li_DeepFedFederatedDeep_2020,chen_Networkanomalydetection_2020,rahman_InternetThingsIntrusion_2020,Popoola2021, al-athbaal-marri_FederatedMimicLearning_2020,kim_CollaborativeAnomalyDetection_2020,qin_LineSpeedScalableIntrusion_2020a,chen_Networkanomalydetection_2020b,hei_trustedfeatureaggregator_2020,li_DeepFedFederatedDeep_2020b}, regardless of the data type, or detection method.
+
+\subsubsection{Analyzed dataset}
+\label{sec:sota.quali.dataset}
+
+While the literature on intrusion detection provides multiple datasets (\Cref{tbl:datasets}), the choice of the dataset depends on the use case.
+In the context of federated intrusion detection, two types of datasets can be found: network traces or sensor values.
+\Cref{tbl:selected.comp} shows the comparison between the selected approaches, with the datasets used for training and evaluation.
+As explained in \Cref{sec:sota.quali.data}, two (2) out of twenty-two (22) works are targeted to sensor values \cite{zhang_BlockchainbasedFederatedLearning_2020,schneble_Attackdetectionusing_2019}.
+In their paper, \textcite{zhang_BlockchainbasedFederatedLearning_2020} generate their own dataset using Raspberry Pis as sensors to represent air conditioners.
+The dataset is labeled and contains seventy features, but only eighteen are kept by the authors, all regarding the status of the devices (\eg evaporator water temperature, condenser water temperature, compressor air temperature, exhaust air temperature, etc.), but the dataset has not been made public, to the best of our knowledge.
+\textcite{schneble_Attackdetectionusing_2019} are using the public dataset MIMIC \cite{Johnson2016a}, which contains a collection of medical information, such as arterial blood pressure, and the raw ECG signals corresponding to the measured voltage across leads on the body.
+The authors extract seven features from the dataset.
+
+The other works, which are using network traffic as source, differ on the device types they consider.
+\textcite{li_DeepFedFederatedDeep_2020} use a public dataset~\cite{Morris2014} made of MODBUS data labeled in eight different classes, the first one for \emph{normal} operation, the other for seven types of cyberattacks.
+The dataset contains twenty-six features and one label.
+\textcite{qin_LineSpeedScalableIntrusion_2020a} focus on botnets in one of their scenarios.
+To test validate their assumptions, they use the ISCX Botnet 2014~\cite{BiglarBeigi2014} dataset, which is composed of diverse botnet and malware traffic.
+The dataset is replayed to the gateway to capture packet-level features from the gateway directly.
+
+The authors of \cite{chen_Networkanomalydetection_2020}, \cite{hei_trustedfeatureaggregator_2020} and \cite{liu_BlockchainFederatedLearning_2021} use the dataset generated during the KDD Cup 99, which is also public~\cite{al-athbaal-kddcup99}.
+The dataset contains 41 features and one label, classifying the attacks into either normal traffic, or one of the four represented classes of attacks:
+\begin{itemize}
+    \item DoS attacks---high traffic volume from a (or multiple) host to another;
+    \item User to Root (U2R)---privilege escalation to gain access to a root account in the system (password sniffing or guessing, brute force, ...);
+    \item Remote to Local (R2L)---malicious incoming traffic over the network to gain local user access (exploit, ...)
+    \item Probing attacks---information gathering by sending requests (nmap, ...).
+\end{itemize}
+The dataset has however been improved in 2009 as NSL-KDD, to cope with the shortcomings of the original version, namely redundant records, and low difficulty~\cite{Tavallaee2009}.
+Multiple papers use this NSL-KDD version \cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,fan_IoTDefenderFederatedTransfer_2020,rahman_InternetThingsIntrusion_2020,qin_FederatedLearningBasedNetwork_2021,al-athbaal-marri_FederatedMimicLearning_2020,kim_CollaborativeAnomalyDetection_2020}, separated in two datasets Train+ and Test+, which contain 125,973 and 22,544 records, respectively.
+More recent datasets have also been used for \gls{it} use cases, like CICIDS2017~\cite{Sharafaldin2018} in \cite{fan_IoTDefenderFederatedTransfer_2020,zhao_MultiTaskNetworkAnomaly_2019,qin_LineSpeedScalableIntrusion_2020a}.
+\textcite{chen_Networkanomalydetection_2020b} use both, as a way to increase the heterogeneity of input data.
+They also add the WSN-DS dataset~\cite{Almomani2016} to target wireless communication.
+
+Some works address specifically the issue of \gls{iot} devices, which introduce a new whole set of constraints.
+They have little performance, poor patching capabilities, often weak encryption and authentication mechanisms \cite{Neshenko2019}.
+Furthermore, their heterogeneity and sporadic traffic make \gls{ids} be less efficient and/or inadequate~\cite{Chaabouni2019,nguyen_DIoTFederatedSelflearning_2019}.
+These characteristics make common dataset inefficient to train detection models tailored for the \gls{iot}.
+As a response to this, both \textcite{pahl_AllEyesYou_2018} and \textcite{nguyen_DIoTFederatedSelflearning_2019} generated their own dataset.
+In \cite{nguyen_DIoTFederatedSelflearning_2019}, the authors generated from 33 "from the shelf" IoT devices (cameras, light bulbs, routers, home assistants...) recorded during their different phases of operation (On, Off, user activity...).
+Three datasets have been generated:
+\begin{itemize}
+    \item \emph{activity}: execute the user interactions 20 times for each device.
+Some devices are not submitted to user interactions, so the dataset only provides standby traffic.
+    \item \emph{real-life}: 11 devices are deployed in a "smart home" configuration with real users which interacted with the devices over a week
+    \item \emph{attack}: The Mirai malware was deployed in the selected devices to characterize the different phases of the malware (pre-infection, infection, scanning, and DDOS)
+\end{itemize}
+The dataset is not published yet\footnote{The authors have been contacted on June 7 (2021), and stated that the anonymization of the data is still in progress.}.
+\textcite{pahl_AllEyesYou_2018} used another approach to generate their dataset, by using the \gls{vsl} middleware.
+The dataset has been published on Kaggle~\cite{ds2os2018}.
+7 VSL microservices are monitored in four different sites over 24 hours.
+Two datasets have been created, using different periodicities for their services.
+The first one contains anomalous accesses, the second DoS attacks.
+In total, 7 attack classes are represented, which corresponds to 3 percent of the dataset.
+From the data provided by VSL are extracted 8 features: addresses and types for source and destination (4 features), operation, data type, value, and timestamp.
+A computed \emph{periodicity} is added afterward to the features (\Cref{sec:sota.quali.data}).
+
+While public datasets are not always available, especially recent topics like \gls{iot}~\cite{nguyen_DIoTFederatedSelflearning_2019}, they ensure the reproducibility of experiments, and comparison with the state of the art.
+The data sets generated need to be shared so that the community is able to validate the results.
+Reproducibility is currently a major hurdle for \gls{fids} research.
+
+
+\subsubsection{Costs and metrics}
+\label{sec:sota.quali.metrics}
+
+Researchers use metrics in the literature to assess, validate, and compare their solutions.
+In this work, metrics are divided in three categories that follow the life cycle of \glspl{fids}: training, federation, and execution.
+
+While training \gls{dl} models, most \gls{ml} frameworks use and display training loss and training accuracy, that are used to adapt the model's weights at each epoch.
+When plotted on a time-based frame (time, epochs, or rounds in case of \gls{fl}), these metrics show the evolution of the model's training.
+It can be used to measure the convergence time of the model, often characterized as obtaining an accuracy above a defined threshold (\eg 90\% in \cite{chen_Networkanomalydetection_2020b}), or with the percentage of loss improvement between two epochs (\eg 0.01 in \cite{kim_CollaborativeAnomalyDetection_2020}). Training time also serve as a comparison between approaches~\cite{schneble_Attackdetectionusing_2019}, even though it depends a lot on the underlying hardware architecture. Finally, it can be used as a metric to select other hyper-parameters, such as the number of epochs in \cite{liu_BlockchainFederatedLearning_2021}.
+
+\textcite{li_DeepFedFederatedDeep_2020b} summed training time and communication time at each round in a unique metric \emph{time cost}.
+This overall training cost is justified by their constrained environment, where resources are very limited.
+Therefore, instead of reaching for maximum accuracy, the authors fix the accuracy as a target and iterate on hyper- and meta-parameters (\eg learning rate, epochs per round) to find the lowest \emph{time cost}.
+
+
+Algorithm complexity and resource consumption are also relevant metrics to measure local training costs.
+Constrained use cases like \gls{iot} require complex algorithm to run on resource-limited devices.
+In \cite{pahl_AllEyesYou_2018}, the authors also study complexity to choose \gls{birch} clusters instead of K-means, as updating the former is easier---\(\mathcal{O}(d)\) vs \(\mathcal{O}(n*d)\), where \(d\) is the dataset size.
+
+Hardware-related resources are used by \cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,zhao_MultiTaskNetworkAnomaly_2019}, mostly to emphasize differences between their approach and another, often more standard one.
+These resources often include CPU, disk and memory usage, as well as energy consumption.
+However, evaluating hardware-related metrics requires experiments to be implemented using the same hardware and software stacks.
+Hardware- and energy-based metrics are especially relevant in constrained scenarios~\cite{nguyen_DIoTFederatedSelflearning_2019,schneble_Attackdetectionusing_2019}, whereas training time is relevant for most use case, while not a priority.
+When these measures are collected on reference hardware, it can also be used to evaluate the feasibility of the approach, as in \cite{nguyen_DIoTFederatedSelflearning_2019}, if the hardware matches the deployment constraints of the study.
+
+Federation-related metrics are heavily tied to the communication between clients, or with a server.
+The communication overhead is a core metric of \glspl{fids}, as high bandwidth consumption is a drawback of \glspl{cids} (see \Cref{chall:latency}), especially in constrained environments~\cite{qin_LineSpeedScalableIntrusion_2020a}.
+The overhead is often measured in bytes, either per packets~\cite{pahl_AllEyesYou_2018}, or for the total of all communications~\cite{schneble_Attackdetectionusing_2019,zhang_BlockchainbasedFederatedLearning_2020}.
+
+Metrics must be adapted to the specificities of each solution, for instance when adding a feature.
+Consequently, \textcite{zhang_BlockchainbasedFederatedLearning_2020} add specific metrics in their evaluation to measure the impact of using the blockchain, like the time of the \emph{blockchain encoring process}.
+Some works \cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,li_DeepFedFederatedDeep_2020,chen_Networkanomalydetection_2020,fan_IoTDefenderFederatedTransfer_2020,rahman_InternetThingsIntrusion_2020,Sun2020,al-athbaal-marri_FederatedMimicLearning_2020,Popoola2021}, on the other hand, do not cover federation-related metrics in their evaluation, which is questionable as it is a critical part of \glspl{fids}.
+
+Finally, execution-related metrics are mostly focused on performance, and often come from the \gls{ml} community.
+As shown in \Cref{tbl:selected.perf}, \emph{accuracy} is used by almost all reviewed works, followed by \emph{precision} and \emph{recall}.
+Researchers often use accuracy to compare their results with related works.
+Accuracy can be completed by \emph{fallout}, \emph{specificity}, and \emph{miss rate} (\Cref{sec:background.metrics}).
+
+
+More performance metrics can be derived from these, like \emph{F1-score}, or the \gls{auc}.
+The latter is obtained from the \gls{roc} curve, which is used to evaluate binary classification algorithms~\cite{pahl_AllEyesYou_2018,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,nguyen_DIoTFederatedSelflearning_2019}.
+\Gls{mcc} is another popular metric for binary classification tasks, and considered by some as the best metric for this use case~\cite{Chicco2020}.
+It is used in \cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019}.
+Finally, the confusion matrix is used by \cite{zhao_MultiTaskNetworkAnomaly_2019,al-athbaal-marri_FederatedMimicLearning_2020,chen_Networkanomalydetection_2020b,Sun2021}.
+It allows a visualization of classification performance by opposing predicted classes against the real ones.
+While critical in intrusion detection tasks, the miss rate is never directly addressed by the selected works, as the author often prefer the related \emph{recall} metric.
+
+Other execution metrics like execution time are considered, as it can be critical for intrusion detection tasks.
+Latency allows a comparison between different architectures, especially \emph{centralized}, \emph{distributed}, and \emph{decentralized}~\cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019}.
+Latency is also relevant for highly constrained setups, as in \cite{qin_LineSpeedScalableIntrusion_2020a}.
+As pointed out in \Cref{sec:sota.quali.location}, \emph{\gls{ml} location} can have an impact on data collection, but also on detection latency, if data need to travel over network to be analyzed.
+
+Execution metrics are only relevant when comparing works that share implementation.
+Such comparison is often performed by reimplementing a selection of related works.
+They can also be used to highlight differences between approaches, like between \emph{local}, \emph{federated}, and \emph{ideal} models~\cite{li_DeepFedFederatedDeep_2020,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019}.
