@@ -55,6 +55,20 @@
   in = {\emph{in}}%
 }
 
+% Et al. in italics
+% see: https://tex.stackexchange.com/a/40816
+\renewbibmacro*{name:andothers}{% Based on name:andothers from biblatex.def
+  \ifboolexpr{
+    test {\ifnumequal{\value{listcount}}{\value{liststop}}}
+    and
+    test \ifmorenames
+  }
+    {\ifnumgreater{\value{liststop}}{1}
+       {\finalandcomma}
+       {}%
+     \andothersdelim\bibstring[\emph]{andothers}}
+    {}}
+
 
 %% RESEARCH QUESTIONS
 

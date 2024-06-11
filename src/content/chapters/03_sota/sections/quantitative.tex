@@ -48,7 +48,7 @@ For instance, \textcite{li_DeepFedFederatedDeep_2020} use homomorphic encryption
 Aside from security, variations of \gls{hfl} started to appear in 2021, such as segmented \gls{fl} in
 \cite{sun_AdaptiveFederatedLearning_2020}, as standard \gls{hfl} has significantly been studied for \gls{fids}.
 
-Finally, the numerous literature reviews published since 2021~\cite{agrawal_FederatedLearningIntrusion_2021,alazab_FederatedLearningCybersecurity_2021,campos_EvaluatingFederatedLearning_2022,lavaur_EvolutionFederatedLearningbased_2022,fedorchenko_ComparativeReviewIntrusion_2022,ghimire_RecentAdvancesFederated_2022,ismaila_ReviewApproachesFederated_2024} show the
+Finally, the numerous literature reviews published since 2021~\cite{agrawal_FederatedLearningintrusion_2022,alazab_FederatedLearningCybersecurity_2021,campos_EvaluatingFederatedLearning_2022,lavaur_EvolutionFederatedLearningbased_2022,fedorchenko_ComparativeReviewIntrusion_2022,ghimire_RecentAdvancesFederated_2022,ismaila_ReviewApproachesFederated_2024} show the
 continuous interest of the community for the study of \glspl{fids}.
 These also show the need for synthesis and structuring of research in this area.
 
@@ -57,7 +57,7 @@ These also show the need for synthesis and structuring of research in this area.
 
 The initial study published in 2022~\cite{lavaur_EvolutionFederatedLearningbased_2022} observed very few recurring venues for the publication of \gls{fids} research.
 Indeed, only three venues had more than one publication on the topic: the \emph{IEEE Internet of Things Journal}~\cite{popoola_FederatedDeepLearning_2021,zhang_BlockchainbasedFederatedLearning_2020}, \emph{IEEE
-Access}~\cite{chen_IntrusionDetectionWireless_2020,li_DistributedNetworkIntrusion_2020}, and the \emph{IEEE BIGDATA} conference~\cite{cetin_FederatedWirelessNetwork_2019,fan_IoTDefenderFederatedTransfer_2020}.
+Access}~\cite{chen_IntrusionDetectionWireless_2020,li_DistributedNetworkIntrusion_2020}, and the \emph{IEEE BigData} conference~\cite{cetin_FederatedWirelessNetwork_2019,fan_IoTDefenderFederatedTransfer_2020}.
 The original distribution in terms of venue type (11 conferences, 10 journals and 1 book chapter) has significantly changed, since journals represent two thirds of the publications.
 This is a probable sign of the field gaining maturity, as publishing in conferences first and journals afterward is a common strategy.
 \Cref{fig:sota.venues} shows the distribution of the publications in the most recurring venues.
@@ -75,6 +75,7 @@ Another observation of the initial study was the diversity of the venues, spanni
 This diversity is still present in the most recent publications, although a few generic venues now host significantly more publications: the \emph{IEEE Internet of Things Journal}, \emph{IEEE Access} and \emph{Computers \& Security}.
 The latter is the first security-specific venue to appear in the list.
 Its place in the top venues is a sign of the increasing interest of the security community for \gls{fl} and \gls{fids}, as most contributions were previously published in more use-case specific venues.
+Lastly, while relevant venues have been accepting \gls{fl} literature since its introduction, they start to host specific tracks or special issues, such as ICDCS's track on "Federated Learning, Analytics, and Deployment", or IEEE BigData's "Special Session on Federated Learning on Big Data".
 
 
 \subsection{Active Groups\label{sec:sota.quanti.authors}}
@@ -86,7 +87,7 @@ The two collaborated, bringing \texttt{FLGUARD}~\cite{nguyen_FLGUARDSecurePrivat
 These series of works makes them one of the most impactful groups in the field.
 
 Other noteworthy groups include the Aalto University (Finland)~\cite{nguyen_FLGUARDSecurePrivate_2021} and the University of Tokyo (Japan)~\cite{sun_AdaptiveFederatedLearning_2020,sun_AdaptiveIntrusionDetection_2021,qin_FederatedLearningBasedNetwork_2021}.
-But the most active country remains China, with a dozen institutions now amounting to a third of the publications in the field, as illustrated by \Cref{fig:sota.countries,fig:sota.affiliations}.
+The most active country remains China, with a dozen institutions now amounting to a third of the publications in the field, as illustrated by \Cref{fig:sota.countries,fig:sota.affiliations}.
 
 
 \begin{figure}
@@ -150,14 +151,6 @@ Other applications stand out, such as \gls{ics} (\texttt{industrial}, \texttt{ii
 These applications also correlate with the venues identified in \Cref{sec:sota.quanti.venues}, as the \emph{IEEE Internet of Things Journal} or the \emph{IEEE Trans. on Industrial Informatics} do focus on \gls{iot} and \gls{ics}, respectively.
 \Cref{fig:sota.domains} depicts the distribution of the publications by domain overall.
 
-Likewise, some topics are directly associated with the challenges identified in \Cref{sec:sota.discuss.open}.
-For instance, Topic 0 (\texttt{poisoning}, \texttt{defense}, \texttt{malicious}) represents works focusing on adversarial attacks against \glspl{fids} and their mitigation. 
-Some techniques can also be extracted from these results.
-For instance, Topic 0 also contains \texttt{similarity} as a keyword, which probably refers to the use of similarity metrics to detect poisoning attacks, one of the most represented mitigation techniques in the literature on \gls{fids}~\cite{yang_Dependablefederatedlearning_2023} or \gls{fl} alike~\cite{fung_LimitationsFederatedLearning_2020,nguyen_FLAMETamingBackdoors_2022}.
-\Cref{fig:sota.challenges} depicts the distribution of the addressed challenges over time.
-Unlike the distribution of the publications by domain, some challenges are addressed in the literature much later, such as handling the heterogeneity of the data (\Cref{chal:heterogeneity}) or resisting to adversarial attacks (\Cref{chal:adversarial}).
-Both are challenges that have been identified in the initial study as open issues in the field~\cite{lavaur_EvolutionFederatedLearningbased_2022,lavaur_Federatedlearningenabler_2022}.
-
 \begin{figure}
   \centering
   \begin{subfigure}{0.48\textwidth}
@@ -182,3 +175,12 @@ Both are challenges that have been identified in the initial study as open issue
     \label{fig:sota.challenges-domains}
   }
 \end{figure}
+
+Likewise, some topics are directly associated with the challenges identified in \Cref{sec:sota.discuss.open}.
+For instance, Topic 0 (\texttt{poisoning}, \texttt{defense}, \texttt{malicious}) represents works focusing on adversarial attacks against \glspl{fids} and their mitigation. 
+Some techniques can also be extracted from these results.
+For instance, Topic 0 also contains \texttt{similarity} as a keyword, which is likely to refer to the use of similarity metrics to detect poisoning attacks.
+This is indeed one of the most represented mitigation techniques in the literature on \gls{fids}~\cite{yang_Dependablefederatedlearning_2023} or \gls{fl} alike~\cite{fung_LimitationsFederatedLearning_2020,nguyen_FLAMETamingBackdoors_2022}.
+\Cref{fig:sota.challenges} depicts the distribution of the addressed challenges over time.
+Unlike the distribution of the publications by domain, some challenges are addressed in the literature much later, such as handling the heterogeneity of the data (\Cref{chal:heterogeneity}) or resisting to adversarial attacks (\Cref{chal:adversarial}).
+Both are challenges that have been identified in the initial study as open issues in the field~\cite{lavaur_EvolutionFederatedLearningbased_2022,lavaur_Federatedlearningenabler_2022}.

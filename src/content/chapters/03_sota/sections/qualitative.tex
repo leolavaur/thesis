@@ -75,19 +75,19 @@ Each class represents a building block, for which multiple approaches exist depe
 
 The proposed taxonomy contains 12 classes describing the selected works that span over five main aspects:
 \begin{itemize}
-  \item Two classes cover the topic of \textbf{Data}: \emph{Data source \& type} and \emph{Preprocessing}.
-  It defines the type of data considered, how it is collected, and the preprocessing strategies that are used.
+  \item Two classes cover the topic of \textbf{Data}: \emph{\nameref*{sec:sota.quali.data}} and \emph{\nameref*{sec:sota.quali.preprocess}}.
+  It defines the type of data considered and how it is distributed among clients, how it is collected, and the preprocessing strategies that are used.
   
-  \item \textbf{Local operation} is represented by 3 classes: \emph{ML location}, \emph{Local algorithms}, and \emph{Defense capabilities}.
+  \item \textbf{Local operation} is represented by 3 classes: \emph{\nameref*{sec:sota.quali.location}}, \emph{\nameref*{sec:sota.quali.alg}}, and \emph{\nameref*{sec:sota.quali.defense}}.
   It describes the detection and mitigation strategies, how models are built and trained, and where the computing resources are located.
   
-  \item The \textbf{Federation} aspect is covered by 2 classes: \emph{Federation strategy} and \emph{Communication}.
+  \item The \textbf{Federation} aspect is covered by 2 classes: \emph{\nameref*{sec:sota.quali.fed}} and \emph{\nameref*{sec:sota.quali.comm}}.
   They refer to the communication between the agents and the server, and how data sharing is organized.
   
-  \item \textbf{Aggregation} is also covered by 3 classes: \emph{FL type}, \emph{Aggregation strategy}, and \emph{Model target}.
+  \item \textbf{Aggregation} is also covered by 3 classes: \emph{\nameref*{sec:sota.quali.type}}, \emph{\nameref*{sec:sota.quali.agg}}, and \emph{\nameref*{sec:sota.quali.target}}.
   It describes the type of \gls{fl} used, how the models are merged, in accordance with the objectives of the system.
   
-  \item Finally, 2 classes define the \textbf{Experimentation} topic: \emph{Analyzed dataset} and \emph{Costs and metrics}.
+  \item Finally, 2 classes address the \textbf{Experimentation} topic: \emph{\nameref*{sec:sota.quali.dataset}} and \emph{\nameref*{sec:sota.quali.metrics}}.
   This meta-category does not relate to the proposed solution, but to how the experiments are performed.
 \end{itemize}
 
@@ -104,59 +104,110 @@ It gives partial answers to research questions about the components of \glspl{fi
 \begin{table}[]
   \centering
   \caption{
-    Comparative overview of selected works---approach and objectives (1/2)
-    \label{tbl:sota.comp}
-  }
+    Comparative overview of selected works in the original study---approach and objectives (1/2)%
+    \label{tbl:sota.comp}%
+  }%
   \resizebox{\textwidth}{!}{\input{figures/table-comp.tex}}
 \end{table}
+
+
+\subsubsection{Data Source and Distribution\label{sec:sota.quali.data}}
+
+The selected works highlight two main characteristics of the training data that impact the design of \glspl{fids}: the origin of the data and its distribution among clients.
+The type of data used in the selected works is diverse, ranging from network traffic~\cite{chen_Networkanomalydetection_2020,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019} to sensor values~\cite{zhang_BlockchainbasedFederatedLearning_2020,schneble_Attackdetectionusing_2019}.
+The former is significantly more represented, probably due to the availability of public datasets like CICIDS2017~\cite{sharafaldin_GeneratingNewIntrusion_2018} and UNSW-NB15~\cite{moustafa_UNSWNB15comprehensivedata_2015} (see \Cref{sec:sota.quali.dataset}).
+
+Most papers \cite{chen_Networkanomalydetection_2020,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,nguyen_DIoTFederatedSelflearning_2019,li_DeepFedFederatedDeep_2020,rahman_InternetThingsIntrusion_2020,sun_IntrusionDetectionSegmented_2020,popoola_FederatedDeepLearning_2021a,hei_trustedfeatureaggregator_2020} use similar network features, such as source and destination, local and remote ports, TCP flags, protocol, and packet length.
+The authors of \cite{qin_LineSpeedScalableIntrusion_2020a} also target network features but at packet-level, all translated to 1D vectors: IP addresses, layer-4 protocol, ports, and IP packet length as a 120-bit input vector.
+\textcite{li_DeepFedFederatedDeep_2020} also explore network-related features in their use case of satellite communications.
+These values can be completed with preprocessing (see \Cref{sec:sota.quali.preprocess}) to extract other features from the raw data.
+For instance, both \textcite{pahl_AllEyesYou_2018} and \textcite{nguyen_DIoTFederatedSelflearning_2019} analyze the periodicity of packets, which is notably useful for volumetric attack detection.
+By using a middleware to classify the data, \textcite{pahl_AllEyesYou_2018} can train per-class models.
+Such models are more specialized and thus more accurate, but most communication layers do not provide such metadata.
+Training per-class models usually requires then a prior classification step, like in \cite{nguyen_DIoTFederatedSelflearning_2019}.
+The use of specialized models is further discussed in \Cref{sec:sota.quali.target}.
+
+On the other hand, \textcite{zhang_BlockchainbasedFederatedLearning_2020} and \textcite{schneble_Attackdetectionusing_2019} use sensor values, such as hearth rate and oxygen saturation.
+In this case, one does not seek to detect intrusions per se, but rather anomalies in the data that could indicate a malfunction or an attack.
+The observed data can be seen as a side-channel, leaking information about the actions of potential attackers.
+More recently, \gls{fl} has been applied to \glspl{hids}~\cite{guo_NewFederatedLearning_2023}, were similar considerations apply, particularly in terms of data distribution.
+
+Finally, even when considering the same data type, use cases introduce significant differences in the available features.
+For instance, two systems targeting the communication between devices may encounter different protocols, services, and even communication support.
+In the literature, the most common use cases are (sorted by representation): \acrfull{it}, \acrfull{iot}, \acrfull{cps}, and \acrfull{av}.
+While it is unlikely that a system would target multiple use cases, discrepancies in the data distribution can exist within a single use case.
+\textcite{chen_Networkanomalydetection_2020}, and partly \textcite{hei_trustedfeatureaggregator_2020}, address the topic of skewed data distribution.
+A non-\gls{iid} data distribution can negatively impact training performance~\cite{yang_FederatedMachineLearning_2019}.
+However, most real-world scenarios generate non-\gls{iid} data, which is a major drawback of the selected works, as most of them do not address this issue.
+
+
+\subsubsection{Preprocessing\label{sec:sota.quali.preprocess}}
+
+
+
+
+In addition to the type of data considered, the preprocessing pipeline has a significant impact on the performance of the system.
+Preprocessing implies the transformation of raw data into a format that can be better leveraged by \gls{ml} models, either by extracting new features or by reducing the dimensionality of the data.
+Three main non-exclusive approaches are distinguishable in the selected works: feature extraction, feature embedding, and feature selection:
+\begin{itemize}
+  \item \emph{Feature extraction} refers to the computation of numerical characteristics after the data collection; \eg \gls{iat} or number of packets per device in the context of traffic monitoring.
+  For instance, both \textcite{nguyen_DIoTFederatedSelflearning_2019} and \textcite{pahl_AllEyesYou_2018} extract periodicity features from the data.
+  Because they only process binary features, \textcite{qin_LineSpeedScalableIntrusion_2020a} extract numerical features, and convert them to 1D vectors.
+  
+  \item \emph{Feature embedding} or \emph{dimensionality reduction} is used for algorithms that do not deal efficiently with high-dimensional vectors.
+  We mostly use the term \emph{embedding} when the authors use \gls{dl} techniques, as it implies that the model learns the best representation of the data, such as with autoencoders~\cite{chen_Networkanomalydetection_2020}.
+  Other \emph{dimensionality reduction} techniques include \gls{pca}, used for example by \textcite{kim_CollaborativeAnomalyDetection_2020}.
+
+  \item \emph{Feature selection} relates to the automated selection of relevant features, before learning.
+  The authors of \cite{qin_FederatedLearningBasedNetwork_2021} use a greedy feature selection algorithm based on accuracy.
+  Logistic regression-based selection~\cite{al-athbaal-marri_FederatedMimicLearning_2020} can also be used to eliminate features with a recursive algorithm.
+\end{itemize}
+
+The other works~\cite{zhang_BlockchainbasedFederatedLearning_2020,schneble_Attackdetectionusing_2019,li_DeepFedFederatedDeep_2020,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019} do not emphasize on their feature selection strategy.
+Moreover, some papers \cite{li_DeepFedFederatedDeep_2020,schneble_Attackdetectionusing_2019,zhao_MultiTaskNetworkAnomaly_2019} use datasets that contains computed features (\labelcref{sec:sota.quali.dataset}).
+For experiments on live prototypes, feature computation is required.
+
+Depending on the use case, additional features after \emph{feature selection} or \emph{extraction} may vary.
+Network analysis often relies on basic features, such as addresses and ports for source and destination, protocol, data type, packet length, and timestamp.
+However, these characteristics can also vary regarding their provenance: network capture~\cite{kddcup99,tavallaee_detailedanalysisKDD_2009} or abstracted communications~\cite{pahl_AllEyesYou_2018}.
+Extracted features are very common, such as inter-packet time, bytes sent per host, or bytes per packets~\cite{buczak_SurveyDataMining_2016,chaabouni_NetworkIntrusionDetection_2019}.
+For instance, both \textcite{nguyen_DIoTFederatedSelflearning_2019} and \textcite{pahl_AllEyesYou_2018} target \gls{iot} devices, which have a sporadic, but periodic and thus more predicable traffic.
+In this context, anomaly in the packet-sequence, or in the inter-arrival time might indicate an attack.
+
+Usage-based analysis, on the other hand, is entirely dependent on the monitored device.
+\textcite{schneble_Attackdetectionusing_2019} monitor health-related features, like arterial blood pressure or the raw ECG signals.
+The authors of \cite{zhang_BlockchainbasedFederatedLearning_2020} focus on air conditioners, and therefore measure related information such as water or air temperature.
+
+
+\subsubsection{Algorithm location\label{sec:sota.quali.location}}
+
+The proposed taxonomy (\labelcref{fig:sota.taxonomy}) considers three types of locations: on-device, on-gateway, and on-server.
+However, a large majority of the literature concerns either on-device training, or uses a dedicated device acting as a gateway.
+Most selected works use a dedicated device to perform the analysis, while the others assume the devices can support their own processing.
+The on-server processing is not represented here, since it does not suit the definition of \gls{fl}.
+Some hybrid approaches are also represented, with multi-stage aggregation~\cite{liu_BlockchainFederatedLearning_2021}.
+
+The device types and architectural choices are mostly dicted by the chosen use case.
+For instance, \textcite{zhang_BlockchainbasedFederatedLearning_2020} focus on a medical use case where the analyzed data is composed solely of sensor outputs (\Cref{sec:sota.quali.data}).
+Connected sensors are typically lightweight devices unable to process data.
+Thus, they require a gateway to be usable.
+Most works~\cite{li_DeepFedFederatedDeep_2020,chen_Networkanomalydetection_2020,schneble_Attackdetectionusing_2019,zhao_MultiTaskNetworkAnomaly_2019,al-athbaal-marri_FederatedMimicLearning_2020,kim_CollaborativeAnomalyDetection_2020,chen_Networkanomalydetection_2020,popoola_FederatedDeepLearning_2021a} rely on gateways because they are more suitable for traffic analysis.
+It allows to capture all communications, even if the devices are connected with different supports (\eg, IEEE 802.3 \vs IEEE 802.11).
+Gateway-based processing can also be motivated by the architecture of the monitored system.
+For instance, the authors of \cite{fan_IoTDefenderFederatedTransfer_2020} reuse the existing infrastructure of 5G by exploiting \gls{mec} gateways to capture traffic and perform analysis for a 5G \gls{iot} use case.
+
+
+
+\subsubsection{Local Algorithm\label{sec:sota.quali.alg}}
 
 \begin{table}[]
   \centering
   \caption{
-    Comparative overview of selected works---algorithms and performance (2/2)
-    \label{tbl:selected.perf}
-  }
+    Comparative overview of selected works in the original study---algorithms and performance (2/2)%
+    \label{tbl:selected.perf}%
+  }%
   \resizebox{\textwidth}{!}{\input{figures/table-perf.tex}}
 \end{table}
-
-\subsubsection{Data Source and Type\label{sec:sota.quali.data}}
-
-Depending on the use case, we observe two main approaches in the selected works.
-In the first one~\cite{zhang_BlockchainbasedFederatedLearning_2020,schneble_Attackdetectionusing_2019}, the model is trained on the sensors' values.
-While they are not represented in the initial selection, this is closer to \glspl{hids} in operation.
-For instance, since~\cite{zhang_BlockchainbasedFederatedLearning_2020} targets medical devices, their values include hearth rate and oxygen saturation.
-The opposite strategy operates at a higher level of abstraction, independent of the values, and rather focuses on the communication between devices using network traffic, just like \glspl{nids}.
-Most papers \cite{chen_Networkanomalydetection_2020,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,nguyen_DIoTFederatedSelflearning_2019,li_DeepFedFederatedDeep_2020,rahman_InternetThingsIntrusion_2020,sun_IntrusionDetectionSegmented_2020,popoola_FederatedDeepLearning_2021a,hei_trustedfeatureaggregator_2020} use similar network features, such as source and destination, local and remote ports, TCP flags, protocol, and packet length.
-The authors of \cite{qin_LineSpeedScalableIntrusion_2020a} also target network features but at packet-level, all translated to 1D vectors: IP addresses, layer-4 protocol, ports, and IP packet length as a 120-bit input vector.
-\textcite{li_DeepFedFederatedDeep_2020} also explore network-related features in their use case of satellite communications.
-
-These values can be completed with preprocessing (see \Cref{sec:sota.quali.preprocess}) to extract other features from the raw data.
-For instance, both \textcite{pahl_AllEyesYou_2018} and \textcite{nguyen_DIoTFederatedSelflearning_2019} analyze the periodicity of packets, which is notably useful for volumetric attack detection.
-Furthermore, both work target \gls{iot} devices, which have a sporadic, but periodic and thus more predicable traffic.
-In this context, anomaly in the packet-sequence, or in the inter-arrival time might indicate an attack.
-While following a similar approach, \gls{ftl} allows the authors of \cite{fan_IoTDefenderFederatedTransfer_2020} to address different features in each client's dataset.
-
-Finally, using a middleware to classify the data, \textcite{pahl_AllEyesYou_2018} can train per-class models with high accuracy.
-However, most solutions do not provide such metadata.
-Training per-class models requires then a prior classification step, like in \cite{nguyen_DIoTFederatedSelflearning_2019}.
-
-Additionally, even when considering the same data type, use cases introduce significant differences in the available features.
-For instance, two systems targeting the communication between devices may encounter different protocols, services, and even communication support.
-In the literature, the most common use cases are (sorted by representation): \acrfull{it}, \acrfull{iot}, \acrfull{cps}, and \acrfull{av}.
-
-% The work of \textcite{liu_BlockchainFederatedLearning_2021} is the only representative of the \gls{av} use case, although they do not use an according dataset.
-% In fact, they train their model on network traffic, with similar features to \cite{rahman_InternetThingsIntrusion_2020,chen_Networkanomalydetection_2020,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,fan_IoTDefenderFederatedTransfer_2020}.
-% With also similar features, \textcite{li_DeepFedFederatedDeep_2020b} apply \gls{fids} to the very specific use case of \gls{stin}.
-
-Finally, \cite{chen_Networkanomalydetection_2020}, and partly  \cite{hei_trustedfeatureaggregator_2020}, address data distribution, especially knowing whether data are \gls{iid}.
-A non-\gls{iid} data distribution can negatively impact training performance~\cite{Yang2019}.
-However, most real-world scenarios generate non-\gls{iid} data, which is a major hurdle for algorithm that require to be trained on live data with non-supervised approaches.
-
-\subsubsection{Preprocessing\label{sec:sota.quali.preprocess}}
-
-\subsubsection{Algorithm location\label{sec:sota.quali.location}}
-
-\subsubsection{Local Algorithm\label{sec:sota.quali.alg}}
 
 \subsubsection{Defense Mechanism\label{sec:sota.quali.defense}}
 
@@ -170,6 +221,6 @@ However, most real-world scenarios generate non-\gls{iid} data, which is a major
 
 \subsubsection{Model Target\label{sec:sota.quali.target}}
 
-\subsubsection{Analysed Dataset\label{sec:sota.quali.dataset}}
+\subsubsection{Analyzed Dataset\label{sec:sota.quali.dataset}}
 
 \subsubsection{Costs and Metrics\label{sec:sota.quali.metrics}}
