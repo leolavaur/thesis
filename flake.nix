@@ -29,6 +29,8 @@
           default = pkgs.mkShell {
             buildInputs = with pkgs; [
               texliveFull
+              flock
+              fswatch
             ];
           };
         };
