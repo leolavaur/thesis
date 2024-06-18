@@ -1,9 +1,118 @@
 \section{Discussion\label{sec:sota.discuss}}
 
-\subsection{Synthesizing the State of the Art\label{sec:sota.discuss.synthesis}}
-% -> redondant with section V-A of the survey
+This section first discusses the limitations of this study, notably the number of selected papers and the methodology used.
+We then answer \Cref{rq:sota.open} by identifying the open issues and according research directions, and associate them with recent publications.
+
 
 \subsection{Limitations of this Study\label{sec:sota.discuss.limits}}
 
+The original review reviewed 22 technical papers about \glspl{fids}, selected using \gls{slr} methodology.
+This ensures that the selected papers are representative of existing works in this field.
+Other surveys in similar but broader fields worked with bigger quantities of papers; 231 in \cite{lo_SystematicLiteratureReview_2021} about \gls{fl}, or 95 in \cite{dacosta_InternetThingssurvey_2019} for \gls{ml}-based \glspl{ids}.
+Therefore, all conclusion extracted from the selected works must be put in perspective of the number of analyzed papers.
+
+Furthermore, \gls{slr} methodology guarantees the exhaustive aspect of the selection.
+However, relevant papers may have been missed; especially, edge--use-cases and unusual wording can exclude papers from the selection process.
+We expect the steps presented in \Cref{sec:sota.methodo} to mitigate this risk, notably snowballing.
+
+Moreover, the selected metrics give insight on the quality of the predictions, and more importantly the comparison between \gls{fids} and local detection, when provided.
+As the selected works target different use cases with different objectives, a performance metric-based comparison is less relevant.
+Using the same datasets, hardware and network configuration, and coding frameworks, a thorough reimplementation of the reviewed papers could provide significant contributions.
+
+Finally, the selected papers are from 2016 to 2021, and the field of \gls{fids} has been evolving rapidly.
+As noted in \Cref{sec:sota.methodo.extraction}, a significant number of papers were published since the end of data collection of the original review, including new literature reviews (see \Cref{sec:sota.related}).
+Therefore, the conclusions of this study may not be up-to-date.
+However, the conclusions of this study have provided a solid foundation for the other contributions of this thesis, and most identified trends and research directions are still relevant.
+
+
 \subsection{Open Issues and Future Directions\label{sec:sota.discuss.open}}
+
+As \gls{fl} is becoming more mature, new research tend focus either on side-aspects like security and privacy \cite{bonawitz_PracticalSecureAggregation_2017,fung_LimitationsFederatedLearning_2020,dong_EaSTFLyEfficientsecure_2020,nguyen_PoisoningAttacksFederated_2020b,mothukuri_surveysecurityprivacy_2021} or on its application to a specific use case, as do the works selected in this survey.
+This section reviews open questions identified by literature, and the proposed according research directions.
+Additionally, for each identified open issue, we provide relevant publications that have been published since the original review to complement the discussion.
+Some of these issues depend on works from other related fields, such as \gls{ml} for performance or \gls{fl} for scalability.
+However, the specificities of \glspl{fids} require dedicated research.
+Especially, the topics of security, trust, and heterogeneity are critical for a collaborative security use case.
+
+
+\paragraph{Performance}
+
+Like any detection system, \glspl{fids} are looking for an absolute performance: a system with a perfect classification score, producing no false positives or negatives.
+To this end, several research directions have been identified by the selected works, such as the use of \glspl{gan}~\cite{schneble_Attackdetectionusing_2019} or the improvement of feature selection as input to the model~\cite{sun_AdaptiveIntrusionDetection_2021}.
+More generally, there is a need for a better understanding of the impact of hyper- and meta-parameters on the performance of the system.
+This is especially true for \gls{fl}, where the aggregation process can be seen as an optimization problem in itself~\cite{charles_ConvergenceAccuracyTradeOffs_2021}; a problem for which the right parameters need to be inferred.
+Both \glspl{gan}~\cite{jin_FLIIDSnovelfederated_2024} and meta-learning for local data-sampling~\cite{he_6GenabledConsumerElectronics_2023} have been reviewed as potential solutions to this problem.
+
+
+\paragraph{Adaptability}
+
+Constrained environments like low-bandwidth networks, or low-powered devices, may also impact the ability of \gls{fl} to provide detection in a timely fashion (\Cref{chap:background}).
+Since the security of constrained devices is a growing concern, the selected works identify relevant research directions in this area, such as implementing compression algorithms~\cite{fan_IoTDefenderFederatedTransfer_2020} or globally reducing the number of computation rounds~\cite{rahman_InternetThingsIntrusion_2020}.
+Moreover, as time goes by, the training data can be easily become outdated.
+Updating strategies need to be studied to provide accurate results as time goes~\cite{fan_IoTDefenderFederatedTransfer_2020}, and adapt to changes in the traffic behavior \cite{qin_FederatedLearningBasedNetwork_2021}.
+This topic has been especially tackled in \glspl{fids} using incremental learning~\cite{jin_FederatedIncrementalLearning_2023}.
+
+
+\paragraph{Scalability}
+
+Distributed systems such as FL are often used to cope with resource limitations, especially in terms of computation and bandwidth.
+However, as pointed out by several selected works, FL faces limitations when dealing with too many clients~\cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,fan_IoTDefenderFederatedTransfer_2020}.
+Therefore, \glspl{fids} require further research regarding client selection: performance-, time-, or reputation-based~\cite{cunhaneto_FedSBSFederatedLearningparticipantselection_2024}.
+Moreover, in massively distributed federations, the aggregation process can become a bottleneck.
+In such settings, researchers and practitioners might consider using hierarchical aggregation or even complete decentralization of the system.
+A few decentralized \glspl{fids} approaches have been proposed since~\cite{friha_2DFIDSDecentralizeddifferentially_2023}.
+
+
+\paragraph{Heterogeneity and Transferability}
+
+The approaches presented in the initial review mostly consider that all local models share the same architecture and hyper-parameters, use data from the same domain, and that all clients possess similar resources.
+These limitations hurdle convergence, and more generally make current \glspl{fids} less versatile and transferable.
+Hence, open issues include allowing the federation of cross-domain clients~\cite{li_DeepFedFederatedDeep_2020}.
+As pointed out in \Cref{sec:sota.quali.data}, the features selected for model training have to be applicable to multiple environments.
+Transfer learning~\cite{saha_FederatedTransferLearning_2021,shen_DistributedMachineLearning_2020} and its federated variant \gls{ftl}~\cite{chen_IntrusionDetectionWireless_2020,fan_IoTDefenderFederatedTransfer_2020} have been applied to similar domains in the past, and might also represent a favorable direction for future research in terms of adaptability.
+Since the submission of this study, multiple papers~\cite{otoum_FederatedTransferLearningBased_2021,khoa_DeepTransferLearning_2021,cheng_FederatedTransferLearning_2022} have been published in this direction.
+
+
+\paragraph{Security and Privacy}
+
+The broad attack surface of \gls{fl} directly applies to \glspl{fids}, raising concerns about poisoning, inference, or model extraction.
+The selected works already address some of these issues by leveraging homomorphic encryption to secure the aggregation process~\cite{li_DeepFedFederatedDeep_2020,li_DistributedNetworkIntrusion_2020}. 
+Others identify this aspect as potential future works~\cite{chen_IntrusionDetectionWireless_2020}, with countermeasures like \gls{mpc} or \gls{dp}.
+Furthermore, as \gls{ml}, and especially \gls{dl}, lacks explainability, the content of a model is difficult to infer. 
+It complicates the detection of poisoning attacks, as it is hard to distinguish between a model that has been poisoned and one that has been trained on a different dataset.
+Poisoning has recieved a lot of attention in the literature of \gls{fl}~\cite{fung_LimitationsFederatedLearning_2020,nguyen_PoisoningAttacksFederated_2020b,nguyen_FLAMETamingBackdoors_2022}, and some works have been published in the context of intrusion detection too~\cite{yang_Dependablefederatedlearning_2023,merzouk_Parameterizingpoisoningattacks_2023}.
+
+
+\paragraph{Trust and Reputation}
+
+Following the same line of thought, the trustworthiness of the participants is a critical aspect of \glspl{fids}.
+Malicious participants can indeed impact the model and the detection process.
+More generally, the quality of the participants' contributions must be controlled to ensure the quality of the aggregated model.
+\textcite{zhang_BlockchainbasedFederatedLearning_2020} identify assessing the trustworthiness of the participants as a future research direction.
+Inspiration should be taken from the state of the art of collaboration systems and information-sharing platforms, which address problems such as trust or reputations~\cite{wagner_Cyberthreatintelligence_2019a,skopik_problemsharedproblem_2016}, which are relevant for \gls{fids}.
+Since the submission of this study, works have been published on the topic of trust via client selection~\cite{cunhaneto_FedSBSFederatedLearningparticipantselection_2024}.
+
+
+\paragraph{Self-defense and self-healing}
+
+As highlighted in \Cref{sec:sota.quali.defense}, current research on \gls{fids} is focused on intrusion detection and attack classification.
+Mitigation is barely represented in the literature~\cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019}.
+However, technologies like \gls{sdn} offer quick mitigation capabilities, and recent works study the effectiveness of such defense mechanisms \cite{bhunia_Dynamicattackdetection_2017,singh_DetectionmitigationDDoS_2020}.
+New emerging applications like self-defense and self-healing systems could benefit from \gls{fids} and other \gls{fl}-based technologies.
+A handful of works have been published on the topic of attack mitigation and reaction~\cite{panagoda_ApplicationFederatedLearning_2022,decaldasfilho_BotnetDetectionMitigation_2023,phan_FEARFederatedCyberAttack_2022}, corroborating our survey's findings.
+
+
+\paragraph{Evaluation}
+
+Finally, the topic of evaluation raise two major issues in the selected works.
+First, reproducibility is a major concern, as few are the works that provide the code or the datasets used for the experiments.
+This is a common issue in the field of \gls{ml}, which has long been criticized for its lack of reproducibility~\cite{bajpai_ChallengesReproducibility_2017,arp_Dosdonts_2022}.
+The same issue is present in the field of \glspl{fids}, as most of the selected works do not provide enough information to reproduce the experiments.
+Some do not even disclose the datasets they used, such as \citeauthor{nguyen_DIoTFederatedSelflearning_2019} for DÏoT~\cite{nguyen_DIoTFederatedSelflearning_2019}.
+Further, existing public datasets are not representative of \glspl{fids} deployment environments.
+Indeed, they are often datasets produced for traditional \gls{ml}-based \glspl{ids}, but split for federated purposes.
+This makes most of the literature biased, as all samples are related to the same original event.
+Recent works have tried to partially address this issue by providing standardized datasets~\cite{sarhan_StandardFeatureSet_2022} or dedicated ones~\cite{ferrag_EdgeIIoTsetNewComprehensive_2022}, although the problem remains unsolved.
+
+
 

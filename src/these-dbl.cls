@@ -513,7 +513,7 @@
 }
 
 \appto\mainmatter{\pagestyle{fancy}
-\renewcommand{\sectionmark}[1]{\markright{\textit{\thesection.\ #1}}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}%\textit{\thesection.\ #1}}}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername~\thechapter~--\ \textit{#1}}{}}
 \fancyhead[LE,RO]{\small\thepage}
     \fancyhead[RO]{\small\rightmark}   % \rightmark = section courante
@@ -533,39 +533,39 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%% FAIRE DES ENCARTS %%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%% FAIRE DES ENCARTS %%%%%%%%%%%%%%%%
 
-\definecolor{fondtitre}{RGB}{85,85,85}
-\definecolor{fonddeboite}{RGB}{232,232,232}
-\definecolor{shadecolor}{RGB}{232,232,232}
+% \definecolor{fondtitre}{RGB}{85,85,85}
+% \definecolor{fonddeboite}{RGB}{232,232,232}
+% \definecolor{shadecolor}{RGB}{232,232,232}
 
-\ProcessOptions
+% \ProcessOptions
 
-%%%%%%%%%% Boitemagique  %%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand*{\boitemagique}[2]{
-\begin{center}
-\begin{tikzpicture}
-% la boite
-\node[rectangle,draw=fondtitre!100,fill=fonddeboite!100,inner sep=10pt, inner ysep=20pt] (mabox)
-{
-\begin{minipage}{0.9\textwidth}
-#2
-\end{minipage}
-};
-% le titre de la boite
-\node[fill=fondtitre!100, text=white, rectangle] at (mabox.north) {\sffamily\textbf{#1}};
-\end{tikzpicture}
-\end{center}
-}
+% %%%%%%%%%% Boitemagique  %%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand*{\boitemagique}[2]{
+% \begin{center}
+% \begin{tikzpicture}
+% % la boite
+% \node[rectangle,draw=fondtitre!100,fill=fonddeboite!100,inner sep=10pt, inner ysep=20pt] (mabox)
+% {
+% \begin{minipage}{0.9\textwidth}
+% #2
+% \end{minipage}
+% };
+% % le titre de la boite
+% \node[fill=fondtitre!100, text=white, rectangle] at (mabox.north) {\sffamily\textbf{#1}};
+% \end{tikzpicture}
+% \end{center}
+% }
 
-%%%%%% boitesimple %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand*{\boitesimple}[1]{%
-\begin{center}
-\begin{minipage}{0.9\textwidth}
-\begin{shaded}
-	#1
-\end{shaded}
-\end{minipage}
-\end{center}
-}
+% %%%%%% boitesimple %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand*{\boitesimple}[1]{%
+% \begin{center}
+% \begin{minipage}{0.9\textwidth}
+% \begin{shaded}
+% 	#1
+% \end{shaded}
+% \end{minipage}
+% \end{center}
+% }

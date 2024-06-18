@@ -7,9 +7,9 @@ Modern information security is made difficult by the scale, complexity, and hete
 Because security by design in these conditions is an impossible task, security agencies also recommend complementary measures.
 For instance, the NIST Cybersecurity Framework~\cite{nationalinstituteofstandardsandtechnology_NISTCybersecurityFramework_2024} suggests a five-stage lifecycle for managing risks in information systems: identify, protect, detect, respond, and recover.
 
-Detection and response immensely benefit from the recent advances in \gls{ai} and \gls{ml}, enabling the analysis of more complex behaviors.
+The \emph{detection} and \emph{response} stages immensely benefit from the recent advances in \gls{ai} and \gls{ml}, enabling the analysis of more complex behaviors.
 Yet, because organizations usually face similar threats, including large-scale campaigns such as Mirai in 2016 or NotPetya in 2017, they would greatly benefit from sharing insights on the intrusions they have encountered, or any knowledge that might help others to identify the incident before the damages are too important.
-Collaboration is further encouraged by regulation, for instance with the NIS~\cite{NIS2016} and NIS2~\cite{NIS2} European directives.
+Collaboration is further encouraged by regulation, for instance with the NIS~\cite{NIS_directive} and NIS2~\cite{NIS2} European directives.
 Sharing data is made even more important for training \gls{ml} and \gls{dl} models, which require large amounts of data to be effective.
 Yet, stakeholders are often reluctant to involve their organization in data-sharing practices, fearing confidentiality and privacy breaches, reputation loss, or regulation non-compliance.
 
@@ -35,9 +35,14 @@ Likewise, objectives and constraints may vary depending on the context and the t
 Among the most common combinations, \gls{nids} on \gls{it} network data stands out, notably in terms of implemented algorithms and available datasets.
 This is particularly important for evaluation purposes, as it makes it easier to compare the performance of different approaches.
 
+Additionally, this use case provides a realistic application for \glspl{fids}, where the actors are organizations that own or oversee an information system, and that are interested in improving their local detection.
+This is typically referred to as \gls{cids}.
+For instance, \glspl{soc} monitor the network traffic of their customers for security purposes, and cannot afford to share this data with other organizations.
+Two \glspl{soc} could, however, share insights on the threats they have encountered, or the behaviors they have observed, without sharing the raw data.
+Existing structures, such as \glspl{isac} or inter-\glspl{soc} could benefit from such a framework, as they already have a trust relationship with their members.
+
 Consequently, this dissertation will focus on the use case of building collaborative \glspl{nids} by leveraging \gls{fl} on \gls{it} network data.
-In this context, \gls{fl} clients are assumed to be organizations that own or oversee an information system, and that are interested in improving their local \gls{ids} by sharing information with other organizations.
-However, the results of these works could theoretically be extended to other use cases.
+Note however, that the results presented in this manuscript could theoretically be extended to other applications.
 \Cref{fig:intro.usecase} illustrates this use case.
 
 \begin{figure}

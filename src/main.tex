@@ -18,16 +18,16 @@
 }
 
 \includeonly{
-  content/chapters/01_introduction/main,
+  % content/chapters/01_introduction/main,
   content/chapters/02_background/main,
-  content/chapters/03_sota/main,
+  % content/chapters/03_sota/main,
   % content/chapters/04_application/main,
   % content/chapters/05_topologies/main,
   % content/chapters/06_assessment/main,
   % content/chapters/07_radar/main,
   % content/chapters/08_future/main,
   % content/chapters/09_conclusion/main,
-  content/appendices/main,
+  % content/appendices/main,
 }
 
 \addbibresource{biblio/lavaur.bib}
@@ -44,7 +44,7 @@
 
 \selectlanguage{english} % My thesis is in English
 
-%\frontmatter
+\frontmatter
 \renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
 
 % Abstracts
@@ -100,9 +100,9 @@
 
 %\pagebreak % to ensure the numbering changes
 
-%\mainmatter
-\vfill
-\pagebreak
+\mainmatter
+% \vfill
+% \pagebreak
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
 
@@ -187,11 +187,21 @@
 
 \printbibliography
 
+%backmatter
+% \vfill
+% \pagebreak
+% \renewcommand{\thepage}{\roman{page}}
+% \setcounter{page}{1}
+
 % List of figures
 \clearemptydoublepage
 \listoffigures
 \addcontentsline{toc}{chapter}{List of Figures}
 
+% List of tables
+\clearemptydoublepage
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
 
 % Glossary
 \clearemptydoublepage

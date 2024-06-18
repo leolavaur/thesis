@@ -171,3 +171,79 @@
 \def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
 \def\etal{\emph{et al}\onedot}
 \makeatother
+
+
+\newcommand{\fullcref}[1]{\nameref*{#1} \labelcref{#1}}
+
+
+% Boxes
+
+
+
+\usepackage[skins,theorems]{tcolorbox}
+
+\definecolor{titlebg}{RGB}{85,85,85}
+\definecolor{boxbg}{RGB}{232,232,232}
+
+\tcbset{
+  center,
+  width=0.9\textwidth,
+  boxrule=1pt,
+  colback=boxbg,
+  colframe=titlebg,
+  fonttitle=\bfseries\sffamily,
+  colbacktitle=titlebg,
+}
+
+\newtcolorbox{highlightbox}[2][]{
+  enhanced,
+  title={#2},
+  boxsep=10pt,
+  attach boxed title to top center={
+    yshift=-\tcboxedtitleheight/2,
+    yshifttext=-\tcboxedtitleheight/2,
+  },
+  boxed title style={
+    sharpish corners,
+  },
+  #1,
+}
+
+% Use as: \begin{highlightbox}{Title}{label} ... \end{highlightbox}
+%
+% \newtcbtheorem
+%   [<tcb options>]  % tcolorbox options, like you would use with \newtcolorbox
+%   {<name>}         % name of the environment
+%   {<display name>} % name of the environment in the output
+%   {<options>}      %
+%   {<prefix>}       % prefix for the label. A label is automatically created as \label{prefix:#2}
+
+\newtcbtheorem[
+  number within=chapter,
+  crefname={definition}{definitions},
+  Crefname={Definition}{Definitions},
+]{definitionbox}{Definition}{}{def}
+
+% Front, main, and back matter
+% \makeatletter
+
+% \newcommand\frontmatter{%
+%     \cleardoublepage
+%   %\@mainmatterfalse
+%   \pagenumbering{roman}}
+
+% \newcommand\mainmatter{%
+%     \cleardoublepage
+%  % \@mainmattertrue
+%   \pagenumbering{arabic}}
+
+% \newcommand\backmatter{%
+%   \if@openright
+%     \cleardoublepage
+%   \else
+%     \clearpage
+%   \fi
+%  % \@mainmatterfalse
+%    }
+
+% \makeatother
