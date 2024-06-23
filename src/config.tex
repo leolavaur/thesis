@@ -24,18 +24,25 @@
 \usepackage{float}
 \usepackage{tikz}
 \usepackage[edges]{forest}
+% \usepackage[
+%   chapter,
+%   outputdir=../build,
+% ]{minted}
+\usepackage{listings}
+\usepackage{tabularx}
 
-
-\glsdisablehyper
 
 \setlength{\headheight}{13.59999pt}
+
+%% GLOSSARY
+\glsdisablehyper
+\preto\chapter{\glsresetall}
 
 %% BIBLIOGRAPHY
 
 \usepackage[
   hyperref,
   backend=biber,
-  maxcitenames=1,
   uniquelist=true,
   % https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles
   style=alphabetic
@@ -72,19 +79,7 @@
 
 %% RESEARCH QUESTIONS
 
-\usepackage{amsthm}
 
-%\theoremstyle{plain}
-\newtheorem{innerRQ}{RQ}
-\crefname{innerRQ}{RQ}{RQs}
-\Crefname{innerRQ}{RQ}{RQs}
-
-\newenvironment{RQ}[1]
-  {\renewcommand\theinnerRQ{#1}\innerRQ}
-  {\endinnerRQ}
-
-\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
-\let\endchangemargin=\endlist
 
 \newlist{questions}{enumerate}{2}
 \setlist[questions,1]{
@@ -133,7 +128,7 @@
 \newcommand{\localtoc}{
   \vspace{-9ex}
   \localtableofcontents
-  \par\noindent\rule{\textwidth}{0.4pt}
+  \noindent\rule{\textwidth}{0.4pt}
 }
 
 %% Debug
@@ -224,26 +219,28 @@
   Crefname={Definition}{Definitions},
 ]{definitionbox}{Definition}{}{def}
 
-% Front, main, and back matter
-% \makeatletter
 
-% \newcommand\frontmatter{%
-%     \cleardoublepage
-%   %\@mainmatterfalse
-%   \pagenumbering{roman}}
+% listings
+\usepackage{newfloat}
+\usepackage{inconsolata}
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\DeclareFloatingEnvironment[fileext=frm,placement={ht},name=Listing,within=chapter]{listing}
 
-% \newcommand\mainmatter{%
-%     \cleardoublepage
-%  % \@mainmattertrue
-%   \pagenumbering{arabic}}
 
-% \newcommand\backmatter{%
-%   \if@openright
-%     \cleardoublepage
-%   \else
-%     \clearpage
-%   \fi
-%  % \@mainmatterfalse
-%    }
+%challenge
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{challenge}{Challenge}
+\crefname{challenge}{challenge}{challenges}
+\Crefname{challenge}{Challenge}{Challenges}
 
-% \makeatother
+% maths
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+
+% marks
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}

@@ -377,6 +377,10 @@ Even worse, most of them either do not mention data-distribution at all, or assu
 As discussed in \Cref{sec:sota.quali.data}, this is a major drawback, as most real-world scenarios generate non-\gls{iid} data.
 This makes most experiments unrealistic, as the clients train their models on data generated on the same network topology, with the same devices, and the same behaviors, even considering \gls{niid} settings.
 
+Just after we stopped data collection for the original study, \citet{sarhan_standardfeatureset_2021} proposed a standardized feature set for intrusion detection (see \Cref{chap:background}), and converted four known \gls{ids} datasets to this format: UNSW-NB15~\cite{moustafa_UNSWNB15comprehensivedata_2015}, Bot-IoT~\cite{koroniotis_developmentrealisticbotnet_2019}, ToN\_IoT~\cite{moustafa_FederatedTON_IoTWindows_2020}, and CSE-CIC-IDS2018~\cite{sharafaldin_GeneratingNewIntrusion_2018}.
+The uniform feature set across datasets allows \gls{fl}-based approaches to evaluate their performance on independently generated datasets~\cite{de_carvalho_bertoli_generalizing_2023,popoola_FederatedDeepLearning_2021}, closing the gap towards more realistic experiments.
+In the context of cross-silo \gls{fl}, each dataset can act as one organization's collected data, which is done by  \citet{de_carvalho_bertoli_generalizing_2023}.
+
 
 \subsubsection{Costs and Metrics\label{sec:sota.quali.metrics}}
 

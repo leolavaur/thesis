@@ -1,0 +1,6 @@
+{
+"command": "config",
+"jobname": "test_minted",
+"timestamp": "19800101000000Z",
+"cachedir": "_minted",
+}

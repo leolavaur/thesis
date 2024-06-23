@@ -7,40 +7,43 @@
 %\usepackage{config}
 \input{config.tex}
 
-\newcommand{\frtitle}{L'Apprentissage Fédéré comme Outil pour la Détection Collaborative d'Intrusions}
-\newcommand{\entitle}{On Federated Learning as a Framework for Collaborative Intrusion Detection}
+% \newcommand{\frtitle}{De l'apprentissage fédéré comme outil pour la détection collaborative d'intrusions}
+% \newcommand{\entitle}{On Federated Learning as a Framework for Collaborative Intrusion Detection}
+\newcommand{\frtitle}{Améliorer la détection d'intrusions dans des systèmes distribués grâce à l'apprentissage fédéré}
+\newcommand{\entitle}{Improving Intrusion Detection in Distributed Systems with Federated Learning}
+
 
 \hypersetup{
   pdfauthor   = {Léo Lavaur},
   pdftitle    = {PhD Thesis of Léo Lavaur},
   pdfsubject  = {\entitle},
-  pdfkeywords = {Federated Learning, Collaborative Intrusion Detection, Machine Learning, Cybersecurity},
+  pdfkeywords = {Federated Learning, Collaborative Intrusion Detection, Machine Learning, Cybersecurity, Distributed Systems},
 }
 
 \includeonly{
-  % content/chapters/01_introduction/main,
-  content/chapters/02_background/main,
-  % content/chapters/03_sota/main,
-  % content/chapters/04_application/main,
-  % content/chapters/05_topologies/main,
-  % content/chapters/06_assessment/main,
-  % content/chapters/07_radar/main,
-  % content/chapters/08_future/main,
-  % content/chapters/09_conclusion/main,
-  % content/appendices/main,
+  % chapters/01_introduction/main,
+  chapters/02_background/main,
+  % chapters/03_sota/main,
+  % chapters/04_application/main,
+  % chapters/05_topologies/main,
+  % chapters/06_assessment/main,
+  % chapters/07_radar/main,
+  % chapters/08_future/main,
+  % chapters/09_conclusion/main,
+  % appendices/main,
 }
 
 \addbibresource{biblio/lavaur.bib}
 \addbibresource{biblio/references.bib}
 
 \makenoidxglossaries
-\loadglsentries{content/glossary}
+\loadglsentries{includes/glossary}
 
 \begin{document}
 
 
 % Front cover; most of the settings are in `template/` and are adapted from the official template for the "Collège Doctoral de Bretagne" by ED Mathisse.
-\input{frontcover.tex}
+\input{includes/frontcover.tex}
 
 \selectlanguage{english} % My thesis is in English
 
@@ -54,18 +57,18 @@
 
 \selectlanguage{french}
 \section*{Résumé}
-\input{content/abstract-fr}
+\input{includes/abstract-fr}
 \newpage
 \selectlanguage{english}
 \section*{Abstract}
-\input{content/abstract-en}
+\input{includes/abstract-en}
 
 
 % Acknowledgements
 \clearemptydoublepage
 \chapter*{Acknowledgements\label{chap:ack}}
 \addcontentsline{toc}{chapter}{Acknowledgements}
-\input{content/acknowledgment}
+\input{includes/acknowledgment}
 
 % \section*{Debugging}
 % Lengths:
@@ -112,7 +115,7 @@
 
 %% Introduction
 \clearemptydoublepage
-\subincludefrom{content/chapters/01_introduction/}{main}
+\subincludefrom{chapters/01_introduction/}{main}
 
 % Part I -- FIDS
 % -------------------------------------
@@ -121,16 +124,16 @@
 
 %% Preliminaries
 \clearemptydoublepage
-\subincludefrom{content/chapters/02_background/}{main}
+\subincludefrom{chapters/02_background/}{main}
 
 
 %% State of the Art
 \clearemptydoublepage
-\subincludefrom{content/chapters/03_sota/}{main}
+\subincludefrom{chapters/03_sota/}{main}
 
 %% Application
 \clearemptydoublepage
-\subincludefrom{content/chapters/04_application/}{main}
+\subincludefrom{chapters/04_application/}{main}
 
 % Part II -- Quantifying Limitations
 % -------------------------------------
@@ -139,11 +142,11 @@
 
 %% Topology Generation
 \clearemptydoublepage
-\subincludefrom{content/chapters/05_topologies/}{main}
+\subincludefrom{chapters/05_topologies/}{main}
 
 %% Assessment
 \clearemptydoublepage
-\subincludefrom{content/chapters/06_assessment/}{main}
+\subincludefrom{chapters/06_assessment/}{main}
 
 % Part III -- Providing Solutions
 % -------------------------------------
@@ -152,11 +155,11 @@
 
 %% Trust-FIDS
 \clearemptydoublepage
-\subincludefrom{content/chapters/07_radar/}{main}
+\subincludefrom{chapters/07_radar/}{main}
 
 %% Future FIDS
 \clearemptydoublepage
-\subincludefrom{content/chapters/08_future/}{main}
+\subincludefrom{chapters/08_future/}{main}
 
 % % Part IV -- Conclusion
 % % -------------------------------------
@@ -165,7 +168,7 @@
 
 %% Conclusion
 \clearemptydoublepage
-\subincludefrom{content/chapters/09_conclusion/}{main}
+\subincludefrom{chapters/09_conclusion/}{main}
 
 
 
@@ -211,13 +214,13 @@
 
 % Appendices
 \clearemptydoublepage
-\subincludefrom{content/appendices/}{main}
+\subincludefrom{appendices/}{main}
 
 
 \clearemptydoublepage
 % To have the back cover on an even page
 \cleartoevenpage[\thispagestyle{empty}]
-\input{./backcover}
+\input{includes/backcover.tex}
 
 \end{document}
 

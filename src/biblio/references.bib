@@ -1,4 +1,10 @@
 % LTeX: enabled=false
+@online{_1998DARPAIntrusion_,
+  title = {1998 {{DARPA Intrusion Detection Evaluation Dataset}} \textbar{} {{MIT Lincoln Laboratory}}},
+  url = {https://www.ll.mit.edu/r-d/datasets/1998-darpa-intrusion-detection-evaluation-dataset},
+  urldate = {2024-06-19}
+}
+
 @online{_NetworkAnomalyDetection_,
   title = {Network {{Anomaly Detection Using Federated Deep Autoencoding Gaussian Mixture Model}} \textbar{} {{Machine Learning}} for {{Networking}}},
   url = {https://dlnext.acm.org/doi/10.1007/978-3-030-45778-5_1},
@@ -769,6 +775,21 @@
   abstract = {With the increasing development of 5G/Beyond 5G and network softwarization techniques, we have more flexibility and agility in the network. This can be exploited by Machine Learning (ML) to integrate intelligence in the network and improve network as well as service management in edge-cloud environment. Intrusion detection systems (IDS) is one of the challenging issues for managing network. However, traditional approaches in this domain require all data (and their associated labels) to be centralized at the same location. In this context, such approaches lead to: (i) a large bandwidth overhead, as raw data needs to be transmitted to the server, (ii) low incentives for devices to send their private data, and (iii) large computing and storage resources needed on the server side to label and treat all this data. In this paper, to cope with the above limitations, we propose a semi-supervised federated learning model for IDS. Moreover, we use network softwarisation for automation and deployment. Our model combines Federated Learning and Semi-Supervised Learning where the clients train unsupervised models (using unlabeled data) to learn the representative and low-dimensional features and the server conducts a supervised model (using labeled data). We evaluate this approach on the well-known UNSW-NB15 dataset and the experimental results demonstrate that our approach can achieve accuracy and detection rates up to 84.32\% and 83.10\%, respectively while keeping the data private with limited overhead.},
   eventtitle = {{{ICC}} 2022 - {{IEEE International Conference}} on {{Communications}}},
   keywords = {\_read,⛔ No DOI found,Automation,Bandwidth,Computational modeling,Deep Learning,Federated Learning,Image edge detection,Internet of Things,Intrusion detection,Intrusion Detection,Machine learning,Machine Learning,Semi-supervised learning,Semisupervised learning}
+}
+
+@inproceedings{aouedi_SemisupervisedStackedAutoencoder_2020,
+  title = {A {{Semi-supervised Stacked Autoencoder Approach}} for {{Network Traffic Classification}}},
+  booktitle = {2020 {{IEEE}} 28th {{International Conference}} on {{Network Protocols}} ({{ICNP}})},
+  author = {Aouedi, Ons and Piamrat, Kandaraj and Bagadthey, Dhruvjyoti},
+  date = {2020-10},
+  pages = {1--6},
+  issn = {2643-3303},
+  doi = {10.1109/ICNP49622.2020.9259390},
+  url = {https://ieeexplore.ieee.org/document/9259390},
+  urldate = {2024-06-19},
+  abstract = {Network traffic classification is an important task in modern communications. Several approaches have been proposed to improve the performance of differentiating among applications. However, most of them are based on supervised learning where only labeled data are used. In reality, a lot of datasets are partially labeled due to many reasons and unlabeled portions of the data, which can also provide informative characteristics, are ignored. To handle this issue, we propose a semi-supervised approach based on deep learning. We deployed deep learning because of its unique nature for solving problems, and its ability to take into account both labeled and unlabeled data. Moreover, it can also integrate feature extraction and classification into a single model. To achieve these goals, we propose an approach using stacked sparse autoencoder (SSAE) accompanied by de-noising and dropout techniques to improve the robustness of extracted features and prevent the over-fitting problem during the training process. The obtained results demonstrate a better performance than traditional models while keeping the whole procedure automated.},
+  eventtitle = {2020 {{IEEE}} 28th {{International Conference}} on {{Network Protocols}} ({{ICNP}})},
+  keywords = {Deep learning,Dropout,Feature extraction,Machine learning,Noise reduction,Semi-supervised learning,Stacked Autoencoder,Stacked De-noising Autoencoder,Standards,Task analysis,Traffic classification,Training,Unsupervised learning}
 }
 
 @article{apruzzese_AppConMitigatingEvasion_2020,
@@ -3159,6 +3180,24 @@
   langid = {english}
 }
 
+@article{elshoush_Alertcorrelationcollaborative_2011,
+  title = {Alert Correlation in Collaborative Intelligent Intrusion Detection Systems---{{A}} Survey},
+  author = {Elshoush, Huwaida Tagelsir and Osman, Izzeldin Mohamed},
+  date = {2011-10-01},
+  journaltitle = {Applied Soft Computing},
+  shortjournal = {Applied Soft Computing},
+  series = {Soft {{Computing}} for {{Information System Security}}},
+  volume = {11},
+  number = {7},
+  pages = {4349--4365},
+  issn = {1568-4946},
+  doi = {10.1016/j.asoc.2010.12.004},
+  url = {https://www.sciencedirect.com/science/article/pii/S156849461000311X},
+  urldate = {2024-06-22},
+  abstract = {As complete prevention of computer attacks is not possible, intrusion detection systems (IDSs) play a very important role in minimizing the damage caused by different computer attacks. There are two intrusion detection methods: namely misuse- and anomaly-based. A collaborative, intelligent intrusion detection system (CIIDS) is proposed to include both methods, since it is concluded from recent research that the performance of an individual detection engine is rarely satisfactory. In particular, two main challenges in current collaborative intrusion detection systems (CIDSs) research are highlighted and reviewed: CIDSs system architectures and alert correlation algorithms. Different CIDSs system, architectures are explained and compared. The use of CIDSs together with other multiple security systems raise certain issues and challenges in, alert correlation. Several different techniques for alert correlation are discussed. The focus will be on correlation of CIIDS alerts. Computational, Intelligence approaches, together with their applications on IDSs, are reviewed. Methods in soft computing collectively provide understandable, and autonomous solutions to IDS problems. At the end of the review, the paper suggests fuzzy logic, soft computing and other AI techniques, to be exploited to reduce the rate of false alarms while keeping the detection rate high. In conclusion, the paper highlights opportunities for an integrated solution to large-scale CIIDS.},
+  keywords = {+survey,Alert correlation,Collaborative intrusion detection,Computational intelligence approaches,False positive analysis}
+}
+
 @inproceedings{engelen_TroubleshootingIntrusionDetection_2021,
   title = {Troubleshooting an {{Intrusion Detection Dataset}}: The {{CICIDS2017 Case Study}}},
   shorttitle = {Troubleshooting an {{Intrusion Detection Dataset}}},
@@ -3488,23 +3527,6 @@
   author = {Ferrag, Mohamed Amine and Friha, Othmane and Hamouda, Djallel and Maglaras, Leandros and Janicke, Helge},
   date = {2022},
   journaltitle = {IEEE Access},
-  shortjournal = {IEEE Access},
-  volume = {10},
-  pages = {40281--40306},
-  issn = {2169-3536},
-  doi = {10.1109/ACCESS.2022.3165809},
-  url = {https://ieeexplore.ieee.org/document/9751703/},
-  urldate = {2022-08-31},
-  abstract = {In this paper, we propose a new comprehensive realistic cyber security dataset of IoT and IIoT applications, called Edge-IIoTset, which can be used by machine learning-based intrusion detection systems in two different modes, namely, centralized and federated learning. Specifically, the dataset has been generated using a purpose-built IoT/IIoT testbed with a large representative set of devices, sensors, protocols and cloud/edge configurations. The IoT data are generated from various IoT devices (more than 10 types) such as Low-cost digital sensors for sensing temperature and humidity, Ultrasonic sensor, Water level detection sensor, pH Sensor Meter, Soil Moisture sensor, Heart Rate Sensor, Flame Sensor, etc.). Furthermore, we identify and analyze fourteen attacks related to IoT and IIoT connectivity protocols, which are categorized into five threats, including, DoS/DDoS attacks, Information gathering, Man in the middle attacks, Injection attacks, and Malware attacks. In addition, we extract features obtained from different sources, including alerts, system resources, logs, network traffic, and propose new 61 features with high correlations from 1176 found features. After processing and analyzing the proposed realistic cyber security dataset, we provide a primary exploratory data analysis and evaluate the performance of machine learning approaches (i.e., traditional machine learning as well as deep learning) in both centralized and federated learning modes. The Edge-IIoTset dataset can be publicly accessed from http://ieee-dataport.org/8939.},
-  langid = {english}
-}
-
-@article{ferrag_EdgeIIoTsetNewComprehensive_2022a,
-  title = {Edge-{{IIoTset}}: {{A New Comprehensive Realistic Cyber Security Dataset}} of {{IoT}} and {{IIoT Applications}} for {{Centralized}} and {{Federated Learning}}},
-  shorttitle = {Edge-{{IIoTset}}},
-  author = {Ferrag, Mohamed Amine and Friha, Othmane and Hamouda, Djallel and Maglaras, Leandros and Janicke, Helge},
-  date = {2022},
-  journaltitle = {IEEE Access},
   volume = {10},
   pages = {40281--40306},
   issn = {2169-3536},
@@ -3534,6 +3556,24 @@
   keywords = {\_read}
 }
 
+@article{folino_Ensemblebasedcollaborative_2016,
+  title = {Ensemble Based Collaborative and Distributed Intrusion Detection Systems: {{A}} Survey},
+  shorttitle = {Ensemble Based Collaborative and Distributed Intrusion Detection Systems},
+  author = {Folino, Gianluigi and Sabatino, Pietro},
+  date = {2016-05},
+  journaltitle = {Journal of Network and Computer Applications},
+  shortjournal = {Journal of Network and Computer Applications},
+  volume = {66},
+  pages = {1--16},
+  issn = {10848045},
+  doi = {10.1016/j.jnca.2016.03.011},
+  url = {https://linkinghub.elsevier.com/retrieve/pii/S1084804516300248},
+  urldate = {2024-06-22},
+  abstract = {Modern network intrusion detection systems must be able to handle large and fast changing data, often also taking into account real-time requirements. Ensemble-based data mining algorithms and their distributed implementations are a promising approach to these issues.},
+  langid = {english},
+  keywords = {+survey}
+}
+
 @inproceedings{fong_InterpretableExplanationsBlack_2017,
   title = {Interpretable {{Explanations}} of {{Black Boxes}} by {{Meaningful Perturbation}}},
   author = {Fong, Ruth C. and Vedaldi, Andrea},
@@ -3542,6 +3582,19 @@
   url = {https://openaccess.thecvf.com/content_iccv_2017/html/Fong_Interpretable_Explanations_of_ICCV_2017_paper.html},
   urldate = {2023-03-11},
   eventtitle = {Proceedings of the {{IEEE International Conference}} on {{Computer Vision}}}
+}
+
+@inproceedings{fontugne_MAWILabCombiningDiverse_2010,
+  title = {{{MAWILab}} : {{Combining Diverse Anomaly Detectors}} for {{Automated Anomaly Labeling}} and {{Performance Benchmarking}}},
+  shorttitle = {{{MAWILab}}},
+  author = {Fontugne, Romain and Borgnat, Pierre and Abry, Patrice and Fukuda, Kensuke},
+  date = {2010-11-30},
+  publisher = {ACM},
+  url = {https://ens-lyon.hal.science/ensl-00552071},
+  urldate = {2024-06-19},
+  abstract = {Evaluating anomaly detectors is a crucial task in traffic monitoring made particularly difficult due to the lack of ground truth. The goal of the present article is to assist researchers in the evaluation of detectors by providing them with labeled anomaly traffic traces. We aim at automatically finding anomalies in the MAWI archive using a new methodology that combines different and independent detectors. A key challenge is to compare the alarms raised by these detectors, though they operate at different traffic granularities. The main contribution is to propose a reliable graph-based methodology that combines any anomaly detector outputs. We evaluated four unsupervised combination strategies; the best is the one that is based on dimensionality reduction. The synergy between anomaly detectors permits to detect twice as many anomalies as the most accurate detector, and to reject numerous false positive alarms reported by the detectors. Significant anomalous traffic features are extracted from reported alarms, hence the labels assigned to theMAWI archive are concise. The results on the MAWI traffic are publicly available and updated daily. Also, this approach permits to include the results of upcoming anomaly detectors so as to improve over time the quality and variety of labels.},
+  eventtitle = {{{ACM CoNEXT}} 2010},
+  langid = {english}
 }
 
 @article{fotiadou_IncidentsInformationSharing_2020,
@@ -6580,6 +6633,24 @@
   keywords = {Collaborative work,Computational modeling,Computers,Data privacy,Systematics,Training,Training data}
 }
 
+@article{li_SurveyingTrustBasedCollaborative_2022,
+  title = {Surveying {{Trust-Based Collaborative Intrusion Detection}}: {{State-of-the-Art}}, {{Challenges}} and {{Future Directions}}},
+  shorttitle = {Surveying {{Trust-Based Collaborative Intrusion Detection}}},
+  author = {Li, Wenjuan and Meng, Weizhi and Kwok, Lam For},
+  date = {2022},
+  journaltitle = {IEEE Communications Surveys \& Tutorials},
+  volume = {24},
+  number = {1},
+  pages = {280--305},
+  issn = {1553-877X},
+  doi = {10.1109/COMST.2021.3139052},
+  url = {https://ieeexplore.ieee.org/document/9663537},
+  urldate = {2024-06-22},
+  abstract = {Owing to the swift growth in cyber attacks, intrusion detection systems (IDSs) have become a necessity to help safeguard personal and organizational assets. However, with the increasing size of computer networks, it becomes difficult for a stand-alone IDS to identify sophisticated and advanced threats, such as DDoS attack, due to the lack of contextual information and knowledge regarding the deployed environments. To tackle this issue, distributed and collaborative IDSs (DIDSs and CIDSs) are developed, which enable a set of IDS nodes to operate in a collaborative way through exchanging required information. In this survey, we first summarize the state-of-the-art for traditional DIDSs according to the collaboration topology, e.g., centralized, decentralized, and distributed, and discuss major external and internal threats. Because of the distributed nature and various threats, trust is often enforced among various IDS nodes. We then summarize the relevant research on trust-based DIDSs/CIDSs in a chronological order. Also, we highlight challenges and future directions in this field. The main purpose of this survey is to stimulate more research efforts in developing robust and practical trust-based collaborative intrusion detection.},
+  eventtitle = {{{IEEE Communications Surveys}} \& {{Tutorials}}},
+  keywords = {+survey,challenges and future directions,Collaboration,Collaborative intrusion detection,Detectors,distributed network,Engines,insider attack,Intrusion detection,Prototypes,review and survey,Security,trust computation and management,Tutorials}
+}
+
 @article{li_Transferlearningbased_2021,
   title = {Transfer Learning Based Intrusion Detection Scheme for {{Internet}} of Vehicles},
   author = {Li, Xinghua and Hu, Zhongyuan and Xu, Mengfan and Wang, Yunwei and Ma, Jianfeng},
@@ -7412,6 +7483,24 @@
   keywords = {68U35,Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 
+@article{meng_CollaborativeSecuritySurvey_2015,
+  title = {Collaborative {{Security}}: {{A Survey}} and {{Taxonomy}}},
+  shorttitle = {Collaborative {{Security}}},
+  author = {Meng, Guozhu and Liu, Yang and Zhang, Jie and Pokluda, Alexander and Boutaba, Raouf},
+  date = {2015-07-22},
+  journaltitle = {ACM Computing Surveys},
+  shortjournal = {ACM Comput. Surv.},
+  volume = {48},
+  number = {1},
+  pages = {1:1--1:42},
+  issn = {0360-0300},
+  doi = {10.1145/2785733},
+  url = {https://doi.org/10.1145/2785733},
+  urldate = {2024-06-22},
+  abstract = {Security is oftentimes centrally managed. An alternative trend of using collaboration in order to improve security has gained momentum over the past few years. Collaborative security is an abstract concept that applies to a wide variety of systems and has been used to solve security issues inherent in distributed environments. Thus far, collaboration has been used in many domains such as intrusion detection, spam filtering, botnet resistance, and vulnerability detection. In this survey, we focus on different mechanisms of collaboration and defense in collaborative security. We systematically investigate numerous use cases of collaborative security by covering six types of security systems. Aspects of these systems are thoroughly studied, including their technologies, standards, frameworks, strengths and weaknesses. We then present a comprehensive study with respect to their analysis target, timeliness of analysis, architecture, network infrastructure, initiative, shared information and interoperability. We highlight five important topics in collaborative security, and identify challenges and possible directions for future research. Our work contributes the following to the existing research on collaborative security with the goal of helping to make collaborative security systems more resilient and efficient. This study (1) clarifies the scope of collaborative security, (2) identifies the essential components of collaborative security, (3) analyzes the multiple mechanisms of collaborative security, and (4) identifies challenges in the design of collaborative security.},
+  keywords = {+survey,Collaborative security,information sharing,intrusion detection,malware,privacy,spam,taxonomy,trust}
+}
+
 @article{meng_WhenIntrusionDetection_2018,
   title = {When {{Intrusion Detection Meets Blockchain Technology}}: {{A Review}}},
   author = {Meng, Weizhi and Tischhauser, Elmar Wolfgang and Wang, Qingju and Wang, Yu and Han, Jinguang},
@@ -7725,6 +7814,23 @@
   abstract = {Existing cyber security solutions have been basically developed using knowledge-based models that often cannot trigger new cyber-attack families. With the boom of Artificial Intelligence (AI), especially Deep Learning (DL) algorithms, those security solutions have been plugged-in with AI models to discover, trace, mitigate or respond to incidents of new security events. The algorithms demand a large number of heterogeneous data sources to train and validate new security systems. This paper presents the description of new datasets, the so-called ToN\_IoT, which involve federated data sources collected from Telemetry datasets of IoT services, Operating system datasets of Windows and Linux, and datasets of Network traffic. The paper introduces the testbed and description of TON\_IoT datasets for Windows operating systems. The testbed was implemented in three layers: edge, fog and cloud. The edge layer involves IoT and network devices, the fog layer contains virtual machines and gateways, and the cloud layer involves cloud services, such as data analytics, linked to the other two layers. These layers were dynamically managed using the platforms of software-Defined Network (SDN) and Network-Function Virtualization (NFV) using the VMware NSX and vCloud NFV platform. The Windows datasets were collected from audit traces of memories, processors, networks, processes and hard disks. The datasets would be used to evaluate various AI-based cyber security solutions, including intrusion detection, threat intelligence and hunting, privacy preservation and digital forensics. This is because the datasets have a wide range of recent normal and attack features and observations, as well as authentic ground truth events. The datasets can be publicly accessed from this link [1].},
   eventtitle = {2020 {{IEEE}} 19th {{International Conference}} on {{Trust}}, {{Security}} and {{Privacy}} in {{Computing}} and {{Communications}} ({{TrustCom}})},
   keywords = {{Federated datasets, AI-based security applications, testbed, Windows operating systems, intrusion detection},Cloud computing,Computer crime,Data privacy,Internet of Things,Operating systems,Security,Virtual machining}
+}
+
+@article{moustafa_newdistributedarchitecture_2021,
+  title = {A New Distributed Architecture for Evaluating {{AI-based}} Security Systems at the Edge: {{Network TON}}\_{{IoT}} Datasets},
+  shorttitle = {A New Distributed Architecture for Evaluating {{AI-based}} Security Systems at the Edge},
+  author = {Moustafa, Nour},
+  date = {2021-09-01},
+  journaltitle = {Sustainable Cities and Society},
+  shortjournal = {Sustainable Cities and Society},
+  volume = {72},
+  pages = {102994},
+  issn = {2210-6707},
+  doi = {10.1016/j.scs.2021.102994},
+  url = {https://www.sciencedirect.com/science/article/pii/S2210670721002808},
+  urldate = {2024-06-21},
+  abstract = {While there has been a significant interest in understanding the cyber threat landscape of Internet of Things (IoT) networks, and the design of Artificial Intelligence (AI)-based security approaches, there is a lack of distributed architecture led to generating heterogeneous datasets that contain the actual behaviors of real-world IoT networks and complex cyber threat scenarios to evaluate the credibility of the new systems. This paper presents a novel testbed architecture of IoT network which can be used to evaluate Artificial Intelligence (AI)-based security applications. The platform NSX vCloud NFV was employed to facilitate the execution of Software-Defined Network (SDN), Network Function Virtualization (NFV) and Service Orchestration (SO) to offer dynamic testbed networks, which allow the interaction of edge, fog and cloud tiers. While deploying the architecture, real-world normal and attack scenarios are executed to collect labeled datasets. The generated datasets are named `TON\_IoT', as they comprise heterogeneous data sources collected from telemetry datasets of IoT services, Windows and Linux-based datasets, and datasets of network traffic. The TON\_IoT network dataset is validated using four machine learning-based intrusion detection algorithms of Gradient Boosting Machine, Random Forest, Naive Bayes, and Deep Neural Networks, revealing a high performance of detection accuracy using the set of training and testing. A comparative summary of the TON\_IoT network dataset and other competing network datasets demonstrates its diverse legitimate and anomalous patterns that can be used to better validate new AI-based security solutions. The architecture and datasets can be publicly accessed from TON\_IOT Datasets (2020).},
+  keywords = {Cybersecurity applications,Edge,Machine learning,Network datasets,Network Function Virtualization (NFV),Service Orchestration (SO),Smart cities,Software-Defined Network (SDN)}
 }
 
 @article{moustafa_NewThreatIntelligence_2018,
@@ -9344,6 +9450,20 @@
   urldate = {2023-02-01}
 }
 
+@misc{rfc3954,
+  title = {Cisco Systems {{NetFlow}} Services Export Version 9},
+  author = {Claise, Beno\^it},
+  date = {2004-10},
+  series = {Request for Comments},
+  number = {3954},
+  doi = {10.17487/RFC3954},
+  url = {https://www.rfc-editor.org/info/rfc3954},
+  abstract = {This document specifies the data export format for version 9 of Cisco Systems' NetFlow services, for use by implementations on the network elements and/or matching collector programs. The version 9 export format uses templates to provide access to observations of IP packet flows in a flexible and extensible manner. A template defines a collection of fields, with corresponding descriptions of structure and semantics. This memo provides information for the Internet community.},
+  howpublished = {RFC 3954},
+  organization = {RFC Editor},
+  pagetotal = {33}
+}
+
 @article{riahi_Gametheoryresource_2019,
   title = {Game Theory for Resource Sharing in Large Distributed Systems},
   author = {Riahi, Sara and Riahi, Azzeddine},
@@ -10063,6 +10183,23 @@
   keywords = {CICIDS2018,Conferences,Data privacy,federated learning,IDS,Network intrusion detection,Privacy security,Training data,UNSW-NB15,Wearable computers,Wireless communication,Wireless sensor networks}
 }
 
+@article{shiravi_developingsystematicapproach_2012,
+  title = {Toward Developing a Systematic Approach to Generate Benchmark Datasets for Intrusion Detection},
+  author = {Shiravi, Ali and Shiravi, Hadi and Tavallaee, Mahbod and Ghorbani, Ali A.},
+  date = {2012-05-01},
+  journaltitle = {Computers \& Security},
+  shortjournal = {Computers \& Security},
+  volume = {31},
+  number = {3},
+  pages = {357--374},
+  issn = {0167-4048},
+  doi = {10.1016/j.cose.2011.12.012},
+  url = {https://www.sciencedirect.com/science/article/pii/S0167404811001672},
+  urldate = {2024-06-19},
+  abstract = {In network intrusion detection, anomaly-based approaches in particular suffer from accurate evaluation, comparison, and deployment which originates from the scarcity of adequate datasets. Many such datasets are internal and cannot be shared due to privacy issues, others are heavily anonymized and do not reflect current trends, or they lack certain statistical characteristics. These deficiencies are primarily the reasons why a perfect dataset is yet to exist. Thus, researchers must resort to datasets that are often suboptimal. As network behaviors and patterns change and intrusions evolve, it has very much become necessary to move away from static and one-time datasets toward more dynamically generated datasets which not only reflect the traffic compositions and intrusions of that time, but are also modifiable, extensible, and reproducible. In this paper, a systematic approach to generate the required datasets is introduced to address this need. The underlying notion is based on the concept of profiles which contain detailed descriptions of intrusions and abstract distribution models for applications, protocols, or lower level network entities. Real traces are analyzed to create profiles for agents that generate real traffic for HTTP, SMTP, SSH, IMAP, POP3, and FTP. In this regard, a set of guidelines is established to outline valid datasets, which set the basis for generating profiles. These guidelines are vital for the effectiveness of the dataset in terms of realism, evaluation capabilities, total capture, completeness, and malicious activity. The profiles are then employed in an experiment to generate the desirable dataset in a testbed environment. Various multi-stage attacks scenarios were subsequently carried out to supply the anomalous portion of the dataset. The intent for this dataset is to assist various researchers in acquiring datasets of this kind for testing, evaluation, and comparison purposes, through sharing the generated datasets and profiles.},
+  keywords = {Dataset generation,Intrusion detection,Network traffic profile}
+}
+
 @article{short_ImprovingSecurityFairness_2021,
   title = {Improving {{Security}} and {{Fairness}} in {{Federated Learning Systems}}},
   author = {Short, Andrew and Orfanoudakis, {$T$}heofanis and Helen, Leligou},
@@ -10412,6 +10549,16 @@
   keywords = {+survey}
 }
 
+@inproceedings{snapp_DIDSdistributedintrusion_1992,
+  title = {The {{DIDS}} (Distributed Intrusion Detection System) Prototype},
+  booktitle = {{{USENIX}} Summer 1992 Technical Conference ({{USENIX}} Summer 1992 Technical Conference)},
+  author = {Snapp, Steven R. and Smaha, Stephen E. and Teal, Daniel M. and Grance, Tim},
+  date = {1992-06},
+  publisher = {USENIX Association},
+  location = {San Antonio, TX},
+  url = {https://www.usenix.org/conference/usenix-summer-1992-technical-conference/dids-distributed-intrusion-detection-system}
+}
+
 @inproceedings{sommer_OutsideClosedWorld_2010,
   title = {Outside the {{Closed World}}: {{On Using Machine Learning}} for {{Network Intrusion Detection}}},
   booktitle = {2010 {{IEEE Symposium}} on {{Security}} and {{Privacy}}},
@@ -10517,6 +10664,22 @@
   url = {http://ieeexplore.ieee.org/document/5621784/},
   abstract = {The Autonomous and Autonomic Systems initiative has as its vision the creation of self-directed and self-managing systems to address today's concerns of complexity and total cost of ownership while meeting tomorrow's needs for pervasive and ubiquitous software-based computation and communication. The future of computing and communications is being researched under many areas, including cloud, grid, utility, pervasive, ubiquitous, invisible, world, ambient, paint and so forth. The driving force behind these future paradigms of computer-based systems is the increasing convergence between proliferation of devices, wireless networking, and mobile software. Weiser first described what has become known as ubiquitous computing as the move away from the \&amp;\#x201C;dramatic\&amp;\#x201D; machine, where hardware and software's focus was on being so exciting that we as users would not want to be without it, towards making the machine \&amp;\#x201C;invisible\&amp;\#x201D;, so embedded in our lives it is used without thinking or recognising it as computing. Behind these different terms and research areas, lie three key properties: nomadic, embedded and invisible. In effect, leading to, the creation of a single system with (potentially) billions of networked information devices and resulting in a Complexity Quagmire? As such, the case can be made that all of the next generation paradigms, in one form or another, will require an autonomic-self-managing-infrastructure to be able to provide the successful reality of this envisaged level of pervasiveness, invisibility and mobility. This keynote talk reports on research and development, with examples from Biometric Identification and Tracking Systems, Autonomic Communications, and Space Exploration Systems, utilizing the biological metaphor of the autonomic nervous system to computing and communications, in which computer-based systems self-regulate by using automatic reactions to defend, optimize and heal.},
   isbn = {978-1-4244-6863-8}
+}
+
+@inproceedings{stolfo_Costbasedmodelingfraud_2000,
+  title = {Cost-Based Modeling for Fraud and Intrusion Detection: Results from the {{JAM}} Project},
+  shorttitle = {Cost-Based Modeling for Fraud and Intrusion Detection},
+  booktitle = {Proceedings {{DARPA Information Survivability Conference}} and {{Exposition}}. {{DISCEX}}'00},
+  author = {Stolfo, S.J. and Fan, Wei and Lee, Wenke and Prodromidis, A. and Chan, P.K.},
+  date = {2000-01},
+  volume = {2},
+  pages = {130-144 vol.2},
+  doi = {10.1109/DISCEX.2000.821515},
+  url = {https://ieeexplore.ieee.org/document/821515},
+  urldate = {2024-06-20},
+  abstract = {We describe the results achieved using the JAM distributed data mining system for the real world problem of fraud detection in financial information systems. For this domain we provide clear evidence that state-of-the-art commercial fraud detection systems can be substantially improved in stopping losses due to fraud by combining multiple models of fraudulent transaction shared among banks. We demonstrate that the traditional statistical metrics used to train and evaluate the performance of learning systems (ie. statistical accuracy or ROC analysis) are misleading and perhaps inappropriate for this application. Cost-based metrics are more relevant in certain domains, and defining such metrics poses significant and interesting research questions both in evaluating systems and alternative models, and in formalizing the problems to which one may wish to apply data mining technologies. This paper also demonstrates how the techniques developed for fraud detection can be generalized and applied to the important area of intrusion detection in networked information systems. We report the outcome of recent evaluations of our system applied to tcpdump network intrusion data specifically with respect to statistical accuracy. This work involved building additional components of JAM that we have come to call, MADAM ID (Mining Audit Data for Automated Models for Intrusion Detection). However, taking the next step to define cost-based models for intrusion detection poses interesting new research questions. We describe our initial ideas about how to evaluate intrusion detection systems using cost models learned during our work on fraud detection.},
+  eventtitle = {Proceedings {{DARPA Information Survivability Conference}} and {{Exposition}}. {{DISCEX}}'00},
+  keywords = {Computer science,Cost accounting,Data mining,Ear,Electrical capacitance tomography,Identity-based encryption,Intrusion detection,Java,Statistical analysis,Statistics}
 }
 
 @report{strom_MITREATTCK_2020,

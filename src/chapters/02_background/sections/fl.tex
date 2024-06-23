@@ -1,0 +1,53 @@
+\section{Fundamentals of Federated Learning\label{sec:bg.fl}}
+
+
+% \Gls{fl} can also vary depending on the objectives on the federation.
+% \Gls{cdfl} is a federated setting where on-devices models are trained, and then aggregated to be used by the server.
+% It is especially useful to learn from user data (\eg from smartphones or wearables) while respecting privacy and trust issues~\cite{Kairouz2021}.
+% When clients are organizations, in use cases like network security or fraud detection, we use the term \gls{csfl}~\cite{Kairouz2021}.
+
+% Most applications are using \gls{hfl} \cite{Yang2019}, which is close to distributed learning.
+% In the case of \gls{hfl}, the different clients share the same features, but not the same samples.
+% Thus, \gls{hfl} particularly copes with \emph{ground-truth} issues (\Cref{chall:ground-truth}) by providing more data for the model to be trained on.
+
+% The other variants of \gls{fl}, namely \gls{vfl} and \gls{ftl}~\cite{Yang2019}, are less represented in the literature of \gls{fids}.
+% The choice of a \gls{fl} approach depends on the part of \emph{samples} and \emph{features} that is shared by clients.
+% A sample is an individual entry in a dataset.
+% Features are measurable characteristics of this entry~\cite{Bishop2006}.
+% When storing a dataset as a matrix for processing, each row represents a sample, and each column a feature~\cite{Yang2019}.
+
+% \Gls{hfl} is applicable when clients share features but not samples, which is the case in most reviewed works, as denoted in \Cref{sec:results.quali.fl}.
+% \Gls{vfl} is the opposite: clients share samples but have access to different feature spaces.
+% An identifier is shared among the samples, so a correlation can be done between the samples of different clients.
+% In \gls{ftl}, only a subset of both, features and samples, is shared.
+% \Gls{ftl} is often used to transfer the knowledge of a well-trained model to a slightly different use case or context, \eg different networks configurations or device types.
+
+\subsection{Types of Federated Learning\label{sec:bg.fl.types}}
+%   - Cross-device VS cross-silo
+%   - HFL vs. VFL vs. FTL
+%   - Architecture discrepancies
+
+
+\subsection{The \texttt{FedAvg} Algorithm\label{sec:bg.fl.fedavg}}
+%     - Notations
+
+
+\subsection{The Question of Data Distribution\label{sec:bg.fl.data}}
+
+% iid vs non-iid
+% types of non-iid
+% how to handle non-iid data
+% - algos: FedProx, Fed+
+% - data augmentation
+% - client-side sampling
+% - clustering (dedicated section in chap:radar)
+
+
+\subsection{Threats against Federated Learning\label{sec:bg.fl.threats}}
+
+% - Threats against FL
+%   - Threats summary
+%   - Focus on data poisoning
+%     - Attacker modeling
+%     - Attack vectors
+%     - Mitigation strategies

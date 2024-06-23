@@ -1,9 +1,26 @@
 {
+    "latex-workshop.texcount.autorun": "onSave",
     "latex-workshop.latex.autoBuild.run": "onSave",
     "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build",
 
-    "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
     "ltex.latex.commands": {
         "\\bookmarksetup{}": "ignore",
     },
+    "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
+    "latex-workshop.latex.tools": [
+        {
+            "name": "lualatexmk",
+            "command": "latexmk",
+            "args": [
+                // "-shell-escape",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-lualatex",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+    ]
 }
