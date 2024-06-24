@@ -21,6 +21,7 @@
 \usepackage{pgf}
 \usepackage{pgfplots}
 \usepackage{subcaption}
+\usepackage[export]{adjustbox}
 \usepackage{float}
 \usepackage{tikz}
 \usepackage[edges]{forest}
@@ -244,3 +245,31 @@
 \usepackage{pifont}
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
+
+% algorithms
+\usepackage{algorithm}
+\usepackage{algpseudocodex}
+\counterwithin{algorithm}{chapter}
+% Special block definition
+% ------------------------------------------------------------------------------
+% aglorithmic block definitions (https://github.com/chrmatt/algpseudocodex/issues/3)
+\algnewcommand\algorithmicwith{\textbf{with}}%
+
+\makeatletter
+\algdef{SE}[WITH]{With}{EndWith}[1]{\algpx@startCodeCommand\algpx@startIndent\algorithmicwith\ #1\ \algorithmicdo}{\algorithmicend\ \algorithmicwith}%
+\ifbool{algpx@noEnd}{%
+  \algtext*{EndWith}%
+  %
+  % end indent line after (not before), to get correct y position for multiline text in last command
+  \apptocmd{\EndWith}{\algpx@endIndent}{}{}%
+}{}%
+
+\pretocmd{\With}{\algpx@endCodeCommand}{}{}
+
+% for end commands that may not be printed, tell endCodeCommand whether we are using noEnd
+\ifbool{algpx@noEnd}{%
+  \pretocmd{\EndWith}{\algpx@endCodeCommand[1]}{}{}%
+}{%
+  \pretocmd{\EndWith}{\algpx@endCodeCommand[0]}{}{}%
+}%
+\makeatother

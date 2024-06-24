@@ -53,7 +53,7 @@ Yet, \glspl{nids} greatly outnumber other approaches in the literature, due the 
 Most of the research on \gls{nids} use a representation known as \emph{unidirectional network flows} or \emph{netflows}, where a flow is defined as a sequence of packets sharing the same source and destination addresses, ports, and protocol.
 Various features can be extracted from these flows, such as the number of packets, bytes, and the duration of the flow.
 More details on the features used in \gls{nids} can be found in \Cref{sec:bg.ids.datasets}.
-More generally, the dataset ($D$) is represented as a set of variables $X_i = \langle x_1, x_2, \ldots, x_n \rangle, i \in \llbracket 1, n \rrbracket $, where $x_j$ corresponds to the $j$-th feature.
+More generally, the dataset $D$ of size $n$ is represented as a set of variables $X_i = \langle x_1, x_2, \ldots, x_m \rangle, i \in \llbracket 1, n \rrbracket $, where $x_j$ corresponds to the $j$-th feature, and $m$ to the number of features.
 
 \begin{figure}
   \centering
@@ -74,10 +74,24 @@ This section provides an overview of these paradigms, and define for each the le
 \paragraph{Supervised Learning}
 
 \begin{figure}
+  \captionsetup{justification=justified,singlelinecheck=false}
   \centering
-  \includegraphics[width=.8\textwidth]{example-image-16x9}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=\textwidth]{figures/mlp-train.drawio.pdf}
+    \caption{
+      Training phase.
+      \label{fig:bg.mlp.train}
+    }
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=.75\textwidth,left]{figures/mlp-predict.drawio.pdf}
+    \caption{
+      Prediction phase.
+      \label{fig:bg.mlp.predict}
+    }
+  \end{subfigure}
   \caption{
-    Workflow of training a \acrfull{mlp} for intrusion detection.
+    Workflow of a \acrfull{mlp} for intrusion detection.
     \label{fig:bg.mlp}
   }
 \end{figure}
@@ -120,11 +134,25 @@ This can lead to models that are skewed by the unbalanced class distribution~\ci
 \paragraph{Unsupervised Learning}
 
 \begin{figure}
+  \captionsetup{justification=justified,singlelinecheck=false}
   \centering
-  \includegraphics[width=.8\textwidth]{example-image-16x9}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=\textwidth]{figures/ae-train.drawio.pdf}
+    \caption{
+      Training phase.
+      \label{fig:bg.ae.train}
+    }
+  \end{subfigure}
+  \begin{subfigure}{\textwidth}
+    \includegraphics[width=.75\textwidth,left]{figures/ae-predict.drawio.pdf}
+    \caption{
+      Prediction phase.
+      \label{fig:bg.ae.predict}
+    }
+  \end{subfigure}
   \caption{
     Workflow of a \acrfull{sae} for intrusion detection.
-    \label{fig:bg.mlp}
+    \label{fig:bg.ae}
   }
 \end{figure}
 
@@ -163,7 +191,7 @@ This can lead to a normal profile that is too specific to the local environment,
 
 Semi-supervised learning is a hybrid approach where only a small part of the training data is labeled.
 This approach is particularly useful in the context of \gls{ids}, where labeled data is scarce.
-A common strategy is to train an \gls{ae} on the full dataset to learn the optimal representation of the data, and use the encoder part with a classifier to predict the label of the samples~\cite{aouedi_SemisupervisedStackedAutoencoder_2020}.
+A common strategy is to train an \gls{ae} on the full dataset to learn the optimal representation of the data, and use the encoder (see \Cref{fig:bg.ae}) part with a classifier to predict the label of the samples~\cite{aouedi_SemisupervisedStackedAutoencoder_2020}.
 Other known model architectures for semi-supervised learning include \glspl{dbn}, where multiple layers of \glspl{rbm} are stacked to form a deep network that extracts features from the data.
 The model is then fine-tuned using the labeled data for classification purposes.
 
@@ -182,7 +210,7 @@ Two teams have been particularly active in this area: the Intelligent Security G
 They brought the most used datasets in the field in recent years, UNWS-NB15 and CICIDS2017, respectively.
 
 \footnotetext{
-  In regard to modern networks.
+  Only in regard to modern networks.
   Indeed, the DARPA 1998 dataset simulates multiple workstations in a military environment, using the US Air Force Research Laboratory's testbed.
   The technologies deployed where representative of the state of the art at the time.
 }

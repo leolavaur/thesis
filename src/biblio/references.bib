@@ -1606,6 +1606,22 @@
   keywords = {\_read,+survey,Computer security,Cyber analytics,Cyber Analytics,data mining,Data mining,Data Mining,Data models,IP networks,machine learning,Machine Learning,Measurement,Ports (Computers),Protocols}
 }
 
+@inproceedings{bukhtoyarov_EnsembleDistributedApproachClassification_2014,
+  title = {Ensemble-{{Distributed Approach}} in {{Classification Problem Solution}} for {{Intrusion Detection Systems}}},
+  booktitle = {Intelligent {{Data Engineering}} and {{Automated Learning}} -- {{IDEAL}} 2014},
+  author = {Bukhtoyarov, Vladimir and Zhukov, Vadim},
+  editor = {Corchado, Emilio and Lozano, Jos\'e A. and Quinti\'an, H\'ector and Yin, Hujun},
+  date = {2014},
+  pages = {255--265},
+  publisher = {Springer International Publishing},
+  location = {Cham},
+  doi = {10.1007/978-3-319-10840-7_32},
+  abstract = {Network activity has become an essential part of daily life of almost any individual or company. At the same time the number of various network threats and attacks in private and corporate networks is constantly increasing. Therefore, the development of effective methods of intrusion detection is an urgent problem nowadays. In the paper the basic scheme and main steps of the novel ensemble-distributed approach are proposed. This approach can be used to solve a wide range of classification problems. Its scheme is well suited for the problem of intrusion detection in computer networks. Unlike traditional ensemble approaches the proposed approach provides partial obtaining of adaptive solutions by individual classifiers without an ensemble classifier. The proposed approach has been used to solve some test problems. The results are presented in the article. The approach was also tested on a data set KDD~Cup~'99 and the results confirm the high efficiency of the proposed scheme of ensemble-distributed classification. In comparison with the traditional approaches for distributed intrusion detection systems there is a significant reduction (about 10\%) of information flows between distributed individual classifiers and a centralized ensemble classifier. Possible ways of approach improving and possible applications of the proposed collective-distributed scheme are presented in the final part of the article.},
+  isbn = {978-3-319-10840-7},
+  langid = {english},
+  keywords = {classification,ensemble approach,information security,intrusion detection}
+}
+
 @book{bureauinternationaldespoidsetmesures_Internationalvocabularymetrology_2012,
   title = {International Vocabulary of Metrology: {{Basic}} and General Concepts and Associated Terms ({{VIM}})},
   author = {Bureau International des Poids et Mesures},
@@ -3574,6 +3590,24 @@
   keywords = {+survey}
 }
 
+@article{folino_ensemblebasedevolutionaryframework_2010,
+  title = {An Ensemble-Based Evolutionary Framework for Coping with Distributed Intrusion Detection},
+  author = {Folino, Gianluigi and Pizzuti, Clara and Spezzano, Giandomenico},
+  date = {2010-06-01},
+  journaltitle = {Genetic Programming and Evolvable Machines},
+  shortjournal = {Genet Program Evolvable Mach},
+  volume = {11},
+  number = {2},
+  pages = {131--146},
+  issn = {1573-7632},
+  doi = {10.1007/s10710-010-9101-6},
+  url = {https://doi.org/10.1007/s10710-010-9101-6},
+  urldate = {2024-06-23},
+  abstract = {A distributed data mining algorithm to improve the detection accuracy when classifying malicious or unauthorized network activity is presented. The algorithm is based on genetic programming (GP) extended with the ensemble paradigm. GP ensemble is particularly suitable for distributed intrusion detection because it allows to build a network profile by combining different classifiers that together provide complementary information. The main novelty of the algorithm is that data is distributed across multiple autonomous sites and the learner component acquires useful knowledge from this data in a cooperative way. The network profile is then used to predict abnormal behavior. Experiments on the KDD Cup 1999 Data show the capability of genetic programming in successfully dealing with the problem of intrusion detection on distributed data.},
+  langid = {english},
+  keywords = {Distributed evolutionary algorithms,Ensemble classifiers,Intrusion detection}
+}
+
 @inproceedings{fong_InterpretableExplanationsBlack_2017,
   title = {Interpretable {{Explanations}} of {{Black Boxes}} by {{Meaningful Perturbation}}},
   author = {Fong, Ruth C. and Vedaldi, Andrea},
@@ -5540,6 +5574,22 @@
   langid = {english}
 }
 
+@inproceedings{karimireddy_SCAFFOLDStochasticControlled_2020,
+  title = {{{SCAFFOLD}}: {{Stochastic Controlled Averaging}} for {{Federated Learning}}},
+  shorttitle = {{{SCAFFOLD}}},
+  booktitle = {Proceedings of the 37th {{International Conference}} on {{Machine Learning}}},
+  author = {Karimireddy, Sai Praneeth and Kale, Satyen and Mohri, Mehryar and Reddi, Sashank and Stich, Sebastian and Suresh, Ananda Theertha},
+  date = {2020-11-21},
+  pages = {5132--5143},
+  publisher = {PMLR},
+  issn = {2640-3498},
+  url = {https://proceedings.mlr.press/v119/karimireddy20a.html},
+  urldate = {2024-06-23},
+  abstract = {Federated learning is a key scenario in modern large-scale machine learning where the data remains distributed over a large number of clients and the task is to learn a centralized model without transmitting the client data. The standard optimization algorithm used in this setting is Federated Averaging (FedAvg) due to its low communication cost. We obtain a tight characterization of the convergence of FedAvg and prove that heterogeneity (non-iid-ness) in the client's data results in a `drift' in the local updates resulting in poor performance. As a solution, we propose a new algorithm (SCAFFOLD) which uses control variates (variance reduction) to correct for the `client drift'. We prove that SCAFFOLD requires significantly fewer communication rounds and is not affected by data heterogeneity or client sampling. Further, we show that (for quadratics) SCAFFOLD can take advantage of similarity in the client's data yielding even faster convergence. The latter is the first result to quantify the usefulness of local-steps in distributed optimization.},
+  eventtitle = {International {{Conference}} on {{Machine Learning}}},
+  langid = {english}
+}
+
 @article{kashani_DEEPLEARNINGINTERVIEWS_2021,
   title = {{{DEEP LEARNING INTERVIEWS}}},
   author = {Kashani, Shlomo},
@@ -6832,6 +6882,21 @@
   abstract = {The vehicular networks constructed by interconnected vehicles and transportation infrastructure are vulnerable to cyber-intrusions due to the expanded use of software and the introduction of wireless interfaces. Intrusion detection systems (IDSs) can be customized efficiently in response to this increased attack surface. There has been significant progress in detecting malicious attack traffic using machine learning approaches. However, existing IDSs require network devices with powerful computing capabilities to continuously train and update complex network models, which reduces the efficiency and defense capability of intrusion detection systems due to limited resources and untimely model updates. This work proposes a cooperative intrusion detection mechanism that offloads the training model to distributed edge devices (e.g., connected vehicles and roadside units (RSUs). Distributed federated-based approach reduces resource utilization of the central server while assuring security and privacy. To ensure the security of the aggregation model, blockchain is used for the storage and sharing of the training models. This work analyzes common attacks and shows that the proposed scheme achieves cooperative privacy-preservation for vehicles while reducing communication overhead and computation cost.},
   langid = {english},
   keywords = {survey-fids}
+}
+
+@inproceedings{liu_ClientEdgeCloudHierarchicalFederated_2020,
+  title = {Client-{{Edge-Cloud Hierarchical Federated Learning}}},
+  booktitle = {{{ICC}} 2020 - 2020 {{IEEE International Conference}} on {{Communications}} ({{ICC}})},
+  author = {Liu, Lumin and Zhang, Jun and Song, S.H. and Letaief, Khaled B.},
+  date = {2020-06},
+  pages = {1--6},
+  issn = {1938-1883},
+  doi = {10.1109/ICC40277.2020.9148862},
+  url = {https://ieeexplore.ieee.org/document/9148862},
+  urldate = {2024-06-23},
+  abstract = {Federated Learning is a collaborative machine learning framework to train a deep learning model without accessing clients' private data. Previous works assume one central parameter server either at the cloud or at the edge. The cloud server can access more data but with excessive communication overhead and long latency, while the edge server enjoys more efficient communications with the clients. To combine their advantages, we propose a client-edge-cloud hierarchical Federated Learning system, supported with a HierFAVG algorithm that allows multiple edge servers to perform partial model aggregation. In this way, the model can be trained faster and better communication-computation trade-offs can be achieved. Convergence analysis is provided for HierFAVG and the effects of key parameters are also investigated, which lead to qualitative design guidelines. Empirical experiments verify the analysis and demonstrate the benefits of this hierarchical architecture in different data distribution scenarios. Particularly, it is shown that by introducing the intermediate edge servers, the model training time and the energy consumption of the end devices can be simultaneously reduced compared to cloud-based Federated Learning.},
+  eventtitle = {{{ICC}} 2020 - 2020 {{IEEE International Conference}} on {{Communications}} ({{ICC}})},
+  keywords = {Cloud computing,Computational modeling,Convergence,Data models,Edge Learning,Federated Learning,Machine learning,Mobile Edge Computing,Servers,Training}
 }
 
 @article{liu_DelayEnergyEfficientAsynchronous_2024,
@@ -10931,6 +10996,24 @@
   abstract = {Intrusion detection is a common network security defense technology. At present, there are many research using deep learning to realize network intrusion detection. This method has been proved to have high detection accuracy. However, deep learning requires large-scale data sets for training. The network intrusion detection data set of some institution is lacking. If the network traffic data set is uploaded for centralized deep learning training, it will face privacy problems. Combined with the characteristics of network traffic, this article proposes a network intrusion detection method based on federated learning. This method allows multiple ISPs or other institutions to conduct joint deep learning training on the premise of retaining local data. It not only improves the detection accuracy of the model but also protects privacy in network traffic. This article conducts experiments on the CICIDS2017 network intrusion detection data set. Experimental results show that worker participating in federated learning have higher detection accuracy. The accuracy and other performance of federated learning are almost equal to those of centralized deep learning models.},
   langid = {english},
   keywords = {\_read\_urgently,CICIDS2017,deep learning,federated learning,GRU,network intrusion detection}
+}
+
+@article{tang_GossipFLDecentralizedFederated_2023,
+  title = {{{GossipFL}}: {{A Decentralized Federated Learning Framework With Sparsified}} and {{Adaptive Communication}}},
+  shorttitle = {{{GossipFL}}},
+  author = {Tang, Zhenheng and Shi, Shaohuai and Li, Bo and Chu, Xiaowen},
+  date = {2023-03},
+  journaltitle = {IEEE Transactions on Parallel and Distributed Systems},
+  volume = {34},
+  number = {3},
+  pages = {909--922},
+  issn = {1558-2183},
+  doi = {10.1109/TPDS.2022.3230938},
+  url = {https://ieeexplore.ieee.org/document/9996127},
+  urldate = {2024-06-23},
+  abstract = {Recently, federated learning (FL) techniques have enabled multiple users to train machine learning models collaboratively without data sharing. However, existing FL algorithms suffer from the communication bottleneck due to network bandwidth pressure and/or low bandwidth utilization of the participating clients in both centralized and decentralized architectures. To deal with the communication problem while preserving the convergence performance, we introduce a communication-efficient decentralized FL framework GossipFL. In GossipFL, we 1) design a novel sparsification algorithm to enable that each client only needs to communicate with one peer with a highly sparsified model, and 2) propose a new and novel gossip matrix generation algorithm that can better utilize the bandwidth resources while preserving the convergence property. We also theoretically prove that GossipFL has convergence guarantees. We conduct experiments with three convolutional neural networks on two datasets (IID and non-IID) under two distributed environments (14 clients and 100 clients) to verify the effectiveness of GossipFL. Experimental results show that GossipFL takes less communication traffic for 38.5\% and less communication time for 49.849.8\% than state-of-the-art solutions while achieving comparative model accuracy.},
+  eventtitle = {{{IEEE Transactions}} on {{Parallel}} and {{Distributed Systems}}},
+  keywords = {Bandwidth,communication efficiency,Convergence,Data models,Deep learning,federated learning,Federated learning,Servers,Topology,Training}
 }
 
 @inproceedings{taowan_IntruDetectorsoftwareplatform_2001,
