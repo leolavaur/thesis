@@ -1,3 +1,15 @@
+# LaTeX-Workshop build directory.
+./build
+
+# Saving errors
+*SAVE-ERROR*
+
+# Drawio backups
+*.bkp
+
+# Minted
+*.minted
+
 # Created by https://www.toptal.com/developers/gitignore/api/direnv,latex
 # Edit at https://www.toptal.com/developers/gitignore?templates=direnv,latex
 
@@ -316,6 +328,3 @@ TSWLatexianTemp*
 *.glstex
 
 # End of https://www.toptal.com/developers/gitignore/api/direnv,latex
-
-# LaTeX-Workshop build directory.
-./build

@@ -1,0 +1,22 @@
+\section{A Practical Use Case for FIDSs\label{sec:app.overview}}
+% organizations
+% sake of simplicity -> hfl, same features
+% not unrealistic, 
+% - eg. same probe deployed in multiple organizations
+% - gray-box product that all organizations use
+
+We consider a typical \gls{fl} scenario where a central server $S$ is tasked with aggregating the model updates $w_k^r$ of a set of participants $p, k\in \llbracket 1,n \rrbracket$ at each round $r$.
+Participants are entities that oversee an organization's network, which makes them highly available and interested.
+This can be described as a \gls{csfl} scenario, \ie, fewer participants with consequent amounts of data and significant computing capabilities.
+Because of the lower scale of the federation and the assumed interest of the different parties, we set the fraction $C$ of participants that are selected at each round to $1.0$.
+
+For the sake of simplicity, we consider that all participants share the same model architecture and extract the same features from the network traffic.
+This is not unrealistic, as common formats and protocols are used in the industry, such as the NetFlow format~\cite{rfc3954} for network flows.
+Further, this description can fit multiple scenarios, such as organizations deploying the same probe in their network as part of a standardization effort, or a service provider offering a gray-box product to multiple organizations.
+
+We also consider that participants have access to labeled data, which is a common assumption in the literature.
+Although labeling data can be costly, it is a more reasonable assumption in \gls{csfl} scenarios, where participants are more likely to have the human and financial resources to label data.
+Therefore, each participant possess a local dataset $d_k = (X_i, Y_i)$ that is not shared with the others.
+Because organizations in \gls{cids} may have different network configurations~\cite{zhou_surveycoordinatedattacks_2010}, the distribution of each local dataset $d_k$ can vary considerably, independently of the associated labels.
+However, the \gls{cids} use case implies that similarities can exist between participants, for instance between organizations operating in the same sector or having similar network infrastructure.
+This particular setting can be described as \emph{practical \gls{niid}}, as opposed to the \emph{pathological \gls{niid}} settings, where all participants have unique and highly different data-distributions~\cite{huang_PersonalizedCrossSiloFederated_2021}.

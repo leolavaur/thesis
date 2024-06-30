@@ -4,10 +4,10 @@
 \section{Context and Motivation\label{sec:intro.context}}
 
 Modern information security is made difficult by the scale, complexity, and heterogeneity of information systems.
-Because security by design in these conditions is an impossible task, security agencies also recommend complementary measures.
+Because security by design in these conditions is a considerable challenge, security agencies also recommend complementary measures.
 For instance, the NIST Cybersecurity Framework~\cite{nationalinstituteofstandardsandtechnology_NISTCybersecurityFramework_2024} suggests a five-stage lifecycle for managing risks in information systems: identify, protect, detect, respond, and recover.
 
-The \emph{detection} and \emph{response} stages immensely benefit from the recent advances in \gls{ai} and \gls{ml}, enabling the analysis of more complex behaviors.
+The \emph{detection} and \emph{response} stages can significantly benefit from the recent advances in \gls{ai} and \gls{ml}, enabling the analysis of more complex behaviors.
 Yet, because organizations usually face similar threats, including large-scale campaigns such as Mirai in 2016 or NotPetya in 2017, they would greatly benefit from sharing insights on the intrusions they have encountered, or any knowledge that might help others to identify the incident before the damages are too important.
 Collaboration is further encouraged by regulation, for instance with the NIS~\cite{NIS_directive} and NIS2~\cite{NIS2} European directives.
 Sharing data is made even more important for training \gls{ml} and \gls{dl} models, which require large amounts of data to be effective.
@@ -16,7 +16,8 @@ Yet, stakeholders are often reluctant to involve their organization in data-shar
 \Gls{fl}~\cite{mcmahan_Communicationefficientlearningdeep_2017} has emerged as a promising paradigm for collaborative \gls{ml}, enabling model training across distributed data sources while preserving privacy.
 Deployed in intrusion detection contexts, \gls{fl} can help organizations to virtually extend the size of their training sets, thus producing more accurate models.
 This architecture could also be used to disseminate information about esoteric attacks or devices behavior owned locally, that would benefit to other organizations.
-\Gls{fl} also promises to solve other drawbacks of \gls{ml}-based \glspl{ids}, such as the need for continuous retraining\needref, the lack of adaptability to new threats\needref, or the risk of local biases due to a lack of heterogeneity in the training set\needref.
+\Gls{fl} also promises to solve other drawbacks of \gls{ml}-based \glspl{ids}, such as the need for continuous retraining, the lack of adaptability to new threats, or the risk of local biases due to a lack of heterogeneity in the training set.
+% TODO: References for the drawbacks of ML-based IDS would be nice, but most surveys on the topics are either old or provide too generic research directions.
 
 Consequently, applying \gls{fl} to \gls{ids} seems like a promising approach to collaboratively improve the local detection of cyber threats.
 This is supported by the amount of recent literature on the topic, which has grown exponentially since 2018~\cite{lavaur_EvolutionFederatedLearningbased_2022,ismaila_ReviewApproachesFederated_2024}.
@@ -43,7 +44,7 @@ Existing structures, such as \glspl{isac} or inter-\glspl{soc} could benefit fro
 
 Consequently, this dissertation will focus on the use case of building collaborative \glspl{nids} by leveraging \gls{fl} on \gls{it} network data.
 Note however, that the results presented in this manuscript could theoretically be extended to other applications.
-\Cref{fig:intro.usecase} illustrates this use case.
+\Cref{fig:intro.usecase} illustrates our use case.
 
 \begin{figure}
   \centering
@@ -52,13 +53,13 @@ Note however, that the results presented in this manuscript could theoretically 
   \label{fig:intro.usecase}
 \end{figure}
 
-\subsection{Research Objectives\label{sec:intro.questions}}
+\section{Research Objectives\label{sec:intro.questions}}
 
+Overall, this work aims to answer the following: \emph{Can \gls{fl} serve as a trustable knowledge-sharing framework for collaboratively improving intrusion detection mechanisms?}
 Based on the context and motivation laid out in the previous section, we formulize the general objectives of this dissertation as a set of research questions.
 The questions stated hereafter are intended to be completed and extended in the following chapters, some of which introduce their own research questions.
-Overall, this work aims to answer the following: \emph{Can \gls{fl} serve as a trustable knowledge-sharing framework for collaboratively improving intrusion detection mechanisms?}
 
-Specifically, we focus on the following research questions:
+Specifically, we globally focus on the following research questions:
 
 \begin{questions}
   % 1. understand if FL can be used as a collaborative framework for IDS
@@ -80,18 +81,18 @@ Specifically, we focus on the following research questions:
 We summarize the contributions of this dissertation as follows:
 
 \begin{enumerate}
-  \item The first \gls{slr} on applying \gls{fl} to \gls{ids}, with quantitative and qualitative analyses of the existing works, as well as the proposal of a reference architecture and a taxonomy for structuring the domain.
-  \item A demonstration highlighting the challenges of heterogeneity and malicious contributions in \gls{fids}.
+  \item The first \gls{slr} in literature that study the application of \gls{fl} to \gls{ids}. We propose a reference architecture and a taxonomy for structuring the domain, supported by quantitative and qualitative analyses of the existing literature.
+  \item An illustrative study highlighting the challenges of heterogeneity and malicious contributions in \gls{fids}.
   \item An extensible evaluation framework for \glspl{fids} called Eiffel, leveraging popular open source libraries like Flower~\cite{beutel_Flowerfriendlyfederated_2020} and Hydra~\cite{Hydra}, and a set of malicious clients simulators. 
   \item A systematic analysis of the impact of label-flipping attacks on an \gls{fl}-based collaborative \gls{ids}, leveraging the aforementioned evaluation framework.
-  \item The first \gls{fl} architecture for collaborative \gls{ids} that handles malicious contributions in heterogeneous environments, leveraging a cross-evaluation mechanism and a reputation system.
+  \item A pioneer \gls{fl} architecture for collaborative \gls{ids} that handles malicious contributions in heterogeneous environments, leveraging a cross-evaluation mechanism and a reputation system.
   \item A methodology allowing to generate network topologies with heterogeneity constraints, and laying down the foundations toward a more realistic evaluation of \gls{fids} and distributed networking telemetry experiments in general.
 \end{enumerate}
 
 
 \section{Outline\label{sec:intro.outline}}
 
-Outside of the introduction and conclusion, the manuscript is organized in three parts: defining \glspl{fids}, quantifying their limitations, and providing solutions to address them.
+Apart from the introduction and conclusion chapters, the manuscript is organized in three parts: defining \glspl{fids}, quantifying their limitations, and providing solutions to address them.
 
 \paragraph{\Cref{part:fids}:}
 
@@ -109,21 +110,30 @@ Finally, \Cref{chap:assessment} introduces our evaluation framework, and systema
 \paragraph{\Cref{part:solutions}:}
 
 The last part focuses on providing solutions to the challenges studied in \Cref{part:limitations}.
-Notably, \Cref{chap:radar} introduces a novel \gls{fl} architecture for \gls{fids} that handles malicious contributions in heterogeneous environments.
+Notably, \Cref{chap:radar} introduces a novel \gls{fl} architecture for \gls{fids} that ensures the quality of incoming contributions in heterogeneous environments, with applications to the detections of malicious behaviors.
 \Cref{chap:future} then makes a statement on the future of \gls{fids}, with discussions about open issues and potential research directions.
+% TODO: Chapter 8 (chap:future) is not yet written and I'm concerned about not having the time to do it.
+
 
 
 
 \section{Publications\label{sec:intro.publications}}
 
+\makeatletter
+\newcommand\Setmaxbibnames[1]{\renewcommand\blx@maxbibnames{#1}}
+\makeatletter
+
 \begin{refsection}[biblio/lavaur.bib]
-  \nocite{*}
-  \subsection*{Journal articles}
-  \printbibliography[heading=none,type=article]
-  \subsection*{International conference papers}
-  \printbibliography[heading=none,type=inproceedings,keyword=confs]
-  \subsection*{National conference papers}
-  \printbibliography[heading=none,type=inproceedings,keyword=national]
-  \subsection*{Tutorials}
-  \printbibliography[heading=none,keyword=tutorial]
+  \begin{refcontext}[sorting=ymdnt]
+    \Setmaxbibnames{99}
+    \nocite{*}
+    \subsection*{Journal articles}
+    \printbibliography[heading=none,type=article]
+    \subsection*{International conference papers}
+    \printbibliography[heading=none,type=inproceedings,keyword=confs]
+    \subsection*{National conference papers}
+    \printbibliography[heading=none,type=inproceedings,keyword=national]
+    \subsection*{Tutorials}
+    \printbibliography[heading=none,keyword=tutorial]
+  \end{refcontext}
 \end{refsection}

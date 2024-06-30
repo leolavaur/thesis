@@ -3,9 +3,9 @@
 
 Organizations long relied on signature-based \glspl{ids} to detect intrusions.
 These systems leverage a database of known attack patterns (\ie, \emph{signatures}) to identify malicious activities.
-\Cref{lst:suricata} displays an example of a signature for detecting the Heartbleed vulnerability using Suricata, a popular open-source \gls{ids}.
+\Cref{lst:suricata} displays an example of a signature for detecting the Heartbleed vulnerability using Suricata~\cite{suricata}, a popular open-source \gls{ids}.
 This signature relies on dedicated code inside Suricata's engine that required extensive human intervention to develop.
-It is consequently specific to Suricata.
+It is consequently specific to Suricata and remains difficult to interpret and adapt.
 Such limitations motivated the study of \gls{ml} for automatically extracting patterns from data, enabling the development of more flexible and adaptive \glspl{ids}.
 
 \begin{listing}
@@ -67,8 +67,9 @@ More generally, the dataset $D$ of size $n$ is represented as a set of variables
 \subsubsection{Main \Gls{dl} Paradigms}
 
 Because of their layered architecture, \glspl{dnn} can adopt different forms depending on the type of input data and the task at hand.
-\Cref{fig:bg.taxonomy} presents the major families of \gls{dl} algorithms: supervised-, unsupervised-, and semi-supervised learning, and finally reinforcement learning.
-While works exist on the application of reinforcement learning to intrusion detection~\needref{}, we focus on supervised and unsupervised learning in this thesis.
+\Cref{fig:bg.taxonomy} presents the major families of \gls{dl} algorithms: supervised, unsupervised, and semi-supervised learning, and finally reinforcement learning.
+While works exist on the application of reinforcement learning to intrusion detection~\cite{he_ReinforcementLearningMeets_2024}, they remain rare in the literature.
+Consequently, we focus on supervised and unsupervised learning in this thesis.
 This section provides an overview of these paradigms, and define for each the learning problem in the context of intrusion detection.
 
 \paragraph{Supervised Learning}
@@ -102,13 +103,14 @@ Consequently, the dataset $D$ of size $n$ associates each sample $X_i$ with a la
 The model is trained to predict the label $\hat{y}$ of unseen samples.
 To do so, we generally use a \gls{sgd}-based optimizer to minimize a loss function
 \begin{equation} \label{eq:bg.loss}
-  \mathcal{L}(w, X_i, y_i), i \in \llbracket 1, n \rrbracket.
+  \mathcal{L}(w, X_i, y_i), i \in \llbracket 1, n \rrbracket,
 \end{equation}
+where $w$ represent the model's parameters.
 After computing the gradients $\nabla \mathcal{L}(w, X_i, y_i)$, they can update their model as
 \begin{equation} \label{eq:bg.update}
   w^{t+1} \gets w^t - \eta \nabla \mathcal{L}(w, X_i, y_i),
 \end{equation}
-where $\eta$ is the learning rate, and $w$ the model's parameters, and $t$ the iteration.
+where $\eta$ is the learning rate, $w^t$ the model's parameters at iteration $t$, and $w^{t+1}$ the new parameters resulting from the update.
 The last layer usually uses \texttt{softmax} or \texttt{sigmoid} activation functions to output a probability of being in a class (normal or abnormal).
 In the case of multi-class classification, the label is one-hot encoded\footnotemark{} into a vector $Y$ of size $c$ (the number of classes), and the \texttt{softmax} function is used.
 Depending on the available features and the learning objective, various architectures can be used, such as \glspl{cnn} for high-dimensional data, or \glspl{rnn} for sequential data.
@@ -126,7 +128,7 @@ This issue is aggravated in siloed configurations, \ie, in which models can only
 This can lead to models that are skewed by the unbalanced class distribution~\cite{campos_EvaluatingFederatedLearning_2022}.
 
 \begin{challenge}
-  Locally collected data is often unbalanced, leading to models that are skewed by the class distribution.
+  Locally collected data is often unbalanced, leading to representation biases and overall lower performance.
   \label{chall:bias}
 \end{challenge}
 
@@ -166,16 +168,16 @@ This builds on the assumption that
   \item abnormal packets are statistically different from normal ones.
 \end{enumerate*}
 In this scenario, the training dataset $D$ is composed of benign (\ie, normal) samples only and no associated label.
-Given $X = \lbrace X_i | i \in \llbracket 1, n \rrbracket \rbrace $, the model is trained to minimize the reconstruction error $\mathcal{L}(X, \hat{X})$, where $\hat{X}$ is the output of the \gls{ae}.
+Given $\mathcal{X} = \langle X_i | i \in \llbracket 1, n \rrbracket \rangle $, the model is trained to minimize the reconstruction error $\mathcal{L}(\mathcal{X}, \hat{\mathcal{X}})$, where $\hat{\mathcal{X}}$ is the output of the \gls{ae}.
 A typical error function for this task is the \gls{mse}, expressed as:
 \begin{equation}
   \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} \left( X_i - \hat{X}_i \right)^2.
 \end{equation}
 Then the model can be updated using the same process described in \Cref{eq:bg.update}.
-Different architectures of \glspl{ae} can be used, such as \glspl{sae} to improve the quality of the extracted features, or \glspl{dae} to improve the robustness of the model. 
+Different architectures of \glspl{ae} can be used, such as \glspl{sae} to improve the quality of the extracted features, or \glspl{dae} to improve the robustness of the model~\cite{gjorgiev_TimeSeriesAnomaly_2020}. 
 To detect anomalies, the reconstruction error of a new sample is compared to a threshold $\tau$ defined during the training phase on validation data.
 A high reconstruction error indicates that the considered samples is too \emph{far} from the training data, and can indicate an anomaly.
-The performance of the model and its threshold can then be evaluated using a labelled test set.
+The performance of the combination of the \gls{ae} and the threshold can then be evaluated using a labelled test set.
 
 While unsupervised learning is particularly useful for detecting novel attacks, it is also more prone to misclassification.
 Local data in the real-world is likely to be collected on devices with little variance, \eg same brand, same protocols, or use cases.
@@ -204,7 +206,7 @@ Until the mid-2010s, the most common dataset used for intrusion detection was th
 \Textcite{tavallaee_detailedanalysisKDD_2009} published an updated version of the dataset, called NSL-KDD, which removes duplicates and corrects some errors in the original dataset.
 However, NSL-KDD is still based on the original DARPA 1998 dataset, and is considered outdated by today's standards.
 
-Since 2015 with the publication of the UNSW-NB15 dataset~\cite{moustafa_UNSWNB15comprehensivedata_2015}, new datasets have been developed to address the limitations of the KDD'99 and NSL-KDD datasets, such as the lack of realism\footnotemark of the generated traffic, the lack of attack diversity, and the scale of the experiments.
+Since 2015 with the publication of the UNSW-NB15 dataset~\cite{moustafa_UNSWNB15comprehensivedata_2015}, new datasets have been developed to address the limitations of the KDD'99 and NSL-KDD datasets, such as the lack of realism\footnotemark{} of the generated traffic, the lack of attack diversity, and the scale of the experiments.
 \Cref{tbl:datasets} presents the most common feature-based datasets for \glspl{nids}, along with their characteristics.
 Two teams have been particularly active in this area: the Intelligent Security Group (ISG)~\cite{moustafa_UNSWNB15comprehensivedata_2015,koroniotis_developmentrealisticbotnet_2019,moustafa_newdistributedarchitecture_2021} at the University of New South Wales, Australia, and the Canadian Institute for Cybersecurity (CIC)~\cite{sharafaldin_GeneratingNewIntrusion_2018} at the University of New Brunswick, Canada.
 They brought the most used datasets in the field in recent years, UNWS-NB15 and CICIDS2017, respectively.
@@ -230,21 +232,21 @@ Because most of the datasets presented in \Cref{tbl:datasets} are made to train 
 Some also include the original network captures (PCAPs) for further analysis, or complementary system logs for correlation purposes.
 Two non-exclusive approaches can be used to produce these features: feature extraction and feature selection.
 
-\begin{description}
-  \item[Feature extraction] refers to the computation of numerical characteristics after the data collection; \eg, \gls{iat} or number of packets per device in the context of traffic monitoring.
+\begin{description}[labelindent=1em]
+  \item[Feature extraction:] It refers to the computation of numerical characteristics after the data collection; \eg, \gls{iat} or number of packets per device in the context of traffic monitoring.
   Most modern dataset use existing \glspl{ids} to extract these features, such as Zeek\footnote{Formerly known as Bro, available at: \url{https://www.zeek.org/}} or Argus\footnote{Available at: \url{https://openargus.org/argus-ids}}.
   The resulting data are network flows, aggregating the information of multiple packets into a single record.
 
-  \item[Feature selection] relates to the selection of the relevant features for a given task.
+  \item[Feature selection:] It relates to the selection of the relevant features for a given task.
   This is particularly useful in the context of \gls{ml}, where irrelevant or redundant features can degrade the performance of the model.
-  For instance, Edge-IIoTset~\cite{ferrag_EdgeIIoTsetNewComprehensive_2022} contains 61 features, selected from a pool of 1176 based on feature correlation.
+  For instance, Edge-IIoTset~\cite{ferrag_EdgeIIoTsetNewComprehensive_2022} contains 61 features, selected from a pool of 1176 using feature correlation.
 \end{description}
 
 The choice of features is critical for the performance of the model, although \gls{dl} models make this process less relevant due to their ability to filter out irrelevant features.
 Yet, because each dataset comes with its own set of features, it is difficult to compare the performance of models across datasets.
 Recently, \textcite{sarhan_StandardFeatureSet_2022} proposed a standardized feature set for intrusion detection based on NetFlow V9~\cite{rfc3954} format.
 They used nProbe\footnote{Available at: \url{https://www.ntop.org/products/traffic-analysis/nprobe/}} to convert four known \gls{ids} datasets to this format: \ie, UNSW-NB15~\cite{moustafa_UNSWNB15comprehensivedata_2015}, Bot-IoT~\cite{koroniotis_developmentrealisticbotnet_2019}, ToN\_IoT~\cite{moustafa_newdistributedarchitecture_2021}, and CSE-CIC-IDS2018~\cite{sharafaldin_GeneratingNewIntrusion_2018}.
-The NF-V2 datasets contain 43 features extracted from flow characteristics, such as duration or packet length, and some others that are protocols-specific.
+The converted datasets (that the author call NF-V2) contain 43 features extracted from flow characteristics, such as duration or packet length, and some others that are protocols-specific.
 The uniform feature set across datasets allows the evaluation of \gls{ml} models across independently generated datasets.
 
 \paragraph{Use cases}
@@ -268,15 +270,7 @@ All the metrics presented in this section are defined for binary classification,
 
 \begin{table}
   \centering
-  \begin{tabular}{cc|c|c|}
-    \multicolumn{2}{c}{} & \multicolumn{2}{c}{\textbf{Predicted}} \\
-    \multirow{3}{*}{\rotatebox{90}{\textbf{Actual}}} & & \textbf{Positive} & \textbf{Negative} \\
-    \cline{2-4}
-     & \textbf{Positive} & \glspl{tp} & \glspl{fn} \\
-    \cline{2-4}
-    & \textbf{Negative} & \glspl{fp} & \glspl{tn} \\
-    \cline{2-4}
-  \end{tabular}
+  \input{figures/confusion-matrix.tex}
   \caption{
     Confusion matrix for binary classification.
     \label{tbl:bg.conf}
@@ -287,51 +281,55 @@ All the metrics presented in this section are defined for binary classification,
   \item \emph{Accuracy} represents the proportion of correctly classified items.
   It is the ability for the system to correctly distinguish abnormal traffic from legitimate one.
   \begin{equation*}
-    Accuracy = \frac{TP+TN}{P+N}
+    \text{Accuracy} = \frac{\text{TP}+\text{TN}}{\text{P}+\text{N}}
   \end{equation*}
 
   \item \emph{Precision}, or \gls{ppv}, is the proportion of correct positive cases among all the cases that have been categorized as positive.
   \begin{equation*}
-    Precision = \frac{TP}{TP+FP}
+    \text{Precision} = \frac{\text{TP}}{\text{TP}+\text{FP}}
   \end{equation*}
 
   \item \emph{Recall}, or \gls{tpr} represents the proportion of true positive cases that have been correctly categorized.
   \begin{equation*}
-    Recall = \frac{TP}{P} = \frac{TP}{TP+FN}
+    \text{Recall} = \frac{\text{TP}}{\text{P}} = \frac{\text{TP}}{\text{TP}+\text{FN}}
   \end{equation*}
 
   \item \emph{Specificity}, or \gls{tnr}, is the proportion of negative cases that has been correctly categorized.
   \begin{equation*}
-    Specificity = \frac{TN}{P} = \frac{TN}{TN+FP}
+    \text{Specificity} = \frac{\text{TN}}{\text{N}} = \frac{\text{TN}}{\text{TN}+\text{FP}}
   \end{equation*}
 
   \item \emph{Fallout}, or \gls{fpr}, represents the proportion of the positive cases that should have been categorized as negative.
   A high \gls{fpr} often requires human intervention after the classification task to filter out the false positive.
 
   \begin{equation*}
-    Fallout = \frac{FP}{N} = \frac{FP}{FP+TN}
+    \text{Fallout} = \frac{\text{FP}}{\text{N}} = \frac{\text{FP}}{\text{TN}+\text{FP}}
   \end{equation*}
 
-  \item \emph{Miss rate}, or \gls{fnr}, relates to the proportion of positive cases that have not been categorized as such.
+  \item \emph{Missrate}, or \gls{fnr}, relates to the proportion of positive cases that have not been categorized as such.
   In the context of \glspl{ids}, it represents an attack that has been missed by the system.
   Thus, it is a critical metric for this use case.
   \begin{equation*}
-    Miss\ rate = \frac{FN}{P} = \frac{FN}{FN+TP}
+    \text{Missrate} = \frac{\text{FN}}{\text{P}} = \frac{\text{FN}}{\text{TP}+\text{FN}}
   \end{equation*}
 
   \item \emph{F1-Score} is the harmonic mean of precision and recall.
   It is often used to measure ML algorithm, but is also criticized because of the equal importance it gives to both precision and recall~\cite{hand_noteusingFmeasure_2018}.
   \begin{equation*}
-    F_1 = 2 \times \frac{Precision \times Recall}{Precision+Recall}
+    F_1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision}+\text{Recall}}
   \end{equation*}
 
   \item \emph{\gls{mcc}} is an adaptation of the \emph{Phi} (\(\phi\)) coefficient to confusion matrices.
   While being mathematically identical, the term is often preferred by the \gls{ml} community.
   The \gls{mcc} has significant advantages over the other metrics, as it covers all four categories of the confusion matrix~\cite{chicco_advantagesMatthewscorrelation_2020}.
-  Thus, a high score can only be obtained with high \(TP\) and \(TN\), and low \(FP\) and \(FN\).
+  Thus, a high score can only be obtained with high \(\text{TP}\) and \(\text{TN}\), and low \(\text{FP}\) and \(\text{FN}\).
 
   \begin{equation*}
-      MCC = \dfrac{TP \times TN - FP \times FN}{\sqrt{(TP + FP)(TP + FN)(TN + FP)(TN + FN)}}
+      MCC = \dfrac{
+        \text{TP} \times \text{TN} - \text{FP} \times \text{FN}
+      }{
+        \sqrt{(\text{TP} + \text{FP})(\text{TN} + \text{FN})\cdot P \cdot N}
+      }
   \end{equation*}%
 
 \end{enumerate}

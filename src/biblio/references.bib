@@ -82,7 +82,7 @@
   urldate = {2023-11-02},
   abstract = {Federated learning (FL) is becoming a popular paradigm for collaborative learning over distributed, private datasets owned by non-trusting entities. FL has seen successful deployment in production environments, and it has been adopted in services such as virtual keyboards, autocompletion, item recommendation, and several IoT applications. However, FL comes with the challenge of performing training over largely heterogeneous datasets, devices, and networks that are out of the control of the centralized FL server. Motivated by this inherent setting, we make a first step towards characterizing the impact of device and behavioral heterogeneity on the trained model. We conduct an extensive empirical study spanning close to 1.5K unique configurations on five popular FL benchmarks. Our analysis shows that these sources of heterogeneity have a major impact on both model performance and fairness, thus sheds light on the importance of considering heterogeneity in FL system design.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Machine Learning,Computer Science - Performance}
 }
 
@@ -1220,7 +1220,7 @@
   url = {http://arxiv.org/abs/2204.04452},
   urldate = {2022-07-05},
   abstract = {One of the key challenges in decentralized and federated learning is to design algorithms that efficiently deal with highly heterogeneous data distributions across agents. In this paper, we revisit the analysis of Decentralized Stochastic Gradient Descent algorithm (D-SGD) under data heterogeneity. We exhibit the key role played by a new quantity, called \textbackslash emph\{neighborhood heterogeneity\}, on the convergence rate of D-SGD. By coupling the communication topology and the heterogeneity, our analysis sheds light on the poorly understood interplay between these two concepts in decentralized learning. We then argue that neighborhood heterogeneity provides a natural criterion to learn data-dependent topologies that reduce (and can even eliminate) the otherwise detrimental effect of data heterogeneity on the convergence time of D-SGD. For the important case of classification with label skew, we formulate the problem of learning such a good topology as a tractable optimization problem that we solve with a Frank-Wolfe algorithm. As illustrated over a set of simulated and real-world experiments, our approach provides a principled way to design a sparse topology that balances the convergence speed and the per-iteration communication costs of D-SGD under data heterogeneity.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Machine Learning,Mathematics - Optimization and Control,Statistics - Machine Learning}
 }
 
@@ -1343,7 +1343,7 @@
   urldate = {2022-09-12},
   abstract = {The constantly evolving digital transformation imposes new requirements on our society. Aspects relating to reliance on the networking domain and the difficulty of achieving security by design pose a challenge today. As a result, data-centric and machine-learning approaches arose as feasible solutions for securing large networks. Although, in the network security domain, ML-based solutions face a challenge regarding the capability to generalize between different contexts. In other words, solutions based on specific network data usually do not perform satisfactorily on other networks. This paper describes the stacked-unsupervised federated learning (FL) approach to generalize on a cross-silo configuration for a flow-based network intrusion detection system (NIDS). The proposed approach we have examined comprises a deep autoencoder in conjunction with an energy flow classifier in an ensemble learning task. Our approach performs better than traditional local learning and naive cross-evaluation (training in one context and testing on another network data). Remarkably, the proposed approach demonstrates a sound performance in the case of non-iid data silos. In conjunction with an informative feature in an ensemble architecture for unsupervised learning, we advise that the proposed FL-based NIDS results in a feasible approach for generalization between heterogeneous networks. To the best of our knowledge, our proposal is the first successful approach to applying unsupervised FL on the problem of network intrusion detection generalization using flow-based data.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {\_read\_urgently,Computer Science - Cryptography and Security}
 }
 
@@ -1775,7 +1775,7 @@
   url = {http://arxiv.org/abs/2012.13995},
   urldate = {2022-08-09},
   abstract = {Byzantine-robust federated learning aims to enable a service provider to learn an accurate global model when a bounded number of clients are malicious. The key idea of existing Byzantine-robust federated learning methods is that the service provider performs statistical analysis among the clients' local model updates and removes suspicious ones, before aggregating them to update the global model. However, malicious clients can still corrupt the global models in these methods via sending carefully crafted local model updates to the service provider. The fundamental reason is that there is no root of trust in existing federated learning methods. In this work, we bridge the gap via proposing FLTrust, a new federated learning method in which the service provider itself bootstraps trust. In particular, the service provider itself collects a clean small training dataset (called root dataset) for the learning task and the service provider maintains a model (called server model) based on it to bootstrap trust. In each iteration, the service provider first assigns a trust score to each local model update from the clients, where a local model update has a lower trust score if its direction deviates more from the direction of the server model update. Then, the service provider normalizes the magnitudes of the local model updates such that they lie in the same hyper-sphere as the server model update in the vector space. Our normalization limits the impact of malicious local model updates with large magnitudes. Finally, the service provider computes the average of the normalized local model updates weighted by their trust scores as a global model update, which is used to update the global model. Our extensive evaluations on six datasets from different domains show that our FLTrust is secure against both existing attacks and strong adaptive attacks.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Artificial Intelligence,Computer Science - Cryptography and Security}
 }
 
@@ -2064,7 +2064,7 @@
   urldate = {2022-07-05},
   abstract = {Federated learning (FL), an attractive and promising distributed machine learning paradigm, has sparked extensive interest in exploiting tremendous data stored on ubiquitous mobile devices. However, conventional FL suffers severely from resource heterogeneity, as clients with weak computational and communication capability may be unable to complete local training using the same local training hyper-parameters. In this paper, we propose Dap-FL, a deep deterministic policy gradient (DDPG)-assisted adaptive FL system, in which local learning rates and local training epochs are adaptively adjusted by all resource-heterogeneous clients through locally deployed DDPGassisted adaptive hyper-parameter selection schemes. Particularly, the rationality of the proposed hyper-parameter selection scheme is confirmed through rigorous mathematical proof. Besides, due to the thoughtlessness of security consideration of adaptive FL systems in previous studies, we introduce the Paillier cryptosystem to aggregate local models in a secure and privacypreserving manner. Rigorous analyses show that the proposed Dap-FL system could guarantee the security of clients' private local models against chosen-plaintext attacks and chosen-message attacks in a widely used honest-but-curious participants and active adversaries security model. In addition, through ingenious and extensive experiments, the proposed Dap-FL achieves higher global model prediction accuracy and faster convergence rates than conventional FL, and the comprehensiveness of the adjusted local training hyper-parameters is validated. More importantly, experimental results also show that the proposed Dap-FL achieves higher model prediction accuracy than two state-of-the-art RLassisted FL methods, i.e., 6.03\% higher than DDPG-based FL and 7.85\% higher than DQN-based FL.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security}
 }
 
@@ -2405,7 +2405,7 @@
   url = {http://arxiv.org/abs/2201.13086},
   urldate = {2022-10-20},
   abstract = {We present a Federated Learning (FL) based solution for building a distributed classifier capable of detecting URLs containing GDPR-sensitive content related to categories such as health, sexual preference, political beliefs, etc. Although such a classifier addresses the limitations of previous offline/centralised classifiers,it is still vulnerable to poisoning attacks from malicious users that may attempt to reduce the accuracy for benign users by disseminating faulty model updates. To guard against this, we develop a robust aggregation scheme based on subjective logic and residual-based attack detection. Employing a combination of theoretical analysis, trace-driven simulation, as well as experimental validation with a prototype and real users, we show that our classifier can detect sensitive content with high accuracy, learn new labels fast, and remain robust in view of poisoning attacks from malicious users, as well as imperfect input from non-malicious ones.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},68M25,Computer Science - Cryptography and Security,I.2.11,K.4.1}
 }
 
@@ -2568,7 +2568,7 @@
   url = {http://arxiv.org/abs/2108.12124},
   urldate = {2022-08-11},
   abstract = {For highly distributed environments such as edge computing, collaborative learning approaches eschew the dependence on a global, shared model, in favor of models tailored for each location. Creating tailored models for individual learning contexts reduces the amount of data transfer, while collaboration among peers provides acceptable model performance. Collaboration assumes, however, the availability of knowledge transfer mechanisms, which are not trivial for deep learning models where knowledge isn't easily attributed to precise model slices. We present Canoe - a framework that facilitates knowledge transfer for neural networks. Canoe provides new system support for dynamically extracting significant parameters from a helper node's neural network and uses this with a multi-model boosting-based approach to improve the predictive performance of the target node. The evaluation of Canoe with different PyTorch and TensorFlow neural network models demonstrates that the knowledge transfer mechanism improves the model's adaptiveness to changes up to 3.5X compared to learning in isolation, while affording several magnitudes reduction in data movement costs compared to federated learning.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Machine Learning}
 }
 
@@ -2953,7 +2953,7 @@
   urldate = {2022-07-05},
   abstract = {Federated Learning (FL) has been recently receiving increasing consideration from the cybersecurity community as a way to collaboratively train deep learning models with distributed profiles of cyberthreats, with no disclosure of training data. Nevertheless, the adoption of FL in cybersecurity is still in its infancy, and a range of practical aspects have not been properly addressed yet. Indeed, the Federated Averaging algorithm at the core of the FL concept requires the availability of test data to control the FL process. Although this might be feasible in some domains, test network traffic of newly discovered attacks cannot be always shared without disclosing sensitive information.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security}
 }
 
@@ -3057,7 +3057,7 @@
   urldate = {2022-08-30},
   abstract = {Cyber Threat Intelligence (CTI) is the knowledge of cyber and physical threats that help mitigate potential cyber attacks. The rapid evolution of the current threat landscape has seen many organisations share CTI to strengthen their security posture for mutual benefit. However, in many cases, CTI data contains attributes (e.g., software versions) that have the potential to leak sensitive information or cause reputational damage to the sharing organisation. While current approaches allow restricting CTI sharing to trusted organisations, they lack solutions where the shared data can be verified and disseminated `differentially' (i.e., selective information sharing) with policies and metrics flexibly defined by an organisation. In this paper, we propose a blockchain-based CTI sharing framework that allows organisations to share sensitive CTI data in a trusted, verifiable and differential manner. We discuss the limitations associated with existing approaches and highlight the advantages of the proposed CTI sharing framework. We further present a detailed proof of concept using the Ethereum blockchain network. Our experimental results show that the proposed framework can facilitate the exchange of CTI without creating significant additional overheads.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Cryptography and Security}
 }
 
@@ -3125,7 +3125,7 @@
   urldate = {2022-07-06},
   abstract = {Newton-type methods are popular in federated learning due to their fast convergence. Still, they suffer from two main issues, namely: low communication efficiency and low privacy due to the requirement of sending Hessian information from clients to parameter server (PS). In this work, we introduced a novel framework called FedNew in which there is no need to transmit Hessian information from clients to PS, hence resolving the bottleneck to improve communication efficiency. In addition, FedNew hides the gradient information and results in a privacy-preserving approach compared to the existing state-of-the-art. The core novel idea in FedNew is to introduce a two level framework, and alternate between updating the inverse Hessian-gradient product using only one alternating direction method of multipliers (ADMM) step and then performing the global model update using Newton's method. Though only one ADMM pass is used to approximate the inverse Hessian-gradient product at each iteration, we develop a novel theoretical approach to show the converging behavior of FedNew for convex problems. Additionally, a significant reduction in communication overhead is achieved by utilizing stochastic quantization. Numerical results using real datasets show the superiority of FedNew compared to existing methods in terms of communication costs.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Cryptography and Security,Computer Science - Machine Learning,Statistics - Machine Learning}
 }
 
@@ -3940,7 +3940,7 @@
   urldate = {2023-01-12},
   abstract = {In Federated Learning (FL), clients train a model locally and share it with a central aggregator to build a global model. Impermissibility to access client's data and collaborative training makes FL appealing for applications with data-privacy concerns such as medical imaging. However, these FL characteristics pose unprecedented challenges for debugging. When a global model's performance deteriorates, finding the round and the clients responsible is a major pain point. Developers resort to trial-and-error debugging with subsets of clients, hoping to increase the accuracy or let future FL rounds retune the model, which are time-consuming and costly.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning,Computer Science - Software Engineering}
 }
 
@@ -4198,7 +4198,7 @@
   url = {http://arxiv.org/abs/2112.10183},
   urldate = {2022-09-01},
   abstract = {With the rapid demand of data and computational resources in deep learning systems, a growing number of algorithms to utilize collaborative machine learning techniques, for example, federated learning, to train a shared deep model across multiple participants. It could effectively take advantage of the resources of each participant and obtain a more powerful learning system. However, integrity and privacy threats in such systems have greatly obstructed the applications of collaborative learning. And a large amount of works have been proposed to maintain the model integrity and mitigate the privacy leakage of training data during the training phase for different collaborative learning systems. Compared with existing surveys that mainly focus on one specific collaborative learning system, this survey aims to provide a systematic and comprehensive review of security and privacy researches in collaborative learning. Our survey first provides the system overview of collaborative learning, followed by a brief introduction of integrity and privacy threats. In an organized way, we then detail the existing integrity and privacy attacks as well as their defenses. We also list some open problems in this area and opensource the related papers on GitHub: https://github.com/csl-cqu/awesome-secure-collebrative-learning-papers.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security}
 }
 
@@ -4374,7 +4374,7 @@
   urldate = {2022-08-11},
   abstract = {With privacy legislation empowering users with the right to be forgotten, it has become essential to make a model forget about some of its training data. We explore the problem of removing any client's contribution in federated learning (FL). During FL rounds, each client performs local training to learn a model that minimizes the empirical loss on their private data. We propose to perform unlearning at the client (to be erased) by reversing the learning process, i.e., training a model to maximize the local empirical loss. In particular, we formulate the unlearning problem as a constrained maximization problem by restricting to an 2-norm ball around a suitably chosen reference model to help retain some knowledge learnt from the other clients' data. This allows the client to use projected gradient descent to perform unlearning. The method does neither require global access to the data used for training nor the history of the parameter updates to be stored by the aggregator (server) or any of the clients. Experiments on the MNIST dataset show that the proposed unlearning method is efficient and effective.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 
@@ -4672,6 +4672,24 @@
   keywords = {\_done,\_unpublished}
 }
 
+@article{he_ReinforcementLearningMeets_2024,
+  title = {Reinforcement {{Learning Meets Network Intrusion Detection}}: {{A Transferable}} and {{Adaptable Framework}} for {{Anomaly Behavior Identification}}},
+  shorttitle = {Reinforcement {{Learning Meets Network Intrusion Detection}}},
+  author = {He, Mingshu and Wang, Xiaojuan and Wei, Peng and Yang, Liu and Teng, Yinglei and Lyu, Renjian},
+  date = {2024-04},
+  journaltitle = {IEEE Transactions on Network and Service Management},
+  volume = {21},
+  number = {2},
+  pages = {2477--2492},
+  issn = {1932-4537},
+  doi = {10.1109/TNSM.2024.3352586},
+  url = {https://ieeexplore.ieee.org/document/10399344},
+  urldate = {2024-06-30},
+  abstract = {Anomaly detection plays an essential role in network security and traffic classification. Many studies have focused on anomaly detection to improve network security, including machine learning and deep learning methods. These methods often require numerous samples and must obtain the results by classifying the entire data set, thereby limiting their inflexibility. Although transfer and multitask learning have achieved some results in the model's transferability, these methods must manually label or reprocess the test set. These problems limit the application of previous methods in network security management. To solve these problems, we propose a transferable and adaptable network intrusion detection system (TA-NIDS) based on deep reinforcement learning. The interaction process between the agent and the environment varies every time. A small-scale data set can be used to produce many interactive processes. Therefore, robustness is guaranteed when there are few samples. Then, a reasonable reward function allows the agent to learn how to first choose outliers without classifying the entire data set. This makes the TA-NIDS more adaptable to the scene when we prioritize apparent outliers. More importantly, the original features are transformed into the state of the environment, so no requirement exists for the feature dimension. Furthermore, the general rather than the specific state of one data set makes the model transferable to other data sets. The experimental results for IDS2017, IDS2018, NSL-KDD, UNSW-NB15 and CIC-IoT2023 show that the proposed framework maintains good accuracy when prioritizing outliers and transferability are prioritized simultaneously.},
+  eventtitle = {{{IEEE Transactions}} on {{Network}} and {{Service Management}}},
+  keywords = {adaptable framework,anomaly detection,Anomaly detection,Behavioral sciences,Data models,Deep reinforcement learning,Feature extraction,Reinforcement learning,robustness,Telecommunication traffic,Training,transferable framework}
+}
+
 @incollection{hegedus_GossipLearningDecentralized_2019,
   title = {Gossip {{Learning}} as a {{Decentralized Alternative}} to {{Federated Learning}}},
   booktitle = {Distributed {{Applications}} and {{Interoperable Systems}}},
@@ -4719,7 +4737,7 @@
   urldate = {2022-07-05},
   abstract = {Federated learning (FL) has emerged as an effective approach to address consumer privacy needs. FL has been successfully applied to certain machine learning tasks, such as training smart keyboard models and keyword spotting. Despite FL's initial success, many important deep learning use cases, such as ranking and recommendation tasks, have been limited from on-device learning. One of the key challenges faced by practical FL adoption for DL-based ranking and recommendation is the prohibitive resource requirements that cannot be satisfied by modern mobile systems. We propose Federated Ensemble Learning (FEL) as a solution to tackle the large memory requirement of deep learning ranking and recommendation tasks. FEL enables large-scale ranking and recommendation model training on-device by simultaneously training multiple model versions on disjoint clusters of client devices. FEL integrates the trained sub-models via an over-arch layer into an ensemble model that is hosted on the server. Our experiments demonstrate that FEL leads to 0.43--2.31\% model quality improvement over traditional on-device federated learning --- a significant improvement for ranking and recommendation system use cases.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {\_read\_urgently,Computer Science - Information Retrieval,Computer Science - Machine Learning}
 }
 
@@ -4751,7 +4769,7 @@
   url = {http://arxiv.org/abs/1812.04606},
   urldate = {2022-12-14},
   abstract = {It is important to detect anomalous inputs when deploying machine learning systems. The use of larger and more complex inputs in deep learning magnifies the difficulty of distinguishing between anomalous and in-distribution examples. At the same time, diverse image and text data are available in enormous quantities. We propose leveraging these data to improve deep anomaly detection by training anomaly detectors against an auxiliary dataset of outliers, an approach we call Outlier Exposure (OE). This enables anomaly detectors to generalize and detect unseen anomalies. In extensive experiments on natural language processing and small- and large-scale vision tasks, we find that Outlier Exposure significantly improves detection performance. We also observe that cutting-edge generative models trained on CIFAR-10 may assign higher likelihoods to SVHN images than to CIFAR-10 images; we use OE to mitigate this issue. We also analyze the flexibility and robustness of Outlier Exposure, and identify characteristics of the auxiliary dataset that improve performance.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Computation and Language,Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning,Statistics - Machine Learning}
 }
 
@@ -5119,7 +5137,7 @@
   urldate = {2022-07-05},
   abstract = {With the emergence of the Internet of Things (IoT) and Artificial Intelligence (AI) services and applications in the Cyber Physical Systems (CPS), the methods of protecting CPS against cyber threats is becoming more and more challenging. Various security solutions are implemented to protect CPS networks from cyber attacks. For instance, Machine Learning (ML) methods have been deployed to automate the process of anomaly detection in CPS environments. The core of ML is deep learning. However, it has been found that deep learning is vulnerable to adversarial attacks. Attackers can launch the attack by applying perturbations to input samples to mislead the model, which results in incorrect predictions and low accuracy. For example, the Fast Gradient Sign Method (FGSM) is a white-box attack that calculates gradient descent oppositely to maximize the loss and generates perturbations by adding the gradient to unpolluted data. In this study, we focus on the impact of adversarial attacks on deep learning-based anomaly detection in CPS networks and implement a mitigation approach against the attack by retraining models using adversarial samples. We use the Bot-IoT and Modbus IoT datasets to represent the two CPS networks. We train deep learning models and generate adversarial samples using these datasets. These datasets are captured from IoT and Industrial IoT (IIoT) networks. They both provide samples of normal and attack activities. The deep learning model trained with these datasets showed high accuracy in detecting attacks. An Artificial Neural Network (ANN) is adopted with one input layer, four intermediate layers, and one output layer. The output layer has two nodes representing the binary classification results. To generate adversarial samples for the experiment, we used a function called the `fast gradient method' from the Cleverhans library. The experimental result demonstrates the influence of FGSM adversarial samples on the accuracy of the predictions and proves the effectiveness of using the retrained model to defend against adversarial attacks.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing}}
 }
 
@@ -5463,7 +5481,7 @@
   url = {http://arxiv.org/abs/2110.03469},
   urldate = {2023-11-02},
   abstract = {Federated learning allows multiple parties to collaboratively train a joint model without sharing local data. This enables applications of machine learning in settings of inherently distributed, undisclosable data such as in the medical domain. In practice, joint training is usually achieved by aggregating local models, for which local training objectives have to be in expectation similar to the joint (global) objective. Often, however, local datasets are so small that local objectives differ greatly from the global objective, resulting in federated learning to fail. We propose a novel approach that intertwines model aggregations with permutations of local models. The permutations expose each local model to a daisy chain of local datasets resulting in more efficient training in data-sparse domains. This enables training on extremely small local datasets, such as patient data across hospitals, while retaining the training efficiency and privacy benefits of federated learning.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Artificial Intelligence,Computer Science - Machine Learning}
 }
 
@@ -6066,7 +6084,7 @@
   url = {http://arxiv.org/abs/2009.06303},
   urldate = {2023-05-16},
   abstract = {We present a class of methods for robust, personalized federated learning, called Fed+, that unifies many federated learning algorithms. The principal advantage of this class of methods is to better accommodate the real-world characteristics found in federated training, such as the lack of IID data across parties, the need for robustness to outliers or stragglers, and the requirement to perform well on party-specific datasets. We achieve this through a problem formulation that allows the central server to employ robust ways of aggregating the local models while keeping the structure of local computation intact. Without making any statistical assumption on the degree of heterogeneity of local data across parties, we provide convergence guarantees for Fed+ for convex and non-convex loss functions under different (robust) aggregation methods. The Fed+ theory is also equipped to handle heterogeneous computing environments including stragglers without additional assumptions; specifically, the convergence results cover the general setting where the number of local update steps across parties can vary. We demonstrate the benefits of Fed+ through extensive experiments across standard benchmark datasets.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Machine Learning,Mathematics - Optimization and Control,Statistics - Machine Learning}
 }
 
@@ -6284,7 +6302,7 @@
   urldate = {2023-03-23},
   abstract = {Many of the proposed machine learning (ML) based network intrusion detection systems (NIDSs) achieve near perfect detection performance when evaluated on synthetic benchmark datasets. Though, there is no record of if and how these results generalise to other network scenarios, in particular to real-world networks. In this paper, we investigate the generalisability property of ML-based NIDSs by extensively evaluating seven supervised and unsupervised learning models on four recently published benchmark NIDS datasets. Our investigation indicates that none of the considered models is able to generalise over all studied datasets. Interestingly, our results also indicate that the generalisability has a high degree of asymmetry, i.e., swapping the source and target domains can significantly change the classification performance. Our investigation also indicates that overall, unsupervised learning methods generalise better than supervised learning models in our considered scenarios. Using SHAP values to explain these results indicates that the lack of generalisability is mainly due to the presence of strong correspondence between the values of one or more features and Attack/Benign classes in one datasetmodel combination and its absence in other datasets that have different feature distributions.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning,Computer Science - Networking and Internet Architecture}
 }
 
@@ -6446,7 +6464,7 @@
   urldate = {2022-08-16},
   abstract = {In many applications, multiple parties have private data regarding the same set of users but on disjoint sets of attributes, and a server wants to leverage the data to train a model. To enable model learning while protecting the privacy of the data subjects, we need vertical federated learning (VFL) techniques, where the data parties share only information for training the model, instead of the private data. However, it is challenging to ensure that the shared information maintains privacy while learning accurate models. To the best of our knowledge, the algorithm proposed in this paper is the first practical solution for differentially private vertical federated {$k$}-means clustering, where the server can obtain a set of global centers with a provable differential privacy guarantee. Our algorithm assumes an untrusted central server that aggregates differentially private local centers and membership encodings from local data parties. It builds a weighted grid as the synopsis of the global dataset based on the received information. Final centers are generated by running any {$k$}-means algorithm on the weighted grid. Our approach for grid weight estimation uses a novel, light-weight, and differentially private set intersection cardinality estimation algorithm based on the Flajolet-Martin sketch. To improve the estimation accuracy in the setting with more than two data parties, we further propose a refined version of the weights estimation algorithm and a parameter tuning strategy to reduce the final {$k$}-means utility to be close to that in the central private setting. We provide theoretical utility analysis and experimental evaluation results for the cluster centers computed by our algorithm and show that our approach performs better both theoretically and empirically than the two baselines based on existing techniques.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 
@@ -6536,7 +6554,7 @@
   urldate = {2023-09-12},
   abstract = {Due to the increasing privacy concerns and data regulations, training data have been increasingly fragmented, forming distributed databases of multiple ``data silos'' (e.g., within different organizations and countries). To develop effective machine learning services, there is a must to exploit data from such distributed databases without exchanging the raw data. Recently, federated learning (FL) has been a solution with growing interests, which enables multiple parties to collaboratively train a machine learning model without exchanging their local data. A key and common challenge on distributed databases is the heterogeneity of the data distribution among the parties. The data of different parties are usually non-independently and identically distributed (i.e., non-IID). There have been many FL algorithms to address the learning effectiveness under non-IID data settings. However, there lacks an experimental study on systematically understanding their advantages and disadvantages, as previous studies have very rigid data partitioning strategies among parties, which are hardly representative and thorough. In this paper, to help researchers better understand and study the non-IID data setting in federated learning, we propose comprehensive data partitioning strategies to cover the typical non-IID data cases. Moreover, we conduct extensive experiments to evaluate state-ofthe-art FL algorithms. We find that non-IID does bring significant challenges in learning accuracy of FL algorithms, and none of the existing state-of-the-art FL algorithms outperforms others in all cases. Our experiments provide insights for future studies of addressing the challenges in ``data silos''.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Machine Learning}
 }
 
@@ -7724,7 +7742,7 @@
   urldate = {2023-04-03},
   abstract = {We propose and implement a Privacy-preserving Federated Learning ({$PPF$} {$L$}) framework for mobile systems to limit privacy leakages in federated learning. Leveraging the widespread presence of Trusted Execution Environments (TEEs) in high-end and mobile devices, we utilize TEEs on clients for local training, and on servers for secure aggregation, so that model/gradient updates are hidden from adversaries. Challenged by the limited memory size of current TEEs, we leverage greedy layer-wise training to train each model's layer inside the trusted area until its convergence. The performance evaluation of our implementation shows that {$PPF$} {$L$} can significantly improve privacy while incurring small system overheads at the client-side. In particular, {$PPF$} {$L$} can successfully defend the trained model against data reconstruction, property inference, and membership inference attacks. Furthermore, it can achieve comparable model utility with fewer communication rounds (0.54\texttimes ) and a similar amount of network traffic (1.002\texttimes ) compared to the standard federated learning of a complete model. This is achieved while only introducing up to {$\sim$}15\% CPU time, {$\sim$}18\% memory usage, and {$\sim$}21\% energy consumption overhead in {$PPF$} {$L$}'s client-side.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 
@@ -7785,7 +7803,7 @@
   urldate = {2023-04-03},
   abstract = {Federated learning allows us to distributively train a machine learning model where multiple parties share local model parameters without sharing private data. However, parameter exchange may still leak information. Several approaches have been proposed to overcome this, based on multi-party computation, fully homomorphic encryption, etc.; many of these protocols are slow and impractical for real-world use as they involve a large number of cryptographic operations. In this paper, we propose the use of Trusted Execution Environments (TEE), which provide a platform for isolated execution of code and handling of data, for this purpose. We describe Flatee, an efficient privacy-preserving federated learning framework across TEEs, which considerably reduces training and communication time. Our framework can handle malicious parties (we do not natively solve adversarial data poisoning, though we describe a preliminary approach to handle this).},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security}
 }
 
@@ -8061,7 +8079,7 @@
   urldate = {2022-09-29},
   abstract = {Federated learning (FL) is proving to be one of the most promising paradigms for leveraging distributed resources, enabling a set of clients to collaboratively train a machine learning model while keeping the data decentralized. The explosive growth of interest in the topic has led to rapid advancements in several core aspects like communication efficiency, handling non-IID data, privacy, and security capabilities. However, the majority of FL works only deal with supervised tasks, assuming that clients' training sets are labeled. To leverage the enormous unlabeled data on distributed edge devices, in this paper, we aim to extend the FL paradigm to unsupervised tasks by addressing the problem of anomaly detection in decentralized settings. In particular, we propose a novel method in which, through a preprocessing phase, clients are grouped into communities, each having similar majority (i.e., inlier) patterns. Subsequently, each community of clients trains the same anomaly detection model (i.e., autoencoders) in a federated fashion. The resulting model is then shared and used to detect anomalies within the clients of the same community that joined the corresponding federated process. Experiments show that our method is robust, and it can detect communities consistent with the ideal partitioning in which groups of clients having the same inlier patterns are known. Furthermore, the performance is significantly better than those in which clients train models exclusively on local data and comparable with federated models of ideal communities' partition.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Machine Learning}
 }
 
@@ -8389,7 +8407,7 @@
   urldate = {2022-07-05},
   abstract = {Federated Learning (FL) is a paradigm for large-scale distributed learning which faces two key challenges: (i) training efficiently from highly heterogeneous user data, and (ii) protecting the privacy of participating users. In this work, we propose a novel FL approach (DP-SCAFFOLD) to tackle these two challenges together by incorporating Differential Privacy (DP) constraints into the popular SCAFFOLD algorithm. We focus on the challenging setting where users communicate with a ``honest-but-curious'' server without any trusted intermediary, which requires to ensure privacy not only towards a third party observing the final model but also towards the server itself. Using advanced results from DP theory and optimization, we establish the convergence of our algorithm for convex and non-convex objectives. Our paper clearly highlights the trade-off between utility and privacy and demonstrates the superiority of DP-SCAFFOLD over the state-ofthe-art algorithm DP-FedAvg when the number of local updates and the level of heterogeneity grows. Our numerical results confirm our analysis and show that DP-SCAFFOLD provides significant gains in practice.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning,Mathematics - Statistics Theory}
 }
 
@@ -8425,7 +8443,7 @@
   urldate = {2022-07-05},
   abstract = {This paper presents a novel, fast and privacy preserving implementation of deep autoencoders. DAEF (Deep Autoencoder for Federated learning), unlike traditional neural networks, trains a deep autoencoder network in a non-iterative way, which drastically reduces its training time. Its training can be carried out in a distributed way (several partitions of the dataset in parallel) and incrementally (aggregation of partial models), and due to its mathematical formulation, the data that is exchanged does not endanger the privacy of the users. This makes DAEF a valid method for edge computing and federated learning scenarios. The method has been evaluated and compared to traditional (iterative) deep autoencoders using seven real anomaly detection datasets, and their performance have been shown to be similar despite DAEF's faster training.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Machine Learning}
 }
 
@@ -8475,7 +8493,7 @@
   urldate = {2022-07-05},
   abstract = {The cyber-threat landscape has evolved tremendously in recent years, with new threat variants emerging daily, and large-scale coordinated campaigns becoming more prevalent. In this study, we propose CELEST (CollaborativE LEarning for Scalable Threat detection), a federated machine learning framework for global threat detection over HTTP, which is one of the most commonly used protocols for malware dissemination and communication. CELEST leverages federated learning in order to collaboratively train a global model across multiple clients who keep their data locally, thus providing increased privacy and confidentiality assurances. Through a novel active learning component integrated with the federated learning technique, our system continuously discovers and learns the behavior of new, evolving, and globally-coordinated cyber threats. We show that CELEST is able to expose attacks that are largely invisible to individual organizations. For instance, in one challenging attack scenario with data exfiltration malware, the global model achieves a three-fold increase in Precision-Recall AUC compared to the local model. We deploy CELEST on two university networks and show that it is able to detect the malicious HTTP communication with high precision and low false positive rates. Furthermore, during its deployment, CELEST detected a set of previously unknown 42 malicious URLs and 20 malicious domains in one day, which were confirmed to be malicious by VirusTotal.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {\_read\_urgently,Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 
@@ -9098,7 +9116,7 @@
   urldate = {2022-08-18},
   abstract = {Cross-device Federated Learning is an increasingly popular machine learning setting to train a model by leveraging a large population of client devices with high privacy and security guarantees. However, communication efficiency remains a major bottleneck when scaling federated learning to production environments, particularly due to bandwidth constraints during uplink communication. In this paper, we formalize and address the problem of compressing client-to-server model updates under the Secure Aggregation primitive, a core component of Federated Learning pipelines that allows the server to aggregate the client updates without accessing them individually. In particular, we adapt standard scalar quantization and pruning methods to Secure Aggregation and propose Secure Indexing, a variant of Secure Aggregation that supports quantization for extreme compression. We establish state-of-the-art results on LEAF benchmarks in a secure Federated Learning setup with up to 40\texttimes{} compression in uplink communication with no meaningful loss in utility compared to uncompressed baselines.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Artificial Intelligence,Computer Science - Machine Learning}
 }
 
@@ -9389,7 +9407,7 @@
   url = {http://arxiv.org/abs/2202.10276},
   urldate = {2022-09-01},
   abstract = {Machine learning models have been widely adopted in several fields. However, most recent studies have shown several vulnerabilities from attacks with a potential to jeopardize the integrity of the model, presenting a new window of research opportunity in terms of cyber-security. This survey is conducted with a main intention of highlighting the most relevant information related to security vulnerabilities in the context of machine learning (ML) classifiers; more specifically, directed towards training procedures against data poisoning attacks, representing a type of attack that consists of tampering the data samples fed to the model during the training phase, leading to a degradation in the models accuracy during the inference phase. This work compiles the most relevant insights and findings found in the latest existing literatures addressing this type of attacks. Moreover, this paper also covers several defense techniques that promise feasible detection and mitigation mechanisms, capable of conferring a certain level of robustness to a target model against an attacker. A thorough assessment is performed on the reviewed works, comparing the effects of data poisoning on a wide range of ML models in real-world conditions, performing quantitative and qualitative analyses. This paper analyzes the main characteristics for each approach including performance success metrics, required hyperparameters, and deployment complexity. Moreover, this paper emphasizes the underlying assumptions and limitations considered by both attackers and defenders along with their intrinsic properties such as: availability, reliability, privacy, accountability, interpretability, etc. Finally, this paper concludes by making references of some of main existing research trends that provide pathways towards future research directions in the field of cyber-security.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Cryptography and Security}
 }
 
@@ -9826,7 +9844,7 @@
   urldate = {2022-12-14},
   abstract = {With a plethora of new connections, features, and services introduced, the 5th generation (5G) wireless technology reflects the development of mobile communication networks and is here to stay for the next decade. The multitude of services and technologies that 5G incorporates have made modern communication networks very complex and sophisticated in nature. This complexity along with the incorporation of Machine Learning (ML) and Artificial Intelligence (AI) provides the opportunity for the attackers to launch intelligent attacks against the network and network devices. These attacks often traverse undetected due to the lack of intelligent security mechanisms to counter these threats. Therefore, the implementation of real-time, proactive, and self-adaptive security mechanisms throughout the network would be an integral part of 5G as well as future communication systems. Therefore, large amounts of data collected from real networks will play an important role in the training of AI/ML models to identify and detect malicious content in network traffic. This work presents 5G-NIDD, a fully labeled dataset built on a functional 5G test network that can be used by those who develop and test AI/ML solutions. The work further analyses the collected data using common ML models and shows the achieved accuracy levels.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Networking and Internet Architecture}
 }
 
@@ -9855,7 +9873,7 @@
   url = {http://arxiv.org/abs/2111.02791},
   urldate = {2022-12-09},
   abstract = {The uses of Machine Learning (ML) in detection of network attacks have been effective when designed and evaluated in a single organisation. However, it has been very challenging to design an ML-based detection system by utilising heterogeneous network data samples originating from several sources. This is mainly due to privacy concerns and the lack of a universal format of datasets. In this paper, we propose a collaborative federated learning scheme to address these issues. The proposed framework allows multiple organisations to join forces in the design, training, and evaluation of a robust ML-based network intrusion detection system. The threat intelligence scheme utilises two critical aspects for its application; the availability of network data traffic in a common format to allow for the extraction of meaningful patterns across data sources. Secondly, the adoption of a federated learning mechanism to avoid the necessity of sharing sensitive users' information between organisations. As a result, each organisation benefits from other organisations cyber threat intelligence while maintaining the privacy of its data internally. The model is trained locally and only the updated weights are shared with the remaining participants in the federated averaging process. The framework has been designed and evaluated in this paper by using two key datasets in a NetFlow format known as NF-UNSW-NB15-v2 and NF-BoT-IoT-v2. Two other common scenarios are considered in the evaluation process; a centralised training method where the local data samples are shared with other organisations and a localised training method where no threat intelligence is shared. The results demonstrate the efficiency and effectiveness of the proposed framework by designing a universal ML model effectively classifying benign and intrusive traffic originating from multiple organisations without the need for local data exchange.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Cryptography and Security,Computer Science - Machine Learning,Computer Science - Networking and Internet Architecture}
 }
 
@@ -9870,7 +9888,7 @@
   urldate = {2022-09-12},
   abstract = {Network Intrusion Detection Systems (NIDSs) are important tools for the protection of computer networks against increasingly frequent and sophisticated cyber attacks. Recently, a lot of research effort has been dedicated to the development of Machine Learning (ML) based NIDSs. As in any ML-based application, the availability of high-quality datasets is critical for the training and evaluation of ML-based NIDS. One of the key problems with the currently available NIDS datasets is the lack of a standard feature set. The use of a unique and proprietary set of features for each of the publicly available datasets makes it virtually impossible to compare the performance of ML-based traffic classifiers on different datasets, and hence to evaluate the ability of these systems to generalise across different network scenarios. To address that limitation, this paper proposes and evaluates standard NIDS feature sets based on the NetFlow network meta-data collection protocol and system. We evaluate and compare two NetFlow-based feature set variants, a version with 12 features, and another one with 43 features. For our evaluation, we converted four widely used NIDS datasets (UNSW-NB15, BoT-IoT, ToN-IoT, CSE-CIC-IDS2018) into new variants with our proposed NetFlow based feature sets. Based on an Extra Tree classifier, we compared the classification performance of the NetFlow-based feature sets with the proprietary feature sets provided with the original datasets. While the smaller feature set cannot match the classification performance of the proprietary feature sets, the larger set with 43 NetFlow features, surprisingly achieves a consistently higher classification performance compared to the original feature set, which was tailored to each of the considered NIDS datasets. The proposed NetFlow-based standard NIDS feature set, together with four benchmark datasets, made available to the research community, allow a fair comparison of ML-based network traffic classifiers across different NIDS datasets. We believe that having a standard feature set is critical for allowing a more rigorous and thorough evaluation of ML-based NIDSs and that it can help bridge the gap between academic research and the practical deployment of such systems.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Networking and Internet Architecture}
 }
 
@@ -10030,7 +10048,7 @@
   urldate = {2022-09-05},
   abstract = {Federated learning is a popular strategy for training models on distributed, sensitive data, while preserving data privacy. Prior work identified a range of security threats on federated learning protocols that poison the data or the model. However, federated learning is a networked system where the communication between clients and server plays a critical role for the learning task performance. We highlight how communication introduces another vulnerability surface in federated learning and study the impact of network-level adversaries on training federated learning models. We show that attackers dropping the network traffic from carefully selected clients can significantly decrease model accuracy on a target population. Moreover, we show that a coordinated poisoning campaign from a few clients can amplify the dropping attacks. Finally, we develop a server-side defense which mitigates the impact of our attacks by identifying and up-sampling clients likely to positively contribute towards target accuracy. We comprehensively evaluate our attacks and defenses on three datasets, assuming encrypted communication channels and attackers with partial visibility of the network.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning,Computer Science - Networking and Internet Architecture}
 }
 
@@ -10045,7 +10063,7 @@
   urldate = {2022-09-05},
   abstract = {Federated learning is a popular strategy for training models on distributed, sensitive data, while preserving data privacy. Prior work identified a range of security threats on federated learning protocols that poison the data or the model. However, federated learning is a networked system where the communication between clients and server plays a critical role for the learning task performance. We highlight how communication introduces another vulnerability surface in federated learning and study the impact of network-level adversaries on training federated learning models. We show that attackers dropping the network traffic from carefully selected clients can significantly decrease model accuracy on a target population. Moreover, we show that a coordinated poisoning campaign from a few clients can amplify the dropping attacks. Finally, we develop a server-side defense which mitigates the impact of our attacks by identifying and up-sampling clients likely to positively contribute towards target accuracy. We comprehensively evaluate our attacks and defenses on three datasets, assuming encrypted communication channels and attackers with partial visibility of the network.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning,Computer Science - Networking and Internet Architecture}
 }
 
@@ -10829,7 +10847,7 @@
   urldate = {2023-11-02},
   abstract = {The decentralized nature of federated learning makes detecting and defending against adversarial attacks a challenging task. This paper focuses on backdoor attacks in the federated learning setting, where the goal of the adversary is to reduce the performance of the model on targeted tasks while maintaining a good performance on the main task. Unlike existing works, we allow non-malicious clients to have correctly labeled samples from the targeted tasks. We conduct a comprehensive study of backdoor attacks and defenses for the EMNIST dataset, a real-life, user-partitioned, and non-iid dataset. We observe that in the absence of defenses, the performance of the attack largely depends on the fraction of adversaries present and the ``complexity'' of the targeted task. Moreover, we show that norm clipping and ``weak'' differential privacy mitigate the attacks without hurting the overall performance. We have implemented the attacks and defenses in TensorFlow Federated (TFF), a TensorFlow framework for federated learning. In open sourcing our code, our goal is to encourage researchers to contribute new attacks and defenses and evaluate them on standard federated datasets.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning,Statistics - Machine Learning}
 }
 
@@ -10861,7 +10879,7 @@
   urldate = {2022-09-05},
   abstract = {Federated learning (FL) has gained significant attention recently as a privacyenhancing tool to jointly train a machine learning model by multiple participants. The prior work on FL has mostly studied how to protect label privacy during model training. However, model evaluation in FL might also lead to potential leakage of private label information. In this work, we propose an evaluation algorithm that can accurately compute the widely used AUC (area under the curve) metric when using the label differential privacy (DP) in FL. Through extensive experiments, we show our algorithms can compute accurate AUCs compared to the ground truth.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 
@@ -10877,7 +10895,7 @@
   urldate = {2022-09-05},
   abstract = {Federated learning (FL) has gained significant attention recently as a privacyenhancing tool to jointly train a machine learning model by multiple participants. The prior work on FL has mostly studied how to protect label privacy during model training. However, model evaluation in FL might also lead to potential leakage of private label information. In this work, we propose an evaluation algorithm that can accurately compute the widely used AUC (area under the curve) metric when using the label differential privacy (DP) in FL. Through extensive experiments, we show our algorithms can compute accurate AUCs compared to the ground truth.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 
@@ -10919,6 +10937,14 @@
   abstract = {Traditional approaches to cybersecurity issues usually protect users from attacks after the occurrence of specific types of attacks. Besides, patterns of recent cyberattacks tend to be changeable, which add up to unpredictability of them. On the other hand, machine learning, as a new method used to detect intrusion, is attracting more and more attention. Moreover, through the sharing of local training data, the centralized learning approach has proven to improve a model's performance. In this research, a segmented federated learning is proposed, different from a collaborative learning based on single global model in a traditional federated learning model, it keeps multiple global models which allow each segment of participants to conduct collaborative learning separately and rearranges the segmentation of participants dynamically as well. Furthermore, these multiple global models interact with each other for updating parameters, thus being adaptable to various participants' LANs. A dataset covering two months' traffic data from 20 participants' LANs in the LAN-Security Monitoring Project is used. We adopt three types of knowledge-based methods for labeling network events and train a CNN model based on the dataset. At last, we achieve validation accuracies of 0.923, 0.813 and 0.877 individually with these labeling methods.},
   eventtitle = {2020 {{International Joint Conference}} on {{Neural Networks}} ({{IJCNN}})},
   keywords = {Adaptation models,CNN,cybersecurity,Data models,Intrusion detection,LAN,machine learning,Machine learning,Monitoring,segmented federated learning,Servers,Telecommunication traffic}
+}
+
+@online{suricata,
+  title = {Suricata {{IDS}}},
+  url = {https://suricata.io/},
+  urldate = {2024-06-30},
+  langid = {american},
+  organization = {Suricata}
 }
 
 @article{tabassum_FEDGANIDSPrivacypreservingIDS_2022,
@@ -11244,7 +11270,7 @@
   urldate = {2022-09-12},
   abstract = {Cyber Threat Intelligence (CTI) sharing is an important activity to reduce information asymmetries between attackers and defenders. However, this activity presents challenges due to the tension between data sharing and confidentiality, that result in information retention often leading to a free-rider problem. Therefore, the information that is shared represents only the tip of the iceberg. Current literature assumes access to centralized databases containing all the information, but this is not always feasible, due to the aforementioned tension. This results in unbalanced or incomplete datasets, requiring the use of techniques to expand them; we show how these techniques lead to biased results and misleading performance expectations. We propose a novel framework for extracting CTI from distributed data on incidents, vulnerabilities and indicators of compromise, and demonstrate its use in several practical scenarios, in conjunction with the Malware Information Sharing Platforms (MISP). Policy implications for CTI sharing are presented and discussed. The proposed system relies on an efficient combination of privacy enhancing technologies and federated processing. This lets organizations stay in control of their CTI and minimize the risks of exposure or leakage, while enabling the benefits of sharing, more accurate and representative results, and more effective predictive and preventive defenses.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Cryptography and Security,Computer Science - Databases}
 }
 
@@ -11325,7 +11351,7 @@
   urldate = {2022-08-22},
   abstract = {Edge Federation is a new computing paradigm that seamlessly interconnects the resources of multiple edge service providers. A key challenge in such systems is the deployment of latency-critical and AI based resource-intensive applications in constrained devices. To address this challenge, we propose a novel memory-efficient deep learning based model, namely generative optimization networks (GON). Unlike GANs, GONs use a single network to both discriminate input and generate samples, significantly reducing their memory footprint. Leveraging the low memory footprint of GONs, we propose a decentralized faulttolerance method called DRAGON that runs simulations (as per a digital modeling twin) to quickly predict and optimize the performance of the edge federation. Extensive experiments with real-world edge computing benchmarks on multiple RaspberryPi based federated edge configurations show that DRAGON can outperform the baseline methods in fault-detection and Quality of Service (QoS) metrics. Specifically, the proposed method gives higher F1 scores for fault-detection than the best deep learning (DL) method, while consuming lower memory than the heuristic methods. This allows for improvement in energy consumption, response time and service level agreement violations by up to 74, 63 and 82 percent, respectively.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Artificial Intelligence,Computer Science - Performance}
 }
 
@@ -11619,7 +11645,7 @@
   urldate = {2022-10-18},
   abstract = {Machine learning has helped advance the field of anomaly detection by incorporating classifiers and autoencoders to decipher between normal and anomalous behavior. Additionally, federated learning has provided a way for a global model to be trained with multiple clients' data without requiring the client to directly share their data. This paper proposes a novel anomaly detector via federated learning to detect malicious network activity on a client's server. In our experiments, we use an autoencoder with a classifier in a federated learning framework to determine if the network activity is benign or malicious. By using our novel min-max scalar and sampling technique, called FedSam, we determined federated learning allows the global model to learn from each client's data and, in turn, provide a means for each client to improve their intrusion detection system's defense against cyber-attacks.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {\_read,Computer Science - Artificial Intelligence,Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 
@@ -11871,7 +11897,7 @@
   urldate = {2022-09-09},
   abstract = {Virtualized network slicing allows a multitude of logical networks to be created on a common substrate infrastructure to support diverse services. A virtualized network slice is a logical combination of multiple virtual network functions, which run on virtual machines (VMs) as software applications by virtualization techniques. As the performance of network slices hinges on the normal running of VMs, detecting and analyzing anomalies in VMs are critical. Based on the three-tier management framework of virtualized network slicing, we first develop a federated learning (FL) based three-tier distributed VM anomaly detection framework, which enables distributed network slice managers to collaboratively train a global VM anomaly detection model while keeping metrics data locally. The high-dimensional, imbalanced, and distributed data features in virtualized network slicing scenarios invalidate the existing anomaly detection models. Considering the powerful ability of generative adversarial network (GAN) in capturing the distribution from complex data, we design a new multi-discriminator Bidirectional Wasserstein GAN with Gradient Penalty (BiWGAN-GP) model to learn the normal data distribution from high-dimensional resource metrics datasets that are spread on multiple VM monitors. The multi-discriminator BiWGAN-GP model can be trained over distributed data sources, which avoids high communication and computation overhead caused by the centralized collection and processing of local data. We define an anomaly score as the discriminant criterion to quantify the deviation of new metrics data from the learned normal distribution to detect abnormal behaviors arising in VMs. The efficiency and effectiveness of the proposed collaborative anomaly detection algorithm are validated through extensive experimental evaluation on a real-world dataset.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Networking and Internet Architecture}
 }
 
@@ -12269,7 +12295,7 @@
   urldate = {2022-08-12},
   abstract = {Federated learning (FL) has recently attracted increasing attention from academia and industry, with the ultimate goal of achieving collaborative training under privacy and communication constraints. Existing iterative model averaging based FL algorithms require a large number of communication rounds to obtain a wellperformed model due to extremely unbalanced and non-i.i.d data partitioning among different clients. Thus, we propose FedDM to build the global training objective from multiple local surrogate functions, which enables the server to gain a more global view of the loss landscape. In detail, we construct synthetic sets of data on each client to locally match the loss landscape from original data through distribution matching. FedDM reduces communication rounds and improves model quality by transmitting more informative and smaller synthesized data compared with unwieldy model weights. We conduct extensive experiments on three image classification datasets, and results show that our method can outperform other FL counterparts in terms of efficiency and model performance. Moreover, we demonstrate that FedDM can be adapted to preserve differential privacy with Gaussian mechanism and train a better model under the same privacy budget.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 
@@ -12314,7 +12340,7 @@
   urldate = {2022-08-23},
   abstract = {Machine Learning (ML) is a distributed approach for training predictive models on the Internet of Vehicles (IoV) to enable smart public transportation. Since the traffic conditions change over time, the ML model that predicts traffic flows and the time passengers wait at stops must be updated continuously and efficiently. Federated learning (FL) is a distributed machine learning scheme that allows vehicles to receive continuous model updates without having to upload raw data to the cloud and wait for models to be trained. However, FL in smart public transportation is vulnerable to poisoning or DDoS attacks since vehicles travel in public. Besides, due to device heterogeneity and imbalanced data distributions, the synchronized aggregation strategy that collects local models from specific vehicles before aggregation is inefficient. Although Asynchronous Federated Learning (AFL) schemes are developed to improve efficiency by aggregating local models as soon as they are received, the stale local models remain unreasonably weighted, resulting in poor learning performance. To enable smarter public transportation, this paper offers a blockchainbased asynchronous federated learning scheme with a dynamic scaling factor (DBAFL). Specifically, the novel committee-based consensus algorithm for blockchain improves reliability at the lowest possible cost of time. Meanwhile, the devised dynamic scaling factor allows AFL to assign reasonable weight to stale local models. Extensive experiments conducted on heterogeneous devices validate outperformed learning performance, efficiency, and reliability of DBAFL.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Machine Learning}
 }
 
@@ -12329,7 +12355,7 @@
   urldate = {2022-08-11},
   abstract = {Federated learning is an emerging paradigm allowing large-scale decentralized learning without sharing data across different data owners, which helps address the concern of data privacy in medical image analysis. However, the requirement for label consistency across clients by the existing methods largely narrows its application scope. In practice, each clinical site may only annotate certain organs of interest with partial or no overlap with other sites. Incorporating such partially labeled data into a unified federation is an unexplored problem with clinical significance and urgency. This work tackles the challenge by using a novel federated multi-encoding U-Net (Fed-MENU) method for multi-organ segmentation. In our method, a multi-encoding UNet (MENU-Net) is proposed to extract organ-specific features through different encoding sub-networks. Each sub-network can be seen as an expert of a specific organ and trained for that client. Moreover, to encourage the organ-specific features extracted by different sub-networks to be informative and distinctive, we regularize the training of the MENU-Net by designing an auxiliary generic decoder (AGD). Extensive experiments on four public datasets show that our Fed-MENU method can effectively obtain a federated learning model using the partially labeled datasets with superior performance to other models trained by either localized or centralized learning methods. Source code will be made publicly available at the time of paper publication.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Computer Vision and Pattern Recognition,Electrical Engineering and Systems Science - Image and Video Processing}
 }
 
@@ -12779,7 +12805,7 @@
   urldate = {2022-07-25},
   abstract = {Federated Learning (FL) is an emerging paradigm to enable the largescale distributed training of machine learning models, while still providing privacy guarantees. In this work, we jointly address two of the main practical challenges when scaling federated optimization to large node counts: the need for tight synchronization between the central authority and individual computing nodes, and the large communication cost of transmissions between the central server and clients. Specifically, we present a new variant of the classic federated averaging (FedAvg) algorithm, which supports both asynchronous communication and communication compression. We provide a new analysis technique showing that, in spite of these system relaxations, our algorithm essentially matches the best known bounds for FedAvg, under reasonable parameter settings. On the experimental side, we show that our algorithm ensures fast practical convergence for standard federated tasks.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Machine Learning}
 }
 
@@ -12891,7 +12917,7 @@
   urldate = {2022-10-18},
   abstract = {Despite the potential of federated learning, it is known to be vulnerable to backdoor attacks. Many robust federated aggregation methods are proposed to reduce the potential backdoor risk. However, they are mainly validated in the CV field. In this paper, we find that NLP backdoors are hard to defend against than CV, and we provide a theoretical analysis that the malicious update detection error probabilities are determined by the relative backdoor strengths. NLP attacks tend to have small relative backdoor strengths, which may result in the failure of robust federated aggregation methods for NLP attacks. Inspired by the theoretical results, we can choose some dimensions with higher backdoor strengths to settle this issue. We propose a novel federated aggregation algorithm, Dim-Krum, for NLP tasks, and experimental results validate its effectiveness.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 
@@ -12999,7 +13025,7 @@
   urldate = {2022-08-12},
   abstract = {Federated learning (FL) is vulnerable to model poisoning attacks, in which malicious clients corrupt the global model via sending manipulated model updates to the server. Existing defenses mainly rely on Byzantine-robust or provably robust FL methods, which aim to learn an accurate global model even if some clients are malicious. However, they can only resist a small number of malicious clients. It is still an open challenge how to defend against model poisoning attacks with a large number of malicious clients. Our FLDetector addresses this challenge via detecting malicious clients. FLDetector aims to detect and remove majority of the malicious clients such that a Byzantine-robust or provably robust FL method can learn an accurate global model using the remaining clients. Our key observation is that, in model poisoning attacks, the model updates from a client in multiple iterations are inconsistent. Therefore, FLDetector detects malicious clients via checking their model-updates consistency. Roughly speaking, the server predicts a client's model update in each iteration based on historical model updates, and flags a client as malicious if the received model update from the client and the predicted model update are inconsistent in multiple iterations. Our extensive experiments on three benchmark datasets show that FLDetector can accurately detect malicious clients in multiple stateof-the-art model poisoning attacks and adaptive attacks tailored to FLDetector. After removing the detected malicious clients, existing Byzantine-robust FL methods can learn accurate global models. Our code is available at https://github.com/zaixizhang/FLDetector.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Cryptography and Security}
 }
 
@@ -13156,7 +13182,7 @@
   urldate = {2022-08-16},
   abstract = {Resilience describes a system's ability to function under disturbances and threats. Many critical infrastructures, including smart grids and transportation networks, are large-scale complex systems consisting of many interdependent subsystems. Decentralized architecture becomes a key resilience design paradigm for large-scale systems. In this book chapter, we present a multi-agent system (MAS) framework for distributed large-scale control systems and discuss the role of MAS learning in resiliency. This chapter introduces the creation of an artificial intelligence (AI) stack in the MAS to provide computational intelligence for subsystems to detect, respond, and recover. We discuss the application of learning methods at the cyber and physical layers of the system. The discussions focus on distributed learning algorithms for subsystems to respond to each other, and game-theoretic learning for them to respond to disturbances and adversarial behaviors. The book chapter presents a case study of distributed renewable energy systems to elaborate on the MAS architecture and its interface with the AI stack.},
   langid = {english},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Electrical Engineering and Systems Science - Systems and Control}
 }
 
@@ -13237,7 +13263,7 @@
   url = {http://arxiv.org/abs/1910.13111},
   urldate = {2022-08-28},
   abstract = {Collaborative learning allows multiple clients to train a joint model without sharing their data with each other. Each client performs training locally and then submits the model updates to a central server for aggregation. Since the server has no visibility into the process of generating the updates, collaborative learning is vulnerable to poisoning attacks where a malicious client can generate a poisoned update to introduce backdoor functionality to the joint model. The existing solutions for detecting poisoned updates, however, fail to defend against the recently proposed attacks, especially in the non-IID setting. In this paper, we present a novel defense scheme to detect anomalous updates in both IID and non-IID settings. Our key idea is to realize client-side cross-validation, where each update is evaluated over other clients' local data. The server will adjust the weights of the updates based on the evaluation results when performing aggregation. To adapt to the unbalanced distribution of data in the non-IID setting, a dynamic client allocation mechanism is designed to assign detection tasks to the most suitable clients. During the detection process, we also protect the client-level privacy to prevent malicious clients from stealing the training data of other clients, by integrating differential privacy with our design without degrading the detection performance. Our experimental evaluations on two real-world datasets show that our scheme is significantly robust to two representative poisoning attacks.},
-  pubstate = {preprint},
+  pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Machine Learning}
 }
 

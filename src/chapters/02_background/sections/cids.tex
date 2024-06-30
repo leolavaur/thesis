@@ -2,13 +2,13 @@
 
 The topic of collaboration in intrusion detection is rather old, with several surveys and reviews available in the literature~\cite{zhou_surveycoordinatedattacks_2010,elshoush_Alertcorrelationcollaborative_2011,vasilomanolakis_TaxonomySurveyCollaborative_2015,meng_CollaborativeSecuritySurvey_2015,folino_Ensemblebasedcollaborative_2016,li_SurveyingTrustBasedCollaborative_2022}, and the oldest references dating back to the early 1990s~\cite{snapp_DIDSdistributedintrusion_1992}.
 In this section, we present the different types of collaboration in intrusion detection, and discuss some of the challenges that they face.
-A first distinction can be made between their objectives, also they are not mutually exclusive:
+A first distinction can be made between their objectives, although they are not mutually exclusive:
 \begin{enumerate*}[(i)]
   \item \emph{share results} to correlate alerts and detect attacks at a global scale, or
   \item \emph{share knowledge} to improve the detection capabilities of local systems.
 \end{enumerate*}
 
-This distinction also transpires from the scale of the collaboration.
+These objectives also depend on the scale of the collaboration.
 The first case mostly refers to different probes, or sensors, that monitor the same infrastructure, and share their results to correlate alerts and detect attacks at the infrastructure level.
 In the second case, which is sometimes referred to as a \gls{cidn}~\cite{li_SurveyingTrustBasedCollaborative_2022}, collaboration usually happens among different organizations or entities that monitor infrastructures.
 In this thesis, we will focus on the latter, as it is more relevant to the \gls{fl} context (see \Cref{sec:bg.fl}).
@@ -27,8 +27,8 @@ In this thesis, we will focus on the latter, as it is more relevant to the \gls{
   \begin{subfigure}{.25\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/topo-decentralized}
-    \caption{Decentralized}
-    \label{fig:cids.decentralized}
+    \caption{Hybrid}
+    \label{fig:cids.hybrid}
   \end{subfigure}%
   \begin{subfigure}{.25\textwidth}
     \centering
@@ -39,8 +39,8 @@ In this thesis, we will focus on the latter, as it is more relevant to the \gls{
   \begin{subfigure}{.25\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/topo-distributed}
-    \caption{Distributed}
-    \label{fig:cids.distributed}
+    \caption{Fully decentralized}
+    \label{fig:cids.decentralized}
   \end{subfigure}
   \caption[
     Different topologies for collaborative intrusion detection systems.
@@ -52,7 +52,7 @@ In this thesis, we will focus on the latter, as it is more relevant to the \gls{
   } 
 \end{figure}
 
-The aforementioned literature identify three main types of topologies for \glspl{cids}: centralized, decentralized, and distributed.
+The aforementioned literature identify two main types of topologies for \glspl{cids}: centralized and decentralized. %, and distributed.
 The definitions of these topologies are not always consistent across the literature, especially between the terms \emph{decentralized}, \emph{hierarchical}, and \emph{distributed}.
 For instance, \textcite{zhou_surveycoordinatedattacks_2010} consider a decentralized system as a system where each node is autonomous and can make decisions independently, while this definition matches the description of a distributed architecture in the work of \textcite{li_SurveyingTrustBasedCollaborative_2022}.
 
@@ -60,26 +60,34 @@ In this manuscript, we will use the definitions illustrated in \Cref{fig:cids.to
 It distinguishes two types of roles: \emph{nodes} ($N$) and \emph{servers} ($S$).
 A node is a device that captures data, although it can also execute complementary tasks like preprocessing, feature extraction, or traffic analysis.
 A server is a device that aggregates the data from the nodes and distributes instructions to them, as well as updates for the local detection algorithm.
-The different topologies are defined as follows:
-\begin{description}
-  \item[Centralized] In a centralized architecture, a single server centralizes knowledge and distributes instructions to the nodes.
-  \item[Decentralized] In a decentralized architecture, multiple servers coexist.
-    Each server is responsible for a subset of the nodes, and they can share information between them.
-  \item[Hierarchical] A hierarchical architecture is decentralized system where the servers are organized in a tree-like structure.
-    Each server is responsible for a subset of the nodes, and they can forward information to their parent.
-    Likewise, parents can distribute instructions and updates to their children so that they are disseminated throughout the hierarchy.
-  \item[Distributed] In a distributed architecture, each node is autonomous and can make decisions independently.
-    Both roles of nodes and servers coexist in the same entity.
-    There are no servers anymore, and the node share information over a peer-to-peer network.
+The different topologies are defined as follows, including different levels of decentralization:
+\begin{description}[labelindent=1em]
+  \item[Centralized.] In a centralized architecture, a single server centralizes knowledge and distributes instructions to the nodes.
+  
+  \item[Hybrid.] In a hybrid architecture, multiple servers coexist.
+  Each server is responsible for a subset of the nodes, and they can share information between them.
+  There are no \emph{central} server per se, but the roles of server and node still exist.
+  
+  \item[Hierarchical.] A hierarchical architecture is a hybrid architecture where the servers are organized in a tree-like structure.
+  Each server is responsible for a subset of the nodes, and they can forward information to their parent.
+  Likewise, parents can distribute instructions and updates to their children so that they are disseminated throughout the hierarchy.
+  
+  \item[Fully decentralized.] In a fully decentralized architecture, each node is autonomous and can make decisions independently.
+  Both roles of nodes and servers coexist in the same entity.
+  There are no servers anymore, and the node share information over a peer-to-peer network.
 \end{description}
 
 \Cref{fig:cids.topoligies} illustrates these topologies.
+To summarize, the main difference between the different topologies is the level of autonomy of the nodes and the centralization of the knowledge.
 In the centralized architecture (\Cref{fig:cids.centralized}), all nodes are connected to a single server.
-\Cref{fig:cids.decentralized} shows a standard example of a decentralized architecture.
-\Cref{fig:cids.hierarchical,fig:cids.distributed} illustrate the specific cases of decentralized architectures: hierarchical and distributed, respectively.
+We can refer to an architecture as decentralized as soon as there are no single server overseeing all the nodes.
+\Cref{fig:cids.hybrid,fig:cids.hierarchical,fig:cids.decentralized} show different examples of a decentralized architecture.
 The arrows between the different entities represent information exchange, although the nature of these exchanges can vary depending on the direction.
 An arrow displayed as $N \rightarrow S$ can represent collected data, generated alerts, or requests for updates.
 An arrow displayed as $S \rightarrow N$ can represent instructions or updates for the local detection algorithm or database.
+The term \emph{distributed} refers less to the way the system is organized, and more to how the tasks are executed.
+In a distributed system, the tasks (\eg, detection, data processing, \gls{ml} model training) are executed simultaneously on different nodes, which can be organized in any of the aforementioned topologies.
+
 
 \subsection{Challenges in Collaborative Intrusion Detection\label{sec:bg.collab.challenges}}
 
@@ -94,7 +102,7 @@ Nonetheless, collaboration still relies on the availability of the central serve
 \end{challenge}
 
 Another challenge in collaborative intrusion detection is the latency induced by propagating information over the network, especially under load.
-The ENISA, the European Union Agency for Cybersecurity, defines the actionability of \gls{ti} as the fulfillment of five criteria: relevance, digestibility, accuracy, completeness, and timeliness~\cite{ENISA2014}.
+The ENISA (the European Union's agency for cybersecurity) defines the actionability of \gls{ti} as the fulfillment of five criteria: relevance, digestibility, accuracy, completeness, and timeliness~\cite{ENISA2014}.
 It is the supporting architecture that provides the latter.
 Because low-latency is crucial for actionable alerts locally, centrally analyzing the data increases the time between the event and its detection.
 
