@@ -20,9 +20,9 @@ As the selected works target different use cases with different objectives, a pe
 Using the same datasets, hardware and network configuration, and coding frameworks, a thorough reimplementation of the reviewed papers could provide significant contributions.
 
 Finally, the selected papers are from 2016 to 2021, and the field of \gls{fids} has been evolving rapidly.
-As noted in \Cref{sec:sota.methodo.extraction}, a significant number of papers were published since the end of data collection of the original review, including new literature reviews (see \Cref{sec:sota.related}).
-Therefore, the conclusions of this study may not be up-to-date.
-However, the conclusions of this study have provided a solid foundation for the other contributions of this thesis, and most identified trends and research directions are still relevant.
+As noted in \Cref{sec:sota.methodo.update}, a significant number of papers were published since the end of data collection of the original review, including new literature reviews (see \Cref{sec:sota.related}).
+Yet, the conclusions of this study have provided a solid foundation for the other contributions of this thesis and others in the literature.
+Further, most trends and research directions that we identified are still relevant in 2024.
 
 
 \subsection{Open Issues and Future Directions\label{sec:sota.discuss.open}}
@@ -57,7 +57,7 @@ This topic has been especially tackled in \glspl{fids} using incremental learnin
 
 Distributed systems such as FL are often used to cope with resource limitations, especially in terms of computation and bandwidth.
 However, as pointed out by several selected works, FL faces limitations when dealing with too many clients~\cite{rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019,fan_IoTDefenderFederatedTransfer_2020}.
-Therefore, \glspl{fids} require further research regarding client selection: performance-, time-, or reputation-based~\cite{cunhaneto_FedSBSFederatedLearningparticipantselection_2024}.
+Therefore, \glspl{fids} require further research regarding client selection: \mbox{performance-,} \mbox{time-,} or reputation-based~\cite{cunhaneto_FedSBSFederatedLearningparticipantselection_2024}.
 Moreover, in massively distributed federations, the aggregation process can become a bottleneck.
 In such settings, researchers and practitioners might consider using hierarchical aggregation or even complete decentralization of the system.
 A few decentralized \glspl{fids} approaches have been proposed since~\cite{friha_2DFIDSDecentralizeddifferentially_2023}.
@@ -91,6 +91,7 @@ More generally, the quality of the participants' contributions must be controlle
 \textcite{zhang_BlockchainbasedFederatedLearning_2020} identify assessing the trustworthiness of the participants as a future research direction.
 Inspiration should be taken from the state of the art of collaboration systems and information-sharing platforms, which address problems such as trust or reputations~\cite{wagner_Cyberthreatintelligence_2019a,skopik_problemsharedproblem_2016}, which are relevant for \gls{fids}.
 Since the submission of this study, works have been published on the topic of trust via client selection~\cite{cunhaneto_FedSBSFederatedLearningparticipantselection_2024}.
+\Cref{chap:radar} presents a solution to this issue, by providing a trust-based model weighting mechanisms to ensure the quality of the aggregated models~\cite{lavaur_radar_2024}.
 
 
 \paragraph{Self-defense and self-healing}

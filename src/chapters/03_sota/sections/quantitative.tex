@@ -29,7 +29,7 @@ With the introduction of \gls{fl} by \textcite{mcmahan_Communicationefficientlea
     \centering
     \input{figures/year_histogram.pgf}
     \caption{
-      Evolution of the number of publications on FIDSs.
+      Evolution of the number of publications on FIDSs (see \Cref{sec:sota.methodo.update}).
       \label{fig:sota.evol-fids}
     }
   \end{subfigure}
@@ -59,8 +59,9 @@ The initial study published in 2022~\cite{lavaur_EvolutionFederatedLearningbased
 Indeed, only three venues had more than one publication on the topic: the \emph{IEEE Internet of Things Journal}~\cite{popoola_FederatedDeepLearning_2021,zhang_BlockchainbasedFederatedLearning_2020}, \emph{IEEE
 Access}~\cite{chen_IntrusionDetectionWireless_2020,li_DistributedNetworkIntrusion_2020}, and the \emph{IEEE BigData} conference~\cite{cetin_FederatedWirelessNetwork_2019,fan_IoTDefenderFederatedTransfer_2020}.
 The original distribution in terms of venue type (11 conferences, 10 journals and 1 book chapter) has significantly changed, since journals represent two thirds of the publications.
-This is a probable sign of the field gaining maturity, as publishing in conferences first and journals afterward is a common strategy.
-\Cref{fig:sota.venues} shows the distribution of the publications in the most recurring venues.
+It is worth noting that the number of publications in conferences is twice inferior to the number of publications in journals, as depicted in \Cref{fig:sota.venues}.
+Multiple reasons can explain this shift, such as a gain in maturity of the field.
+However, it is likely that the COVID-19 pandemic partially influenced this trend, as conferences were more impacted by the restrictions than journals.
 
 \begin{figure}
   \centering
@@ -155,21 +156,22 @@ These applications also correlate with the venues identified in \Cref{sec:sota.q
   \centering
   \begin{subfigure}{0.48\textwidth}
     \centering
-    \input{figures/challenges_histogram.pgf}
-    \caption{
-      Distribution of the addressed challenges over time.
-      \label{fig:sota.challenges}
-    }
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}{0.48\textwidth}
-    \centering
     \input{figures/domain_pie.pgf}
     \caption{
       Distribution of the publications by domain.
       \label{fig:sota.domains}
     }
   \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \input{figures/challenges_histogram.pgf}
+    \caption{
+      Distribution of the addressed challenges over time.
+      \label{fig:sota.challenges}
+    }
+  \end{subfigure}
+  
   \caption{
     Exploiting the topics of interest.
     \label{fig:sota.challenges-domains}
