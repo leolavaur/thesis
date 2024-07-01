@@ -23,3 +23,4 @@
   - taille des tables de comparaison, une idée ?
 - Glossary
   - TODO: pourquoi il ne s'affiche pas au bon endroit dans le ToC et pas du tout dans le document ?
+- Figure 4.4 (demo): @yann de quelle courbe tu parles ?
