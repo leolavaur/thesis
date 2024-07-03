@@ -179,7 +179,9 @@
 
 \usepackage[skins,theorems]{tcolorbox}
 
-\definecolor{titlebg}{RGB}{85,85,85}
+\definecolor{accentclr}{HTML}{515ca2}
+\definecolor{borderclr}{RGB}{85,85,85}
+\colorlet{titlebg}{accentclr}
 \definecolor{boxbg}{RGB}{232,232,232}
 
 \tcbset{
@@ -187,7 +189,7 @@
   width=0.9\textwidth,
   boxrule=1pt,
   colback=boxbg,
-  colframe=titlebg,
+  colframe=borderclr,
   fonttitle=\bfseries\sffamily,
   colbacktitle=titlebg,
 }
@@ -206,6 +208,14 @@
   #1,
 }
 
+\newenvironment{contribs}{
+  \begin{highlightbox}{Contributions of this chapter}
+    \begin{itemize}[\textbullet, leftmargin=*, labelsep=.8em]
+}{
+    \end{itemize}
+  \end{highlightbox}
+}
+
 % Use as: \begin{highlightbox}{Title}{label} ... \end{highlightbox}
 %
 % \newtcbtheorem
@@ -220,6 +230,14 @@
   crefname={definition}{definitions},
   Crefname={Definition}{Definitions},
 ]{definitionbox}{Definition}{}{def}
+
+\newtcbtheorem[
+  number within=chapter,
+  crefname={problem}{problems},
+  Crefname={Problem}{Problems},
+]{problembox}{Problem}{
+  fontupper=\itshape
+}{def}
 
 
 % listings
@@ -313,6 +331,25 @@
   }
 }
 
+\renewcommand{\bibfont}{\small}
+
 \usepackage{colortbl}
 \usepackage{multirow}
 \usepackage{makecell,rotating}
+
+\usepackage{amsthm}
+\newtheoremstyle{break}
+  {\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\itshape}  % BODYFONT
+  {}          % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {\newline}  % HEADSPACE
+  {}          % CUSTOM-HEAD-SPEC
+
+\theoremstyle{break}
+\newtheorem*{problem}{Problem}
+
+
+\usepackage{mathrsfs}

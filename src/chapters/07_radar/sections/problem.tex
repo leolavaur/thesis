@@ -1,0 +1,66 @@
+\section{Problem Statement\label{sec:radar.problem}}
+
+In continuity with \Cref{chap:app,chap:assessment}, we consider once more the use case introduced in \Cref{sec:app.overview} and the associated datasets.
+Specifically, we focus on a heterogeneous declination of this \gls{cids} use case, where we admit that participants share similarities in their data distributions---\eg, between organizations operating in the same sector or having similar network infrastructure.
+This setting, also mentioned in \Cref{sec:app.overview}, is referred to as \emph{practical} \gls{niid}~\cite{huang_PersonalizedCrossSiloFederated_2021}.
+We also set $C=1$, as we consider that the participants are highly available and interested in collaborating.
+
+\subsection{Low-quality Contributions\label{sec:radar.problem.quality}}
+
+In \gls{fl}, the quality of the global model is directly impacted by the quality of the participants' contributions.
+In a \gls{ids} context, the poor quality of a \gls{ml} model can be induced by some choices in terms of architecture, hyperparameters, or optimizer---all fixed by the server, but also by the quality of the training data.
+Multiple factors can affect the quality of local training data~\cite{jain_OverviewImportanceData_2020}, such as: 
+\begin{enumerate*}[(1)]
+  \item \emph{Label noise}---samples associated with the wrong labels;
+  \item \emph{Class imbalance}---differences in terms of class representation in the dataset; or
+  \item \emph{Data heterogeneity}---the variations between samples of the same class.
+\end{enumerate*}
+
+Similar to existing works on data-quality~\cite{deng_FAIRQualityAwareFederated_2021,deng_AUCTIONAutomatedQualityAware_2022}, we focus on label noise, which can have significant consequences on the global model's performance, depending on the proportion of mislabeled samples.
+In a \gls{cids}, label noise can unknowingly be introduced by the participants, either due to misconfigurations or to the presence of compromised devices.
+We consider two types of label noise: \emph{missed intrusions} and \emph{misclassification}.
+\begin{enumerate}[a)]
+  \item \emph{Missed intrusions} occur when a malicious sample is mislabeled as benign, leading to a false negative. Participants in \glspl{cids} label the attacks they are aware of, but some might have been unnoticed.
+  \item A \emph{misclassification} is the random mislabeling of a sample. This can be due to a lack of knowledge or to a misconfiguration.
+\end{enumerate}
+Such participants are referred to as \emph{honest-but-neglectful}.
+Because these errors are assumed to be unintentional, the proportion of \emph{misclassified} samples is expected to be low.
+However, the concept of \emph{missed intrusions} implies that the participants are not aware of an entire attack, which can represent a significant proportion of their dataset.
+
+
+\subsection{Data Poisoning Attacks\label{sec:radar.problem.poisoning}}
+
+In addition to accidental low-quality contributions, some participants might deliberately upload model updates that would negatively impact the performance of the global model.
+Specifically, we consider the same attack model as detailed in \Cref{chap:assessment}, and focus on label-flipping attacks.
+The model can be summarized as follows:
+\begin{description}[font=\normalfont\itshape, leftmargin=2em]
+  \item[Attackers' Knowledge.] Attackers are \emph{gray-box} adversaries, meaning that they have access to the same information as the other participants; \eg, the last global models, the hyperparameters, or the optimizer.
+  \item[Attackers' Objective.] With targeted poisoning, attackers aim at making a specific type of attack invisible to the \gls{nids}.
+  Conversely, with untargeted attacks, they seek to jeopardize the \gls{nids} performance by maximizing the number of misclassifications.
+  \item[Attackers' Capabilities.] Attackers can flip the labels of an arbitrary proportion of their dataset, referred to as the \gls{dpr} and denoted $\alpha$.
+  They can act alone or in collusion with other by applying the same strategy.
+  The proportion of attackers in the system is described by the \gls{mpr} and denoted $\beta$. 
+\end{description}
+
+Because we do not make a priori assumptions on the whether the participants are malicious or not in this contribution, we also refer to the \gls{dpr} as the \emph{noisiness} of a participant.
+The \gls{mpr}, on the other hand, almost exclusively describes attackers, as it is unlikely for the same Byzantine fault to occur in multiple participants simultaneously.
+
+\subsection{Problem Formalization\label{sec:problem.formalization}}
+
+Based on the previous assumptions, we consider that participants might upload model updates that would negatively impact the performance of the global model, deliberately or not.
+Multiple forms of such actors can exist: external actors altering legitimate clients' data (\ie \emph{compromised}), clients whose local training sets are of poor quality (\ie \emph{honest-but-neglectful}), or clients modifying their own local data on purpose (\ie \emph{malicious}).
+We refer to them as \emph{Byzantine participants} or simply \emph{Byzantines} in the remaining of this paper.
+
+We further consider that the server can be trusted to perform the aggregation faithfully, and that \gls{fl} guaranties the confidentiality of the local datasets.
+Attacking the server is out of the scope of this contribution.
+Consequently, we aim at weighting or discarding the participants' contributions based on their quality to guaranty the performance of the aggregated model.
+
+
+% \begin{problem}[Quality Assessment in Heterogeneous Settings]
+%   For $n$ participants $p_k$ and their local datasets $d_k$ of unknown similarity, each participant uploads a model update $w_k^r$ at each round $r$. Given $P = \lbrace p_1, p_2, \dots, p_n \rbrace$ and $W = \lbrace w_1^r, w_2^r, \dots, w_n^r \rbrace$, how can one assess the quality of each participant's contribution $w_k^r$ without making assumptions on the data distribution across the datasets $d_k$?
+%   \label{pb:qahs}
+% \end{problem}
+
+\begin{problembox}{Quality Assessment in Heterogeneous Settings}{qahs}
+  For $n$ participants $p_k$ and their local datasets $d_k$ of unknown similarity, each participant uploads a model update $w_k^r$ at each round $r$. Given $P = \lbrace p_1, p_2, \dots, p_n \rbrace$ and $W = \lbrace w_1^r, w_2^r, \dots, w_n^r \rbrace$, how can one assess the quality of each participant's contribution $w_k^r$ without making assumptions on the data distribution across the datasets $d_k$?
+\end{problembox}

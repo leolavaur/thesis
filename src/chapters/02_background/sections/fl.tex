@@ -82,7 +82,7 @@ This core idea, that \emph{averaging locally trained models iteratively converge
     \begin{algorithm}[H]
       \caption{
         \texttt{FedAvg}~\cite{mcmahan_Communicationefficientlearningdeep_2017}.
-        The participants of $P$ are indexed by $k$, $C$ is the fraction of participants to be selected at each round, $\beta$ the local batch size, $\eta$ the learning rate, $\mathcal{E}$ the number of epochs, and $\nabla\mathcal{L}$ the gradients of the loss function $\mathcal{L}$. \textsc{Split} is a function that splits a dataset into batches, depending on $\beta$.
+        The participants of $P$ are indexed by $k$, $C$ is the fraction of participants to be selected at each round, $\beta$ the local batch size, $\eta$ the learning rate, $\mathcal{E}$ the number of epochs, and $\nabla\mathcal{L}$ the gradients of the loss function $\mathcal{L}$. \textsc{Split} is a function that splits a dataset into batches or size $\beta$.
         \label{alg:fedavg}
       }
       \begin{algorithmic}[1]
@@ -165,11 +165,11 @@ Finally, \textcite{yang_FederatedMachineLearning_2019} also consider \gls{ftl}, 
 
 \paragraph{Architecture Discrepancies}
 
-Although \gls{fl}'s definition implies a client-server architecture, the literature has also explored other settings.
-In the \emph{server-orchestrated} setting, the central server plays a pivotal role in distributing model parameters, orchestrating training rounds, and aggregating updates from individual devices.
+In light of the architectures presented in \Cref{fig:cids.topoligies}, the initial \gls{fl} proposal~\cite{mcmahan_Communicationefficientlearningdeep_2017} would be considered as a distributed task (\ie, model training) that is \emph{centrally} orchestrated (see \Cref{fig:cids.centralized}).
+The central server plays a pivotal role in distributing model parameters, orchestrating training rounds, and aggregating updates from individual devices.
 This approach requires global coordination and synchronization, as all communication and aggregation activities are orchestrated by the server.
 While server-orchestrated \gls{fl} offers centralized control and streamlined management, it also introduces potential single points of failure and scalability limitations due to the server's central role (see \Cref{chall:spof}).
-This is reminiscent of the centralized architecture mentioned in \Cref{sec:bg.collab,fig:cids.centralized} and comes with the same caveats.
+Although \gls{fl}'s original definition implies a client-server architecture, the literature has also explored other settings.
 Researchers have explored multiple alternatives to the server-orchestrated setting, such as hierarchical \gls{fl}~\cite{liu_ClientEdgeCloudHierarchicalFederated_2020} or fully decentralized \gls{fl} using gossip algorithms~\cite{tang_GossipFLDecentralizedFederated_2023}.
 This decentralized approach eliminates single points of failure and allows for greater scalability, as communication and computation can be distributed across numerous devices.
 However, fully decentralized \gls{fl} may face challenges related to coordination, consistency, and synchronization, especially in scenarios with a vast number of participating devices.

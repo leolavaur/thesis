@@ -1,0 +1,78 @@
+\begin{tikzpicture}[]
+	\node[leaf, c1] (a) {a};
+	\node[leaf, c1, right of=a] (b) {b};
+	\node[leaf, c1, right of=b] (c) {c};
+	\node[leaf, c1, right of=c] (d) {d};
+	\node[leaf, c1, right of=d] (e) {e};
+	\node[leaf, c2, right of=e] (f) {f};
+	\node[leaf, c2, right of=f] (g) {g};
+	\node[leaf, c2, right of=g] (h) {h};
+	\node[leaf, c3, right of=h] (i) {i};
+	
+	\node (ab) at ($(a)!0.5!(b)$) {};
+	\node[above of=ab, node distance=0.4cm,label={[label distance=0, text=orange]175:0.1}] (ab1) {};
+	
+	\draw[c1] (a) |- (ab1.center);
+	\draw[c1] (b) |- (ab1.center);
+	
+	\node (cd) at ($(c)!0.5!(d)$) {};
+	\node[above of=cd, node distance=0.6cm,label={[label distance=
+0, text=orange]175:0.3}] (cd1) {};
+	
+	\draw[c1] (c) |- (cd1.center);
+	\draw[c1] (d) |- (cd1.center);
+	
+	\node (bc) at ($(b)!0.5!(c)$) {};
+	\node[above of=bc, node distance=1.2cm,label={[label distance=
+0.4cm, text=orange]175:0.7}] (bc2) {};
+	
+	\draw[c1] (ab1.center) |- (bc2.center);
+	\draw[c1] (cd1.center) |- (bc2.center);
+	
+	\node (bce) at ($(bc2)!0.5!(e)$) {};
+	\node[above of=bce, node distance=0.8cm,label={[label distance=
+0.6cm, text=orange]175:0.8}] (bce3) {};
+	\node[above of=bce3, node distance=0.6cm, label={[label distance=0cm, text=orange]-10:$C_k$}] (bce4) {};
+	
+	\draw[c1] (bc2.center) |- (bce3.center);
+	\draw[c1] (e) |- (bce3.center);
+	\draw[c1] (bce3.center) -- (bce4.center);
+	
+	\node (gh) at ($(g)!0.5!(h)$) {};
+	\node[above of=gh, node distance=0.5cm,label={[label distance=0cm, text=violet]175:$0.2$}] (gh1) {};
+	
+	\draw[c2] (g) |- (gh1.center);
+	\draw[c2] (h) |- (gh1.center);	
+	
+	\node (fgh) at ($(f)!0.5!(gh)$) {};
+	\node[above of=fgh, node distance=0.95cm,label={[label distance=5, text=violet]175:0.6}] (fgh1) {};
+	\node[above of=fgh1, node distance=1.1cm, label={[label distance=0cm, text=violet]-10:$C_\ell$}] (fgh2) {};
+
+	\draw[c2] (f) |- (fgh1.center);
+	\draw[c2] (gh1.center) |- (fgh1.center);
+	\draw[c2] (fgh1.center) |- (fgh2.center);
+	
+	\node (bcefgh) at ($(bce4)!0.5!(fgh1)$) {};
+	\node[above of=bcefgh, node distance=1cm,label={[label distance=0.9cm, text=black]175:1.2}] (bcefgh3) {};	
+	
+	\draw (bce4.center) |- (bcefgh3.center);
+	\draw (fgh2.center) |- (bcefgh3.center);	
+	
+	\node (all) at ($(bcefgh3)!0.5!(i)$) {};
+	\node[above of=all, node distance=1cm] (all1) {};
+	\node[above of=i, node distance=2cm, label={[label distance=0cm, text=teal]-10:$C_i$}] (last1) {};
+	\node[above of=all, node distance=1.5cm,label={[label distance=1.25cm, text=black]175:1.3}] (last2) {};	
+	
+	%\draw[c2] (all.center) -- (all1.center);
+	\draw (bcefgh3.center) |- (last2.center);
+	\draw[c3] (i) |- (last1.center);
+	\draw (last1.center) |- (last2.center);	
+	
+	\node[left of=bce4, node distance=3cm, label={[label distance=-0.1cm,text=red]75:threshold = 1.0}] (threshold) {};
+    \draw[thick, color=red,dash pattern={on 12pt off 3pt}] (last1.east) -- (threshold);
+	
+	\node[left of=a, node distance=0.5cm] (O) {};
+	\node[above of=O, node distance=3cm] (arrow) {};
+	\draw[->] (O) -- node[midway, sloped, above] {Cluster distance} (arrow);		
+	
+\end{tikzpicture}
