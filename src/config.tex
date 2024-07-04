@@ -20,11 +20,13 @@
 \usepackage{layouts}
 \usepackage{pgf}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \usepackage{subcaption}
 \usepackage[export]{adjustbox}
 \usepackage{float}
 \usepackage{tikz}
 \usepackage[edges]{forest}
+\usetikzlibrary{calc}
 % \usepackage[
 %   chapter,
 %   outputdir=../build,
@@ -351,5 +353,118 @@
 \theoremstyle{break}
 \newtheorem*{problem}{Problem}
 
-
+%% RADAR
 \usepackage{mathrsfs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Math macros                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Notes about xparse
+% Syntax: \NewDocumentCommand {name} {arguments} {body}
+%   name: the name of the command
+%   arguments: the arguments of the command, separated by spaces, eg. { o o m }.
+%     In the argument list, o means optional, m means mandatory. Arguments can 
+%     be accesesd with #1, #2, etc. Optional arguments can be provided with a
+%     default value, eg. { O{default} }.
+%       
+\usepackage{xparse}
+
+% \mathdef is a macro that will be used to define new macros that will be used in
+%   math mode, without impacting the default behavior of the macro in text mode.
+%   The macro is defined as a command that takes 3 arguments:
+%     1. The name of the macro to be defined
+%     2. The arguments of the macro to be defined, following the same syntax as
+%        defined in xparse
+%     3. The body of the macro to be defined
+
+\DeclareDocumentCommand{\mathdef}{ m O{ } m }{%
+  \expandafter\let \csname old\string#1\endcsname=#1
+  \expandafter\NewDocumentCommand \csname new\string#1\endcsname { #2 }{#3}
+  \DeclareRobustCommand #1 {%
+    \ifmmode
+      \expandafter\let\expandafter\next\csname new\string#1\endcsname
+    \else
+      \expandafter\let\expandafter\next\csname old\string#1\endcsname
+    \fi
+    \next
+  }%
+}
+
+
+% ----------------------------
+% Fedeted Learning
+% ----------------------------
+
+% Participant #1, defaults to i
+\mathdef{\p}[ O{i} ]{p_{#1}}
+% Number of participants, probably useless.
+\mathdef{\n}{n}
+% Set of all participants, same
+\mathdef{\P}{P}
+% Local dataset of participant $p_#1$, defaults to i
+\mathdef{\d}[ O{i} ]{d_{#1}}
+% Union of all local datasets
+\mathdef{\D}{D}
+
+% ----------------------------
+% Clustering
+% ----------------------------
+
+% Cluster $k$ at round $r$
+\mathdef{\c}[ O{k} O{r} ]{C_{#1}^{#2}}
+% Number of clusters at round $r$
+\mathdef{\m}[ O{r} ]{m^{#1}}
+% Center of cluster k at round $r$
+\mathdef{\center}[ O{k} O{r} ]{\mu_{#1}^{#2}}
+% Set of clusters at round $r$
+\mathdef{\C}[ O{r} ]{\mathscr{C}^{#1}}
+% Distance between $p_i$ and $p_j$
+\mathdef{\pdist}[ O{i} O{j} O{r} ]{\delta_{{#1},{#2}}^{#3}}
+% Distance from cluster $k$ and $\ell$ centers at round $r$
+\mathdef{\kdist}[ O{k} O{\ell} O{r} ]{\Delta_{{#1},{#2}}^{#3}}
+\mathdef{\mdist}[ O{r} ]{\overline{\Delta^{#1}}}
+
+\renewcommand{\Pr}{\mathbb{P}}
+
+% ----------------------------
+% Models
+% ----------------------------
+
+% Local model of participant $i$ at round $r$
+\mathdef{\w}[ O{i} O{r} ]{w_{#1}^{#2}}
+% Local model of participant $i$ weight in aggregation at round $r$
+\mathdef{\weight}[ O{i} O{r} ]{\rho_{#1}^{#2}}
+% All local models from participants at round $r$
+\mathdef{\W}[ O{r} ]{W^{#1}}
+% Global model for cluster $c_k^r$ at round $r$
+\mathdef{\wbar}[ O{k} O{r} ]{\overline{w}_{#1}^{#2}}
+% All cluster models at round $r$
+\mathdef{\Wbar}[ O{r} ]{\overline{W}^r}
+
+% ----------------------------
+% Evaluations
+% ----------------------------
+
+% Evaluation of $w_j^r$ using $p_i$ local dataset $d_i$
+\mathdef{\e}[ O{i} O{j} O{r} ]{e_{{#1},{#2}}^{{#3}}}
+% Matrix of all evaluations at round $r$; of size $n \times n$
+\mathdef{\E}[ O{r} ]{E^{#1}}
+% $p_i$ evaluation on every participant at round $r$
+\mathdef{\issue}[ O{i} O{r} ]{E^{#2}_{[{#1},*]}}
+% Participants evaluations on $p_j$ at round $r$
+\mathdef{\rece}[ O{j} O{r} ]{E^{#2}_{[*,{#1}]}}
+% $p_i$ evaluation on every participant at round $r$
+\mathdef{\evals}[ O{i} O{j} O{r} ]{E_{{#1},{#2}}^{{#3}}}
+
+% ----------------------------
+% Repuation
+% ----------------------------
+\mathdef{\Prob}[]{\vec{\mathbb{P}}}
+\mathdef{\prob}[ O{q} ]{\mathbb{P}\{{#1}\}}
+\mathdef{\cond}[ O{s} ]{\mathbb{P}\{\varepsilon_s|\vec{\gamma}^r\}}
+
+\mathdef{\rep}[ O{i} O{r}]{\psi_{#1}^{#2}}
+
+
+% TODO retester mathbb avec ACM. 

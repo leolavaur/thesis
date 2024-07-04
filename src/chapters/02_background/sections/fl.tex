@@ -24,9 +24,9 @@ Finally, we succinctly discuss the threats against \gls{fl}, with a focus on dat
 
   Formally, \gls{fl} seeks to minimize a objective function $f(\cdot)$\footnotemark, as:
   \begin{equation}
-    \min_{w} f(w), \quad \text{where} \quad f(w) = \sum_{k=1}^{K} \rho_k f_k(w),
+    \min_{w} f(w), \quad \text{where} \quad f(w) = \sum_{i=1}^{K} \rho_i f_i(w),
   \end{equation}
-  where $w$ is the model parameters, $f_k(w)$ is the local objective function of client $k$, and $\rho_k$ is the weight of client $k$.
+  where $w$ is the model parameters, $f_i(w)$ is the local objective function of client $i$, and $\rho_i$ is the weight of client $i$.
 
 \end{definitionbox}
 
@@ -44,32 +44,32 @@ Finally, we succinctly discuss the threats against \gls{fl}, with a focus on dat
 \texttt{FedAvg} is the first and most popular algorithm for \gls{fl}.
 The algorithm operates in rounds, noted $r$.
 At each round $r$, an orchestrating server $S$ randomly selects $C \cdot K$ clients from a pool of participants $P$, with $K$ being the total number of participants and $C$ the fraction of clients selected with $0 < C \leq 1$.
-The server then tasks each selected participant $p_k, k\in \llbracket 1,K \rrbracket$ to train a model $w_k^r$.
+The server then tasks each selected participant $p_i, i\in \llbracket 1,K \rrbracket$ to train a model $w_i^r$.
 The round ends by the aggregation of the collected models into a new global model $\bar{w}^r$, which is redistributed to the clients as a starting point for the next round ($r+1$).
 
-In essence, \texttt{FedAvg} is a distributed 2-level \gls{sgd} algorithm, where $C$ controls the \emph{global} batch size, and then each client $p_k$ uses a \emph{local} batch of size $\beta$ to compute a local update.
-To train their model, the participants use a \gls{sgd}-based optimizer to minimize a objective function $f_k(w)$, which is the local loss function of client $p_k$ (see \Cref{def:fl}).
+In essence, \texttt{FedAvg} is a distributed 2-level \gls{sgd} algorithm, where $C$ controls the \emph{global} batch size, and then each client $p_i$ uses a \emph{local} batch of size $\beta$ to compute a local update.
+To train their model, the participants use a \gls{sgd}-based optimizer to minimize a objective function $f_i(w)$, which is the local loss function of client $p_i$ (see \Cref{def:fl}).
 They compute the gradients of the loss function with respect to the model parameters, as:
 \begin{equation}
-  g_k^r = \nabla f_k(w_k^r),
+  g_i^r = \nabla f_i(w_i^r),
 \end{equation}
 with is the results of the local optimization process.
 
 In their original publication, \textcite{mcmahan_Communicationefficientlearningdeep_2017} introduce two algorithms for \gls{fl}: \texttt{FedSGD} and \texttt{FedAvg}.
 \texttt{FedSGD} is a straightforward implementation of \gls{sgd} in a federated setting, where each client computes the gradients after one epoch and sends them to the server.
 The server then aggregates the gradients and updates the global model.
-With $D=\bigcup_{k=1}^K d_k$ being the union of all local datasets $d_k$, the server computes the new global model as:
+With $D=\bigcup_{i=1}^K d_i$ being the union of all local datasets $d_i$, the server computes the new global model as:
 \begin{equation}
-  w^{r+1} = w^r - \eta \sum_{k=1}^{K} \frac{|d_k|}{|D|} g_k^r,
+  w^{r+1} = w^r - \eta \sum_{i=1}^{K} \frac{|d_i|}{|D|} g_i^r,
 \end{equation}
-where $\eta$ is the learning rate, and $|d_k|$ and $|D|$ are the sizes of the local dataset and the global dataset, respectively.
+where $\eta$ is the learning rate, and $|d_i|$ and $|D|$ are the sizes of the local dataset and the global dataset, respectively.
 
-Based on the observation that there is no difference between averaging the gradients $g_k^r$ and updating the global model, or updating the model locally and then averaging the results, \textcite{mcmahan_Communicationefficientlearningdeep_2017} introduce \texttt{FedAvg}.
+Based on the observation that there is no difference between averaging the gradients $g_i^r$ and updating the global model, or updating the model locally and then averaging the results, \textcite{mcmahan_Communicationefficientlearningdeep_2017} introduce \texttt{FedAvg}.
 Indeed, the two operations are equivalent, as the following equation shows:
 \begin{equation}
-  w^{r+1} = w^r - \eta \sum_{k=1}^{K} \frac{|d_k|}{|D|} g_k^r = \sum_{k=1}^{K} \frac{|d_k|}{|D|} w_k^r,
+  w^{r+1} = w^r - \eta \sum_{i=1}^{K} \frac{|d_i|}{|D|} g_i^r = \sum_{i=1}^{K} \frac{|d_i|}{|D|} w_i^r,
 \end{equation}
-where $w_k^r$ is the model trained by client $p_k$ at round $r$.
+where $w_i^r$ is the model trained by client $p_i$ at round $r$.
 This equivalence allows clients to train their models for multiple epochs before sending the results to the server, which reduces the communication overhead.
 \Cref{alg:fedavg} summarizes the \texttt{FedAvg} algorithm.
 
@@ -78,38 +78,39 @@ This core idea, that \emph{averaging locally trained models iteratively converge
 \begin{figure}
   \centering
   \begin{minipage}{.8\textwidth}
-    
-    \begin{algorithm}[H]
-      \caption{
-        \texttt{FedAvg}~\cite{mcmahan_Communicationefficientlearningdeep_2017}.
-        The participants of $P$ are indexed by $k$, $C$ is the fraction of participants to be selected at each round, $\beta$ the local batch size, $\eta$ the learning rate, $\mathcal{E}$ the number of epochs, and $\nabla\mathcal{L}$ the gradients of the loss function $\mathcal{L}$. \textsc{Split} is a function that splits a dataset into batches or size $\beta$.
-        \label{alg:fedavg}
-      }
-      \begin{algorithmic}[1]
-      
-        \State Initialize $w_0$
-        \For{each round $r = 1,2,\dots$}
-          \State $ m \gets \Call{max}{C \cdot K, 1} $
-          \State $ P^r \gets (\Call{SelectRandom}{m, P}) $
-          \ForAll{$ p_k \in P^r $}
-            \State $ w_k^r \gets \Call{ClientFit}{p_k, w^r} $
-          \EndFor
-          \State $ w^{r+1} \gets \sum_{k=1}^{K} \frac{|d_k|}{|D|} w_k^r $
-        \EndFor
-    
-        \Statex
-        \LComment{On client $p$.}
-        \Function{ClientFit}{$p$, $\omega$} 
-          \For{$ i \gets 1,\dots,\mathcal{E} $}
-            \ForAll{$ b \in \Call{Split}{d_k, \beta} $}
-              \State $ \omega \gets \omega - \eta \nabla \mathcal{L}(\omega,b) $
+    \begin{small}
+      \begin{algorithm}[H]
+        \caption{
+          \texttt{FedAvg}~\cite{mcmahan_Communicationefficientlearningdeep_2017}.
+          The participants of $P$ are indexed by $i$, $C$ is the fraction of participants to be selected at each round, $\beta$ the local batch size, $\eta$ the learning rate, $\mathcal{E}$ the number of epochs, and $\nabla\mathcal{L}$ the gradients of the loss function $\mathcal{L}$. \textsc{Split} is a function that splits a dataset into batches or size $\beta$.
+          \label{alg:fedavg}
+        }
+        \begin{algorithmic}[1]
+          
+          \State Initialize $w_0$
+          \For{each round $r = 1,2,\dots$}
+            \State $ m \gets \Call{max}{C \cdot K, 1} $
+            \State $ P^r \gets (\Call{SelectRandom}{m, P}) $
+            \ForAll{$ p_i \in P^r $}
+              \State $ w_i^r \gets \Call{ClientFit}{p_i, w^r} $
             \EndFor
+            \State $ w^{r+1} \gets \sum_{i=1}^{K} \frac{|d_i|}{|D|} w_i^r $
           \EndFor
+          
           \Statex
-          \State \Return $\omega$
-        \EndFunction
-      \end{algorithmic}
-    \end{algorithm}
+          \LComment{On client $p$.}
+          \Function{ClientFit}{$p$, $\omega$} 
+            \For{$ i \gets 1,\dots,\mathcal{E} $}
+              \ForAll{$ b \in \Call{Split}{d_i, \beta} $}
+                \State $ \omega \gets \omega - \eta \nabla \mathcal{L}(\omega,b) $
+              \EndFor
+            \EndFor
+            \Statex
+            \State \Return $\omega$
+          \EndFunction
+        \end{algorithmic}
+        \end{algorithm}
+      \end{small}
   \end{minipage}
 \end{figure}
 

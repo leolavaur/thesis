@@ -1,0 +1,48 @@
+\section{Discussion\label{sec:radar.discussion}}
+
+The experiments illustrate how \thecontrib succeeds at identifying attackers in heterogeneous context, thus demonstrating its versatility.
+In this section, we discuss the limitations and potential consequences of our architecture and propose research directions to close these gaps. 
+
+
+\subsection{Heterogeneity}
+
+The experiments conducted in \Cref{sec:radar.results} show that \thecontrib can handle heterogeneous participants.
+However, the simulation of the \emph{practical} \gls{niid} setting is limited by the available datasets and the partitioning choices.
+In \thecontrib, we use \gls{iid} partitioning with each of our datasets to create our communities.
+This choice is motivated by the absence of control over the data distribution of the participants with datasets from different sources.
+The approach presented in \Cref{chap:topologies} is expected to cope with this limitation, and thus represent an interesting research direction to further investigate heterogeneous settings.
+
+
+\subsection{Generalizability}
+
+While the experiments are only conducted on intrusion detection datasets, \thecontrib's design could be used in different use cases regarding the following conditions: (1) parametric local models whose parameters can be aggregated using \gls{fl}, and (2) local testing sets and relevant metrics allowing participants to evaluate the others’ models.
+Since the \gls{nids} use case induces a focus on malicious samples (\ie \emph{positive} values), we choose the F1-score as input for our clustering and reputation algorithms, as it emphasizes on false positives and false negatives.
+However, \thecontrib can handle different metrics, for instance the loss of a model during evaluation, particularly relevant for similarity measurements.
+
+
+\subsection{Scalability and performance}
+
+The focus on small-scale collaboration (\ie a few dozens of participants) makes the overhead of the \emph{cross-evaluation} step (\Cref{sec:radar.archi.xeval}) practical, and justifies the absence of performance-related metrics in this paper.
+However, one can question the scalability of the proposed approach in larger scale applications.
+Indeed, at each round, clients evaluate $|P|$ additional models, which scales linearly with the number of clients.
+Two new communications are also introduced, one to send the models and one to collect the evaluations.
+Their size also grows linearly with $|P|$, as the models of all participants must be evaluated.
+Likewise, we exclude execution-related performance evaluation such as training time, CPU overhead, or bandwidth consumption.
+It opens the way to interesting research directions on how to implement and scale \thecontrib while guarantying its properties.
+
+
+\subsection{Evaluation poisoning}
+
+Attackers could try to poison the evaluations that they provide on other participants to abuse the system.
+However, the implementation presented in \Cref{sec:radar.eval.methodo} implies that attackers poison both their training and testing sets.
+Consequently, the evaluations they produce on other participants are directly affected.
+We thus expect the system to cope with arbitrary poisoning similarly to data poisoning: either by placing the attackers in a different cluster because of their dissimilarity, or by penalizing their reputation. 
+
+
+\subsection{Information disclosure}
+
+Because \thecontrib shares models with the other participants to obtain feedbacks, it can be argued that it revels more information about the participants.
+This is limited to the participants' models, which are shared without identifiers.
+However, since clients also receive the global model of their cluster, they can try to estimate the models that belong to their cluster.
+This remains challenging, as the models are weighted using the reputation score of the participants, which are only available to the server.
+Comparing the privacy impact of \thecontrib with those of simpler approaches like \texttt{FedAvg} represents interesting research directions.
