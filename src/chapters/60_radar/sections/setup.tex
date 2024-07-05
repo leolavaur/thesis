@@ -1,0 +1,155 @@
+\section{Experimental Setup\label{sec:radar.setup}}
+
+We evaluate \thecontrib and any selected baseline on a set of heterogeneous intrusion detection datasets~\cite{sarhan_StandardFeatureSet_2022} with various attack scenarios (see \Cref{sec:radar.eval.methodo.scenarios}).
+We implement the described use case (\Cref{sec:app.overview}) and threat model (\Cref{sec:assess.threat}) as a set of experiments using the \gls{fl} framework Flower~\cite{beutel_Flowerfriendlyfederated_2020}, with Nix~\cite{dolstra_purelyfunctionalsoftware_2006} and Poetry~\cite{eustace_Pythondependencymanagement_2018} to reproducibly manage dependencies.
+The hyperparameters used in our setup are detailed in \Cref{tbl:radar.hyperparameters}.
+The code for all experiments can be found online\footnote{TODO.}, with configuration and seeds for each considered baseline and evaluation scenario. 
+We also provide lock files to enable anyone to reuse the same software versions as in this chapter.
+
+\begin{table}[t]
+  \caption{
+      \emph{Hyperparameters}.
+      The model's configuration is taken from the work of \textcite{popoola_FederatedDeepLearning_2021}, while the parameters for \thecontrib's architecture have been selected empirically.
+      \label{tbl:radar.hyperparameters}
+  }
+  \begin{subtable}[!t]{.49\linewidth}
+      \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+          \toprule % ------------------------------------
+          \multicolumn{2}{c}{\textbf{Model hyperparameters}} \\
+          \midrule% ---------------------------------
+          Learning rate & 0.0001 \\
+          Batch size & 512 \\
+          Hidden layers activation & ReLU \\
+          Output layer activation & Sigmoid \\
+          \# Input features & 49 \\
+          \# Hidden layers & 2 \\ 
+          \# Neurons (hidden layers) & 128 \\
+          Optimization algorithm & Adam \\
+          Loss function & Log loss \\
+          Number of local epochs & 10 \\
+          \bottomrule % ---------------------------------
+      \end{tabular*}
+  \end{subtable}
+  \hfill
+  \begin{subtable}[!t]{.49\linewidth}
+      % \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+      \begin{tabular*}{\linewidth}{p{0.55\textwidth}@{\extracolsep{\fill}} >{\raggedleft\arraybackslash}p{0.4\textwidth}}
+
+          \toprule % ---------------------------------
+          \multicolumn{2}{c}{\textbf{Clustering hyperparameters}}\\
+          \midrule % ---------------------------------
+          Distance metric& Cosine similarity \\
+          Threshold factor $\beta$ & $ 0.25 $ \\
+          Cross-eval. metric & F1-score \\
+          \bottomrule \\[.5pt] 
+          % Cross-evaluation metric & F1-Score \\
+          % \bottomrule % ---------------------------------
+      \end{tabular*}
+      \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+          \toprule % ---------------------------------
+          \multicolumn{2}{c}{\textbf{Reputation hyperparameters}}\\
+          \midrule % ---------------------------------
+          Number of classes & 10000 \\
+          History parameter $\lambda$ & 0.3 \\
+          Cross-eval. metric & F1-score \\
+          % Cross-evaluation metric & F1-Score \\
+          Normal distribution $\sigma$& 0.0005 \\
+         \bottomrule % ---------------------------------
+      % \end{tabularx}
+      \end{tabular*}
+  \end{subtable}
+\end{table}
+
+
+\subsection{Datasets and local algorithm \label{sec:radar.eval.methodo.datasets}}
+
+\begin{table}[t]
+    \centering
+    \caption{
+        \emph{Cross evaluation (F1-score) on the used datasets.}
+        Each dataset is uniformly partitioned into a training set (80\%) and an evaluation set (20\%).
+        The same partitions are kept over the entire experiment.
+        Each model (rows) is trained on its training set during 10 epochs, and then evaluated on each test set (columns).
+        The highest scores are highlighted in bold.
+    \label{tbl:popoola_cross}}
+    \setlength\tabcolsep{1ex}
+
+    \begin{tabular}{ll|rrrr}
+        \toprule % ---------------------------------
+        &               & \multicolumn{4}{c}{\textbf{Evaluation set}} \\
+        \multirow{5}*{\rotatebox{90}{\textbf{Training set}}}%
+            &           & CIC-IDS & NB15 & ToN\_IoT & Bot-IoT \\
+        \cmidrule{3-6} % ---------------------------------
+            & CIC-IDS   & \textbf{0.961787} & 0.002723 & 0.524219 & 0.680166 \\
+            & NB15      & 0.108913 & \textbf{0.947204} & 0.009875 & 0.655943 \\
+            & ToN\_IoT  & 0.211792 & 0.419380 & \textbf{0.966679} & 0.081510 \\
+            & Bot-IoT   & 0.158477 & 0.017188 & 0.703195 & \textbf{0.999483} \\
+        \bottomrule % ---------------------------------
+    \end{tabular}
+\end{table}
+
+In continuity with the previous chapters, we implement our \gls{cids} use case using the datasets introduced in \Cref{sec:app.overview} and the standard feature set for flow-based \glspl{nids} proposed by \textcite{sarhan_StandardFeatureSet_2022}.
+However, to create groups of participants that share similar distributions, we use the four datasets converted to this format by the authors: UNSW-NB15~\cite{moustafa_UNSWNB15comprehensivedata_2015}, Bot-IoT~\cite{koroniotis_developmentrealisticbotnet_2019}, ToN\_IoT~\cite{moustafa_newdistributedarchitecture_2021}, and CSE-CIC-IDS2018~\cite{sharafaldin_GeneratingNewIntrusion_2018}.
+The uniform feature set allows evaluating \gls{fl} approaches on independently generated datasets~\cite{popoola_FederatedDeepLearning_2021,decarvalhobertoli_Generalizingintrusiondetection_2023}.
+
+We use the ``sampled'' version (1,000,000 samples per dataset) provided by the same team~\cite{layeghy_GeneralisabilityMachineLearningbased_2022}. 
+Like \textcite{decarvalhobertoli_Generalizingintrusiondetection_2023}, we remove source and destination IPs and ports, as they are more representative of the testbed environment than of the traffic behavior.
+We then use one-hot encoding on the categorical features (both for samples and labels), and apply min-max normalization to give all features the same importance in model training.
+
+Locally, we use a \gls{mlp} with two hidden layers, following \textcite{popoola_FederatedDeepLearning_2021}.
+We reuse the hyperparameters provided by the authors (see \Cref{tbl:radar.hyperparameters}), and reproduce their results on our implementation, using the same four datasets.
+Their algorithm shows low performance when training the model on one dataset, and evaluating it on another, as illustrated in \Cref{tbl:popoola_cross}.
+This supports the assumptions behind the cross-evaluation proposal, where the differences between the evaluation results can be used to estimate the similarity between the local data distribution.
+
+
+\subsection{Evaluation scenarios\label{sec:radar.eval.methodo.scenarios}}
+
+The threat model defined in \Cref{sec:problem.formalization} is implemented as a set of evaluation scenarios which model various data-quality situations.
+These scenarios can be summarized in three categories:
+
+\newlist{categories}{enumerate}{1} % also creates a counter called 'categoriesi'
+\setlist[categories]{label={\bf C\arabic*:}, ref=C\arabic*}
+\crefname{categoriesi}{category}{categories}
+\Crefname{categoriesi}{Category}{Categories}
+
+\begin{categories}
+  \item \texttt{Benign.} This category actually contains one scenario which showcases a \emph{practical \gls{niid}} situation, where participants can be grouped into 4 use cases.
+  Each of the 4 datasets described in \ref{sec:radar.eval.methodo.datasets} is randomly distributed among 5 participants without overlap.
+  We thus have a total of 20 participants with different data, but some share similarities between their data distributions.
+  \label{cat:benign}
+
+  \item \texttt{Lone Byzantine.} The scenarios in this category differ from the \texttt{Benign} category (\ref{cat:benign}) by introducing a fault in a single participant.
+  This fault might be due to an \emph{honest-but-neglectful} participant that misclassified samples or missed an intrusion, or a single \emph{malicious participant} actively trying to poison the system.
+  We emulate the fault by flipping the one-hot encoded label on a subset of the participant's data: given a label $\Vec{y} \in \{\langle0,1\rangle,\langle1,0\rangle\}$, a faulty sample will be assigned to $\langle \neg\Vec{y}_0, \neg\Vec{y}_1 \rangle$. 
+  A fault is characterized by two parameters: 
+  \begin{enumerate}[(1)]
+      \item its \emph{target}, \ie, the classes to which the affected samples belong; and 
+      \item its \emph{noisiness}, \ie, the percentage (ranging from 10\% to 100\%) of targeted labels that are actually flipped. 
+  \end{enumerate}
+  If a single class is affected, the fault is \emph{targeted}, and only the samples of this class see their label changed.
+  We arbitrarily chose Bot-IoT and its ``Reconnaissance'' class as the target for the experiments.
+  Otherwise, the fault is \emph{untargeted}, and all classes of Bot-IoT are equally affected, including benign samples.
+  \label{cat:lone}
+  
+  \item \texttt{Colluding Byzantines.} This category encompasses scenarios resembling the \texttt{Lone Byzantine} ones (\Cref{cat:lone}), but where the same fault is replicated on multiple participants at the same time.
+  This corresponds to \emph{malicious participants} in our threat model, as it is unlikely that several \emph{honest-but-neglectful} participants commit the very same fault.
+  The colluding attackers are a \emph{majority} if they outnumber the benign participants whose data originate from the same dataset, and a \emph{minority} otherwise.
+  As we experiment attacks on the Bot-IoT dataset whose data is distributed among 5 participants, this respectively means that there are three attackers and two benigns, or two attackers and three benigns.
+  These two sub categories are referred to as \texttt{Colluding majority} and \texttt{Colluding minority}, respectively.
+  \label{cat:colluding}
+\end{categories}
+
+We note the parameters of a fault as \verb|<noisiness><initial_of_target>|, and use this notation to refer to scenarios hereafter.
+As  such, a \texttt{Lone 80T} scenario means that one of the five participants coming from the Bot-IoT dataset will flip 80\% of its ``Reconnaissance'' labels to the opposite value.
+\texttt{Colluding minority $\leq$30U} refers to all scenarios where two participants from Bot-IoT flip the labels on 30\% of their entire dataset, or less.
+
+
+\subsection{Metrics\label{sec:eval.methodo.metrics}}
+
+To measure the ability of \thecontrib to cluster clients correctly, we use the Rand Index. 
+The Rand index compares two partitions by quantifying how the different element pairs are grouped in each.
+It is defined between 0 and 1.0, 1.0 meaning that both partitions are identical.
+\thecontrib already produces evaluation metrics at each round thanks to the cross-evaluation scheme, based on each participant's validation set.
+The same evaluation methods are thus used on a common testing set (to each initial client dataset) and aggregated to evaluate the approach.
+The presented results focus on the mean accuracy and miss rate of the benign participants.
+Finally, the \gls{asr} is computed over the benign participants of the affected cluster, and defined as the mean miss rate on the targeted classes of targeted attacks, and the mean of the misclassification rates (\ie $1-accuracy$) in untargeted ones.

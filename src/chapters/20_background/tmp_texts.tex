@@ -1,0 +1,52 @@
+%% SURVEY -- QUALTITATIVE ANALYSI
+
+%regarding the local algorithm
+
+Most \glspl{ids} fall into one of the following categories: anomaly-based, signature-based, or specification-based.
+Hybrid systems are also considered, but to the best of our knowledge, no example exist in the literature of \gls{fl}-based detection systems.
+Apart from preprocessing \cite{Kruegel2003}, \gls{ml}-based detection systems mostly rely on the detection of anomalies, and thus exclude signature- and specification-based detection.
+As introduced in \Cref{sec:background}, depending on the presence of labels, three approaches coexist:
+\begin{enumerate}[(1)]
+    \item Supervised learning transforms the anomaly detection into a binary classification problem.
+It requires a balanced labeled dataset for the training to be effective.
+However, it is harder to deploy in real condition as local training data are rarely labeled, and models can be skewed by unbalanced class distribution~\cite{Campos2021}.
+This approach is yet chosen by most of the selected works (16 out of 22).
+    \item Unsupervised learning is suitable for unlabeled data.
+In the specific use case of \gls{ids}, it assumes that
+    \begin{enumerate*}[(i)]
+        \item benign traffic is much more frequent that anomalies in the testing set~\cite{Chandola2009};
+        \item abnormal packets are statistically different from normal ones.
+    \end{enumerate*}
+    Unsupervised learning is used by 5 of the selected works.
+    \item Semi-supervised learning is a hybrid approach where only a small part of the training data is labeled.
+It can be used to bootstrap a detection model by using a public labeled dataset, but then training it on local captured data.
+This newer paradigm is almost not represented in the selection, but more recent works---published after the submission of this survey---focus on semi-supervised learning~\cite{Zhu2022,Aouedi2022}.
+\end{enumerate}
+
+\gls{gru} are a type of \gls{rnn} known to be very efficient in terms of resource consumption.
+They allow to keep a \emph{history} of the precedent processed values, which is useful for context keeping or pattern recognition.
+In this case, the packet history is used to detect deviant traffic, and raise an alert.
+The authors of \cite{chen_Networkanomalydetection_2020b} also used a \gls{gru}--based \gls{nn}, but replaced the \code{Softmax} function of the last layer by a \gls{svm} one to improve performance, as it is stated to improve with linear functions.
+
+The last layer is a \code{Softmax} function which returns a probability of being in a class (normal or abnormal), which is applicable for most classification-based approaches~\cite{fan_IoTDefenderFederatedTransfer_2020,li_DeepFedFederatedDeep_2020,Popoola2021,rahman_InternetThingsIntrusion_2020,Sun2020,Sun2021,al-athbaal-marri_FederatedMimicLearning_2020}.
+
+
+% regarding FedAvg and FL in general
+
+The aggregation strategy is at the core of \gls{fl}.
+In 2016, Google proposed \code{FedSGD} \cite{McMahan2017} along with the concept of \gls{fl}.
+\code{FedSGD} is a weighted average of the local gradient.
+\Gls{sgd} is commonly used in \glspl{nn} as an optimization function; in fact, most research in the past was about adapting models, so they can be efficiently solved with \gls{sgd} \cite{McMahan2017,Goodfellow2016}.
+Thus, gradient aggregation is stated to be the most logic choice.
+However, aggregating the gradient at each epoch is costly in terms of bandwidth consumption and computing power.
+Therefore, the authors introduce \code{FedAvg}, with the aggregation of model parameters instead of gradient.
+This let each client training the model locally and only sharing the updates after multiple epochs.
+This approach is the base of most implementations going forward.
+
+% on metrics
+
+esearchers use metrics in the literature to assess, validate, and compare their solutions.
+In this work, metrics are divided in three categories that follow the life cycle of \glspl{fids}: training, federation, and execution.
+
+While training \gls{dl} models, most \gls{ml} frameworks use and display training loss and training accuracy, that are used to adapt the model's weights at each epoch.
+When plotted on a time-based frame (time, epochs, or rounds in case of \gls{fl}), these metrics show the evolution of the model's training.

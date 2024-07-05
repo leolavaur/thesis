@@ -1,0 +1,25 @@
+\chapter{Assessing the Impact of Label-Flipping Attacks on FL-based IDSs\label{chap:assessment}}
+
+% Code URL
+\providecommand{\codeurl}{}
+\renewcommand{\codeurl}{\url{httos://github.com/TODO}}
+
+% Phantom label for subfigures generated using matplotlib
+\newcommand{\phantomlabel}[1]{%
+  \refstepcounter{subfigure}%
+  \label{#1}%
+}
+% Generates phantom labels from range (a-b)
+% \phantomlabels{fig:predictability}{f}
+% -> \phantomlabel{fig:predictability.a} to \phantomlabel{fig:predictability.f}
+\newcommand{\phantomlabels}[2]{%
+  \foreach \i in {a,...,#2} {%
+    \expandafter\phantomlabel{#1.\i}%
+  }%
+}
+
+\input{sections/intro}
+\input{sections/methodo}
+\input{sections/results}
+\input{sections/related}
+\input{sections/conclusion}

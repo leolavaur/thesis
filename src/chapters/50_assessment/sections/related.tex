@@ -1,0 +1,19 @@
+\section{Related Work\label{sec:assess.related}}
+
+The literature on the impact of poisoning attacks on \gls{fl} is extensive~\cite{bhagoji_AnalyzingFederatedLearning_2019,tolpegin_DataPoisoningAttacks_2020,nuding_DataPoisoningSequential_2022,sun_DataPoisoningAttacks_2022}, and provides insights on the behavior of poisoning attacks on generic \gls{ml} tasks, such as image classification or natural language processing.
+\Textcite{nuding_DataPoisoningSequential_2022} focus specifically on backdoor attacks, and emphasize on the importance of the choice of the trigger pattern. 
+\Textcite{sun_DataPoisoningAttacks_2022,fang_LocalModelPoisoning_2020} rather study model-poisoning attacks. %, where the construction of the poisoned model can be considered an optimization problem.
+While often more effective than data-poisoning attacks, they are more complex to implement, as they require access to the uploaded models and knowledge of their functioning.
+The work of \textcite{tolpegin_DataPoisoningAttacks_2020} is the closest to ours, as it focuses only on label-flipping attacks.
+Among the most notable outcomes, the authors exhibit that targeted attacks are especially effective, having small to no impact outside the targeted class.
+The specificities of the \gls{ids} use case, and notably the overlap between classes, slightly contradict these conclusions.
+%Our focus on \glspl{cids} and the use of a different dataset and model make our work complementary.
+
+In the context of \glspl{ids}, the literature on the impact of poisoning attacks on \gls{fl} is scarcer.
+\Textcite{zhang_Evaluationdatapoisoning_2022} provide a systematic analysis of clean-label data-poisoning attacks, where they use \glspl{gan} to generate poisoned samples. 
+Other works discuss clean-label attacks to a lesser extent~\cite{nguyen_PoisoningAttacksFederated_2020b,vy_FederatedLearningBasedIntrusion_2021}.
+Meanwhile, \textcite{merzouk_Parameterizingpoisoningattacks_2023} provide a comprehensive analysis on data-poisoning attacks in \gls{fl} for \glspl{ids}, but focus only on trigger backdoor attacks.
+\Gls{ml} backdoors work by manipulating samples to associate a specific trigger pattern with a given class so that the model misclassifies samples containing the trigger pattern.
+Compared with the results of \Cref{sec:assess.results.backdoors}, these attacks appear to be more effective at permanently introducing \gls{ids} backdoors.
+Finally, \textcite{yang_Dependablefederatedlearning_2023} discuss the specific aspects of label-flipping attacks in the context of \gls{fl} for \glspl{ids}, using two different datasets, NSL-KDD~\cite{tavallaee_detailedanalysisKDD_2009} and UNSW-NB15~\cite{moustafa_UNSWNB15comprehensivedata_2015}.
+However, they only implement label-flipping as a random selection of malicious samples to be flipped, which makes the results less comparable.

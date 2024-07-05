@@ -21,16 +21,15 @@
 }
 
 \includeonly{
-  % chapters/01_introduction/main,
-  % chapters/02_background/main,
-  % chapters/03_sota/main,
-  % chapters/04_application/main,
-  % chapters/05_topologies/main,
-  % chapters/06_assessment/main,
-  chapters/07_radar/main,
-  % chapters/08_future/main,
-  % chapters/09_conclusion/main,
-  % appendices/main,
+  chapters/10_introduction/main,
+  chapters/20_background/main,
+  chapters/30_sota/main,
+  chapters/40_application/main,
+  chapters/50_assessment/main,
+  chapters/60_radar/main,
+  chapters/70_topologies/main,
+  chapters/80_conclusion/main,
+  appendices/main,
 }
 
 \addbibresource{biblio/lavaur.bib}
@@ -110,13 +109,10 @@
 \renewcommand{\thepage}{\arabic{page}}
 \setcounter{page}{1}
 
-% PART I -- Introduction
-% -------------------------------------
-%\part{Introduction\label{part:introduction}}
 
 %% Introduction
 \clearemptydoublepage
-\subincludefrom{chapters/01_introduction/}{main}
+\subincludefrom{chapters/10_introduction/}{main}
 
 % Part I -- FIDS
 % -------------------------------------
@@ -125,50 +121,37 @@
 
 %% Preliminaries
 \clearemptydoublepage
-\subincludefrom{chapters/02_background/}{main}
+\subincludefrom{chapters/20_background/}{main}
 
 %% State of the Art
 \clearemptydoublepage
-\subincludefrom{chapters/03_sota/}{main}
+\subincludefrom{chapters/30_sota/}{main}
 
 %% Application
 \clearemptydoublepage
-\subincludefrom{chapters/04_application/}{main}
+\subincludefrom{chapters/40_application/}{main}
 
 % Part II -- Quantifying Limitations
 % -------------------------------------
 \clearemptydoublepage
-\part{Quantifying the Limitations of FIDSs\label{part:limitations}}
-
-%% Topology Generation
-\clearemptydoublepage
-\subincludefrom{chapters/05_topologies/}{main}
+\part{Fighting Byzantines in Heterogeneous Settings\label{part:contribs}}
 
 %% Assessment
 \clearemptydoublepage
-\subincludefrom{chapters/06_assessment/}{main}
-
-% Part III -- Providing Solutions
-% -------------------------------------
-\clearemptydoublepage
-\part{Providing Solutions\label{part:solutions}}
+\subincludefrom{chapters/50_assessment/}{main}
 
 %% Trust-FIDS
 \clearemptydoublepage
-\subincludefrom{chapters/07_radar/}{main}
+\subincludefrom{chapters/60_radar/}{main}
 
-%% Future FIDS
+%% Topology Generation
 \clearemptydoublepage
-\subincludefrom{chapters/08_future/}{main}
+\subincludefrom{chapters/70_topologies/}{main}
 
-% % Part IV -- Conclusion
-% % -------------------------------------
-% \clearemptydoublepage
-% \part{Conclusion\label{part:conclusion}}
 
 %% Conclusion
 \clearemptydoublepage
-\subincludefrom{chapters/09_conclusion/}{main}
+\subincludefrom{chapters/80_conclusion/}{main}
 
 
 

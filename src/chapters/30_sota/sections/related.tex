@@ -1,0 +1,80 @@
+\section{Related Work\label{sec:sota.related}}
+
+At the time of writing this literature review, the literature on \gls{fl} for \gls{ids} was still scarce.
+Only a handful of reviews had been published on the topic~\cite{alazab_FederatedLearningCybersecurity_2021,agrawal_FederatedLearningintrusion_2022,campos_EvaluatingFederatedLearning_2022}.
+Therefore, we extended our search of related works to related topics that were susceptible to share similar challenges or conclusions.
+This extended selection can be divided into three main categories: 
+\begin{enumerate*}[(a)]
+  \item security information sharing,
+  \item intrusion detection, and
+  \item collaborative \gls{ml}.
+\end{enumerate*}
+\Cref{tbl:sota.related} provides a summary of this selection, grouped by topic and sorted by publication date.
+In addition to the initial selection, we also included more recent surveys on the topic~\cite{fedorchenko_ComparativeReviewIntrusion_2022, ghimire_RecentAdvancesFederated_2022, ismaila_ReviewApproachesFederated_2024}, whose number highlights the massive interest in the community.
+
+
+\begin{table}
+  \caption[
+    Related literature reviews, their topics, contributions, and number of citations.
+  ]{
+    \emph{Related literature reviews, their topics, contributions, and number of citations according to Google Scholar (Apr.
+    2024).}
+    Works marked $\ast$ were originally available as preprints, and were only published afterward.
+    Works marked $\ddagger$ are added for the sake of completeness, but were not included in the initial selection.
+    \label{tbl:sota.related}
+  }
+    
+  \centering
+  \resizebox{\textwidth}{!}{%
+    \input{figures/table-related}
+  }
+\end{table}
+
+
+Common issues of collaborative systems, such as the need for trust, privacy, and security, can also apply to \gls{fl}-based collaboration systems.
+Therefore, we include four surveys~\cite{skopik_problemsharedproblem_2016,tounsi_surveytechnicalthreat_2018,wagner_Cyberthreatintelligence_2019a,pala_InformationSharingCybersecurity_2019} where the authors discuss the challenges and opportunities of sharing security-related information.
+They highlight the need for standardization, automation, and incentives, to achieve efficient and effective collaboration.
+The topic of trust is a clearly identified challenge in these works~\cite{wagner_CyberThreatIntelligence_2019,tounsi_surveytechnicalthreat_2018}.
+The present study rather focuses on \gls{fl} as a technical mean for collaboration, but such as trust or incentives are also relevant in this context.
+
+Because \gls{ml}-based \gls{ids} can be considered as a key component of \gls{fids}, we review existing surveys on the topic~\cite{buczak_SurveyDataMining_2016,meng_WhenIntrusionDetection_2018,chaabouni_NetworkIntrusionDetection_2019,dacosta_InternetThingssurvey_2019}.
+These work cover a wide range of solutions, from traditional \gls{ml} (\gls{svm}, \gls{dt} and \gls{rf}, among others) to more recent approaches, such as deep learning, the latter being overrepresented in the literature of \glspl{fids}.
+They also provide a good overview of the existing datasets and evaluation metrics, which can be useful for the evaluation of \gls{fl}-based \gls{ids}.
+However, as noted in \Cref{sec:sota.discuss.open}, typical \gls{ids} datasets present limitations that can hinder the evaluation of \gls{fl}-based \gls{ids}.
+
+\Gls{fl}'s performance is obviously another critical aspect of \glspl{fids}.
+Consequently, related works include surveys on the collaborative aspects of \gls{ml} and \gls{fl}~\cite{aledhari_FederatedLearningSurvey_2020,lo_SystematicLiteratureReview_2021}.
+They discuss \gls{fl} approaches to work with distributed architectures.
+The security of \gls{fl} is also heavily reviewed by~\cite{shen_DistributedMachineLearning_2020,lyu_ThreatsFederatedLearning_2020,mothukuri_surveysecurityprivacy_2021}.
+They identify security threats like communication bottleneck, poisoning, and \gls{ddos} attacks, that could endanger \gls{fl}-based systems.
+While the \gls{ids} use case can be seen as an application of \gls{fl}, we argue that it raises specific concerns in terms of privacy, latency, and adaptability.
+
+\textcite{zhou_surveycoordinatedattacks_2010,vasilomanolakis_TaxonomySurveyCollaborative_2015} survey the evolution of \gls{cids}---at the merge of intrusion
+detection and collaborative \gls{ml}, or Topics (b) and (c) as presented above.
+Their works are however older and thus, cannot offer a comprehensive view of \gls{cids}, as \gls{fl}-based approaches did not exist at the time of their writing.
+Hence, the authors focus on collaboration in the sense of \emph{detection}$+$\emph{correlation}, whereas the analysis presented in this chapter (\Cref{sec:sota.quali}) surveys the use of \gls{fl} in \glspl{ids}.
+
+In addition to the above, recent work (\ie, contemporary to the writing of the initial study) have reviewed the use of \gls{fl} for intrusion
+detection~\cite{agrawal_FederatedLearningintrusion_2022,campos_EvaluatingFederatedLearning_2022,alazab_FederatedLearningCybersecurity_2021}.
+\textcite{alazab_FederatedLearningCybersecurity_2021} address the wider topic of
+\gls{fl} for cybersecurity, which only includes intrusion detection as an application.
+Their paper
+is explanatory and provides an overview of \gls{fl} applications in information security.
+Like this
+work, \textcite{agrawal_FederatedLearningintrusion_2022} focus on \glspl{fids}, but have different methodology.
+The authors list
+existing \glspl{fids} and detail their approaches, and identify open issues.
+On the other hand,
+\textcite{campos_EvaluatingFederatedLearning_2022} review a subset of \glspl{fids} by focusing on \gls{iot} use case, and the
+impact of non-\acrshort{iid} (\acrlong{iid}) data on performance.
+While all identify challenges and
+research directions, this work also performs quantitative (\Cref{sec:sota.quanti}) and
+qualitative (\Cref{sec:sota.quali}) analyses of existing \glspl{fids}, and extracts reference
+architecture and taxonomy.
+The existence of these papers emphasizes the importance and relevance of
+\glspl{fids} for the research community.
+
+The more recent works on the topic~\cite{fedorchenko_ComparativeReviewIntrusion_2022, ghimire_RecentAdvancesFederated_2022, ismaila_ReviewApproachesFederated_2024} confirm these observations.
+The work of \textcite{fedorchenko_ComparativeReviewIntrusion_2022} is of little interest, as it only lists and details existing works with close to no added value.
+\textcite{ghimire_RecentAdvancesFederated_2022} provide a more convincing study, closer to the method applied by \textcite{alazab_FederatedLearningCybersecurity_2021}, but with a focus on the \gls{iot}.
+Finally, \textcite{ismaila_ReviewApproachesFederated_2024} provide a comprehensive review, with up-to-date literature leveraging the \gls{slr} methodology, but still focuses on the \gls{iot}.

@@ -242,8 +242,19 @@
 }{def}
 
 
+% TODO !
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+% \setsansfont{Helvetica}
+% % Use LuaLaTeX to generate italic even though its not supported by inconsolata.
+% \setmonofont[
+%   AutoFakeSlant,
+%   BoldItalicFeatures={FakeSlant},
+% ]{Inconsolatazi4}
 % listings
+
 \usepackage{newfloat}
+\usepackage{listings}
 \usepackage{inconsolata}
 \lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
 \DeclareFloatingEnvironment[fileext=frm,placement={ht},name=Listing,within=chapter]{listing}
@@ -462,7 +473,7 @@
 % ----------------------------
 \mathdef{\Prob}[]{\vec{\mathbb{P}}}
 \mathdef{\prob}[ O{q} ]{\mathbb{P}\{{#1}\}}
-\mathdef{\cond}[ O{s} ]{\mathbb{P}\{\varepsilon_s|\vec{\gamma}^r\}}
+\mathdef{\cond}[ O{s} ]{\mathbb{P}\{\epsilon_s|\vec{\gamma}^r\}}
 
 \mathdef{\rep}[ O{i} O{r}]{\psi_{#1}^{#2}}
 

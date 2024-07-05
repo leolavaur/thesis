@@ -1,0 +1,40 @@
+\section{Introduction\label{sec:assess.intro}}
+
+Because of its distributed nature, \gls{fl} is highly susceptible to various types of threats, such as poisoning and privacy attacks~\cite{rodriguez-barroso_Surveyfederatedlearning_2023}.
+Extensive analyses of poisoning attacks in \gls{fl} have been conducted~\cite{bhagoji_AnalyzingFederatedLearning_2019,tolpegin_DataPoisoningAttacks_2020} and have shown significant impact on performance.
+However, in critical applications such as \glspl{ids}, the performance of the learning algorithm is of utmost importance, as it directly impacts the security of the monitored system.
+Consequently, the impact of poisoning attacks on \gls{fl} for \glspl{ids} is a critical concern.
+
+\Cref{chap:app} illustrated this concern easily, showing that a simple label-flipping attack can completely compromise the performance of a \gls{cids} based on \gls{fl}.
+This chapter aims to further investigate the impact of label-flipping attacks on \gls{fids}, and understand the conditions under which these attacks are most effective.
+While robust approaches have already been proposed~\cite{yang_Dependablefederatedlearning_2023,vy_FederatedLearningBasedIntrusion_2021,zhang_SecFedNIDSRobustdefense_2022}, few studies focus on understanding and quantifying the impact of poisoning attacks on \gls{fl} for \glspl{ids}.
+In particular, the effects of label-flipping attacks has been overlooked, as no systematic study has been conducted to understand their impact on \gls{fl} for \glspl{ids} to the best of our knowledge.
+
+This work aims at filling this gap by conducting a systematic and quantitative assessment of the impact of label-flipping attacks on \gls{fl} for \glspl{ids}.
+While simple in nature, label-flipping attacks are particularly interesting as they are easy to implement, even in a \emph{black-boxed} system, and can have a significant impact on the trained global model.
+Specifically, this study aims at answering the following research questions, building on \Cref{rq:intro.malicious} stated in the Introduction of this thesis.
+
+\begin{subquestions}{rq:intro.malicious}
+  \item Is the behavior of poisoning attacks predictable?\label{rq:assess.predictability}
+  \item Do hyperparameters influence the impact of poisoning attacks?\label{rq:assess.hyperparams}
+  %\item Are there beneficial or harmful combinations of hyperparameter under poisoning attacks?\label{rq:assess.hyperparams}
+  %\item Can \gls{fl} heal itself from poisoning attacks?\label{rq:assess.recovery}
+  \item Are \gls{ids} backdoors realistic using label-flipping attacks?\label{rq:assess.backdoors}
+  \item Is there a critical threshold where label-flipping attacks begin to impact performance?\label{rq:assess.threshold}
+  \item Is gradient similarity enough to detect label-flipping attacks?\label{rq:assess.similarity}
+\end{subquestions}
+
+The content of this chapter is based on our work published at \gls{ares} in August 2024~\cite{lavaur_ares_bass_2024}, which has been extended in perspective of a journal submission.
+The remainder of this chapter is organized as follows.
+First, \Cref{sec:assess.methodo} details the methodology used to conduct the experiments, with an emphasis on reproducibility.
+Then, \Cref{sec:assess.results} presents the results of the experiments, answering the research questions.
+In \Cref{sec:assess.related}, we delve into the related work, especially the existing analyses on the impact of poisoning attacks on \gls{fl}.
+Finally, \Cref{sec:assess.conclusion} discusses the implications of the results and concludes the paper.
+
+
+\begin{contribs}
+  \item The first systematic analysis of the impact of label-flipping attacks on \glspl{cids} leveraging \gls{fl}, answering a set of well-defined research questions.
+  \item A comprehensive understanding of the impact of these attacks on the performance of the learning algorithm.
+  \item A reusable methodology to assess the impact of poisoning attacks on \gls{fl}, with experiments that can be easily replicated and extended to other datasets, attack types, and mitigation strategies.
+  \item An automation framework to facilitate the evaluation of \gls{fl} approaches under different attack scenarios, built upon Flower~\cite{beutel_Flowerfriendlyfederated_2020} and Hydra~\cite{Hydra}.
+\end{contribs}

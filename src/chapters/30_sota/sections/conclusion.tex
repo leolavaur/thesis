@@ -1,0 +1,42 @@
+\section{Conclusion and takeaways\label{sec:sota.conclusion}}
+
+\Gls{fl} comes solves two main challenges: 
+\begin{enumerate*}[(1)]
+    \item it breaks isolated architectures by allowing learning over distributed data without compromising privacy; and
+    \item it speeds up training and reduces communications compared to existing distributed learning approaches, and even more so when compared to centralized learning.
+\end{enumerate*}
+Applied on intrusion detection, \gls{fl} allows to leverage the knowledge of multiple actors to improve the detection of attacks, while preserving the privacy of each organization's data.
+This is particularly relevant to fit with the injunctions of security agencies and regulations, which call for collaboration and intelligence sharing, while also demanding strong privacy requirements.
+Based on the literature reviewed, we can define \glspl{fids} as follows:
+
+\begin{definitionbox}{\acrfullpl{fids}}{fids}
+  \emph{Distributed \glspl{ids} with privacy-preserving federated knowledge.}
+  \Glspl{fids} leverage \gls{fl} or similar distributed learning techniques\footnotemark{} to share and aggregate the models trained locally with other members of the federation.
+  Federations can be closed (\ie, all participants are identified and trusted) or open (\ie, participants can join and leave the federation at any time).
+  Depending on the \gls{ml} model used locally, training can happen offline on labelled data, online, or with a combination of both.
+\end{definitionbox}
+
+\footnotetext{
+  We take some liberty in this definition by not imposing the use of \gls{fl} as a requirement.
+  While it is definitely the most popular approach and the motivation behind this study, other privacy-preserving distributed learning techniques have been used in the literature~\cite{pahl_AllEyesYou_2018,rathore_BlockSecIoTNetBlockchainbaseddecentralized_2019}.
+  Further, the formal definition of \gls{fl} is still debated (see \Cref{chap:background}), as the term is often used to describe a broader set of techniques.
+}
+
+This review highlighted eight main challenges that need to be addressed to build efficient and secure \glspl{fids}, ranging from pure performance to scalability and mitigation mechanisms.
+In the following chapters, we will especially focus on three of these challenges: 
+\begin{enumerate*}[(i)]
+    \item \emph{\glspl{fids} in Heterogeneous Environments};
+    \item \emph{Malicious Contributions and Trust}; and
+    \item \emph{Evaluation and Dataset Representativity}.
+\end{enumerate*}
+More specifically, we will address the following points:
+\begin{itemize}
+  \item We address \emph{Heterogeneity} and \emph{Dataset Representativity} in \Cref{chap:topologies}, where we propose a novel approach to generate network topologies that are both realistic and heterogeneous.
+  
+  \item \Cref{chap:assessment} reviews the impact of \emph{Malicious Contributions} over \glspl{fids} in \gls{iid} settings, with an emphasis on reproducibility.
+  
+  \item We propose in \Cref{chap:radar} a novel approach to mitigate such effects in \emph{heterogeneous} environments, leveraging \emph{reputation} systems to assess the quality of the participants' contributions and their \emph{trustworthiness}.
+\end{itemize}
+
+Before diving into these challenges, we will first present in \Cref{chap:app} an application of \glspl{fids} using toy examples on public datasets.
+This will allow us to visualize the potential of \glspl{fids}, but most importantly the impact of the challenges we identified above.
