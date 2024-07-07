@@ -49,21 +49,22 @@ Since this matrix is not symmetric, the vector of \emph{issued evaluations} $\is
 \Cref{alg:xeval} details the proposed workflow.
 
 \begin{algorithm}
+  \colorlet{algbgcolor}{accentcolor!25}
   \caption{
     \thecontrib.
     $R$ is the number of rounds, $\beta$ the local batch size, $\eta$ the learning rate, $\varepsilon$ the number of epochs, and $\mathcal{L}$ a loss function.
     $\omega$ and $\Omega$ represent the model and the set of models that are passed to the clients, respectively.
-    We highlight in \colorbox{accentclr!25}{\texttt{blue}} the elements that differ from the standard \gls{fl} workflow (see \Cref{alg:fedavg} in \Cref{sec:bg.fl}).
+    We highlight in \colorbox{algbgcolor}{\texttt{blue}} the elements that differ from the standard \gls{fl} workflow (see \Cref{alg:fedavg} in \Cref{sec:bg.fl}).
     \label{alg:xeval}
   }
   \setlength{\fboxsep}{1pt}
-  \newcommand{\hl}[1]{\colorbox{accentclr!25}{\scriptsize $#1$}}
+  \newcommand{\hl}[1]{\colorbox{algbgcolor}{\scriptsize $#1$}}
   \begin{small}
     \begin{algorithmic}[1]
       \Require $P$
   
       \With{$r \gets 0$}
-\BeginBox[fill=accentclr!25]
+\BeginBox[fill=algbgcolor]
         \State $ \C \gets \{ P \}$
 \EndBox
         \State $ \Wbar \gets (\Call{Random}{\ })$
@@ -72,18 +73,18 @@ Since this matrix is not symmetric, the vector of \emph{issued evaluations} $\is
       \For{$r \gets 1,\dots,R $}
         \LComment{Step (1): model training}
         \ForAll{$p_i \in P$ \textbf{in parallel}}
-\BeginBox[fill=accentclr!25]
+\BeginBox[fill=algbgcolor]
           \State $k \gets \Call{GetCluster}{p_i, \C}$
 \EndBox
           \State $\w \gets \Call{ClientFit}{p_i, \wbar[\hl{k}]}$
         \EndFor
         \Statex
-\BeginBox[fill=accentclr!25]
+\BeginBox[fill=algbgcolor]
         \State $ \W \gets (\w)_{i \in n \llbracket 1,n \rrbracket} $ 
 \EndBox
         \Statex
         \LComment{Step (2): cross-evaluation}
-\BeginBox[fill=accentclr!25]
+\BeginBox[fill=algbgcolor]
         \ForAll{$p_i \in P$ \textbf{in parallel}} 
           \State $(\e) \gets \Call{ClientEvaluate}{p_i, \W}$
         \EndFor
@@ -91,7 +92,7 @@ Since this matrix is not symmetric, the vector of \emph{issued evaluations} $\is
 \EndBox
         \Statex
         \LComment{Step (3): parameters aggregation}
-\BeginBox[fill=accentclr!25]
+\BeginBox[fill=algbgcolor]
         \State $ \C \gets \Call{ComputeClusters}{\E}$              \Comment{See:~\Cref{sec:radar.archi.cluster}}
         \ForAll{$  \c \in \C $}
           \State $ (\rho_i^r) \gets \Call{ComputeReput}{\E, \C}$   \Comment{See:~\Cref{sec:radar.archi.reput}}
@@ -112,7 +113,7 @@ Since this matrix is not symmetric, the vector of \emph{issued evaluations} $\is
       \EndFunction
   
       \Statex % Client-side evaluation
-\BeginBox[fill=accentclr!25]
+\BeginBox[fill=algbgcolor]
       \Function{ClientEvaluate}{$p$, $\Omega$} \Comment{On client.}
         \ForAll{$ \omega_j \in \Omega $}
           \State $ \e \gets \Call{Eval}{\omega, \d}$

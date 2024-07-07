@@ -1,0 +1,22 @@
+\section{Conclusion and Takeaways\label{sec:assess.conclusion}}
+
+The literature on the impact of poisoning attacks on \gls{fl} that specifically cover intrusion detection use cases is scarce, and in it, label-flipping attacks have been overlooked.
+This chapter fills this gap by providing a comprehensive analysis of the impact of label-flipping attacks on \gls{fl} for \glspl{ids}.
+We evaluated the impact of untargeted and targeted label-flipping attacks on the performance of \gls{fl} models trained on CSE-CIC-IDS2018 and UNSW-NB15 using a standardized feature set to enable the extension of this work.
+
+Our results highlight that
+\begin{enumerate*}[(i)]
+  \item label-flipping attacks can have a significant impact on the performance of \gls{fl} models, especially targeted ones;
+  \item the \gls{asr} is closely related to the number of flipped samples overall, which can be approximated in \gls{iid} settings by the product of \gls{dpr} ($\alpha$) and \gls{mpr} ($\tau$); 
+  \item targeted label-flipping attacks strive on well-detected targets, but can be significantly mitigated by the model's generalization capabilities;
+  \item mitigation strategies must be adapted to the use case specificities (\eg, constrained environments);
+  \item gradient similarity \emph{can} be used to detect label-flipping attacks, but its effectiveness is challenged in heterogeneous settings.
+\end{enumerate*}
+
+Yet, we hope that this work will inspire and fuel further research, as there are still many open questions to address.
+First, our results can easily be extended with more granular experiments and testing different attack combinations.
+On the other hand, while the comparison with existing works seems to corroborate our results, this study calls to be extended to other datasets, feature sets, model architectures, and \gls{fl} aggregation strategies.
+Finally, the provided evaluation framework can be used to evaluate the efficiency of existing countermeasures, or to develop new ones.
+In the next chapter, we will build on this work's findings in heterogeneous settings and propose a novel approach to detect data-related Byzantine faults in heterogeneous \gls{fids} environments.
+
+

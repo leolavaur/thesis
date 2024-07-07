@@ -1,6 +1,6 @@
-\section{Experimental Setup\label{sec:radar.setup}}
+\section{Experimental Setup\label{sec:radar.methodo}}
 
-We evaluate \thecontrib and any selected baseline on a set of heterogeneous intrusion detection datasets~\cite{sarhan_StandardFeatureSet_2022} with various attack scenarios (see \Cref{sec:radar.eval.methodo.scenarios}).
+We evaluate \thecontrib and any selected baseline on a set of heterogeneous intrusion detection datasets~\cite{sarhan_StandardFeatureSet_2022} with various attack scenarios (see \Cref{sec:radar.methodo.scenarios}).
 We implement the described use case (\Cref{sec:app.overview}) and threat model (\Cref{sec:assess.threat}) as a set of experiments using the \gls{fl} framework Flower~\cite{beutel_Flowerfriendlyfederated_2020}, with Nix~\cite{dolstra_purelyfunctionalsoftware_2006} and Poetry~\cite{eustace_Pythondependencymanagement_2018} to reproducibly manage dependencies.
 The hyperparameters used in our setup are detailed in \Cref{tbl:radar.hyperparameters}.
 The code for all experiments can be found online\footnote{TODO.}, with configuration and seeds for each considered baseline and evaluation scenario. 
@@ -61,7 +61,7 @@ We also provide lock files to enable anyone to reuse the same software versions 
 \end{table}
 
 
-\subsection{Datasets and local algorithm \label{sec:radar.eval.methodo.datasets}}
+\subsection{Datasets and local algorithm \label{sec:radar.methodo.datasets}}
 
 \begin{table}[t]
     \centering
@@ -102,19 +102,16 @@ Their algorithm shows low performance when training the model on one dataset, an
 This supports the assumptions behind the cross-evaluation proposal, where the differences between the evaluation results can be used to estimate the similarity between the local data distribution.
 
 
-\subsection{Evaluation scenarios\label{sec:radar.eval.methodo.scenarios}}
+\subsection{Evaluation scenarios\label{sec:radar.methodo.scenarios}}
 
 The threat model defined in \Cref{sec:problem.formalization} is implemented as a set of evaluation scenarios which model various data-quality situations.
 These scenarios can be summarized in three categories:
 
-\newlist{categories}{enumerate}{1} % also creates a counter called 'categoriesi'
-\setlist[categories]{label={\bf C\arabic*:}, ref=C\arabic*}
-\crefname{categoriesi}{category}{categories}
-\Crefname{categoriesi}{Category}{Categories}
+
 
 \begin{categories}
   \item \texttt{Benign.} This category actually contains one scenario which showcases a \emph{practical \gls{niid}} situation, where participants can be grouped into 4 use cases.
-  Each of the 4 datasets described in \ref{sec:radar.eval.methodo.datasets} is randomly distributed among 5 participants without overlap.
+  Each of the 4 datasets described in \ref{sec:radar.methodo.datasets} is randomly distributed among 5 participants without overlap.
   We thus have a total of 20 participants with different data, but some share similarities between their data distributions.
   \label{cat:benign}
 

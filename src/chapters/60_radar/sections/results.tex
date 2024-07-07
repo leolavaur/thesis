@@ -1,4 +1,4 @@
-\section{Experimental Results\label{sec:radar.eval.results}}
+\section{Experimental Results\label{sec:radar.results}}
 
 \thecontrib serves multiple objectives at once:
 \begin{enumerate*}[(a)]
@@ -12,11 +12,11 @@ Because \thecontrib can be partially assimilated as a clustered \texttt{FedAvg} 
 We refer to it as \emph{Clustered} $\texttt{FedAvg}$ or \texttt{FC}.
 To highlight \thecontrib's ability to compare with Sybil-focused mitigation strategies, we compare it with \texttt{FoolsGold}~\cite{fung_LimitationsFederatedLearning_2020} (also designated \texttt{FG}).
 We reuse the authors' code~\cite{foolsgold_dl_impl}, and adapt it to model updates, since \texttt{FoolsGold} was originally implemented on \texttt{FedSGD}.
-The following sections cover these topics using the scenarios laid out in \Cref{sec:radar.eval.methodo.scenarios}.
+The following sections cover these topics using the scenarios laid out in \Cref{sec:radar.methodo.scenarios}.
 Like the others, \thecontrib is abbreviated as \texttt{RA} when needed.
 
 
-\subsection{Heterogeneity\label{sec:radar.eval.results.heterogeneity}}
+\subsection{Heterogeneity\label{sec:radar.results.heterogeneity}}
 
 \begin{table}
   \centering
@@ -57,7 +57,7 @@ Like the others, \thecontrib is abbreviated as \texttt{RA} when needed.
   \centering
   \caption{
       \emph{Effect of different attack configurations (\texttt{100T/U}) on all baselines.}
-      The \acrfull{asr} is computed over the targeted classes in targeted attacks, and over all samples otherwise (see \Cref{sec:radar.eval.methodo.metrics}).
+      The \acrfull{asr} is computed over the targeted classes in targeted attacks, and over all samples otherwise (see \Cref{sec:radar.methodo.metrics}).
       \texttt{RA} is \thecontrib, \texttt{FG} is \texttt{FoolsGold}, $\texttt{FA}$ is \texttt{FedAvg} (on \emph{all} participants), and \texttt{FC} is \texttt{FedAvg} ideally clustered per dataset.
       The \gls{asr} of benign runs is provided as a baseline.
       \thecontrib's limiting scenario is marked $\ddagger$.
@@ -105,7 +105,7 @@ Furthermore, \Cref{tbl:radar.baselines_results} indicates that \thecontrib's mea
 Overall, \texttt{FoolsGold}, a reference Byzantine-resilient \gls{fl} strategy tailored for \gls{niid} settings, falters in \emph{practical} \gls{niid} settings, where \thecontrib strives.
 
 
-\subsection{Handling data quality\label{sec:radar.eval.results.quality}}
+\subsection{Handling data quality\label{sec:radar.results.quality}}
 
 Another goal for \thecontrib is to handle contributions of various quality.
 This objective is mostly represented by scenarios of \Cref{cat:lone} (\texttt{Lone}), as we consider that coordinated faults are improbable for legitimate participants.
@@ -183,13 +183,13 @@ This appreciation error leads \texttt{FoolsGold} to have the worst attack succes
 \end{figure*}
 
 
-\subsection{Label flipping attacks\label{sec:radar.eval.results.flipping}}
+\subsection{Label flipping attacks\label{sec:radar.results.flipping}}
 
 We evaluate the resistance to label-flipping attacks using two different scenarios.
 First, we consider that \texttt{Colluding Byzantines} can only refer to attackers, as it is unlikely that the very same fault happens over multiple clients at the same time.
 Second, the \texttt{Lone~100U} scenario, as it is similarly unlikely that for an \emph{honest-but-neglectful} participant to misclassify the entirety of its data.
 
-Like discussed in \Cref{sec:radar.eval.results.quality}, the clustering algorithm separates the noisiest attacks from the rest.
+Like discussed in \Cref{sec:radar.results.quality}, the clustering algorithm separates the noisiest attacks from the rest.
 This is true regardless of the number of attackers, as confirmed by the results in \Cref{tbl:radar.rand_clustering}.
 For untargeted faults with at least 95\% \emph{noisiness}, the Rand Index at round 10 stays equal to 1.0.
 This means that for those loud attacks, attackers are separated from benign participants, hence negating their poisoning effect.
@@ -197,7 +197,7 @@ This is a critical result for \thecontrib, as this mitigation occurs for \emph{a
 However, the attackers in \texttt{Colluding T} scenarios are placed with legitimate participants in the same cluster. 
 
 
-\paragraph*{Minority of attackers\label{sec:radar.eval.results.flipping.minority}}
+\paragraph*{Minority of attackers\label{sec:radar.results.flipping.minority}}
 
 The \texttt{Colluding minority} class (\Cref{cat:colluding}) contains scenarios where 2 out of 5 participants instantiated in Bot-IoT perpetrate label-flipping attacks.
 Here, the results depicted in \Cref{fig:reput_byzantine.minority} indicate that the attackers are heavily penalized by the reputation system. 
@@ -208,7 +208,7 @@ This is also true for our theoretical baseline \texttt{FC}, although the effect 
 Unfortunately, it also detects benign members from the other clusters as colluding attackers and thus train on BoT-IoT only, leading to a very low 54.64\% accuracy overall.
 
 
-\paragraph*{Majority of attackers\label{sec:radar.eval.results.flipping.majority}}
+\paragraph*{Majority of attackers\label{sec:radar.results.flipping.majority}}
 
 The \texttt{Colluding majority 100T} scenario, with 3 attackers out of 5 participants, sees the attackers gain precedence.
 \Cref{fig:reput_byzantine.majority} clearly illustrates this phenomenon, where the legitimate participants' weights drop as the reputation system favors the attackers.
@@ -219,7 +219,7 @@ Furthermore, as illustrated in \Cref{fig:asr_multiple_baselines,fig:majority_tar
 Consequently, while this scenario highlights a limitation of \thecontrib, it is significantly constrained.
 
 
-\paragraph*{Impact of the attack timing\label{sec:radar.eval.results.flipping.timing}}
+\paragraph*{Impact of the attack timing\label{sec:radar.results.flipping.timing}}
 
 Additionally, \Cref{fig:redemption_decrease} depicts how the reputation system reacts to participants that change their \emph{noisiness} over time. 
 \Cref{fig:redemption_byzantine_min} features a \texttt{Colluding minority 100T} scenario where the noisiness drops to 0\% at round 3. 
@@ -231,7 +231,7 @@ This in phase with the conclusions of \Cref{fig:asr_multiple_baselines,fig:major
 The reputation system thus detects attackers only when they start to present a threat to the global model's performance. 
 
 
-\subsection{Synthesis\label{sec:radar.eval.results.synthesis}}
+\subsection{Synthesis\label{sec:radar.results.synthesis}}
 
 First, the results highlight the relevance of clustering in \emph{practical \gls{niid}} use cases, as attacks are confined to the cluster attackers have been assigned to.
 This is particularly visible in the performance of \thecontrib and the clustered \texttt{FedAvg} variant, which both maintain high accuracy overall by providing each community with a specific model.

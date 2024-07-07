@@ -6,6 +6,7 @@
     "ltex.latex.commands": {
         "\\bookmarksetup{}": "ignore",
         "\\thecontrib":"dummy",
+        "\\cf":"dummy",
     },
     "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
     "latex-workshop.latex.tools": [

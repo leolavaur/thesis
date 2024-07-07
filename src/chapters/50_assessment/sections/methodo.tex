@@ -29,7 +29,9 @@ The results presented in this paper amount to 10~670 unique runs, and close to 1
     \includegraphics{figures/nb15/pca-projection.pdf}
     \caption{UNSW-NB15\label{fig:assess.pca.nb15}}
   \end{subfigure}
-  \caption{
+  \caption[
+    Cross-projections of the malicious traffic from the two datasets in 2D using \gls{pca}.
+  ]{
     Cross-projections of the malicious traffic from the two datasets in 2D using \gls{pca}.
     On top, the frame of reference is computed using the \texttt{sampled} dataset, and on the bottom the \texttt{full} dataset.
     The \texttt{sampled} dataset is then projected on the left, the \texttt{full} dataset on the right.
@@ -41,7 +43,7 @@ The results presented in this paper amount to 10~670 unique runs, and close to 1
   \centering
   \caption{
     Distribution of the CIC-CSE-IDS2018 and UNSW-NB15 (NF-V2) datasets~\cite{sarhan_StandardFeatureSet_2022,layeghy_GeneralisabilityMachineLearningbased_2022}.
-    \label{tbl:dataset.cicids}
+    \label{tbl:assess.datasets}
   }
   \input{figures/datasets-table.tex}
 \end{table}
@@ -49,10 +51,10 @@ The results presented in this paper amount to 10~670 unique runs, and close to 1
 
 
 Due to the scale of the required experiments, we require a datasets that are both representative of the problem and small enough to be processed in a reasonable amount of time.
-As discussed in \Cref{chap:background,chap:app}, recent works on \gls{fl} and \gls{ids}~\cite{sarhan_StandardFeatureSet_2021} proposed a standardized feature set (NF-V2) making cross-dataset \gls{fl} setups easier.
+As discussed in \Cref{chap:background,chap:application}, recent works on \gls{fl} and \gls{ids}~\cite{sarhan_StandardFeatureSet_2021} proposed a standardized feature set (NF-V2) making cross-dataset \gls{fl} setups easier.
 The authors notably provide converted versions of known datasets, including CSE-CIC-IDS2018~\cite{sharafaldin_GeneratingNewIntrusion_2018} and UNSW-NB15~\cite{moustafa_UNSWNB15comprehensivedata_2015}, the two most used generic \gls{nids} datasets in the literature.
 
-Due to the scale of the required experiments, we use the ``sampled'' version of the datasets provided by the authors~\cite{layeghy_GeneralisabilityMachineLearningbased_2022}, and already mentioned in \Cref{chap:app}.
+Due to the scale of the required experiments, we use the ``sampled'' version of the datasets provided by the authors~\cite{layeghy_GeneralisabilityMachineLearningbased_2022}, and already mentioned in \Cref{chap:application}.
 After pre-processing, we evenly split the dataset for the experiments, ensuring the same class distribution in the training and testing sets.
 80\% of the dataset is used for training, and 20\% for testing.
 We purposely do not use a proper validation set, as the goal is to measure the performance delta related to the impact of the attacks on the global model, and not to optimize the model's hyperparameters.
@@ -68,8 +70,9 @@ Therefore, experiments performed over the sampled datasets should be representat
 
 \subsection{Local and Federated Training\label{sec:assess.method.models}}
 
-\newcommand{\cellcenter}[1]{\multicolumn{1}{c}{#1}}
+%\begin{wraptable}{L}{.4\linewidth}
 \begin{table}
+  \newcommand{\cellcenter}[1]{\multicolumn{1}{c}{#1}}
   \centering
   \caption{Hyperparameters.\label{tbl:hyperparams}}
   \small
@@ -84,12 +87,14 @@ Therefore, experiments performed over the sampled datasets should be representat
     Number of hidden layers   & 2 \\ 
     Size of the hidden layers & 128 \\
     Optimizer                 & Adam \\
-    Loss function             & Log loss \\
-                              & (binary cross-entropy) \\
+    Loss function             & Binary cross-entropy \\
+    % Loss function             & Log loss \\
+    %                          & (binary cross-entropy) \\
     Aggregation               & \texttt{FedAvg} \\
     \bottomrule % ---------------------------------
   \end{tabular}
 \end{table}
+%\end{wraptable}
 
 We use a simple \gls{mlp} model with two hidden layers, as implemented by \textcite{popoola_FederatedDeepLearning_2021} who use the same datasets; a summary of the model's parameters is available in \Cref{tbl:hyperparams}.
 Trained centrally, this model reaches an F1-score of 0.966 and an accuracy of 0.992 on our sampled CIC-CSE-IDS2018, and 0.945 and 0.995 on the UNSW-NB15 dataset, respectively.
@@ -142,22 +147,20 @@ This simplification is however not accurate in other partitioning strategies.
     \centering
     \caption{Experimental parameters. Default parameters are highlighted in bold and are used if not specified otherwise.}
     \label{tbl:expsparams}
-    \scriptsize
+    \footnotesize
     \setlength{\extrarowheight}{3pt}
-    \begin{tabular}{>{\ttfamily\itshape}p{.1\linewidth} >{\ttfamily}p{.575\linewidth} p{.245\linewidth}}
+    \begin{tabular}{>{\ttfamily\itshape}p{.12\linewidth} >{\ttfamily}p{.8\linewidth}}
       \toprule
-      \normalfont{\textbf{Parameter}} & \normalfont{\textbf{Values}} & \normalfont{\textbf{Description}} \\
+      \normalfont{\textbf{Parameter}} & \normalfont{\textbf{Values}} \\
       \midrule
-      dataset & nfv2/sampled/cicids, nfv2/sampled/nb15 & Dataset \\
-      batch\_size & 32, 128, \textbf{512} & Batch size ($\beta$) \\
-      epochs & \textbf{100\_10x10}, 100\_4x25, 100\_1x100, 300\_10x30, 300\_4x75, 300\_1x300 & Local epochs per round ($\mathcal{E}$) \\
-      distribution & 10-0, 9-1, 7-3, \textbf{5-5}, 3-7 & Proportion of attackers ($\tau$) \\
-      scenario & continuous-\{10,30,60,70,80,90,95,99\}, \textbf{continuous-100}, late-3, redemption-3 & Poisoning rate per round ($\alpha$) \\
-      target & \textbf{untargeted} & Attack type and target\\
-             & ~(cicids) bot, dos, ddos, bruteforce, infiltration, injection & \\
-             & ~(nb15) generic, analysis, worms, backdoor, exploits, untargeted, shellcode, dos, reconnaissance, fuzzers & \\
-      partitioner &  iid\_drop\_1, iid\_drop\_2, \textbf{iid\_full}, iid\_keep\_1, kmeans\_drop\_1, kmeans\_drop\_2, kmeans\_full, kmeans\_keep\_1 & Partitioning settting for the training sets\\
-      seed & 1313, 1977, 327, 5555, 501, 421, 3263827, 2187, 1138, 6567 & Seed for \glspl{prng} \\
+      dataset      & cicids, nb15                                                                                                                                                                                \\
+      batch\_size  & 32, 128, \textbf{512}                                                                                                                                                                       \\
+      epochs       & \textbf{100\_10x10}, 100\_4x25, 100\_1x100, 300\_10x30, 300\_4x75, 300\_1x300                                                                                                               \\
+      distribution & 10-0, 9-1, 7-3, \textbf{5-5}, 3-7                                                                                                                                                           \\
+      scenario     & continuous-\{10,30,60,70,80,90,95,99\}, \textbf{continuous-100}, late-3, redemption-3                                                                                                       \\
+      target       & \textbf{untargeted}, (cicids) bot, dos, ddos, bruteforce, infiltration, injection, (nb15) generic, analysis, worms, backdoor, exploits, untargeted, shellcode, dos, reconnaissance, fuzzers \\
+      partitioner  &  iid\_drop\_1, iid\_drop\_2, \textbf{iid\_full}, iid\_keep\_1, kmeans\_drop\_1, kmeans\_drop\_2, kmeans\_full, kmeans\_keep\_1                                                              \\
+      seed         & 1313, 1977, 327, 5555, 501, 421, 3263827, 2187, 1138, 6567                                                                                                                                  \\
       \bottomrule
     \end{tabular}
   % LTeX: enable=true
@@ -179,7 +182,7 @@ Scenarios named $\texttt{late-}r$ and $\texttt{redemption-}r$ produce an attack 
 Parameter \texttt{target} represents the target of the attack as defined in \Cref{sec:assess.method.poisoning}; each attack class is made available as a target. 
 
 
-\subsubsection{Partitioning Strategies}
+\subsubsection{Partitioning Strategies\label{sec:assess.method.partition}}
 
 \begin{figure}
   \centering
@@ -268,5 +271,5 @@ Both are computed based on the confusion matrix of the model: \gls{tp}, \gls{tn}
 
 Additionally, we use traditional binary classification metrics to observe the performance of the model under various conditions, as identified in existing surveys~\cite{campos_EvaluatingFederatedLearning_2022,lavaur_EvolutionFederatedLearningbased_2022}
 These metrics include \emph{accuracy}, \emph{F1-score}, and \emph{miss rate}.
-Notably, we consider the \gls{mta}, defined as the accuracy of the benign scenario, to measure the impact of the attacks on the model's nominal performance.
+Notably, we consider the \gls{mta}, defined as the accuracy of the benign clients obtained on the testing set, to measure the impact of the attacks on the model's nominal performance.
 All metrics are aggregated over the 10 runs of each experiment, and the mean and standard deviation are reported for the selected metric.
