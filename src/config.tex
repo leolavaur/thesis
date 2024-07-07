@@ -41,15 +41,15 @@
 %% GLOSSARY
 \glsdisablehyper
 \preto\chapter{\glsresetall}
+\newcommand{\glsinvert}[1]{\acrshort{#1} (\acrlong{#1})\glsunset{#1}}
 
-%% COLORS
-\definecolor{accentcolor}{HTML}{515ca2}
-  \definecolor{graycolor}{HTML}{303040}
 
 
 
 %% HYPERREF
 \hypersetup{colorlinks=true, citecolor=teal, filecolor=black, linkcolor=accentcolor, urlcolor=accentcolor}
+
+
 
 
 %% BIBLIOGRAPHY
@@ -198,9 +198,7 @@
 
 
 
-% small squares
-\newcommand{\csquare}{\hbox{\raisebox{.2ex}{\rule{1ex}{1ex}}}}
-\newcommand{\littlesquare}{\hbox{\rule{.7ex}{.7ex}}}
+
 
 % Boxes
 \usepackage[skins,theorems]{tcolorbox}

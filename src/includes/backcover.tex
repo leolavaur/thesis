@@ -1,8 +1,9 @@
 \markboth{}{}
 % Plus petite marge du bas pour la quatrième de couverture
 % Shorter bottom margin for the back cover
-\newgeometry{inner=30mm,outer=20mm,top=30mm,bottom=20mm}
+\newgeometry{inner=30mm,outer=20mm,top=40mm,bottom=20mm}
 % modify the geometry here if the two abstracts do not fit
+% requires to change also the backcoverheader these-dbl.cls
 
 %insertion de l'image de fond du dos (resume)
 %background image for resume (back)
@@ -15,12 +16,11 @@
 \titleFR{\frtitle}
 
 \keywordsFR{
-apprentissage automatique,
 apprentissage fédéré,
-détection d'intrusions,
-collaboration,
-données hétérogènes,
-confiance
+détection d'intrusions collaborative,
+systèmes répartis,
+hétérogénéité des données,
+confiance et réputation
 }
 
 \abstractFR{\input{includes/abstract-fr}}
@@ -30,12 +30,11 @@ confiance
 \titleEN{\entitle}
 
 \keywordsEN{
-machine learning,
 federated learning,
-intrusion detection,
-collaboration,
-heterogeneous data,
-trust
+collaborative intrusion detection,
+distributed systems,
+data heterogeneity,
+trust and reputation
 }
 
 \abstractEN{\input{includes/abstract-en}}

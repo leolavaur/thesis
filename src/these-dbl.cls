@@ -90,6 +90,13 @@
  }
 \ExplSyntaxOff
 
+% small squares
+\newcommand{\csquare}{\hbox{\raisebox{.2ex}{\rule{1ex}{1ex}}}}
+\newcommand{\littlesquare}{\hbox{\rule{.7ex}{.7ex}}}
+%% COLORS
+\definecolor{accentcolor}{HTML}{515ca2}
+\definecolor{graycolor}{HTML}{303040}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% En-tete chap %%%%%%%%%%%%%%%%
@@ -102,7 +109,7 @@
             \scshape \@chapapp{} \thechapter
         \par\nobreak
         \interlinepenalty\@M
-    \selectfontchapheads \Huge \bfseries #1\par\nobreak
+    \selectfontchapheads \Huge \bfseries #1~\textcolor{accentcolor}{\littlesquare}\par\nobreak
     %\vspace*{1\p@}%
     \hrulefill
     \par\nobreak
@@ -114,7 +121,7 @@
             \scshape \vphantom{\@chapapp{} \thechapter}
         \par\nobreak
         \interlinepenalty\@M
-    \selectfontchapheads \Huge \bfseries #1 \par\nobreak
+    \selectfontchapheads \Huge \bfseries #1~\textcolor{accentcolor}{\littlesquare}\par\nobreak
     %\vspace*{1\p@}%
     \hrulefill
     \par\nobreak
@@ -133,7 +140,6 @@
 			#1
 		\end{Huge}
 		\end{center}
-		\vspace{1cm}		
 	\begin{center}
 %\begin{Huge}
 		%\ding{167}
@@ -437,12 +443,12 @@
 		\input{./template/backcover_tikz}
 	}}
 }
+
 \hspace{9mm}
 \displayLogos
 }
 
 \newcommand{\titleFR}[1]{%
-\vspace{1cm}
 {\centering \noindent \textcolor{couleur-ecole-verso}{\rule{\textwidth}{0.2cm}}}
 \vspace{-1cm}
 \selectlanguage{french}

@@ -1,0 +1,14 @@
+{
+    "tasks": [
+        {
+            "label": "Deep clean",
+            "type": "shell",
+            "command": "fd . ./build -I --exclude '*.pdf' -t f -x rm {} \\;",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "never",
+            }
+
+        }
+    ]
+}
