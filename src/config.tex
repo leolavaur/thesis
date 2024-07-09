@@ -139,6 +139,8 @@
 \crefname{categoriesi}{category}{categories}
 \Crefname{categoriesi}{Category}{Categories}
 
+
+
 %% REFERENCES
 
 \newcommand{\needref}{\textbf{[?]}}
@@ -272,14 +274,15 @@
   number within=chapter,
   crefname={definition}{definitions},
   Crefname={Definition}{Definitions},
-]{definitionbox}{Definition}{}{def}
+]{definitionbox}{Definition}{float=ht}{def}
 
 \newtcbtheorem[
   number within=chapter,
   crefname={problem}{problems},
   Crefname={Problem}{Problems},
 ]{problembox}{Problem}{
-  fontupper=\itshape
+  fontupper=\itshape,
+  float=ht,
 }{def}
 
 

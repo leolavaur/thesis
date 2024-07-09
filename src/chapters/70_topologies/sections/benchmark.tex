@@ -1,1 +1,190 @@
-\section{Performance Evaluation\label{sec:topologies.benchmark}}
+\section{Performance Benchmark\label{sec:topologies.benchmark}}
+
+In this section we present some results regarding the performance of \thecontrib, as well as the influence of some of the constraints on performance.
+To evaluate the tool, we generated 253 sub-topologies with various characteristics which are stored in the library.
+We then performed a series of experiments to evaluate the performance of \thecontrib in various conditions.
+We notably measure the impact of the library size, the maximum number of nodes, the tree depth, and the number of service constraints on the performance of \thecontrib. The performance is assessed via the execution time, the number of generated topology sets, and the number of generated final topologies (\ie, tree compositions of the topology sets). 
+
+\subsection{Influence of the library size\label{subsec:topologies.benchmark.library}}
+
+\begin{table}
+  \centering
+  \caption{
+    Fixed parameters for the library size benchmark.
+    \label{tab:topologies.benchmark.default}
+  }
+  \begin{tabular}{l >{\ttfamily}l}
+    \toprule
+    \textbf{Parameter} & \normalfont\textbf{Value} \\
+    \midrule
+    Minimum number of nodes & 10 \\
+    Maximum number of nodes & 25 \\
+    Minimum number of sub-topologies & 2 \\
+    Maximum number of sub-topologies & 6 \\
+    Services list & empty \\
+    Attacks list & empty \\
+    Tree depth & 2 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+We first evaluate the influence of the library size on the performance of \thecontrib.
+We randomly select a number (in the range 1--29) of sub-topologies from the full library of 253 sub-topologies.
+For each value of the library size, we perform ten experiments with the parameters fixed as in \Cref{tab:topologies.benchmark.default}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/library_size.pdf}
+  \caption{
+    Influence of the library size on the performance of \thecontrib.
+    \label{fig:topologies.benchmark.library_size}
+  }
+\end{figure}
+
+\Cref{fig:topologies.benchmark.library_size} displays the different metrics on a log scale.
+We notably observe that the execution time increases exponentially with the library size.
+This is expected due to the nature of the constraint solver and the tree composition algorithm.
+The number of sub-topology sets and tree compositions also increase with the library size, but with a lower slope.
+Note that even with a tree depth of 2, the number of tree compositions is superior to the number of sub-topology sets by a factor of 10.
+
+\subsection{Influence of the maximum number of nodes\label{subsec:topologies.benchmark.nodes}}
+
+\begin{table}
+  \centering
+  \caption{
+    Fixed parameters for the maximum number of nodes benchmark.
+    \label{tab:topologies.benchmark.default}
+  }
+  \begin{tabular}{l >{\ttfamily}l}
+    \toprule
+    \textbf{Parameter} & \normalfont\textbf{Value} \\
+    \midrule
+    Minimum number of nodes & 1 \\
+    Minimum number of sub-topologies & 1 \\
+    Maximum number of sub-topologies & 6 \\
+    Services list & empty \\
+    Attacks list & empty \\
+    Tree depth & 2 \\
+    Library size & 40 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+We then evaluate the influence of the maximum number of nodes on the performance of \thecontrib.
+We vary the maximum number of nodes from 1 to 20, with the other parameters fixed as in \Cref{tab:topologies.benchmark.default}.
+For each value of the maximum number of nodes, we likewise perform ten experiments.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/max_nodes.pdf}
+  \caption{
+    Influence of the maximum number of nodes on the performance of \thecontrib.
+    \label{fig:topologies.benchmark.nodes}
+  }
+\end{figure}
+
+\Cref{fig:topologies.benchmark.nodes} displays the different metrics on a log scale.
+Again, all metrics increase exponentially with the maximum number of nodes.
+Indeed, this parameter indirectly influences the cardinality of the sub-topology sets generated, and thus the number of tree compositions.
+Since we kept a tree depth of 2, the number of tree compositions is still significantly higher than the number of sub-topology sets.
+Note that for a number of nodes inferior to 4, there are no solutions, are the topologies in our test library have at least 4 nodes.
+
+
+\subsection{Influence of the tree depth\label{subsec:topologies.benchmark.depth}}
+
+\begin{table}
+  \centering
+  \caption{
+    Fixed parameters for the tree depth benchmark.
+    \label{tab:topologies.benchmark.default}
+  }
+  \begin{tabular}{l >{\ttfamily}l}
+    \toprule
+    \textbf{Parameter} & \normalfont\textbf{Value} \\
+    \midrule
+    Minimum number of nodes & 10 \\
+    Maximum number of nodes & 30 \\
+    Minimum number of sub-topologies & 2 \\
+    Maximum number of sub-topologies & 10 \\
+    Services list & empty \\
+    Attacks list & empty \\
+    Library size & 20 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The next experiment evaluates the influence of the tree depth on \thecontrib's performance.
+This parameter has no impact on the number of sub-topology sets, so we only measure the number of tree compositions and the execution time.
+We vary the tree depth from 1 to 7, with the other parameters fixed as in \Cref{tab:topologies.benchmark.default}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/tree_depth.pdf}
+  \caption{
+    Influence of the tree depth on the performance of \thecontrib.
+    \label{fig:topologies.benchmark.depth}
+  }
+\end{figure}
+
+\Cref{fig:topologies.benchmark.depth} displays the execution time and the number of tree compositions on a log scale.
+Both increase exponentially with the tree depth, as expected, before reaching a plateau with a tree depth of 4.
+This is due to the fact that the number of tree compositions is limited by the number of sub-topology sets, which in turn depends on the other constraints.
+Consequently, the variations in the results are only due to the random sampling of the sub-topologies in the library.
+
+
+\subsection{Influence of the number of service constraints\label{subsec:topologies.benchmark.services}}
+
+\begin{table}
+  \centering
+  \caption{
+    Fixed parameters for the number of service constraints benchmark.
+    \label{tab:topologies.benchmark.default}
+  }
+  \begin{tabular}{l >{\ttfamily}l}
+    \toprule
+    \textbf{Parameter} & \normalfont\textbf{Value} \\
+    \midrule
+    Minimum number of nodes & 5 \\
+    Maximum number of nodes & 15 \\
+    Minimum number of sub-topologies & 2 \\
+    Maximum number of sub-topologies & 6 \\
+    Attacks list & empty \\
+    Tree depth & 2 \\
+    Library size & 40 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+This last experiment evaluates the influence of the number of service constraints on performance.
+The library of sub-topologies is generated with a fixed number of available services, namely: \texttt{ldap}, \texttt{dbms}, \texttt{cms}, \texttt{dns}, \texttt{mail}, \verb|syslog_server|, \texttt{web}, \texttt{ftp}, \texttt{proxy}, and \verb|cloud_storage|.
+We vary the number of services constraints from 1 to 9, with the other parameters fixed as in \Cref{tab:topologies.benchmark.default}.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{figures/services_time.pdf}
+    \caption{
+      Execution time.
+      \label{fig:topologies.benchmark.services.time}
+    }
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{figures/services_numbers.pdf}
+    \caption{
+      Number of tree compositions.
+      \label{fig:topologies.benchmark.services.numbers}
+    }
+  \end{subfigure}
+  \caption{
+    Influence of the number of service constraints on the performance of \thecontrib.
+    \label{fig:topologies.benchmark.services}
+  }
+\end{figure}
+
+\Cref{fig:topologies.benchmark.services,fig:topologies.benchmark.services.numbers} display the execution time and the numbers of sets and tree generations, respectively.
+Unlike the other experiments, the execution time in almost constant here, due to the way these constraints are handled.
+While the other constraints are implemented as exploration problems, the service constraints are applied by pruning incompatible topology sets.
+This is why the number of sets and trees are progressively decreasing as the number of service constraints increases.
+By the 6\textsuperscript{th} constraint, the problem becomes infeasible, as there are no sub-topologies that satisfy all the constraints.
+Increasing the maximum number of nodes and sub-topologies would allow for more solutions, but would also increase the execution time.

@@ -1,1 +1,16 @@
 \section{Related Work\label{sec:topologies.related}}
+
+The motivation behind topology generation originates from the need to evaluate network protocols in simulations.
+In fact, while network topology should not influence the behavior of a protocol, it can significantly impact its performance~\cite{tangmunarunkit_Networktopologygenerators_2002}.
+Multiple tools have been developed to generate network topologies at the time, such as \texttt{GT-ITM}~\cite{calvert_ModelingInternettopology_1997}, \texttt{Tiers}~\cite{doar_bettermodelgenerating_1996}, or \texttt{BRITE}~\cite{medina_BRITEapproachuniversal_2001}.
+\Textcite{tangmunarunkit_Networktopologygenerators_2002} distinguish two main categories of topology generators: \emph{structural}, which aim at reproducing the structural properties of the internet and particularly its hierarchical organization, and \emph{degree-based}, which focus on the statistical properties of the network, notably the power-law distribution of the node degrees~\cite{faloutsos_powerlawrelationshipsInternet_1999}.
+Most of these works are more than 20 years old and have been developed to generate topologies for internet-scale networks, which are not directly applicable to the generation of \glspl{fids} datasets.
+
+Recent works on topology generation are rarer and focus on specific use cases.
+For instance, \textcite{laurito_TopoGennetworktopology_2017} developed \texttt{TopoGen}, a tool to generate network topologies using \glspl{sdn}.
+Their approach allows users to programmatically define the network topology using the Ruby programming language, and extract existing topologies from real-world networks.
+Yet, their approach is limited to \glspl{sdn} and does not allow automating data generation.
+\Textcite{alrumaih_GENINDindustrialnetwork_2023} developed \texttt{GENIND}, a tool to generate industrial network topologies.
+Similarly to us, the authors identified that most existing tools are too focused on internet-inspired and internet-scale topologies, and do not allow generating topologies for specific use cases.
+Their tool focus on generating topologies for industrial networks, and therefore generates topologies with specific constraints layer-by-layer, before connecting the different sub-topologies together in a multigraph.
+To the best of our knowledge, no tool has been developed to generate \emph{deployable} network topologies for IT networks, and can be randomized to generate a large number of topologies with common characteristics.

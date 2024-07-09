@@ -1,3 +1,61 @@
-\section{Requirements\label{sec:topologies.requirements}}
+\section{Requirements\label{sec:topologies.req}}
 
-In this section, we pose the requirements for our topology generation tool.
+The topic of topology generation has been extensively researched in the late 90s and early 2000s, notably to evaluate the performance of network protocols in large-scale networks~\cite{medina_BRITEapproachuniversal_2001}.
+In a structuring survey on network topologies, \textcite{haddadi_Networktopologiesinference_2008a} synthesized the requirements for network topology generators, from which we extract the following requirements for our use case: representativeness, extensibility, and efficiency.
+
+In addition to these requirements, since the goal of this work is to build topologies for dataset generation, we take inspiration from the literature on \gls{nids} datasets.
+In their work, \textcite{ring_surveynetworkbasedintrusion_2019} identify the qualities of a \emph{perfect} dataset.
+It should: be up-to-date, correctly labeled, and publicly available, contain real network traffic with various attacks and normal user behavior, and span a long time.
+Finally, because we strongly believe in the importance of reproducibility in experimental research, we follow the requirements laid out by \textcite{uetz_ReproducibleAdaptableLog_2021} for sound experiments.
+They need to be: valid (\ie, well-defined and unrefutable), controllable (\eg, parameterized), and reproducible (\ie, the same results can be obtained by another group using the author's artefact).
+Based on these qualities, we derive the following requirements for the topology generator.
+
+\begin{itemize}
+  \item \emph{Representativeness:} the generated topologies must be representative of modern real-world networks and respect their statistical properties.
+  \item \emph{Extensibility:} the tool must allow users to extend its capabilities.
+  \item \emph{Efficiency:} the tools must be efficient to generate large-scale topologies without altering their properties.
+  \item \emph{Validity:} the generated topologies must be exempt of side effects or biases that could alter the results of the experiments.
+  \item \emph{Controllability:} the generator must allow precise control over the differences between the generated topologies.
+  \item \emph{Reproducibility:} the generator must be able to deterministically generate the same topology multiple times.
+\end{itemize}
+
+
+\subsection{Controlling Heterogeneity\label{sec:topologies.req.heterog}}
+
+The major challenge in generating network topologies for \glspl{fids} is to control the heterogeneity of the generated datasets.
+Notably, the generated topologies and the associated datasets must allow researcher to evaluate the impact of different data-distributions on \glspl{fids}, what identify the aspects of heterogeneity that are the most impactful.
+Consequently, the generator must allow precise control over the differences between the generated topologies.
+To this end, we identify five main qualities that characterize the heterogeneity of network topologies: architecture, attack scenarios, hosted services, user behaviors, and maturity.
+
+\begin{enumerate}
+  \item \textbf{Architecture.}
+  The network architecture of the topology defines how services are interconnected, how the traffic is captured, and where data collection is performed.
+  For instance, a topology with a single main gateway which captures the traffic of several services on the same network will produce a different dataset when compared with a star-shaped topology with multiple subnets.
+  Appropriated metrics are required to characterize the impact of these differences, \eg, size (number of hosts, of subnets), mean number of hops between a service and the last gateway, and so on.
+  
+  \item \textbf{Attack scenarios.}
+  The literature on intrusion detection is rich with different classes of attacks that generate different patterns of traffic.
+  For instance, a \gls{dos} or brute force attack will generate a lot of traffic which will vary depending on the targeted service, \eg, an SSH server, a database over TCP, and so forth.
+
+  \item \textbf{Hosted services.}
+  Different services can rely on different protocols, and therefore generate different kind of data.
+  For example, a service using TCP will induce connection establishment, and therefore a lot of traffic back-and-forth, whereas something based on UDP will produce a more continuous stream of data.
+  The \gls{iot} also introduce new kinds of network traffic patterns, with unusual protocols such as CoAP or MQTT.
+  Therefore, different services (and protocols) might have different normal behaviors, causing heterogeneity among participants.
+  The list of considered services must be adapted depending on the considered attack scenarios. 
+
+  \item \textbf{User behaviors.}
+  The behavior of users can also impact the network traffic depending on the considered use case and the type of organizations.
+  For example, a university network will have a lot of students connecting to the internet, whereas a company will have a lot of internal traffic.
+  Other factors like working hours, the sue of a \gls{vpn}, or the use of a \gls{byod} policy can also impact the network traffic.
+  
+  \item \textbf{Maturity.}
+  Security practices vary between organizations, depending on their threat model, previous expertise, and budget.
+  For example, a company might have a dedicated security team, and therefore be able to implement a more mature security policy, whereas a small company might not have the resources to do so.
+  This parameter is important to consider, as it can impact the quality of the dataset, \eg, by having unseen attacks in the training data, supposed to be benign traffic.
+\end{enumerate}
+
+User behaviors can be implemented directly in traffic generators and are not considered in the scope of this work.
+The maturity of the organization can be simulated by two approaches: either by generating different topologies with different security policies and relying on the service description to generate the topologies, or by altering data quality in the generated datasets afterward.
+Consequently, we focus on the architecture, attack scenarios, and hosted services to define the requirements of the topology generator.
+

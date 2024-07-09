@@ -1,1 +1,32 @@
 \section{Conclusion and Takeaways\label{sec:topologies.conclusion}}
+
+In this chapter, we presented \thecontrib, a tool to generate heterogeneous network topologies for generating \glspl{fids} datasets.
+Because generating such topologies from scratch is impractical, we propose to build a library of predefined sub-topologies that can be combined to form larger topologies according to a set of constraints.
+We implement a first prototype of \thecontrib to validate the feasibility of the approach and to evaluate its performance.
+Due to the combinatorial nature of the problem, we rely on a constraint solver to find valid combinations of sub-topologies.
+Yet, the derivation time of our tool currently scales exponentially with most of the parameters.
+Meanwhile, the number of generated topologies is also exponential, making \thecontrib a powerful tool to generate a large number of topologies while controlling their heterogeneity.
+
+
+\paragraph{Perspectives}
+
+The current implementation of \thecontrib is a first step towards a more complete tool that would support data generation.
+We believe that having independently generated datasets that are comparable with the state of the art, while allowing finer controls over the heterogeneity of the data, would enable addressing some of the current open challenges in the literature:
+\begin{enumerate}[(a)]
+  \item \emph{performance against heterogeneity}: the ability for the federation to maintain high
+  performance with heterogeneous participants;
+  \item \emph{knowledge transfer between clients}: the ability for one client to recognize
+  patterns that are absent from its local training data;
+  \item \emph{model adaptability}: the ability of a local model to evolve in time, and to adapt to
+  new devices in the local network;
+  \item \emph{generation capability}: the ability for a local model to correctly characterize
+  behavior for similar but different services.
+\end{enumerate}
+
+\paragraph{Future Work}
+\thecontrib is currently a preliminary prototype that we plan to improve in several ways.
+The first and obvious improvement is to pursue the implementation of the tool to support the automated execution of scenarios (both attacks and legitimate traffic generation) to generate datasets.
+Another lead for improvement lies in the optimization of the constraint solver, which is currently the bottleneck of the tool.
+This is critical to introduce finer constraints and allow for more complex topologies.
+Finally, while we identified as a requirement the respect of the statistical properties of real-world IT networks, this currently remains an open challenge.
+Consequently, future works include the study and identification of said properties in real-world deployments, and the integration of these properties in the generation process.

@@ -1,7 +1,5 @@
 \section{Introduction\label{sec:topologies.intro}}
 
-
-
 Over the course of the past chapters, we have seen how the performance of \glspl{fids} can be impacted by the heterogeneity of the participants' data distributions.
 Yet, we have been limited in our experiments by the lack of datasets to thoroughly evaluate this aspect of \glspl{fids}.
 Indeed, the existing public datasets in the literature are typically created using a single network topology, leaving researchers working on distributed approaches with two choices:
@@ -21,9 +19,9 @@ To close the gap towards more realistic evaluations of \glspl{fids}, we introduc
 Because creating a functional topology from scratch is particularly complex, we propose to compose topologies from a set of predefined building blocks that satisfy at set of user-defined constraints.
 By leveraging routing protocols and domain name resolution, we can dynamically a large number of topologies that can be used to evaluate the performance of \glspl{fids} an heterogeneous, yet controlled, environment.
 
-In this chapter, we present the requirements for our topology generation tool and present benchmarks to evaluate the number of topologies that can be generated.
-The remainder of this chapter is structured as follows.
-We start by laying out the requirements for topology generation in the context of \glspl{fids} in \Cref{sec:topologies.requirements}, and review existing works in the field in \Cref{sec:topologies.related}.
+The content of this chapter originates from the preliminary work presented at the C\&ESAR conference in late 2022~\cite{lavaur_cesar_2022}.
+Its remainder is structured as follows.
+We start by laying out the requirements for topology generation in the context of \glspl{fids} in \Cref{sec:topologies.req}, and review existing works in the field in \Cref{sec:topologies.related}.
 We then present our approach to generate topologies in \Cref{sec:topologies.approach}, and evaluate the performance of our tool in \Cref{sec:topologies.benchmark}.
 Finally, we discuss the perspectives of our work in \Cref{sec:topologies.perspectives} before concluding in \Cref{sec:topologies.conclusion}.
 
