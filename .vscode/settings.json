@@ -7,6 +7,7 @@
         "\\bookmarksetup{}": "ignore",
         "\\thecontrib":"dummy",
         "\\cf":"dummy",
+        "\\needref":"dummy",
     },
     "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
     "latex-workshop.latex.tools": [

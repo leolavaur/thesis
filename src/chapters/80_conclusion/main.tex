@@ -1,1 +1,255 @@
-\chapter{Conclusion\label{chap:conclusion}}
+\chapter{Conclusion and Perspectives\label{chap:conclusion}}
+
+\section{Introduction\label{sec:conclusion.introduction}}
+
+Over the course of six chapters, we have explored the potential of federated learning to build collaborative intrusion detection systems.
+We termed this new approach \gls{fids}, and have shown how it can be used to address the limitations of traditional \glspl{cids}.
+We have observed the appealing properties of this approach, but also identified major limitations, some of which we have addressed in the second part of this manuscript.
+In this concluding chapter, we start with summarizing the contributions of this thesis (\Cref{sec:conclusion.contribs}), before outlining how future work could address their limitations and further improve the state of the art of \glspl{fids} in \Cref{sec:conclusion.future}.
+We end this manuscript with a discussion on the research perspectives of \glspl{fids} and \gls{cids} in general, laying out a roadmap for future research in this area~(\Cref{sec:conclusion.perspectives}).
+
+
+\section{Thesis Summary\label{sec:conclusion.contribs}}
+
+In the \nameref{chap:intro} chapter of this manuscript, after introducing the context and motivation of this work, we formalized our research objective as the following question: \emph{Can \gls{fl} serve as a trustable knowledge-sharing framework for collaboratively improving \glspl{ids}?}
+We derived four research questions from this main objective (\Cref{rq:intro.fids,rq:intro.heterogeneity,rq:intro.malicious,rq:intro.trust}) and structured the rest of this manuscript around these questions.
+The first part of this manuscript, \Cref{part:fids}, was exploratory, and aimed at understanding the core characteristics of \glspl{fids}.
+We started by providing the necessary background on intrusion detection systems and federated learning in \Cref{chap:background}, before reviewing the state of the art of \glspl{cids} and \gls{fl} in \Cref{chap:sota}, addressing \Cref{rq:intro.fids}.
+This first part ended by illustrating the potential of \glspl{fids} through a practical application in \Cref{chap:application}, and highlighting the challenges associated with \Cref{rq:intro.heterogeneity,rq:intro.malicious}: data heterogeneity and malicious participants.
+The second part of this manuscript, \Cref{part:contribs}, focused on addressing some of the identified limitations of \glspl{fids} to provide answers to \Cref{rq:intro.heterogeneity,rq:intro.malicious,rq:intro.trust}.
+We answer these research questions hereafter, with references to the corresponding chapters.
+
+\subsection{Answering the Research Questions\label{sec:conclusion.contribs.answers}}
+
+\begin{itemize}[listparindent=\parindent,itemsep=.6\baselineskip]
+
+  \item \Cref{rq:intro.fids}: \emph{What makes applying \gls{fl} to \glspl{ids} specific?}
+
+  While introducing the preliminary concepts required for this thesis in \Cref{chap:background}, we enumerated challenges of \glspl{cids} that motivated exploring of \gls{fl}.
+  That alone does not answer the question, so we performed a comprehensive review of the state of the art in \Cref{chap:sota}, where we proposed a taxonomy that describes \glspl{fids} along five axes: \emph{data}, \emph{local operation}, \emph{federation settings}, \emph{aggregation}, and \emph{evaluation}.
+  This highlights the first specificity of \glspl{fids}, as two out of our five criteria cover most of the existing \gls{fl} taxonomies: \emph{federation settings} and \emph{aggregation}.
+  
+  We discuss in the same chapter other critical aspects of intrusion detection, emphasizing the importance of explainability, personalization, and adversarial robustness in this context.
+  Further, the specific types of data distributions and partitioning encountered in \glspl{ids} are also unique to this domain, such as the attack classes overlap encountered in \Cref{chap:assessment}.
+  Finally, the lack of datasets and the massive variety of \gls{ids} use cases make it difficult to generalize the results of \gls{fl} research to this domain.
+  
+
+  \item \Cref{rq:intro.heterogeneity}: \emph{Can \gls{fl} be used to federate \glspl{ids} across heterogeneous data sources?}
+  
+  Observed in both \gls{fl} and \gls{fids} literature (\cf \Cref{chap:sota}), data heterogeneity is a major challenge to real \gls{fl} deployments.
+  We illustrated this issue in \Cref{chap:application}, where we highlighted both the benefits of data heterogeneity (\eg, improved generalization and knowledge-sharing) and the challenges it poses, particularly in terms of convergence and performance.
+  \Cref{chap:assessment} highlighted another issue with data heterogeneity: when participants are two different, identifying malicious contributions becomes more difficult.
+
+  We proposed in \Cref{chap:radar} a novel approach to address this issue, \texttt{RADAR}, which leverages three components:
+  \begin{enumerate*}[(i)]
+    \item a \emph{cross-evaluation} scheme that modifies the \gls{fl} workflow to collect evaluation feedbacks;
+    \item a \emph{clustering} algorithm that groups participants based on their feedback similarities, providing a more subjective view of the participants' differences; and
+    \item a \emph{reputation system} that analyses feedbacks over time to weight the aggregation process accordingly.
+  \end{enumerate*}
+  However, because of the lack of appropriate distributed \gls{ids} datasets, we are limited in our evaluation.
+  We propose in \Cref{chap:topologies} an unconventional approach to address this issue, leveraging constraint-based topology composition to generate synthetic datasets that mimic the characteristics of independent organizations.
+  Consequently, while we have evidences that \gls{fl} can could be used to federate \glspl{ids} across heterogeneous data sources, this still represents a major research direction.
+
+  
+  \item \Cref{rq:intro.malicious}: \emph{How does \gls{fl} handle malicious contributions in a federated \gls{ids}?}
+  
+  Malicious participants represent a major threat to collaborative systems.
+  \Gls{fl} is no exception, and we have illustrated in \Cref{chap:application} how the lack of control over the participants' contributions is indeed a major concern.
+  To better understand this issue, we performed a systematic analysis of the impact of label-flipping attacks against a \gls{fids} in \Cref{chap:assessment}, and build an evaluation framework to facilitate this process.
+  Label-flipping attacks are especially interesting for they are straightforward to implement and can be applied under any threat models.
+  Our results indicate that the impact of such attacks can be quite significant, but also that \gls{fl}'s inherent construction also mitigates parts of their effect, until a certain threshold.
+  With \Cref{chap:radar}, we introduced a novel approach to detect malicious participants, including large groups of colluding attackers.
+  Yet, our experiments call to be extended to generalize our findings.
+
+  
+  \item \Cref{rq:intro.trust}: \emph{How can one assess and ensure the trustworthiness of the other participants' contributions?}
+  
+  Even without malicious intent, uploaded model updates can have a negative impact on the global model.
+  This can be explained by heterogeneity (see \Cref{rq:intro.heterogeneity,chap:application}), but also by the quality of the training data.
+  \texttt{RADAR} (\Cref{chap:radar}) is a first step towards addressing this issue, as it provides guarantees on the quality of the participants' contributions based on evaluation metrics.
+  In fact, from the point of view of our aggregator, whether a participant is malicious or not is irrelevant: the collected feedbacks assess the model quality, not the participants' intentions.
+  Most importantly, \texttt{RADAR} is, to the best of our knowledge, the only reputation-aware approach in \gls{fl} that leverages actual participants' feedbacks.
+  This represents a major shift in the way we assess the trustworthiness of the participants' contributions, by relaxing the assumption that participants cannot upload anything but model updates.
+
+\end{itemize}
+
+
+\subsection{Future Work\label{sec:conclusion.future}}
+
+The contributions of this thesis are a first step towards understanding the potential of \gls{fl} for building collaborative \glspl{ids}.
+We identified above some limitations of our work, notably to extend our assessment study and our data-generation project.
+In this section, we discuss our future work to address these limitations, and provide steps to improve the state of the art by building on the contributions of this thesis.
+
+
+\paragraph{Extending the assessment study.}
+
+\Cref{chap:assessment} provided the first systematic analysis of the impact of label-flipping attacks against a \gls{fids}.
+While this chapter already extends our original publication at ARES 2024~\cite{lavaur_ares_bass_2024}, the results are still limited to two datasets, one model architecture and type of poisoning attack (\ie, label-flipping).
+Several steps can be taken to extend this work.
+First, the study can easily be extended to other types of poisoning attacks, such as backdoor attacks or model poisoning, and to other datasets.
+Likewise, implementing other aggregation baselines, including mitigation strategies, would provide a comprehensive toolbox to evaluate the robustness of \gls{fids} and provide meaningful comparisons between approaches.
+
+
+
+\paragraph{Improving \texttt{RADAR}'s scalability.}
+
+Recent works in \gls{fl} have shown the potential of decentralized approaches to improve both the scalability and the robustness of such systems.
+This is in fact one of the major limitations of \texttt{RADAR} as it stands: the centralized nature of the \gls{fl} approach, coupled with the need to collect evaluation feedbacks, makes it difficult to scale to large numbers of participants.
+Fortunately, \texttt{RADAR}'s design makes it a good candidate for decentralization.
+In a \gls{p2p} network, for instance using a gossip-based protocol, participants could propagate model updates, but also evaluation feedbacks on other participants.
+Then, the clustering and reputation systems could be computed locally, from the point of view of each participant, each client could aggregate a personalized model based on the reputation of the other participants.
+As emphasized in the conclusion of \Cref{chap:radar}, this would represent a key step towards a truly decentralized, trustworthy, and privacy-preserving \gls{cids}.
+
+
+\paragraph{Generating independent datasets.}
+
+We mentioned several times throughout this manuscript the lack of appropriate truly distributed IT datasets for \gls{fids} research.
+This is a major limitation to generalizing the community's findings to real-world applications.
+In \Cref{chap:topologies}, we proposed \verb|FedITN_gen|, a novel approach to create synthetic network topologies enabling the generation of heterogeneous datasets.
+Our prototype is a first step towards this goal, but it does not support the execution of scenarios yet.
+Consequently, deploying scenarios and evaluating the generated datasets represents the natural next step.
+Moreover, the current implementation includes naive algorithms to filter out irrelevant sub-topologies after generation.
+We believe that the entire problem can be modeled as a \gls{csp}, and plan to investigate this direction.
+Finally, the recent advances in \glspl{llm} and \glspl{gnn} could be leveraged to bridge the gap between theoretical topologies generation and their deployment, by coupling these models with \gls{iac} frameworks like Terraform.
+
+
+\section{Perspectives: Going beyond FIDSs\label{sec:conclusion.perspectives}}
+
+In the last section, we discussed the future work we envision to expand on the contributions of this thesis.
+However, the scope of this thesis is limited to specific aspects of \glspl{fids}, and we believe that \gls{fl} has opened new research directions in the field of \gls{cids} that are worth exploring.
+In this section, we discuss some of these perspectives, and in particular four research axes that we believe will shape the future of \gls{cids} research.
+
+
+\subsection{Federated Learning and Derivatives\label{sec:conclusion.perspectives.fl}}
+
+\Gls{fl} is a core concept in this thesis, and more generally an essential component of \glspl{fids}.
+However, \gls{fl} is not the only collaborative learning framework available, as the term now encompasses a wide range of techniques that can be used to build collaborative systems.
+In this section, we discuss some of these techniques, and how they could be used to improve the state of the art of \glspl{fids}.
+
+
+\paragraph{Aggregation strategies}
+
+Aggregation strategies are naturally at the core of \gls{fl}, since they define how the participants' contributions are combined to build the global model.
+Furthermore, they can serve additional purposes: privacy preservation (\eg, secure aggregation~\needref, differential privacy~\needref), robustness (\eg, model weighting~\needref, clipping~\needref, noise injection~\needref), or incentivization.~\needref
+A particularly interesting direction for \gls{fids} is understanding and handling data heterogeneity.
+While a lot of research has been done on this topic in the context of \gls{fl}~\needref, the performance of these strategies in the context of \glspl{fids} is still an open question.
+
+
+\paragraph{Horizontal architectures and trustworthiness}
+
+% - decentralization
+% - trusted parties
+% - trusted execution environments and enclaves
+% - interoperability and standardization (eg, ONNX, keras 3)
+
+A second import research direction in \gls{fl} is relaxing its core architectural assumptions to overcome the central server dependency~\cite{kairouz_AdvancesOpenProblems_2021}.
+Multiple solutions have been proposed in the literature.
+However, this poses new challenges of trust that are particularly relevant in the context of \glspl{cids}, as collaboration is typically done between trusted parties.
+Consequently, the question of how to build trust between participants is a major concern, where decentralized reputation systems~\needref could play an important role.
+Since such systems usually rely on evaluation~\needref, can we trust participants to perform the evaluation correctly?
+\Gls{ml} training and evaluation in trusted enclaves~\needref could become of great help to that regard.
+The lack of central authority also brings new interoperability challenges: Which model architectures is used? With which hyperparameters? With what \gls{dl} framework?
+Standardization could help in that matter, whether it comes from entities like the \gls{ietf} or more ad-hoc consortiums.
+Recent efforts towards standardizing the exchange of \glspl{nn}, such as \gls{onnx}, could be envisioned to support interoperable and decentralized collaborative learning applications.
+
+
+\paragraph{Leveraging the communication layers}
+
+In \gls{fl}, everything happens at the application layer, which makes it pretty agnostic of the architectural choices of the lower layers.
+However, some of these technologies present particularities that can be exploited to optimize bandwidth consumption, computing resources, or both.
+A first example that connects with the decentralization objective mentioned above is \gls{icn}, which provide interesting properties, such as information caching and in-network computing.
+While few works have been published in this direction~\needref, we believe that \gls{icn} can provide \gls{fl} with significant performance gains in large-scale settings.
+Yet, this obviously introduces new challenges, such as how to address content (such as model updates) without never accessing data.
+Another example is wireless protocols, were the information in inherently broadcasted on a common medium.
+Consequently, decentralized approaches (\eg, gossip learning) could significantly benefit from sharing model updates with all available clients within range, instead of multiplicating one-to-one connections.
+
+
+\subsection{Modern Detection Techniques\label{sec:conclusion.perspectives.detection}}
+
+Naturally, the second main component in \gls{fids} the local algorithm.
+Yet, we have observed that most of the literature remained focused on scaling up the existing local intrusion detection approaches, mostly selecting \emph{off-the-shelf} models to see how they work in federated settings.
+While these works have provided interesting first insight into \glspl{fids}' abilities, we believe they only have scratched its surface.
+
+\paragraph{Novel algorithms and representations}
+% - knowledge graphs
+% - causal modeling
+% - rnns / gnns
+% - abstract knowledge extraction (LLMs) -> FedLLMs
+The rise of \gls{dl} algorithms has revolutionized the field of intrusion detection, especially with new classes able to capture temporal dependencies in data.
+\Glspl{rnn}, and more recently transformers~\needref, have been successfully applied to intrusion detection.
+Another breakthrough happened with the use of knowledge graphs to represent \gls{nids} data~\cite{leichtnam_Sec2graphNetworkAttack_2020}.
+Yet, these techniques introduce more abstract knowledge extraction, and the question of aggregating such knowledge in \gls{fl} and similar collaborative learning approaches remains to be addressed.
+A few works in the literature successfully federated \glspl{rnn}, for instance for event prediction~\cite{naseri_CerberusExploringFederated_2022}, but to the best of our knowledge, it is not the case with graph data.
+Finally, \glspl{llm} started to showcase applications in analyzing log data, and the recent proposal of federating \glspl{llm} might represent an opportunity to train such algorithms on actual data, going beyond the simple local fine-tuning.
+
+
+\paragraph{Explainability and Semantic}
+
+\Gls{xai} has received much attention over the last years, as the trustworthiness of \gls{ml} algorithms started to be questioned.
+This becomes even more relevant with \gls{fl}.
+Not only are the shared contributions black-boxes, but their averaging contributes to making the global model even more opaque.
+Consequently, the question of how to explain the global model's decisions is of great importance, but so is the ability to track and explain the contributions of each participant.
+This is particularly relevant in the context of \glspl{fids}, where the global model's decisions can have significant impacts on the participants' security.
+A first step in this direction is to apply semantic tagging to the shared contributions, to provide a more fine-grained understanding of the ``knowledge'' shared by each participant, and the resulting global model.
+Such tagging would also have applications in model personalization, as one could express to domains they want their model to be more sensitive to.
+
+
+\subsection{Evaluation\label{sec:conclusion.perspectives.eval}}
+
+% - datasets
+% - evaluation metrics and frameworks
+% - importance of reproducibility
+%   - parler du GT Reproducibilité du GDR RSD
+% - relevance of eiffel
+
+Throughout the manuscript, we discussed at length the challenges that come with evaluating \glspl{fids}.
+Addressing some of them is even part of the contributions (\cf \Cref{sec:conclusion.contribs.answers}) or future work (\Cref{sec:conclusion.future}) of this thesis.
+Yet, we believe that the evaluation of \glspl{fids} is a research axis in itself, and that it deserves more attention from the community.
+
+\paragraph{Datasets and benchmarks}
+
+The first striking issue is the lack of appropriate datasets, due to they way most of the public datasets are generated.
+Multiple strategies can be envisioned to address this issue, although we focused on generating heterogeneous topologies in this thesis.
+Other strategies could include generating synthetic datasets, using generative models or data augmentation techniques, as well as working on data transformation techniques to make variations of existing datasets, while preserving the validity of the generated data.
+Another direction lies in the creation of evaluation frameworks, that would allow researchers to evaluate their models in a more systematic way.
+We believe that this thesis provides a starting point with Eiffel to define a more robust and systematic evaluation methodology for \gls{fids}, including the definition of relevant metrics and the development of benchmarks for this purpose.
+
+\paragraph{Reproducibility}
+
+For a long time, researchers have been publishing their results without providing the necessary tools to reproduce them.
+This is particularly true in the field of \gls{ml}, where the choice of hyperparameters, the data preprocessing, or the model architecture can have a significant impact on the results.
+\Gls{fl} is particularly sensitive to these issues, as its distributed and partially asynchronous nature makes it difficult to reproduce the exact conditions of a given experiment.
+
+Multiple initiatives have been launched to address this issue, such as the \emph{Baselines} project of the Flower framework~\cite{beutel_Flowerfriendlyfederated_2020} which collects baselines developed by the community using the framework to facilitate comparisons.
+The research community in general has also started to pay more attention to reproducibility.
+In France, the \gls{gdr} \gls{rsd} has launched a working group on reproducibility\footnote{\url{https://gdr-rsd.fr/gt-reproductibilite/}}, whose goal is to facilitate the community's discussions on this topic.
+At an international level, the \gls{acm} has launched the \emph{ACM Artifact Review and Badging} initiative, which aims at promoting the publication of artifacts associated with research papers, as well as a dedicated working group on reproducibility\footnote{ACM EIGREP: \url{https://reproducibility.acm.org/}} and a novel venue for the topic, the \emph{ACM Conference on Reproducibility and Replicability}.
+We followed these guidelines in this thesis, and specifically in our assessment study (\Cref{chap:assessment}), and we believe that this is a major step towards improving the reproducibility of our results.
+
+
+\subsection{Integration in the Regulatory Landscape\label{sec:conclusion.perspectives.regulations}}
+
+% - GDPR, NIS directives, etc.
+% - ANSSI -> partage d'informations, remontée d'incidents, etc.
+% - UE AI Act and FL : for instance, how to assess fairness without accesssing data?
+% - UE Data Act and FL ?
+
+Finally, the last research axis we believe is of great importance is the integration of \glspl{fids} in the regulatory landscape.
+In Europe, the \gls{gdpr} and the \emph{Data Act} are two major regulations that have a significant impact on the way data is handled, making data sharing and processing more difficult for organizations.
+This is often used as a motivation to explore \gls{fl} strategies in all kinds of applications, especially in the health sector.
+The more recent \emph{AI Act} introduced new restrictions on the use of \gls{ai} and \gls{ml} algorithms, and it is likely that \gls{fl} will be impacted by these regulations as well.
+A first position paper on the topic has been recently shared on arXiv~\cite{woisetschlager_FederatedLearningPriorities_2024}, although it does not address some of the key challenges introduced with this regulation, such as how to assess fairness without accessing the data.
+
+In the specific context of cybersecurity, the French security agency, \gls{anssi}, has published a series of guidelines on how to share information between organizations, and how to report incidents.
+Among the mission of the agency is also to share knowledge acquired while monitoring its beneficiaries, and we believe that \gls{fl} could be a key technology to achieve this goal.
+More generally, \emph{is \gls{fl} compatible with the current and upcoming regulatory landscape for cybersecurity-related knowledge sharing?}
+
+
+\section{Closing Remarks\label{sec:conclusion.closing}}
+
+In this concluding chapter, we have summarized the contributions of this thesis, and outlined some of the future work that could be done to improve the state of the art of \glspl{fids}.
+We have also discussed some of the research perspectives that we believe will shape the future of \gls{cids} research, and in particular the role that \gls{fl} and its derivatives will play in this context.
+
+More than a distributed learning technique, \gls{fl} has demonstrated how parametric models can be merged and modified using simple mathematical operations.
+This has opened a new dimension in the field of \gls{ml} and all its applications.
+In the context of \gls{cids}, this represents a major shift in the way we think about intrusion detection, and how we can leverage the knowledge of multiple organizations to build more robust and efficient systems.

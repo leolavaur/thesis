@@ -396,9 +396,11 @@
 \par}
 \hspace{0.6cm}{\LARGETwelve \textbf{\@author}} \vspace{0.5cm}
 
-{\LargeTwelve \textbf{\@title}} \vspace{0.5cm}
+\begin{minipage}{.9\textwidth}
+  {\LargeTwelve \textbf{\@title}} \vspace{0.5cm}
+\end{minipage}
 	
-{\largeTwelve \@lesoustitre} \vspace{0.5cm}
+{\normalTwelve \@lesoustitre} \vspace{0.5cm}
 \begin{spacing}{1}
 	 \smallTwelve
 	 \textbf{Th\`{e}se pr\'{e}sent\'{e}e et soutenue \`{a} \@lieu, le \@date} \\
@@ -512,29 +514,45 @@
 \appto\frontmatter{\pagestyle{fancy}
 \renewcommand{\sectionmark}[1]{}
 \renewcommand{\chaptermark}[1]{\markboth{\textit{#1}}{}}
-\fancyhead[LE,RO]{\small\thepage}
+% \fancyhead[LE,RO]{\small\thepage}
     \fancyhead[RO]{\small\leftmark}   % \rightmark = section courante
     \fancyhead[LE]{\small\leftmark} % \leftmark = chapitre courant
     \fancyfoot[C]{\thepage}               % marque la page au centre
 }
 
+\makeatletter
+\newcommand{\ifpart}[2]{%
+  \ifnum\c@part=\z@
+    #1%
+  \else
+    #2%
+  \fi
+}
+\makeatother
+
 \appto\mainmatter{\pagestyle{fancy}
-\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}%\textit{\thesection.\ #1}}}
-\renewcommand{\chaptermark}[1]{\markboth{\chaptername~\thechapter~--\ \textit{#1}}{}}
-\fancyhead[LE,RO]{\small\thepage}
-    \fancyhead[RO]{\small\rightmark}   % \rightmark = section courante
-    \fancyhead[LE]{\small Partie~\thepart, \leftmark} % \leftmark = chapitre courant
-    \fancyfoot[C]{\thepage}               % marque la page au centre
+  \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}%\textit{\thesection.\ #1}}}
+  \renewcommand{\chaptermark}[1]{\markboth{\chaptername~\thechapter~--\ \textit{#1}}{}}
+  % \fancyhead[LE,RO]{\small\thepage}
+  \fancyhead[RO]{\small\rightmark}   % \rightmark = section courante
+  \fancyhead[LE]{\small%
+    \ifpart{
+      \small\leftmark
+    }{
+      \small Part~\thepart, \leftmark % \leftmark = chapitre courant
+    }
+  }
+    %\fancyhead[LE]{\small Partie~\thepart, \leftmark} % \leftmark = chapitre courant
+  \fancyfoot[C]{\thepage}               % marque la page au centre
 }     
 
 \appto\backmatter{\pagestyle{fancy}
-\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
-\renewcommand{\chaptermark}[1]{\markboth{\chaptername~\thechapter~--\ #1}{}}
-\fancyhead[LE,RO]{\small\thepage}
-    \fancyhead[RO]{}   % \rightmark = section courante
-    \fancyhead[LE]{} % \leftmark = chapitre courant
-    \fancyfoot[C]{\thepage}               % marque la page au centre
-
+  \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+  \renewcommand{\chaptermark}[1]{\markboth{\chaptername~\thechapter~--\ #1}{}}
+  % \fancyhead[LE,RO]{\small\thepage}
+  \fancyhead[RO]{}   % \rightmark = section courante
+  \fancyhead[LE]{} % \leftmark = chapitre courant
+  \fancyfoot[C]{\thepage}               % marque la page au centre
 } 
 
 
