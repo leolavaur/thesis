@@ -175,7 +175,7 @@ With the first three scenarios, we have highlighted how the heterogeneity betwee
 However, these scenarios assume that participants are honest and respect the protocol.
 In this last scenario, we demonstrate how \gls{fl} can be vulnerable to malicious participants, whose goal is to degrade the performance of the global model.
 To do so, we use a specific type data poisoning attacks (see \Cref{sec:bg.fl.threats}), where attackers flip the labels of samples in their training data to degrade the performance of the global model.
-We use the same setup as in \Cref{sec:app.demo.iid}, with four participants and \gls{iid} partitioning.
+We use the same setup as in \Cref{sec:app.demo.iid}, with four participants and \gls{iid} 
 
 In order to observe the impact in an extreme scenario, two of the four clients are instructed to perform a label flipping attack on their entire training set.
 We can observe in local training (\Cref{fig:poisoning}) that participants identified as ``Attackers'' have a very low \gls{dr} on their test set, as they literally misclassify all of their testing samples.
@@ -193,3 +193,5 @@ A more in-depth analysis of the impact of poisoning attacks on \gls{fl} is prese
     \caption{Global model performance in poisoning attacks.}
     \label{fig:poisoning}
 \end{figure}
+
+\FloatBarrier

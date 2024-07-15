@@ -247,7 +247,7 @@ Especially in a \texttt{Lone} scenario, any groups of similar participants are c
 Similarly, in \texttt{Colluding majority T/U} scenarios, \texttt{FoolsGold} penalizes all the other clusters, leading to a model trained on Bot-IoT only.
 Overall, \thecontrib presents the most consistent results, with high accuracy and low \gls{asr} in most scenarios, only failing against a majority of extremely \emph{noisy} colluding attackers that still managed to get similar enough to be grouped with benign participants.
 
-\begin{figure}
+\begin{figure}[t]
   %\centering 
   \begin{subfigure}[t]{1.0\linewidth}
     \centering 
@@ -259,21 +259,21 @@ Overall, \thecontrib presents the most consistent results, with high accuracy an
     \emph{\thecontrib's metric distribution among participants in different scenarios (\texttt{100T}).}
     The accuracy's and miss rate's lower bounds suddenly drop when attackers outnumber benign participants in the affected cluster.
     Indeed, clients in other clusters are unaffected by the poisoning.
+    \label{fig:trustfids_accuracy_missrate_distribution}
   }
-  \label{fig:trustfids_accuracy_missrate_distribution}
   
 \end{figure}
 
 
-\begin{figure} % Reputation system redemption and late
+\begin{figure}[t] % Reputation system redemption and late
   \centering 
   \begin{subfigure}[t]{.4\linewidth}
     \centering 
     \includegraphics[trim=0 0 10pt 0,clip,width=\linewidth]{figures/reput/redemption_byzantine_min.pdf}    
     \caption{\footnotesize
       Attackers act with 100\% \emph{noisiness}, but become benign on round 3.
+      \label{fig:redemption_byzantine_min}
     }
-    \label{fig:redemption_byzantine_min}
   \end{subfigure}
   \qquad
   \begin{subfigure}[t]{.4\linewidth}
@@ -281,14 +281,14 @@ Overall, \thecontrib presents the most consistent results, with high accuracy an
     \includegraphics[trim=0 0 10pt 0,clip,width=\linewidth]{figures/reput/increment_byzantine_min.pdf}
     \caption{\footnotesize
       Attackers start benign, and increase \emph{noisiness} by 20\% each round when $r\geq3$.
+      \label{fig:increment_byzantine_min}
     }
-    \label{fig:increment_byzantine_min}
   \end{subfigure}
   \caption{
     \emph{Aggregation weights $\weight$ per participant of the poisoned cluster (\texttt{Colluding minority T}).}
     Attackers are forgiven over time, and the reputation system reacts quickly to newly detected attackers.
+    \label{fig:redemption_decrease}
   }
-  \label{fig:redemption_decrease}
 
 \end{figure}
 
