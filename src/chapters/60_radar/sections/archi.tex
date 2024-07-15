@@ -11,9 +11,9 @@ It is divided into three main components:
 
 \begin{figure}
     \centering
-    \scalebox{0.7}{
+
     \input{figures/archi.tikz}
-    }
+
     \caption{\label{fig:radar.archi}\emph{Architecture overview.}}
 \end{figure}
 
@@ -155,10 +155,10 @@ We choose to use $x \mapsto 1-\frac{2}{\pi}\arctan x $ (see~\Cref{fig:arctan}), 
       xtick={0,2,4,...,20},
       ytick={0,0.2,0.4,...,1},
       restrict y to domain=-20:20,
-      legend style={at={(0.65,0.95)},anchor=north,nodes={right}},
+      legend style={at={(0.65,0.95)},anchor=north,nodes={right}, font=\small},
     ]
       \addplot[mark=none,color=blue, samples=500]{1-(2/pi)*rad(atan(x))};
-      \addlegendentry{$x \mapsto 1-\frac{2}{\pi}\arctan x $};
+      \addlegendentry{\raisebox{1ex}{$x \mapsto 1-\frac{2}{\pi}\arctan x $}};
     \end{axis}
   \end{tikzpicture}
 
@@ -173,7 +173,7 @@ We choose to use $x \mapsto 1-\frac{2}{\pi}\arctan x $ (see~\Cref{fig:arctan}), 
 
 The clustering algorithm seeks to gather similar participants together in more homogeneous sub-federations when appropriate. 
 \textcite{nguyen_FLAMETamingBackdoors_2022} and~\textcite{ye_PFedSAPersonalizedFederated_2023} both measure participants' similarity by comparing the distance between model updates. 
-This is biased, as models that are statically different might still produce relevant results. 
+This is biased, as models that are statistically different might still produce relevant results. 
 \thecontrib addresses this issue by defining similarity as the distance between participants emitted evaluations. 
 Indeed, since all participants evaluate the same models, the variation in evaluation results reflects a difference in the evaluation datasets. 
 Therefore, participants having similar datasets should issue similar evaluations. 
@@ -188,7 +188,7 @@ The process is repeated until the distance between the two closest clusters exce
 
 \begin{figure}
     \centering
-    \input{figures/clustering.tikz}
+    \includegraphics[width=0.9\textwidth]{figures/clustering.drawio.pdf}  
     \caption{
       Hierarchical clustering process.
       \label{fig:radar.clustering}
@@ -212,7 +212,7 @@ Note that this is another difference with \texttt{FLAME}~\cite{nguyen_FLAMETamin
 
 \subsection{Ensuring Quality Contributions with Reputation\label{sec:radar.archi.reput}}
 
-The reputation system centrally computes the weights $\weight, \forall \p \in \c$ used in the aggregation of each cluster model $\wbar$ at round $r$ (see \Cref{sec:radar.archi.xeval}).
+The reputation system centrally computes the weights $(\weight)_{\p \in \c}$ used in the aggregation of each cluster model $\wbar$ at round $r$ (see \Cref{sec:radar.archi.xeval}).
 Given the existence of methods for common tasks, such as contribution filtering, \thecontrib models trust using a multivalued Dirichlet probability distribution~\cite{fung_DirichletBasedTrustManagement_2011}. 
 However, the evaluations $\rece[i]$ received by a participant $\p$ are continuous over $[0,1]$, and thus need to be discretized into a set of $q$ possible values $\varepsilon = \{\epsilon_1, \epsilon_2, \ldots, \epsilon_q\}$. 
 
@@ -221,7 +221,7 @@ As a complete cross evaluation is already available at the first round, \thecont
 
 Following the notation used by~\textcite{fung_DirichletBasedTrustManagement_2011}, we note $\vec{\gamma}^r = \{\gamma_{1}^r,\gamma_{2}^r,\ldots,\gamma_{q}^r\}$ the cumulative evaluations received by $\p$: $\gamma_{2}^r=3$ means that three evaluations in $\rece$ had values bounded by $\left[\frac{1}{q},\frac{2}{q}\right[$.
 We then note $\Prob = {\langle\prob[\epsilon_1],\prob[\epsilon_2], \ldots, \prob[\epsilon_q]\rangle}$ the probability distribution vector for the received evaluation of a participant, where $\sum_{s=1}^{q}\prob[\epsilon_s] = 1$.
-Leveraging the cumulative evaluations $\vec{\gamma}^r$, the probability $\cond[\epsilon_s]$ is given by $\cond[\epsilon_s] = \gamma_{s} / \sum_{m=1}^{q}{\gamma_{m}}$.
+Leveraging the cumulative evaluations $\vec{\gamma}^r$, the probability $\cond[\epsilon_s]$ is given by $\gamma_{s}^r / \sum_{m=1}^{q}{\gamma_{m}^r}$.
 
 The system further needs to limit the ability of potential malicious participants to manipulate their evaluations, either by badmouthing another participant, or by artificially raising their own ratings.
 Consequently, the evaluations issued by a participant $\p \in \c$ are weighted according to their similarity with other cluster members'~\cite{xiong_PeerTrustsupportingreputationbased_2004} as $\e[i][j][\prime] = \e sim(\issue,\issue[\c])$, where the similarity is defined as:
@@ -240,7 +240,7 @@ Consequently, the evaluations issued by a participant $\p \in \c$ are weighted a
 \end{equation}
 
 
-To prevent attacks phased over multiple rounds, while preventing past mistakes from permanently impacting a participant, we use an exponential decay as forgetting factor, noted $\lambda \in [0,1]$. The reputation $\rep$ of a participant $\p$ at round $r$ based on the prior knowledge $\gamma^r_i$ of this participant is given by \Cref{eq:reputation_history}.
+To prevent attacks phased over multiple rounds, while preventing past mistakes from permanently impacting a participant, we use an exponential decay as forgetting factor, noted $\lambda \in [0,1]$. The reputation $\rep$ of a participant $\p$ at round $r$ based on the prior knowledge $(\gamma^t_i)_{t\in[0,r]}$ of this participant is given by \Cref{eq:reputation_history}.
 Note that a small $\lambda$ gives more importance to recent evaluations: $\lambda=0$ only considers the last round while $\lambda=1$, considers all round with equal weight.  
 Based on $\rep$, the weight $\weight$ of $\w$ for aggregation in $\wbar$ (see Step~\ref{item:xeval.3} in~\Cref{sec:radar.archi.xeval}) is given by \Cref{eq:weight_computation}.
 
@@ -257,4 +257,4 @@ As such, the weight $\weight$ of $\p$ will be proportional to its reputation, an
 The attackers' evaluations only vary on the subset of samples that are impacted. 
 Consequently, the differences between their reputation scores and those of legitimate participants can be relatively small, despite remaining meaningful. 
 We apply a sigmoid function to convert these scores to aggregation weighs and accentuate this difference.
-This sigmoid function is the normal distribution cumulative density function adjusted with the $\sigma$ parameter.
+We chose the \gls{cdf} of the normal distribution as the sigmoid function, and adjust the $\sigma$ parameter to control the slope of the function.

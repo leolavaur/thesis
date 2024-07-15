@@ -1,33 +1,33 @@
 \section{Introduction\label{sec:topologies.intro}}
 
-Over the course of the past chapters, we have seen how the performance of \glspl{fids} can be impacted by the heterogeneity of the participants' data distributions.
+With the last three chapters, we have seen how the performance of \glspl{fids} can be impacted by the heterogeneity of the participants' data distributions.
 Yet, we have been limited in our experiments by the lack of datasets to thoroughly evaluate this aspect of \glspl{fids}.
 Indeed, the existing public datasets in the literature are typically created using a single network topology, leaving researchers working on distributed approaches with two choices:
-\begin{enumerate*}[(i)]
+\begin{enumerate*}[(a)]
     \item use the existing datasets and rely on partitioning strategies to simulate the heterogeneity of real-world data distributions; or
     \item apply standardized feature sets on existing public datasets to create training sets coming from independent, siloed infrastructures.
 \end{enumerate*}
 
 Unfortunately, both of these approaches have limitations.
 In the first case, the partitioning strategies cannot fully replicate the heterogeneity of real-world data distributions, as data will remain correlated to some extent.
-Moreover, the partitioning strategies are not always applicable to all datasets, and it requires a deep understanding of the way each dataset is generated to approach realistic data shards.
+Moreover, the partitioning strategies are not always applicable to all datasets, and it requires a deep understanding of the way each dataset has been generated to approach realistic data shards.
 In the second case, the number of clients is limited by the number of public datasets available, narrowing experiments to extremely small-scale federations.
 Additionally, because all datasets are independent, characterizing the heterogeneity of the data distributions is difficult, leaving little control over the experimental conditions.
-In \Cref{chap:radar}, we leveraged a combination of both strategies to simulate \emph{practical} \glsinvert{niid} settings, but the results remained limited in realism by the lack of control over the data distributions.
+In this thesis, we leveraged both strategies to simulate \emph{practical} \glsinvert{niid} settings, but the results remained limited in realism by the lack of control over the data distributions.
 
-To close the gap towards more realistic evaluations of \glspl{fids}, we introduce a novel approach to generate heterogeneous network topologies that can be deployed in virtualized environments.
-Because creating a functional topology from scratch is particularly complex, we propose to compose topologies from a set of predefined building blocks that satisfy at set of user-defined constraints.
-By leveraging routing protocols and domain name resolution, we can dynamically a large number of topologies that can be used to evaluate the performance of \glspl{fids} an heterogeneous, yet controlled, environment.
+To bridge the gap towards more realistic evaluations of \glspl{fids}, we propose a novel approach to generate heterogeneous network topologies that can be deployed in virtualized environments.
+Because creating a functional topology from scratch is particularly complex, we compose topologies from a set of predefined building blocks that satisfy user-defined constraints.
+By leveraging routing protocols and domain name resolution, we can dynamically generate a large number of topologies that can be used to evaluate the performance of \glspl{fids} in a heterogeneous, yet controlled and reproducible, environment.
 
-The content of this chapter originates from the preliminary work presented at the C\&ESAR conference in late 2022~\cite{lavaur_cesar_2022}.
+The content of this chapter originates from the preliminary work presented at the C\&ESAR conference in late 2022~\cite{lavaur_cesar_2022}, and has been pursued as a side project during the thesis.
 The prototype that implements our proposal has been developed by Fabien Autrel, the Research Engineer of our team and co-supervisor of this thesis.
 The reminder of this chapter is organized as follows.
-We start by laying out the requirements for topology generation in the context of \glspl{fids} in \Cref{sec:topologies.req}, and review existing works in the field in \Cref{sec:topologies.related}.
+We start by laying out the requirements for topology generation in the context of \glspl{fids} in \Cref{sec:topologies.req}, and review existing related works in \Cref{sec:topologies.related}.
 We then present our approach to generate topologies in \Cref{sec:topologies.approach}, and evaluate the performance of our tool in \Cref{sec:topologies.benchmark}.
-Finally, we discuss the perspectives of our work in \Cref{sec:topologies.perspectives} before concluding in \Cref{sec:topologies.conclusion}.
+Finally, we discuss the perspectives of our work before concluding in \Cref{sec:topologies.conclusion}.
 
 \begin{contribs}
-  \item A novel approach to generate realistic network topologies for dataset generation by leveraging constraint-based topology composition.
-  \item A benchmark of the number of topologies that can be generated using our approach.
+  \item A novel approach to build realistic network topologies for dataset generation by leveraging constraint-based topology composition.
+  \item A prototype implementation of our proposal, with a performance evaluation of the topology generation process.
   \item The foundations for the first truly distributed dataset in intrusion detection, enabling the evaluation of \glspl{fids} in under controlled conditions.
 \end{contribs}

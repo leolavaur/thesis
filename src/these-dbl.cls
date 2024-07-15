@@ -34,8 +34,6 @@
 \RequirePackage{titlesec}
 \RequirePackage{parcolumns}
 \RequirePackage{multicol}
-\RequirePackage[T1]{fontenc} % permet de sp\'{e}cifier \`{a} LaTeX l'utilisation du codage de caract\`{e}res T1, nouvelle norme LaTeX non utilis\'{e}e par d\'{e}faut pour des raisons de compatibilit\'{e} avec les anciens documents LaTeX.
-\RequirePackage{lmodern} % Assurer une bonne impression!
 \RequirePackage{tikz} % tikz est utilise pour tracer des boites, par exemple
 \usetikzlibrary{fadings,babel}
 \RequirePackage{fix-cm}
@@ -67,14 +65,36 @@
 \frenchspacing
 \FrenchFootnotes
 
+
+\RequirePackage{fontspec}
+\RequirePackage[T1]{fontenc} % permet de sp\'{e}cifier \`{a} LaTeX l'utilisation du codage de caract\`{e}res T1, nouvelle norme LaTeX non utilis\'{e}e par d\'{e}faut pour des raisons de compatibilit\'{e} avec les anciens documents LaTeX.
+% Override default font here if you want
+%\renewcommand{\rmdefault}{qpl}
+%\renewcommand{\sfdefault}{qpl}
+% TODO !
+\RequirePackage{lmodern} % Assurer une bonne impression!
+% \setmainfont[
+%   SmallCapsFont = Latin Modern Roman Caps,
+% ]{Latin Modern Roman}
+% \setsansfont{Helvetica}
+% Use LuaLaTeX to generate italic even though its not supported by inconsolata.
+\setmonofont[
+  AutoFakeSlant,
+  BoldItalicFeatures={FakeSlant},
+]{Inconsolatazi4}
+  
+  
 % Define commands to set fonts throughout the document
+%\RequirePackage{helvet}
+
 \newcommand*{\selectfontfrontcover}{\fontfamily{phv}\selectfont}  % Font style used in front cover 
 \newcommand*{\selectfontbackcover}{\fontfamily{phv}\selectfont}   % Font style used in back cover 
 \newcommand*{\selectfontchapheads}{\fontfamily{phv}\selectfont} % Font style used chapter headings
 
-% Override default font here if you want
-%\renewcommand{\rmdefault}{qpl}
-%\renewcommand{\sfdefault}{qpl} 
+% \newcommand*{\selectfontfrontcover}{\sffamily\selectfont}  % Font style used in front cover 
+% \newcommand*{\selectfontbackcover}{\sffamily\selectfont}   % Font style used in back cover 
+% \newcommand*{\selectfontchapheads}{\sffamily\selectfont} % Font style used chapter headings
+
 
 
 

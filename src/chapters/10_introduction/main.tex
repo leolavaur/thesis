@@ -20,7 +20,7 @@ This architecture could also be used to disseminate information about esoteric a
 % TODO: References for the drawbacks of ML-based IDS would be nice, but most surveys on the topics are either old or provide too generic research directions.
 
 Consequently, applying \gls{fl} to \gls{ids} seems like a promising approach to collaboratively improve the local detection of cyber threats.
-This is supported by the amount of recent literature on the topic, which has grown exponentially since 2018~\cite{lavaur_EvolutionFederatedLearningbased_2022,ismaila_ReviewApproachesFederated_2024}.
+This is supported by the amount of recent literature on the topic, which has grown exponentially since 2018~\cite{lavaur_tnsm_2022,ismaila_ReviewApproachesFederated_2024}.
 Yet, novel challenges arise in this context, such as how to handle the heterogeneity of data sources or how to deal with untrusted participants.
 But more importantly, \emph{what makes applying \gls{fl} to \gls{ids} different from other applications? And is \gls{fl} even a suitable framework for collaborative \gls{ids}?}
 
@@ -48,7 +48,7 @@ Note however, that the results presented in this manuscript could theoretically 
 
 \begin{figure}
   \centering
-  \includegraphics[width=.8\textwidth]{example-image-golden}
+  \includegraphics[width=\textwidth]{./figures/fids.drawio.pdf}
   \caption{Illustration of \gls{fl} in a \gls{cids} use case.}
   \label{fig:intro.usecase}
 \end{figure}
@@ -104,9 +104,9 @@ This chapter notably presents the results of our \gls{slr} on the topic, and foc
 \paragraph{\Cref{part:contribs}:}
 
 The second part presents our contributions to addressing the limitations of \gls{fids}.
-Finally, \Cref{chap:assessment} introduces our evaluation framework, and systematically analyses the impact of label-flipping attacks on \gls{fids}.
-\Cref{chap:radar} then presents a pioneer \gls{fl} architecture for \gls{fids} that ensures the quality of incoming contributions in heterogeneous environments, with applications to the detections of malicious behaviors.
-Finally, \Cref{chap:topologies} introduces a practical method to generate network topologies based on the composition of sub-topologies, and lays down the foundations for further studies on distributed networking analyses.
+\Cref{chap:assessment} introduces our evaluation framework, and systematically analyses the impact of label-flipping attacks on \gls{fids}, raising questions on the detection of malicious contributions in \gls{niid} settings.
+To tackle these issue, \Cref{chap:radar} presents a pioneer \gls{fl} architecture for \gls{fids} that ensures the quality of incoming contributions in heterogeneous environments, with applications to the detections of malicious behaviors.
+Finally, \Cref{chap:topologies} introduces a practical method to generate network topologies based on the composition of sub-topologies, and lays down the foundations for further studies on distributed intrusion detection.
 
 
 \section{Publications\label{sec:intro.publications}}

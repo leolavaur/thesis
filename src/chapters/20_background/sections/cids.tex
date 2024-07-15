@@ -22,25 +22,25 @@ In this thesis, we will focus on the latter, as it is more relevant to the \gls{
     \centering
     \includegraphics[width=\textwidth]{figures/topo-centralized}
     \caption{Centralized}
-    \label{fig:cids.centralized}
+    \label{fig:bg.cids.centralized}
   \end{subfigure}%
   \begin{subfigure}{.25\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/topo-decentralized}
     \caption{Hybrid}
-    \label{fig:cids.hybrid}
+    \label{fig:bg.cids.hybrid}
   \end{subfigure}%
   \begin{subfigure}{.25\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/topo-hierarchical}
     \caption{Hierarchical}
-    \label{fig:cids.hierarchical}
+    \label{fig:bg.cids.hierarchical}
   \end{subfigure}%
   \begin{subfigure}{.25\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figures/topo-distributed}
     \caption{Fully decentralized}
-    \label{fig:cids.decentralized}
+    \label{fig:bg.cids.decentralized}
   \end{subfigure}
   \caption[
     Different topologies for collaborative intrusion detection systems.
@@ -48,7 +48,7 @@ In this thesis, we will focus on the latter, as it is more relevant to the \gls{
     Different topologies for collaborative intrusion detection systems.
     Nodes are in red and marked as $N$, while servers are in blue and marked as $S$.
     Arrows represent connections between entities.
-    \label{fig:cids.topoligies}
+    \label{fig:bg.cids.topoligies}
   } 
 \end{figure}
 
@@ -56,7 +56,7 @@ The aforementioned literature identify two main types of topologies for \glspl{c
 The definitions of these topologies are not always consistent across the literature, especially between the terms \emph{decentralized}, \emph{hierarchical}, and \emph{distributed}.
 For instance, \textcite{zhou_surveycoordinatedattacks_2010} consider a decentralized system as a system where each node is autonomous and can make decisions independently, while this definition matches the description of a distributed architecture in the work of \textcite{li_SurveyingTrustBasedCollaborative_2022}.
 
-In this manuscript, we will use the definitions illustrated in \Cref{fig:cids.topoligies}.
+In this manuscript, we will use the definitions illustrated in \Cref{fig:bg.cids.topoligies}.
 It distinguishes two types of roles: \emph{nodes} ($N$) and \emph{servers} ($S$).
 A node is a device that captures data, although it can also execute complementary tasks like preprocessing, feature extraction, or traffic analysis.
 A server is a device that aggregates the data from the nodes and distributes instructions to them, as well as updates for the local detection algorithm.
@@ -77,11 +77,11 @@ The different topologies are defined as follows, including different levels of d
   There are no servers anymore, and the node share information over a peer-to-peer network.
 \end{description}
 
-\Cref{fig:cids.topoligies} illustrates these topologies.
+\Cref{fig:bg.cids.topoligies} illustrates these topologies.
 To summarize, the main difference between the different topologies is the level of autonomy of the nodes and the centralization of the knowledge.
-In the centralized architecture (\Cref{fig:cids.centralized}), all nodes are connected to a single server.
+In the centralized architecture (\Cref{fig:bg.cids.centralized}), all nodes are connected to a single server.
 We can refer to an architecture as decentralized as soon as there are no single server overseeing all the nodes.
-\Cref{fig:cids.hybrid,fig:cids.hierarchical,fig:cids.decentralized} show different examples of a decentralized architecture.
+\Cref{fig:bg.cids.hybrid,fig:bg.cids.hierarchical,fig:bg.cids.decentralized} show different examples of a decentralized architecture.
 The arrows between the different entities represent information exchange, although the nature of these exchanges can vary depending on the direction.
 An arrow displayed as $N \rightarrow S$ can represent collected data, generated alerts, or requests for updates.
 An arrow displayed as $S \rightarrow N$ can represent instructions or updates for the local detection algorithm or database.

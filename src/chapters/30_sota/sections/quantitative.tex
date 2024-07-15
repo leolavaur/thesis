@@ -48,14 +48,14 @@ For instance, \textcite{li_DeepFedFederatedDeep_2020} use homomorphic encryption
 Aside from security, variations of \gls{hfl} started to appear in 2021, such as segmented \gls{fl} in
 \cite{sun_AdaptiveFederatedLearning_2020}, as standard \gls{hfl} has significantly been studied for \gls{fids}.
 
-Finally, the numerous literature reviews published since 2021~\cite{agrawal_FederatedLearningintrusion_2022,alazab_FederatedLearningCybersecurity_2021,campos_EvaluatingFederatedLearning_2022,lavaur_EvolutionFederatedLearningbased_2022,fedorchenko_ComparativeReviewIntrusion_2022,ghimire_RecentAdvancesFederated_2022,ismaila_ReviewApproachesFederated_2024} show the
+Finally, the numerous literature reviews published since 2021~\cite{agrawal_FederatedLearningintrusion_2022,alazab_FederatedLearningCybersecurity_2021,campos_EvaluatingFederatedLearning_2022,lavaur_tnsm_2022,fedorchenko_ComparativeReviewIntrusion_2022,ghimire_RecentAdvancesFederated_2022,ismaila_ReviewApproachesFederated_2024} show the
 continuous interest of the community for the study of \glspl{fids}.
 These also show the need for synthesis and structuring of research in this area.
 
 
 \subsection{Relevant Venues\label{sec:sota.quanti.venues}}
 
-The initial study published in 2022~\cite{lavaur_EvolutionFederatedLearningbased_2022} observed very few recurring venues for the publication of \gls{fids} research.
+The initial study published in 2022~\cite{lavaur_tnsm_2022} observed very few recurring venues for the publication of \gls{fids} research.
 Indeed, only three venues had more than one publication on the topic: the \emph{IEEE Internet of Things Journal}~\cite{popoola_FederatedDeepLearning_2021,zhang_BlockchainbasedFederatedLearning_2020}, \emph{IEEE
 Access}~\cite{chen_IntrusionDetectionWireless_2020,li_DistributedNetworkIntrusion_2020}, and the \emph{IEEE BigData} conference~\cite{cetin_FederatedWirelessNetwork_2019,fan_IoTDefenderFederatedTransfer_2020}.
 The original distribution in terms of venue type (11 conferences, 10 journals and 1 book chapter) has significantly changed, since journals represent two thirds of the publications.
@@ -65,9 +65,12 @@ However, it is likely that the COVID-19 pandemic partially influenced this trend
 
 \begin{figure}
   \centering
-  \input{figures/venues_histogram.pgf}
+  % \input{figures/venues_histogram.pgf}
+  \includegraphics[width=\textwidth]{figures/venues_histogram.pdf}
+
   \caption{
     Distribution of the publications in the most recurring venues.
+    The lighter colors represent the publications added since the initial study.
     \label{fig:sota.venues}
   }
 \end{figure}
@@ -184,5 +187,5 @@ Some techniques can also be extracted from these results.
 For instance, Topic 0 also contains \texttt{similarity} as a keyword, which is likely to refer to the use of similarity metrics to detect poisoning attacks.
 This is indeed one of the most represented mitigation techniques in the literature on \gls{fids}~\cite{yang_Dependablefederatedlearning_2023} or \gls{fl} alike~\cite{fung_LimitationsFederatedLearning_2020,nguyen_FLAMETamingBackdoors_2022}.
 \Cref{fig:sota.challenges} depicts the distribution of the addressed challenges over time.
-Unlike the distribution of the publications by domain, some challenges are addressed in the literature much later, such as handling the heterogeneity of the data (\Cref{chal:heterogeneity}) or resisting to adversarial attacks (\Cref{chal:adversarial}).
-Both are challenges that have been identified in the initial study as open issues in the field~\cite{lavaur_EvolutionFederatedLearningbased_2022,lavaur_Federatedlearningenabler_2022}.
+Unlike the distribution of the publications by domain, some challenges are addressed in the literature much later, such as handling the heterogeneity of the data or resisting to adversarial attacks.
+Both are challenges that have been identified in the initial study as open issues in the field~\cite{lavaur_tnsm_2022,lavaur_Federatedlearningenabler_2022}.

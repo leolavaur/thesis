@@ -32,7 +32,7 @@ This identifies new criteria on which to compare the selected works.
     The proposed reference architecture for \glspl{fids}.
   ]{
     The proposed reference architecture for \glspl{fids}.
-    Figure from \textcite{lavaur_EvolutionFederatedLearningbased_2022} \copyright~IEEE 2022.
+    Figure from \textcite{lavaur_tnsm_2022} \copyright~IEEE 2022.
     \label{fig:sota.archi}
   }
 \end{figure*}
@@ -76,7 +76,7 @@ Each class represents a building block, for which multiple approaches exist depe
     Proposed taxonomy for FIDS.
   ]{
    \emph{Proposed taxonomy for FIDS.}
-    Figure from \textcite{lavaur_EvolutionFederatedLearningbased_2022} \copyright~IEEE 2022.
+    Figure from \textcite{lavaur_tnsm_2022} \copyright~IEEE 2022.
     \label{fig:sota.taxonomy}
   }
 \end{figure}
@@ -380,7 +380,7 @@ This makes most experiments unrealistic, as the clients train their models on da
 
 Just after we stopped data collection for the original study, \textcite{sarhan_StandardFeatureSet_2022} proposed a standardized feature set for intrusion detection (see \Cref{chap:background}), and converted four known \gls{ids} datasets to this format: UNSW-NB15~\cite{moustafa_UNSWNB15comprehensivedata_2015}, Bot-IoT~\cite{koroniotis_developmentrealisticbotnet_2019}, ToN\_IoT~\cite{moustafa_FederatedTON_IoTWindows_2020}, and CSE-CIC-IDS2018~\cite{sharafaldin_GeneratingNewIntrusion_2018}.
 The uniform feature set across datasets allows \gls{fl}-based approaches to evaluate their performance on independently generated datasets~\cite{popoola_FederatedDeepLearning_2021,decarvalhobertoli_Generalizingintrusiondetection_2023}, closing the gap towards more realistic experiments.
-In the context of cross-silo \gls{fl}, each dataset can act as one organization's collected data, which is done by  \textcite{de_carvalho_bertoli_generalizing_2023}.
+In the context of cross-silo \gls{fl}, each dataset can act as one organization's collected data, which is done by  \textcite{decarvalhobertoli_Generalizingintrusiondetection_2023}.
 Finally, we present in \Cref{chap:topologies} our work on topology generation, which will provide building blocks for generating more realistic distributed datasets.
 
 
@@ -406,7 +406,7 @@ When these measures are collected on reference hardware, it can also be used to 
 \paragraph{Federation}
 
 Federation-related metrics are heavily tied to the communication between clients, or with a server.
-The communication overhead is a core metric of \glspl{fids}, as high bandwidth consumption is a drawback of \glspl{cids} (see \Cref{chall:latency}), especially in constrained environments~\cite{qin_LineSpeedScalableIntrusion_2020a}.
+The communication overhead is a core metric of \glspl{fids}, as high bandwidth consumption is a drawback of \glspl{cids} (see \Cref{chall:actionability}), especially in constrained environments~\cite{qin_LineSpeedScalableIntrusion_2020a}.
 The overhead is often measured in bytes, either per packets~\cite{pahl_AllEyesYou_2018}, or for the total of all communications~\cite{schneble_Attackdetectionusing_2019,zhang_BlockchainbasedFederatedLearning_2020}.
 Metrics must be adapted to the specificities of each solution, for instance when adding a feature.
 Consequently, \textcite{zhang_BlockchainbasedFederatedLearning_2020} add specific metrics in their evaluation to measure the impact of using the blockchain, like the time of the \emph{blockchain encoring process}.

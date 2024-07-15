@@ -58,7 +58,7 @@ with is the results of the local optimization process.
 In their original publication, \textcite{mcmahan_Communicationefficientlearningdeep_2017} introduce two algorithms for \gls{fl}: \texttt{FedSGD} and \texttt{FedAvg}.
 \texttt{FedSGD} is a straightforward implementation of \gls{sgd} in a federated setting, where each client computes the gradients after one epoch and sends them to the server.
 The server then aggregates the gradients and updates the global model.
-With $D=\bigcup_{i=1}^K d_i$ being the union of all local datasets $d_i$, the server computes the new global model as:
+With $D=\biguplus_{i=1}^K d_i$ being the additive union of all local datasets $d_i$, the server computes the new global model as:
 \begin{equation}
   w^{r+1} = w^r - \eta \sum_{i=1}^{K} \frac{|d_i|}{|D|} g_i^r,
 \end{equation}
@@ -166,7 +166,7 @@ Finally, \textcite{yang_FederatedMachineLearning_2019} also consider \gls{ftl}, 
 
 \paragraph{Architecture Discrepancies}
 
-In light of the architectures presented in \Cref{fig:cids.topoligies}, the initial \gls{fl} proposal~\cite{mcmahan_Communicationefficientlearningdeep_2017} would be considered as a distributed task (\ie, model training) that is \emph{centrally} orchestrated (see \Cref{fig:cids.centralized}).
+In light of the architectures presented in \Cref{fig:bg.cids.topoligies}, the initial \gls{fl} proposal~\cite{mcmahan_Communicationefficientlearningdeep_2017} would be considered as a distributed task (\ie, model training) that is \emph{centrally} orchestrated (see \Cref{fig:bg.cids.centralized}).
 The central server plays a pivotal role in distributing model parameters, orchestrating training rounds, and aggregating updates from individual devices.
 This approach requires global coordination and synchronization, as all communication and aggregation activities are orchestrated by the server.
 While server-orchestrated \gls{fl} offers centralized control and streamlined management, it also introduces potential single points of failure and scalability limitations due to the server's central role (see \Cref{chall:spof}).

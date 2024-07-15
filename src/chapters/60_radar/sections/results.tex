@@ -1,5 +1,8 @@
 \section{Experimental Results\label{sec:radar.results}}
 
+\FloatBarrier
+
+
 \thecontrib serves multiple objectives at once:
 \begin{enumerate*}[(a)]
     \item maintaining high performance on \emph{practical} \gls{niid} data,
@@ -18,10 +21,11 @@ Like the others, \thecontrib is abbreviated as \texttt{RA} when needed.
 
 \subsection{Heterogeneity\label{sec:radar.results.heterogeneity}}
 
+
 \begin{table}
   \centering
   \caption{
-    \emph{Rand Index between \thecontrib's clustering and two partitions of reference, under various scenarios.} 
+    \emph{Rand index between \thecontrib's clustering and two partitions of reference, under various scenarios.} 
     Partition \textbf{(A)} contains only benign participants grouped according to their respective dataset. 
     Partition \textbf{(B)} contains attackers placed in a separated group in addition to benign participants. 
     \label{tbl:radar.rand_clustering}
@@ -70,7 +74,7 @@ Like the others, \thecontrib is abbreviated as \texttt{RA} when needed.
   \begin{tabularx}{\textwidth}{lX|TTTT|TTTT}
     \toprule % ---------------------------------
     \multicolumn{2}{c|}{\multirow{2}{*}{\textbf{Scenario}}} & \multicolumn{4}{c|}{\textbf{Mean accuracy} (\%)} & \multicolumn{4}{c}{\textbf{\gls{asr}} (\%)} \\
-    & & \multicolumn{1}{c}{\texttt{RA}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c}{$\texttt{FA}_a$} & \multicolumn{1}{c|}{\texttt{FC}} & \multicolumn{1}{c}{\texttt{RA}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c}{\texttt{FA}} & \multicolumn{1}{c}{\texttt{FC}} \\
+    & & \multicolumn{1}{c}{\texttt{RA}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c}{\texttt{FA}} & \multicolumn{1}{c|}{\texttt{FC}} & \multicolumn{1}{c}{\texttt{RA}} & \multicolumn{1}{c}{\texttt{FG}} & \multicolumn{1}{c}{\texttt{FA}} & \multicolumn{1}{c}{\texttt{FC}} \\
     \midrule % ---------------------------------
     % TARGETED ATTACKS
     \multicolumn{2}{l|}{\textbf{Targeted} (\texttt{100T})} & & & & & & & & \\
@@ -93,7 +97,7 @@ Like the others, \thecontrib is abbreviated as \texttt{RA} when needed.
 Because our use case implies that some participants share similar data distributions, we expect \thecontrib's clustering component to limit the impact of heterogeneity by grouping similar participants together.
 To evaluate our approach, we compare the partition created by \thecontrib's clustering algorithm with one where participants are grouped according to their dataset of origin.
 This partition is presented as Partition A in \Cref{tbl:radar.rand_clustering}.
-The constant Rand Index of 1.0 indicates that all participants are correctly grouped, regardless of the considered evaluation scenario.
+The constant Rand index of 1.0 indicates that all participants are correctly grouped, regardless of the considered evaluation scenario.
 This validates the idea that similarity between evaluations can be used to regroup participants. 
 
 In addition to managing heterogeneity, it is critical that the countermeasures deployed in \thecontrib do not negatively impact performance.
@@ -111,7 +115,7 @@ Another goal for \thecontrib is to handle contributions of various quality.
 This objective is mostly represented by scenarios of \Cref{cat:lone} (\texttt{Lone}), as we consider that coordinated faults are improbable for legitimate participants.
 In this configuration, we expect the Byzantine participant to be either, put in a cluster of its own, or penalized by the reputation system.
 To verify the former, we compare the partition made by \thecontrib with another where Byzantines are segregated in an additional cluster (see Partition B in \Cref{tbl:radar.rand_clustering}).
-Here, a Rand Index lower than 1.0 implies that Byzantine participants have been grouped with legitimate ones of the same dataset, which is the case in most scenarios of the \texttt{Lone} category.
+Here, a Rand index lower than 1.0 implies that Byzantine participants have been grouped with legitimate ones of the same dataset, which is the case in most scenarios of the \texttt{Lone} category.
 However, the noisiest untargeted faults (\texttt{Lone~$>$95U}) result in the Byzantine participant being placed in his own separate cluster, thus neutralizing its impact on the other participants.
 Note that the hyperparameters of the clustering algorithm could be tuned so that attackers with lower \emph{noisiness} would be separated, notably the threshold factor $\beta$ and the cross-evaluation metric (see \Cref{tbl:radar.hyperparameters}).
 
@@ -191,7 +195,7 @@ Second, the \texttt{Lone~100U} scenario, as it is similarly unlikely that for an
 
 Like discussed in \Cref{sec:radar.results.quality}, the clustering algorithm separates the noisiest attacks from the rest.
 This is true regardless of the number of attackers, as confirmed by the results in \Cref{tbl:radar.rand_clustering}.
-For untargeted faults with at least 95\% \emph{noisiness}, the Rand Index at round 10 stays equal to 1.0.
+For untargeted faults with at least 95\% \emph{noisiness}, the Rand index at round 10 stays equal to 1.0.
 This means that for those loud attacks, attackers are separated from benign participants, hence negating their poisoning effect.
 This is a critical result for \thecontrib, as this mitigation occurs for \emph{any number of attackers}, even if they outnumber benign participants.
 However, the attackers in \texttt{Colluding T} scenarios are placed with legitimate participants in the same cluster. 

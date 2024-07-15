@@ -1,4 +1,3 @@
-% LTeX: enabled=false
 @online{_1998DARPAIntrusion_,
   title = {1998 {{DARPA Intrusion Detection Evaluation Dataset}} \textbar{} {{MIT Lincoln Laboratory}}},
   url = {https://www.ll.mit.edu/r-d/datasets/1998-darpa-intrusion-detection-evaluation-dataset},
@@ -652,6 +651,19 @@
 }
 
 @inproceedings{amadeo_ClientDiscoveryData_2022,
+  title = {Client {{Discovery}} and {{Data Exchange}} in {{Edge-based Federated Learning}} via {{Named Data Networking}}},
+  booktitle = {{{ICC}} 2022 - {{IEEE International Conference}} on {{Communications}}},
+  author = {Amadeo, Marica and Campolo, Claudia and Iera, Antonio and Molinaro, Antonella and Ruggeri, Giuseppe},
+  date = {2022-05},
+  pages = {2990--2995},
+  issn = {1938-1883},
+  doi = {10.1109/ICC45855.2022.9839172},
+  abstract = {Federated learning (FL) is gaining momentum as a prominent solution to perform training procedures without the need to move sensitive end-user data to a centralized third party server. In FL, models are locally trained at distributed end-devices, acting as clients, and only model updates are transferred from the clients to the aggregator, which is in charge of global model aggregation. Although FL can ensure better privacy preservation than centralized machine learning (ML), it exhibits still some concerns. First, clients need to be properly discovered and selected to ensure that highly accurate models are built. Second, huge models may still require to be exchanged from the aggregator to all the selected clients, incurring a not negligible network footprint. To tackle such issues, in this paper, we propose a framework built upon in-network caching, multicast and name based data delivery, natively provided by the Named Data Networking (NDN) paradigm, in order to support client discovery and aggregator-clients data exchange. Benefits of the proposal are showcased when compared to a conventional application-layer solution.},
+  eventtitle = {{{ICC}} 2022 - {{IEEE International Conference}} on {{Communications}}},
+  keywords = {Collaborative work,Edge Artificial Intelligence,Federated Learning,In-network caching,Information Centric Networking,Machine learning,Multicast communication,Named Data Networking,Packet loss,Privacy,Proposals,Training}
+}
+
+@inproceedings{amadeo_ClientDiscoveryData_2022a,
   title = {Client {{Discovery}} and {{Data Exchange}} in {{Edge-based Federated Learning}} via {{Named Data Networking}}},
   booktitle = {{{ICC}} 2022 - {{IEEE International Conference}} on {{Communications}}},
   author = {Amadeo, Marica and Campolo, Claudia and Iera, Antonio and Molinaro, Antonella and Ruggeri, Giuseppe},
@@ -1362,6 +1374,38 @@
   langid = {english},
   pubstate = {prepublished},
   keywords = {\_read\_urgently,Computer Science - Cryptography and Security}
+}
+
+@inproceedings{besson_CERBERECybersecurityExercise_2023,
+  title = {{{CERBERE}}: {{Cybersecurity Exercise}} for {{Red}} and {{Blue}} Team {{Entertainment}}, {{REproducibility}}},
+  shorttitle = {{{CERBERE}}},
+  booktitle = {2023 {{IEEE International Conference}} on {{Big Data}} ({{BigData}})},
+  author = {Besson, Pierre-Victor and Brisse, Romain and Orsini, H\'el\`ene and Talon, Natan and Lalande, Jean-Fran\c cois and Majorczyk, Fr\'ed\'eric and Sanchez, Alexandre and Tong, Val\'erie Viet Triem},
+  date = {2023-12},
+  pages = {2980--2988},
+  doi = {10.1109/BigData59044.2023.10386953},
+  url = {https://ieeexplore.ieee.org/abstract/document/10386953?casa_token=P-bQMY_4uSwAAAAA%3AHlJBvNp8D51IaJpENDKWuJOMqoE45GVTSWw2-uoODVlaMCWBEYU61tqYPTY0cDAr6x-Q-S-V},
+  urldate = {2024-07-13},
+  abstract = {Experimenting in cybersecurity requires manipulating reliable and realistic data. In particular, labelled data derived from the observation of a complete campaign is rarely available, due to its high sensitivity and the difficulty of accurately labelling datasets. This situation harms the reproducibility of research results and therefore to their impact. In this article, we present the CERBERE project that addresses this issue through a reproducible attack-defense exercise and a labelled dataset usable for research purposes. The attack-defense exercise is first composed of an exercise for red teamers automatically deployed with variable attack scenarios. Second, an exercise for blue teamers can be operated using the system and network logs generated during the attack phase. We provide with this article, the software to rebuild the infrastructure for red teamers. We share a labelled dataset where we spot the ground truth, i.e. the log lines that have been involved in the attacker's actions.},
+  eventtitle = {2023 {{IEEE International Conference}} on {{Big Data}} ({{BigData}})},
+  keywords = {Computer architecture,cyber training,cybersecurity,Entertainment industry,Intrusion detection,red/blue teams,Reproducibility of results,Sensitivity,Software,Training}
+}
+
+@inproceedings{besson_URSIDAutomaticallyRefining_2024a,
+  title = {{{URSID}}: {{Automatically Refining}} a~{{Single Attack Scenario}} into~{{Multiple Cyber Range Architectures}}},
+  shorttitle = {{{URSID}}},
+  booktitle = {Foundations and {{Practice}} of {{Security}}},
+  author = {Besson, Pierre-Victor and Tong, Val\'erie Viet Triem and Guette, Gilles and Piolle, Guillaume and Abgrall, Erwan},
+  editor = {Mosbah, Mohamed and S\`edes, Florence and Tawbi, Nadia and Ahmed, Toufik and Boulahia-Cuppens, Nora and Garcia-Alfaro, Joaquin},
+  date = {2024},
+  pages = {123--138},
+  publisher = {Springer Nature Switzerland},
+  location = {Cham},
+  doi = {10.1007/978-3-031-57537-2_8},
+  abstract = {Contrary to intuition, insecure computer network architectures are valuable assets in IT security. Indeed, such architectures (referred to as cyber-ranges) are commonly used to train red teams and test security solutions, in particular ones related to supervision security. Unfortunately, the design and deployment of these cyber-ranges is costly, as they require designing an attack scenario from scratch and then implementing it in an architecture on a case-by-case basis, through manual choices of machines/users, OS versions, available services and configuration choices. This article presents URSID, a framework for automatic deployment of cyber-ranges based on the formal description of attack scenarios. The scenario is described at the technical attack level according to the MITRE nomenclature, refined into several variations (instances) at the procedural level and then deployed in virtual multiple architectures. URSID thus automates costly manual tasks and allows to have several instances of the same scenario on architectures with different OS, software or account configurations. URSID has been successfully tested in an academic cyber attack and defense training exercise.},
+  isbn = {978-3-031-57537-2},
+  langid = {english},
+  keywords = {Attack scenario,Computer security,Cyber Range,Cyber Security Education,Network security}
 }
 
 @inproceedings{bethencourt_CiphertextPolicyAttributeBasedEncryption_2007,
@@ -2939,21 +2983,6 @@
 }
 
 @inproceedings{doar_bettermodelgenerating_1996,
-  title = {A Better Model for Generating Test Networks},
-  booktitle = {Proceedings of {{GLOBECOM}}'96. 1996 {{IEEE Global Telecommunications Conference}}},
-  author = {Doar, M.B.},
-  date = {1996-11},
-  volume = {MiniConfInternet},
-  pages = {86--93},
-  doi = {10.1109/GLOCOM.1996.586131},
-  url = {https://ieeexplore.ieee.org/abstract/document/586131},
-  urldate = {2024-07-07},
-  abstract = {Much of the work on routing algorithms, particularly for multicast, which has been done in the past has used fairly simple models to generate the topological graph which represents the hosts in the network. Some such random graphs bear little resemblance to data communication networks which are actually deployed. This paper proposes a more realistic model, incorporating hierarchy and redundancy, and is developed into a network generation algorithm. The approach described can be developed to provide more refined models in the future.},
-  eventtitle = {Proceedings of {{GLOBECOM}}'96. 1996 {{IEEE Global Telecommunications Conference}}},
-  keywords = {Costs,Data communication,Euclidean distance,IP networks,Multicast algorithms,Network topology,Routing,Testing,Tree graphs,USA Councils}
-}
-
-@inproceedings{doar_bettermodelgenerating_1996a,
   title = {A Better Model for Generating Test Networks},
   booktitle = {Proceedings of {{GLOBECOM}}'96. 1996 {{IEEE Global Telecommunications Conference}}},
   author = {Doar, M.B.},
@@ -6511,15 +6540,31 @@
   isbn = {978-1-72818-086-1}
 }
 
-@article{lavaur_EvolutionFederatedLearningbased_2022,
-  title = {The {{Evolution}} of {{Federated Learning-based Intrusion Detection}} and {{Mitigation}}: A {{Survey}}},
-  author = {Lavaur, Leo and Pahl, Marc-Oliver and Busnel, Yann and Autrel, Fabien},
-  date = {2022-06},
-  journaltitle = {IEEE Transactions on Network and Service Management},
-  shortjournal = {TNSM},
-  series = {Special {{Issue}} on {{Network Security Management}}},
-  abstract = {In 2016, Google introduced the concept of Federated Learning (FL), enabling collaborative Machine Learning (ML). FL does not share local data but ML models, offering applications in diverse domains. This paper focuses on the application of FL to Intrusion Detection Systems (IDSs). There, common criteria to compare existing solutions are missing. In particular, this survey shows: (i) how FL-based IDSs are used in different domains; (ii) what differences exist between architectures; (iii) the state of the art of FL-based IDS. With a structured literature survey, this work identifies the relevant state of the art in FL--based intrusion detection from its creation in 2016 until 2021. It provides a reference architecture and a taxonomy to serve as guidelines to compare and design FL- based IDSs. Both are validated with the existing works. Finally, it identifies research directions for the application of FL to intrusion detection systems.},
-  keywords = {+survey}
+@inproceedings{lavaur_ares_bass_2024,
+  title = {Systematic Analysis of Label-Flipping Attacks against Federated Learning in Collaborative Intrusion Detection Systems},
+  booktitle = {Proceedings of the 19th International Conference on Availability, Reliability and Security ({{ARES}})},
+  author = {Lavaur, L\'eo and Busnel, Yann and Autrel, Fabien},
+  date = {2024-08},
+  location = {Vienna, Austria},
+  booksubtitle = {Workshop on {{Behavioral Authentication}} for {{System Security}} ({{BASS}})},
+  keywords = {confs}
+}
+
+@inproceedings{lavaur_cesar_2022,
+  title = {Federated Learning as Enabler for Collaborative Security between Not Fully-Trusting Distributed Parties},
+  booktitle = {Proceedings of the 29th Computer \& Electronics Security Application Rendezvous ({{C}}\&{{ESAR}})},
+  author = {Lavaur, L\'eo and Coste, Benjamin and Pahl, Marc-Oliver and Busnel, Yann and Autrel, Fabien},
+  date = {2022-10},
+  location = {Rennes, France},
+  keywords = {national}
+}
+
+@unpublished{lavaur_eur_2023,
+  title = {L'inter\^et de l'apprentissage F\'ed\'er\'e Dans Le Cadre de La D\'etection d'incidents Sur Les R\'eseaux et/Ou Syst\`emes \`a Grande \'Echelle},
+  author = {Busnel, Yann and Lavaur, L\'eo},
+  date = {2023-04},
+  location = {Rennes, France},
+  keywords = {tutorial}
 }
 
 @inproceedings{lavaur_Federatedlearningenabler_2022,
@@ -6533,14 +6578,31 @@
   keywords = {⛔ No DOI found}
 }
 
-@inproceedings{lavaur_Federatedsecurityapproaches_2021,
+@inproceedings{lavaur_gtsslr_2021,
   title = {Federated Security Approaches for {{IT}} and {{OT}}},
-  author = {Lavaur, Leo and Pahl, Marc-Oliver and Busnel, Yann and Autrel, Fabien},
-  date = {2021},
-  pages = {2},
+  booktitle = {Journ\'ee Th\'ematique Du {{GT}} Sur La {{S\'ecurit\'e}} Des {{Syst\`emes}}, {{Logiciels}} et {{R\'eseaux}} ({{GT-SSLR}})},
+  author = {Lavaur, L\'eo and Pahl, Marc-Oliver and Busnel, Yann and Autrel, Fabien},
+  date = {2021-05},
   abstract = {The Internet of Things has begun to spread over a variety of domains, including industry and finance. It represents an increasing threat for both IT and OT. The lack of collaboration results in the same attacks targeting different organizations one after the other. Often employed as an answer to this problem, cyber threat-intelligence sharing induces its own set of challenges: trust, privacy, and traceability.},
-  langid = {english},
-  keywords = {⛔ No DOI found}
+  keywords = {national}
+}
+
+@inproceedings{lavaur_icdcs_demo_2024,
+  title = {Demo: {{Highlighting}} the Limits of Federated Learning in Intrusion Detection},
+  booktitle = {Proceedings of the 44th International Conference on Distributed Computing Systems ({{ICDCS}})},
+  author = {Lavaur, L\'eo and Busnel, Yann and Autrel, Fabien},
+  date = {2024-07},
+  location = {Jersey City, NJ, USA},
+  keywords = {confs}
+}
+
+@inproceedings{lavaur_icdcs_tuto_2024,
+  title = {Tutorial: {{Federated}} Learning \texttimes{} Security for Network Monitoring},
+  booktitle = {Proceedings of the 44th International Conference on Distributed Computing Systems ({{ICDCS}})},
+  author = {Busnel, Yann and Lavaur, L\'eo},
+  date = {2024-07},
+  location = {Jersey City, NJ, USA},
+  keywords = {confs}
 }
 
 @article{lavaur_MetricsStrategiesAdversarial_,
@@ -6549,6 +6611,42 @@
   abstract = {Since its introduction in 2016, federated learning (FL) has been used in multiple domains, such as intrusion detection. However, FL literature shows that the heterogeneity of most realworld FL applications makes it difficult for clients to converge in a suitable global model. Furthermore, as a collaborative system, FL is vulnerable to attacks, such as model poisoning. While strategies have been identified in the literature, they often rely on the assumption that the data distribution among participants is homogeneous. In this paper, we review the current challenges in clustering and adversarial mitigation in heterogeneous FL, and propose different strategies to address them. Namely, we present a cross-evaluation framework for exhaustive gathering, and a set of algorithmic countermeasures based on principal component analysis. We show preliminary results of our clustering mechanism, which validates the effectiveness of the cross-evaluation framework.},
   langid = {english},
   keywords = {⛔ No DOI found}
+}
+
+@unpublished{lavaur_nof_tuto_2023,
+  title = {Federated Learning \texttimes{} Security for Network Management},
+  author = {Busnel, Yann and Lavaur, L\'eo},
+  date = {2023-09},
+  location = {Izmir, Turkey},
+  keywords = {tutorial}
+}
+
+@inproceedings{lavaur_radar_2024,
+  title = {{{RADAR}}: {{Model}} Quality Assessment for Reputation-Aware Collaborative Federated Learning},
+  booktitle = {Proceedings of the 43rd International Symposium on Reliable Distributed Systems ({{SRDS}})},
+  author = {Lavaur, L\'eo and Lechevalier, Pierre-Marie and Busnel, Yann and Ludinard, Romaric and Texier, G\'eraldine and Pahl, Marc-Oliver},
+  year = {2024-09, 2024},
+  location = {Charlotte, NC, USA},
+  keywords = {confs}
+}
+
+@inproceedings{lavaur_ressi_2023,
+  title = {Metrics and Strategies for Adversarial Mitigation in Federated Learning-Based Intrusion Detection},
+  booktitle = {Rendez-Vous de La {{Recherche}} et de l'{{Enseignement}} de La {{S\'ecurit\'e}} Des {{Syst\`emes}} d'{{Information}} ({{RESSI}})},
+  author = {Lavaur, L\'eo and Lechevalier, Pierre-Marie and Busnel, Yann and Pahl, Marc-Oliver and Autrel, Fabien},
+  date = {2023-05},
+  location = {Neuvy-sur-Barangeon, France},
+  keywords = {national}
+}
+
+@article{lavaur_tnsm_2022,
+  title = {The {{Evolution}} of {{Federated Learning-based Intrusion Detection}} and {{Mitigation}}: A {{Survey}}},
+  author = {Lavaur, L\'eo and Pahl, Marc-Oliver and Busnel, Yann and Autrel, Fabien},
+  date = {2022-06},
+  journaltitle = {IEEE Transactions on Network and Service Management},
+  shortjournal = {TNSM},
+  series = {Special {{Issue}} on {{Network Security Management}}},
+  abstract = {In 2016, Google introduced the concept of Federated Learning (FL), enabling collaborative Machine Learning (ML). FL does not share local data but ML models, offering applications in diverse domains. This paper focuses on the application of FL to Intrusion Detection Systems (IDSs). There, common criteria to compare existing solutions are missing. In particular, this survey shows: (i) how FL-based IDSs are used in different domains; (ii) what differences exist between architectures; (iii) the state of the art of FL-based IDS. With a structured literature survey, this work identifies the relevant state of the art in FL--based intrusion detection from its creation in 2016 until 2021. It provides a reference architecture and a taxonomy to serve as guidelines to compare and design FL- based IDSs. Both are validated with the existing works. Finally, it identifies research directions for the application of FL to intrusion detection systems.}
 }
 
 @online{layeghy_GeneralisabilityMachineLearningbased_2022,
@@ -8402,6 +8500,14 @@
   abstract = {In this paper, we theoretically study the problem of binary classification in the presence of random classification noise --- the learner, instead of seeing the true labels, sees labels that have independently been flipped with some small probability. Moreover, random label noise is \textbackslash emph\{class-conditional\} --- the flip probability depends on the class. We provide two approaches to suitably modify any given surrogate loss function. First, we provide a simple unbiased estimator of any loss, and obtain performance bounds for empirical risk minimization in the presence of iid data with noisy labels. If the loss function satisfies a simple symmetry condition, we show that the method leads to an efficient algorithm for empirical minimization. Second, by leveraging a reduction of risk minimization under noisy labels to classification with weighted 0-1 loss, we suggest the use of a simple weighted surrogate loss, for which we are able to obtain strong empirical risk bounds. This approach has a very remarkable consequence --- methods used in practice such as biased SVM and weighted logistic regression are provably noise-tolerant. On a synthetic non-separable dataset, our methods achieve over 88\textbackslash\% accuracy even when 40\textbackslash\% of the labels are corrupted, and are competitive with respect to recently proposed methods for dealing with label noise in several benchmark datasets.}
 }
 
+@report{nationalinitiativeforcybersecurityeducation_CyberRangeGuide_2023,
+  title = {The {{Cyber Range}}: {{A Guide}}},
+  author = {{National Initiative for Cybersecurity Education}},
+  date = {2023},
+  abstract = {Cybersecurity is a twenty first century challenge requiring a twenty first century workforce. The current cybersecurity workforce lacks sufficient professionals with the skills, training, and credentials to meet this cutting edge challenge. Market studies predict that this talent and skills gap will continue to widen among current and prospective cyber professionals over the coming years, creating a tremendous risk to business, government, and society.},
+  langid = {english}
+}
+
 @report{nationalinstituteofstandardsandtechnology_NISTCybersecurityFramework_2024,
   title = {The {{NIST Cybersecurity Framework}} ({{CSF}}) 2.0},
   author = {{National Institute of Standards and Technology}},
@@ -8784,6 +8890,13 @@
   langid = {english},
   pubstate = {prepublished},
   keywords = {\_read\_urgently,Computer Science - Cryptography and Security,Computer Science - Machine Learning}
+}
+
+@online{ONNX,
+  title = {{{ONNX}} \textbar{} {{Home}}},
+  author = {{ONNX}},
+  url = {https://onnx.ai/},
+  urldate = {2024-07-14}
 }
 
 @article{onyema_DesignIntrusionDetection_2022,
@@ -10195,6 +10308,21 @@
   langid = {english},
   pubstate = {prepublished},
   keywords = {Computer Science - Cryptography and Security,Computer Science - Networking and Internet Architecture}
+}
+
+@online{sani_FutureLargeLanguage_2024,
+  title = {The {{Future}} of {{Large Language Model Pre-training}} Is {{Federated}}},
+  author = {Sani, Lorenzo and Iacob, Alex and Cao, Zeyu and Marino, Bill and Gao, Yan and Paulik, Tomas and Zhao, Wanru and Shen, William F. and Aleksandrov, Preslav and Qiu, Xinchi and Lane, Nicholas D.},
+  date = {2024-05-17},
+  eprint = {2405.10853},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2405.10853},
+  url = {http://arxiv.org/abs/2405.10853},
+  urldate = {2024-07-14},
+  abstract = {Generative pre-trained large language models (LLMs) have demonstrated impressive performance over a wide range of tasks, thanks to the unprecedented amount of data they have been trained on. As established scaling laws indicate, LLMs' future performance improvement depends on the amount of computing and data sources we can leverage for pre-training. Federated learning (FL) has the potential to unleash the majority of the planet's data and computational resources, which are underutilized by the data-center-focused training methodology of current LLM practice. Our work presents a robust, flexible, reproducible FL approach that enables large-scale collaboration across institutions to train LLMs. This would mobilize more computational and data resources while matching or potentially exceeding centralized performance. We further show the effectiveness of the federated training scales with model size and present our approach for training a billion-scale federated LLM using limited resources. This will help data-rich actors to become the protagonists of LLMs pre-training instead of leaving the stage to compute-rich actors alone.},
+  pubstate = {prepublished},
+  keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Artificial Intelligence,Computer Science - Machine Learning}
 }
 
 @unpublished{santin_FrameworkVerifiableAuditable_2022,
@@ -12508,6 +12636,23 @@
   langid = {english}
 }
 
+@online{woisetschlager_FederatedLearningAI_2024,
+  title = {Federated {{Learning}} and {{AI Regulation}} in the {{European Union}}: {{Who}} Is Liable? {{An Interdisciplinary Analysis}}},
+  shorttitle = {Federated {{Learning}} and {{AI Regulation}} in the {{European Union}}},
+  author = {Woisetschl\"ager, Herbert and Mertel, Simon and Kr\"onke, Christoph and Mayer, Ruben and Jacobsen, Hans-Arno},
+  date = {2024-07-10},
+  eprint = {2407.08105},
+  eprinttype = {arXiv},
+  eprintclass = {cs},
+  doi = {10.48550/arXiv.2407.08105},
+  url = {http://arxiv.org/abs/2407.08105},
+  urldate = {2024-07-14},
+  abstract = {The European Union Artificial Intelligence Act mandates clear stakeholder responsibilities in developing and deploying machine learning applications to avoid substantial fines, prioritizing private and secure data processing with data remaining at its origin. Federated Learning (FL) enables the training of generative AI Models across data siloes, sharing only model parameters while improving data security. Since FL is a cooperative learning paradigm, clients and servers naturally share legal responsibility in the FL pipeline. Our work contributes to clarifying the roles of both parties, explains strategies for shifting responsibilities to the server operator, and points out open technical challenges that we must solve to improve FL's practical applicability under the EU AI Act.},
+  pubstate = {prepublished},
+  version = {1},
+  keywords = {C.2.4,Computer Science - Artificial Intelligence,D.2.1,I.2.11,K.5}
+}
+
 @online{woisetschlager_FederatedLearningPriorities_2024,
   title = {Federated {{Learning Priorities Under}} the {{European Union Artificial Intelligence Act}}},
   author = {Woisetschl\"ager, Herbert and Erben, Alexander and Marino, Bill and Wang, Shiqiang and Lane, Nicholas D. and Mayer, Ruben and Jacobsen, Hans-Arno},
@@ -12853,22 +12998,6 @@
 }
 
 @article{yamin_Modelingexecutingcyber_2022,
-  title = {Modeling and Executing Cyber Security Exercise Scenarios in Cyber Ranges},
-  author = {Yamin, Muhammad Mudassar and Katt, Basel},
-  date = {2022-05-01},
-  journaltitle = {Computers \& Security},
-  shortjournal = {Computers \& Security},
-  volume = {116},
-  pages = {102635},
-  issn = {0167-4048},
-  doi = {10.1016/j.cose.2022.102635},
-  url = {https://www.sciencedirect.com/science/article/pii/S0167404822000347},
-  urldate = {2024-07-12},
-  abstract = {The skill shortage in global cybersecurity is a well-known problem; to overcome this issue, cyber ranges have been developed. These ranges provide a platform for conducting cybersecurity exercises; however, conducting such exercises is a complex process because they involve people with different skill sets for the scenario modeling, infrastructure preparation, dry run, execution, and evaluation. This process is very complex and inefficient in terms of time and resources. Moreover, the exercise infrastructure created in current cyber ranges does not reflect the dynamic environment of real-world systems and does not provide adaptability for changing requirements. To tackle these issues, we developed a system that can automate many tasks of the cybersecurity exercise life cycle. We used model-driven approaches to (1) model the roles of the different teams present in the cybersecurity exercises and (2) generate automation artifacts to execute their functions efficiently in an autonomous manner. By executing different team roles such as attackers and defenders, we can add friction in the environment, making it dynamic and realistic. We conducted case studies in the form of operational cybersecurity exercises involving national-level cybersecurity competitions and a university class setting in Norway to evaluate our developed system for its efficiency, adaptability, autonomy, and skill improvement of the exercise participants. In the right conditions, our proposed system could create a complex cybersecurity exercise infrastructure involving 400 nodes with customized vulnerabilities, emulated attackers, defenders, and traffic generators under 40 minutes. It provided a realistic environment for cybersecurity exercises and positively affected the exercise participants' skill sets.},
-  keywords = {Cyber range,Exercises,Modeling,Scenario,Security}
-}
-
-@article{yamin_Modelingexecutingcyber_2022a,
   title = {Modeling and Executing Cyber Security Exercise Scenarios in Cyber Ranges},
   author = {Yamin, Muhammad Mudassar and Katt, Basel},
   date = {2022-05-01},

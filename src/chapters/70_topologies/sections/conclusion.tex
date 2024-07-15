@@ -1,9 +1,9 @@
 \section{Conclusion and Takeaways\label{sec:topologies.conclusion}}
 
-In this chapter, we presented \thecontrib, a tool to generate heterogeneous network topologies for generating \glspl{fids} datasets.
+In this chapter, we presented \thecontrib, a tool for generating heterogeneous network topologies to construct \glspl{fids} datasets.
 Because generating such topologies from scratch is impractical, we propose to build a library of predefined sub-topologies that can be combined to form larger topologies according to a set of constraints.
 We implement a first prototype of \thecontrib to validate the feasibility of the approach and to evaluate its performance.
-Due to the combinatorial nature of the problem, we rely on a constraint solver to find valid combinations of sub-topologies.
+Due to the combinatorial nature of the problem, we rely on a constraint solver to retrieve valid combinations of sub-topologies.
 Yet, the derivation time of our tool currently scales exponentially with most of the parameters.
 Meanwhile, the number of generated topologies is also exponential, making \thecontrib a powerful tool to generate a large number of topologies while controlling their heterogeneity.
 
@@ -23,9 +23,13 @@ We believe that having independently generated datasets that are comparable with
   behavior for similar but different services.
 \end{enumerate}
 
+
 \paragraph{Future Work}
+
 \thecontrib is currently a preliminary prototype that we plan to improve in several ways.
-The first and obvious improvement is to pursue the implementation of the tool to support the automated execution of scenarios (both attacks and legitimate traffic generation) to generate datasets.
+The first and obvious improvement is to pursue the implementation of the tool to support the automated execution of scenarios (both attacks and legitimate traffic generation) to generate datasets, relaying on existing traffic generators of the literature.
 Another lead for improvement lies in the optimization of the constraint solver, which is currently the bottleneck of the tool.
-This is critical to introduce finer constraints and allow for more complex topologies.
+Multiple strategies can be considered, such as using a more efficient modeling of the problem, or using other solving techniques such as column generation.
+This is critical to introduce finer constraints and allow for more complex topologies, without falling in the curse of dimensionality.
 Finally, while we identified as a requirement the respect of the statistical properties of real-world IT networks, this currently remains an open challenge.
+Consequently, future works include the study and identification of the aforementioned properties in real-world networks, and the integration of these properties in the generation process.

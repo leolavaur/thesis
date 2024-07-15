@@ -1,9 +1,10 @@
 \section{Problem Statement\label{sec:radar.problem}}
 
-In continuity with \Cref{chap:application,chap:assessment}, we consider once more the use case introduced in \Cref{sec:app.overview} and the associated datasets.
+In line with \Cref{chap:application,chap:assessment}, we consider once more the use case introduced in \Cref{sec:app.overview} and the associated datasets.
 Specifically, we focus on a heterogeneous declination of this \gls{cids} use case, where we admit that participants share similarities in their data distributions---\eg, between organizations operating in the same sector or having similar network infrastructure.
 This setting, also mentioned in \Cref{sec:app.overview}, is referred to as \emph{practical} \gls{niid}~\cite{huang_PersonalizedCrossSiloFederated_2021}.
 We also set $C=1$, as we consider that the participants are highly available and interested in collaborating.
+
 
 \subsection{Low-quality Contributions\label{sec:radar.problem.quality}}
 
@@ -45,21 +46,15 @@ The model can be summarized as follows:
 Because we do not make a priori assumptions on the whether the participants are malicious or not in this contribution, we also refer to the \gls{dpr} as the \emph{noisiness} of a participant.
 The \gls{mpr}, on the other hand, almost exclusively describes attackers, as it is unlikely for the same Byzantine fault to occur in multiple participants simultaneously.
 
+
 \subsection{Problem Formalization\label{sec:problem.formalization}}
 
 Based on the previous assumptions, we consider that participants might upload model updates that would negatively impact the performance of the global model, deliberately or not.
 Multiple forms of such actors can exist: external actors altering legitimate clients' data (\ie \emph{compromised}), clients whose local training sets are of poor quality (\ie \emph{honest-but-neglectful}), or clients modifying their own local data on purpose (\ie \emph{malicious}).
-We refer to them as \emph{Byzantine participants} or simply \emph{Byzantines} in the remaining of this paper.
-
+We refer to them as \emph{Byzantine participants} or simply \emph{Byzantines} in the remaining of this chapter.
 We further consider that the server can be trusted to perform the aggregation faithfully, and that \gls{fl} guaranties the confidentiality of the local datasets.
-Attacking the server is out of the scope of this contribution.
+Attacking the server is out of the scope of this study.
 Consequently, we aim at weighting or discarding the participants' contributions based on their quality to guaranty the performance of the aggregated model.
-
-
-% \begin{problem}[Quality Assessment in Heterogeneous Settings]
-%   For $n$ participants $p_k$ and their local datasets $d_k$ of unknown similarity, each participant uploads a model update $w_k^r$ at each round $r$. Given $P = \lbrace p_1, p_2, \dots, p_n \rbrace$ and $W = \lbrace w_1^r, w_2^r, \dots, w_n^r \rbrace$, how can one assess the quality of each participant's contribution $w_k^r$ without making assumptions on the data distribution across the datasets $d_k$?
-%   \label{pb:qahs}
-% \end{problem}
 
 \begin{problembox}{Quality Assessment in Heterogeneous Settings}{qahs}
   For $n$ participants $p_i$ and their local datasets $d_i$ of unknown similarity, each participant uploads a model update $w_i^r$ at each round $r$. Given $P = \lbrace p_1, p_2, \dots, p_n \rbrace$ and $W = \lbrace w_1^r, w_2^r, \dots, w_n^r \rbrace$, how can one assess the quality of each participant's contribution $w_i^r$ without making assumptions on the data distribution across the datasets $d_i$?

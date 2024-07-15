@@ -3,7 +3,7 @@
 We evaluate \thecontrib and any selected baseline on a set of heterogeneous intrusion detection datasets~\cite{sarhan_StandardFeatureSet_2022} with various attack scenarios (see \Cref{sec:radar.methodo.scenarios}).
 We implement the described use case (\Cref{sec:app.overview}) and threat model (\Cref{sec:assess.threat}) as a set of experiments using the \gls{fl} framework Flower~\cite{beutel_Flowerfriendlyfederated_2020}, with Nix~\cite{dolstra_purelyfunctionalsoftware_2006} and Poetry~\cite{eustace_Pythondependencymanagement_2018} to reproducibly manage dependencies.
 The hyperparameters used in our setup are detailed in \Cref{tbl:radar.hyperparameters}.
-The code for all experiments can be found online\footnote{TODO.}, with configuration and seeds for each considered baseline and evaluation scenario. 
+The code for all experiments can be found online\footnote{\url{https://github.com/leolavaur/radar-srds-2024}}, with configuration and seeds for each considered baseline and evaluation scenario. 
 We also provide lock files to enable anyone to reuse the same software versions as in this chapter.
 
 \begin{table}[t]
@@ -141,9 +141,9 @@ As  such, a \texttt{Lone 80T} scenario means that one of the five participants c
 \texttt{Colluding minority $\leq$30U} refers to all scenarios where two participants from Bot-IoT flip the labels on 30\% of their entire dataset, or less.
 
 
-\subsection{Metrics\label{sec:eval.methodo.metrics}}
+\subsection{Metrics\label{sec:radar.methodo.metrics}}
 
-To measure the ability of \thecontrib to cluster clients correctly, we use the Rand Index. 
+To measure the ability of \thecontrib to cluster clients correctly, we use the Rand index. 
 The Rand index compares two partitions by quantifying how the different element pairs are grouped in each.
 It is defined between 0 and 1.0, 1.0 meaning that both partitions are identical.
 \thecontrib already produces evaluation metrics at each round thanks to the cross-evaluation scheme, based on each participant's validation set.

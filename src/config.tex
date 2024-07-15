@@ -182,7 +182,7 @@
 %
 \def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
 \def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
-\def\cf{\emph{c.f}\onedot} \def\Cf{\emph{C.f}\onedot}
+\def\cf{\emph{cf}\onedot} \def\Cf{\emph{Cf}\onedot}
 \def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
 \def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
 \def\etal{\emph{et al}\onedot}
@@ -257,7 +257,7 @@
   colframe=graycolor,
   colbacktitle=graycolor!30!white,
   fonttitle=\bfseries\sffamily\color{graycolor}\strut,
-  title={Answering~\ref{#2}},
+  title={#2},
   #1,
 }
 
@@ -286,20 +286,20 @@
 }{def}
 
 
-% TODO !
+% % TODO !
 % \usepackage{fontspec}
-% \setmainfont{Times New Roman}
+% \setmainfont{Latin Modern Roman}
 % \setsansfont{Helvetica}
 % % Use LuaLaTeX to generate italic even though its not supported by inconsolata.
 % \setmonofont[
 %   AutoFakeSlant,
 %   BoldItalicFeatures={FakeSlant},
 % ]{Inconsolatazi4}
-% listings
 
+% listings
 \usepackage{newfloat}
 \usepackage{listings}
-\usepackage{inconsolata}
+%\usepackage{inconsolata}
 \lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
 \DeclareFloatingEnvironment[fileext=frm,placement={ht},name=Listing,within=chapter]{listing}
 
@@ -525,3 +525,8 @@
 % TODO retester mathbb avec ACM. 
 
 \usepackage{wrapfig}
+
+\DeclareFloatingEnvironment{tablefig}
+
+
+\usepackage{placeins}

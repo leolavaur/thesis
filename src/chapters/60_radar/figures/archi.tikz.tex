@@ -17,9 +17,9 @@
 	\node[left of=top] (clients) {Clients};
 	\node[right of=top] (server) {Server};
 	\node[block, right of=sep, node distance=3cm] (orchestration) {Orchestration};
-	\node[block, above right of=orchestration] (clustering) {Clustering};
-	\node[block, right of=orchestration, node distance=3cm] (reputation) {Reputation};
-	\node[block, below left of=reputation] (agg) {Aggregation};
+	\node[block, above right of=orchestration, xshift=0.4cm] (clustering) {Clustering};
+	\node[block, right of=orchestration, node distance=3.5cm] (reputation) {Reputation};
+	\node[block, below left of=reputation, xshift=-0.2cm] (agg) {Aggregation};
         \node[ below of=orchestration, node distance=3cm] (legend) {};
         \node[ left of=legend, node distance=3cm] (legend_start) {};
         % \draw (legend) node[anchor=south] {.};

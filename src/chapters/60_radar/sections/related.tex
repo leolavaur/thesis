@@ -1,92 +1,18 @@
-\section{Background and Related Work\label{sec:radar.related}}
+\section{Related Works\label{sec:radar.related}}
 
-The reliability of a submitted local model can be assessed in several ways, whether it is used to detect \emph{honest-but-neglectful} or explicitly \emph{malicious} participants.
-In this section, we review the existing literature on model quality assessment in \gls{fl} and the related work on Byzantine-robust \gls{fl}.
-We review the existing approaches to detect and mitigate the impact of Byzantine contributions, and discuss the limitations of these methods in heterogeneous settings.
-We also review the existing works on reputation systems in \gls{fl} and the use of clustering to improve the aggregation of local models.
-
-
-\subsection{Byzantine-resilient Federated Learning\label{sec:radar.related.byzantine}}
-
-Some approaches use evaluation to validate submitted models against a centralized dataset~\cite{cao_FLTrustByzantinerobustFederated_2022}, or against randomly selected distributed datasets~\cite{pejo_QualityInferenceFederated_2023} if they are representative of each other---which is the case with \gls{iid} data partitioning.
-Given \gls{iid} settings, submitted models can also be compared to each other~\cite{blanchard_Machinelearningadversaries_2017,cao_FLTrustByzantinerobustFederated_2022,nguyen_FLAMETamingBackdoors_2022} or with a reference model~\cite{xia_ToFiAlgorithmDefend_2021,zhou_DifferentiallyPrivateFederated_2022}, using distance metrics.
-Among these, \texttt{FLAME}~\cite{nguyen_FLAMETamingBackdoors_2022} stands out, as it leverages multiple complementary methods to stop malicious participants: clustering to identify \emph{multiple} groups of attackers, norm-clipping to mitigate gradient boosting attacks, and adaptive noising to lessen the impact of outliers.
+In the context of Byzantine-robust \gls{fl}, \texttt{FLAME}~\cite{nguyen_FLAMETamingBackdoors_2022} represents one of the most complete solutions, leveraging clustering, norm-clipping, and adaptive noising to mitigate attacks.
 Yet, because it works under the assumption that the biggest cluster represents benign participants and that attackers cannot exceed 50\% of the population, \texttt{FLAME} \emph{de facto} falters against a majority of malicious clients.
-Furthermore, while the paper demonstrates that it can resist to low proportions of \emph{\gls{niid}} participants, it still aims at delivering one common global model, thus failing to address the more skewed \gls{niid} cases, where leveraging multiple sub-federations might be necessary.
-
-The assumption of \gls{iid} data rarely holds in \gls{fl}, even though its properties facilitate the detection of Byzantine participants.
-Indeed, given \gls{niid} settings, \textcite{you_Poisoningattackdetection_2022} show most of these mitigation strategies are inefficient.
-These methods rely on a single source of truth that may be known beforehand~\cite{cao_FLTrustByzantinerobustFederated_2022}, or elected among participants~\cite{blanchard_Machinelearningadversaries_2017}.
-However, by definition, this single source of truth does not exist in \gls{niid} datasets. 
-To circumvent this issue, \texttt{FoolsGold}~\cite{fung_LimitationsFederatedLearning_2020} and \texttt{CONTRA}~\cite{awan_CONTRADefendingPoisoning_2021} assume that sybils share a common goal, and thus produce similar model updates, allowing to distinguish them from benign \gls{niid} participants that present dissimilar contributions. 
-Similar participants are classified as sybils using the cosine similarity between gradient updates, and their weight is reduced in the final aggregation. 
-However, while this mitigation strategy works when multiple attackers collaborate, it fails at identifying lone attackers.
-These approaches are also well suited for \emph{pathological \gls{niid}} scenarios, where all participants are significantly different. 
-In \emph{practical \gls{niid}} settings, legitimate communities of similar participants can exist.
-Those legitimate participants would be falsely identified as sybils. 
-
-Finally, \textcite{zhao_ShieldingCollaborativeLearning_2020} take a different approach and rely on client-side evaluation.  
-Local models are aggregated into multiple sub models, which are then randomly attributed to multiple clients for efficiency validation. 
-To also address \gls{niid} datasets, clients self-report the labels on which they have enough data to conduct an evaluation. 
-While this self-reporting limits the network and client resources consumption, abusive self-reporting is possible. 
-Nevertheless, directly leveraging the participant datasets for evaluation removes the need for a single exhaustive source of truth. 
-Resource consumption is also less of an issue in cross-silo use cases: they often imply fewer participants, with more data and dedicated resources.
-
-
-\subsection{Clustered Federated Learning\label{sec:radar.related.cluster}}
-
-\Gls{niid} data can also be regarded as heterogeneous data distributions $\mathcal{P}_k$ that are regrouped together, where $\mathcal{P}_k$ is the distribution of the dataset $d_k$.
-Following this idea, some works~\cite{briggs_Federatedlearninghierarchical_2020,ouyang_ClusterFLClusteringbasedFederated_2022,ye_PFedSAPersonalizedFederated_2023} try to group participants sharing similarities. 
-The purpose of this approach is twofold.
-First, from a performance perspective, \gls{niid} settings slow down convergence.
-Even if a global minimum is reached, the model might not be optimal for all participants~\cite{kairouz_AdvancesOpenProblems_2021,ouyang_ClusterFLClusteringbasedFederated_2022}.
-In addition, considering outliers as poisoned models~\cite{peri_DeepkNNDefense_2020}, one can eliminate thier in the aggregation process.
-
-Since the effective number of clusters is unknown, hierarchical clustering is a common way to create appropriate clusters~\cite{briggs_Federatedlearninghierarchical_2020,ye_PFedSAPersonalizedFederated_2023}. 
-Specifically, \textcite{ye_PFedSAPersonalizedFederated_2023} use the cosine similarity of local models to successfully group participants in more homogeneous subgroups.
+Additionally, while \texttt{FLAME} can manage scenarios with low proportions of \gls{niid} participants, it aims to produce a single global model, which may not be optimal in highly skewed \gls{niid} environments where multiple sub-federations are needed.
+A more comparabile approach leveraging clustering is proposed by \textcite{ye_PFedSAPersonalizedFederated_2023}, who use cosine similarity to group participants in more homogeneous subgroups.
 However, as this approach doesn't aim to address Byzantines, it does not consider that some malicious participants might aim to be grouped with benign ones to poison the cluster's model.
-Another approach for finding the appropriate number of clusters is dynamic \emph{split-and-merge} clustering~\cite{chen_ZeroKnowledgeClustering_2021}, where the number of clusters is adjusted depending on the distance between the participants' in each cluster.
-Finally, \textcite{ouyang_ClusterFLClusteringbasedFederated_2022} propose a clustering algorithm relying on K-means and spectral relaxation to group participants without prior knowledge of the number of clusters.
-Contrary to the most of the existing works, they do not use metrics that rely on vector representations of the models (such as cosine similarity, L2 norm, or scalar products).
-Rather, they leverage the \gls{kld} to compare the models' probability distributions, which do not require the models to rely on a convex loss function.
 
+\texttt{FoolsGold}~\cite{fung_LimitationsFederatedLearning_2020} and \texttt{CONTRA}~\cite{awan_CONTRADefendingPoisoning_2021} provide alternative strategies by identifying sybils through the similarity of model updates.
+These methods are particularly well suited for \emph{pathological} \gls{niid} scenarios, as they assume sybils generate similar updates, thus distinguishing them from benign participants.
+However, they struggle to detect lone attackers and face challenges in \emph{practical} \gls{niid} settings where legitimate communities of similar participants exist (\cf \Cref{sec:bg.fl.data}).
+In such cases, these legitimate participants may be falsely classified as sybils, reducing the effectiveness of these strategies.
 
-\subsection{Reputation systems for Federated Learning\label{sec:radar.related.reputation}}
-
-In collaborative applications, reputation systems preemptively assess the ability of participants to perform a task and the quality of its result, based on past interactions.
-\Cref{def:rep} provides a formal definition of reputation systems.
-In the context of \gls{fl}, they usually have three main applications:
-  \begin{enumerate*}[(i)]
-      \item client selection;
-      \item model weighting and aggregation; and
-      \item tracking contribution quality over time.
-  \end{enumerate*}
-
-
-\begin{definitionbox}{Reputation Systems}{rep}
-  A reputation system collects, distributes, and aggregates feedback about participants’ past behavior.
-  [\dots]
-  To operate effectively, reputation systems require at least three properties: 
-  \begin{itemize}[\textbullet]
-    \item Long-lived entities that inspire an expectation of future interaction;
-    \item Capture and distribution of feedback about current interactions (such information must be visible in the future); and
-    \item Use of feedback to guide trust decisions.
-  \end{itemize}
-  -- \textcite{resnick_Reputationsystems_2000}  
-\end{definitionbox}
-
-The first application, client selection, is used to determine which participants should be included in the training process of the next round~\cite{kang_ReliableFederatedLearning_2020,awan_CONTRADefendingPoisoning_2021,song_ReputationBasedFederatedLearning_2022,tan_ReputationAwareFederatedLearning_2022}.
-This is particularly useful in scenarios with constrained resources~\cite{song_ReputationBasedFederatedLearning_2022} and in hybrid architectures (see \Cref{fig:cids.hybrid}) where servers can exchange reputation information about their users~\cite{kang_ReliableFederatedLearning_2020}.
-\texttt{CONTRA}~\cite{awan_CONTRADefendingPoisoning_2021} provides an example of such a reputation system for client selection.
-By progressively penalizing the participants that propose models similar to each others, and that are thus suspected of being \emph{sybils} (see \Cref{sec:radar.problem,sec:assess.threat}), it leaves room for participants issuing dissimilar models to be selected more often. 
-We detail in \Cref{sec:countermeasures} the limits of these types of approaches in practical \gls{niid} settings.  
-
-The second main application is to weight local models during the aggregation process~\cite{wang_FLAREDefendingFederated_2022,wang_ReputationenabledFederatedLearning_2021}: the higher the reputation, the heavier the local model contributes to the aggregated model.
-Some will even go so far as to discard contributions when the author's reputation is too low.
-\textcite{karimireddy_LearningHistoryByzantine_2021} underline the importance of historical record in robust aggregation: malicious incremental changes can be small enough to be undetected in a single round but still eventually add up enough to poison the global model over the course of multiple round.
-Reputation system's ability to track clients' contributions over time~\cite{kang_ReliableFederatedLearning_2020,wang_ReputationenabledFederatedLearning_2021} can be used as a countermeasure to these attacks.
-
-Finally, note that the literature on reputation systems sometimes distinguishes between \emph{reputation} and \emph{trust} systems~\cite{chen_TRMIoTtrustmanagement_2011,zohrafilali_GlobalTrustTrust_2015}.
-One of the main differences is the use of indirect feedbacks in reputation systems, wheras trust systems rely on direct evaluation an objective metrics.
-Based on this distinction, the reputation is the global perception of a one's trustworthiness in the system, based on the feedback of others~\cite{chen_TRMIoTtrustmanagement_2011}.
-To the best of our knowledge, no work has yet been published in the context of \gls{fl} that suit this definition.
+To overcome relying on a single source of truth without using similarity metrics, \textcite{zhao_ShieldingCollaborativeLearning_2020} leverage client-side evaluations to assess model quality.
+To address \gls{niid} settings, clients self-report the labels on which they have sufficient data to evaluate the model, which introduces the risk of abusive self-reporting.
+Despite its significant overhead in terms of resource and bandwidth consumption, this approach is remains appropriate for cross-silo \gls{fl} scenarios, which involves fewer participants with more data and dedicated resources.
+A reputation system for \gls{fl} that leverages indirect feedback would be able to mitigate improper feedbacks and provide a more nuanced evaluation of participants' contributions.
+However, to the best of our knowledge, none of the trust-scoring systems proposed in the literature fit the definition of a reputation system as posed in \Cref{sec:radar.prelim.reputation}.

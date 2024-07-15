@@ -4,7 +4,7 @@ The results presented in this section aim at answering the research questions de
 \Cref{fig:assess.baseline} presents the performance of the global model without malicious participants to serve as a baseline to compare with.
 The model displays relatively high performance on both datasets, \ie, above 0.9 for the accuracy, recall, and F1-score.
 However, some classes are more challenging to detect than others.
-The feeble representation of the ``Injection'' class in \texttt{cicids} (around 0.0017\%, see \Cref{tbl:assess.datasets}) prevents the model from learning from it, provoking this absence of evolution over time (see \Cref{fig:assess.baseline.cicids}).
+The low representation of the ``Injection'' class in \texttt{cicids} (around 0.0017\%, see \Cref{tbl:assess.datasets}) prevents the model from learning from it, provoking this absence of evolution over time (see \Cref{fig:assess.baseline.cicids}).
 The ``Infiltration'' class is more represented in the dataset (0.6108\%, approximately the same as the ``Brute Force'' and ``Bot'' classes), but remains difficult to learn because of its apparent similarity with benign traffic.
 Consequently, it never exceeds a recall of 0.2.
 The detection in \texttt{nb15} is better overall, with the exception of the ``Analysis'' and ``DoS'' classes that score below 0.9, although they are not the least represented classes in the dataset.
@@ -33,7 +33,7 @@ The detection in \texttt{nb15} is better overall, with the exception of the ``An
   ]{
     Baseline performance of the global model without malicious participants.
     The accuracy, F1-score, and recall illustrate the performance that can be expected from the global model under the conditions selected for this study ($\mathcal{E}=10$, $\beta=512$).
-    The recall of the six available attack classes shall serve as a reference for the \gls{rasr} of targeted attacks.
+    The recall of the available attack classes shall serve as a reference for the \gls{rasr} of targeted attacks.
     \label{fig:assess.baseline}
   }
 \end{figure}
@@ -46,7 +46,7 @@ The detection in \texttt{nb15} is better overall, with the exception of the ``An
 \subsection{Impact Predictability\label{sec:assess.results.predictability}}
 
 \begin{table}
-  \caption{Experiment parameters for \ref{rq:assess.predictability}.}
+  \caption{Experiment parameters for \ref{rq:assess.predictability}}
   \label{tbl:asssess.predictability}
   \small
   \begin{tabular}{>{\ttfamily\itshape}p{.2\columnwidth} >{\ttfamily}p{.70\columnwidth}}
@@ -63,7 +63,7 @@ The detection in \texttt{nb15} is better overall, with the exception of the ``An
 
 A preliminary question to answer before quantifying the effects of label-flipping is whether the behavior of poisoning attacks is predictable.
 This is a requirement for generalizing our results to other datasets and models, and comparing the findings with current and future studies.
-Due to space constraints and computation constraints, we focus in this part on the  parameters that have the most significant impact on the results, as we need to perform longer experiments to ensure the stability of the results.
+Due to computation constraints, we focus in this part on the  parameters that have the most significant impact on the results, as we need to perform longer experiments to ensure the stability of the results.
 Specifically, the selected distribution contains 50\% of malicious participants (\ie, $\tau=0.5$), which roughly equates to 50\% of the training data being poisoned.
 The experiments are performed during 300 epochs, with three different aggregation frequencies ($\mathcal{E} \in \lbrace 1, 4, 10 \rbrace$) and two different batch sizes ($\beta \in \lbrace 32, 512 \rbrace$).
 \Cref{tbl:asssess.predictability} summarizes the parameters used for this experiment.
@@ -88,7 +88,7 @@ This figure brings two key insights.
 First, the different runs exhibit consequent variability, especially in the early stages of training.
 This is true for the runs themselves, but also for between runs on the same datasets.
 Using the same parameters, the accuracy of the global model varies from 0.2 to 0.8 after 100 epochs on \texttt{cicids} (with $\beta=32$) and from 0.05 to 0.95 on \texttt{nb15}.
-Some runs display particularly heterogeneous results, such as the seed 6567 on \texttt{nb15} ($\beta=512$), which starts below 0.4, increases to close to 1.0, before dropping below 0.2 and stabilizing.
+Some runs display particularly heterogeneous results, such as the seed 6567 on \texttt{nb15} ($\beta=512$), depicted in red in \Cref{fig:assess.predictability}, which starts below 0.4, increases to close to 1.0, before dropping below 0.2 and stabilizing.
 Overall, \texttt{nb15} presents a higher variability than \texttt{cicids}, but with runs that are more stable.
 
 \begin{figure}
@@ -127,7 +127,7 @@ It can be interpreted as a consequence of the complexity of the learning tasks, 
 Therefore, the problem probably admits a high number of local minima, which are reached depending on the seed.
 On the contrary, the difference between rounds using $\mathcal{E}=32$ on \texttt{cicids} (see \Cref{fig:predictability.cicids}) tends to increase over time, illustrating the difficulty for each run to converge to a stable state.
 
-\begin{answerbox}{rq:assess.predictability}
+\begin{answerbox}{Answering~\ref{rq:assess.predictability} \normalfont\itshape\rqpred}
   The behavior of poisoning attacks is not predictable, as the dispersion between results is too important, although only the seed varies.
   However, the dispersion decreases over time in some conditions, and each run tends to converge to a stable state.
   \emph{In practice, this makes the impact difficult to predict for a specific attack instance, even though general tendencies can be extrapolated.}
@@ -141,7 +141,7 @@ On the contrary, the difference between rounds using $\mathcal{E}=32$ on \texttt
 \subsection{Hyperparameters Impact\label{sec:assess.results.hyperparams}}
 
 \begin{table}
-  \caption{Experiment parameters for \ref{rq:assess.hyperparams}.}
+  \caption{Experiment parameters for \ref{rq:assess.hyperparams}}
   \label{tbl:asssess.hyperparams}
   \small
   \begin{tabular}{>{\ttfamily\itshape}p{.2\columnwidth} >{\ttfamily}p{.7\columnwidth}}
@@ -157,7 +157,7 @@ On the contrary, the difference between rounds using $\mathcal{E}=32$ on \texttt
 \end{table}
 
 To understand the impact of hyperparameters on the behavior of poisoning attacks, we study the impact of different batch sizes ($\beta$) and aggregation frequencies ($\mathcal{E}$).
-We reuse the conditions from \Cref{sec:assess.results.predictability} but limit the number of epochs to 100, as most scenarios do not show significant changes after this point (see \Cref{sec:assess.results.predictability}).
+We set again the conditions from \Cref{sec:assess.results.predictability} but limit the number of epochs to 100, as most scenarios do not show significant changes after this point (see \Cref{sec:assess.results.predictability}).
 Additionally, we evaluate the hyperparameters on the \emph{late} poisoning scenario, where the attackers only start after a 3-rounds bootstrap period, and in the \emph{redemption} scenario, where the attackers stop after 3 rounds.
 The experiment parameters are summarized in \Cref{tbl:asssess.hyperparams}.
 
@@ -229,7 +229,6 @@ This is critically low for intrusion detection: 0.5 is the score of a random cla
   }
 \end{figure}
 
-% TODO: Remettre les deux figures ensemble quand les résultats de NB15 seront prêts
 \begin{figure}
   \centering
   \begin{subfigure}{.49\linewidth}
@@ -255,7 +254,7 @@ This is critically low for intrusion detection: 0.5 is the score of a random cla
     Accuracy of the global model after a label-flipping attack.
     The data is aligned to start at the last epochs before the attack ends, and the impact is measured over the next 40 epochs (\ie, 4 or 10 rounds depending on $\mathcal{E}$).
   }
-  \label{fig:redemption}
+  \label{fig:assess.hyperparams-redemption}
 \end{figure}
 
 However, when clients have been given the time to converge before the attack, the impact of the hyperparameters becomes more visible, particularly for the batch size as depicted in \Cref{fig:assess.hyperparams-late}.
@@ -263,12 +262,12 @@ While the impact is instantaneous when $\beta=32$, it takes around 20 epochs wit
 The dispersion of the results is significantly lower in the latter, as is the reached accuracy, which goes down to 0.25 after 60 epochs.
 A bigger batch size thus leads to a greater inertia and a lower dispersion of the results when the attack starts, but also to a lower accuracy afterward.
 A similar could be observed with the \texttt{redemption} scenario, where the attack stops after 3 rounds.
-However, he results show a quasi-instantaneous recovery of the global model's accuracy after the attack ends.
+However, \Cref{fig:assess.hyperparams-redemption} presents a quasi-instantaneous recovery of the global model's accuracy after the attack ends.
 This is expected, as \Cref{fig:assess.baseline} indicates that the global model's accuracy already exceeds 0.95 at the first round, in spite of the randomly initialized model parameters provided by the server before the first round.
 This is also consistent with the results of \textcite{zhang_Evaluationdatapoisoning_2022} on NSL-KDD~\cite{tavallaee_detailedanalysisKDD_2009} and UNSW-NB15~\cite{moustafa_UNSWNB15comprehensivedata_2015}.
 
 
-\begin{answerbox}{rq:assess.hyperparams}
+\begin{answerbox}{Answering~\ref{rq:assess.hyperparams} \normalfont\itshape\rqparams}
   While the hyperparameters have an impact on the poisoning effect, no combination prevents it: \emph{on average, the performance remains the same.}
   The results' dispersion can vary significantly depending on parameter combinations, especially when the attack occurs after the clients have converged.
   Then, a smaller batch size leads to a swifter effect, while a bigger batch size leads to a greater \gls{asr}.
@@ -291,7 +290,7 @@ We consider $\alpha=100\%$ and various values of $\tau$ to assess whether a \gls
 \Cref{tbl:asssess.backdoors} summarizes the parameters used for this experiment.
 
 \begin{table}
-  \caption{Experiment parameters for \ref{rq:assess.backdoors}.}
+  \caption{Experiment parameters for \ref{rq:assess.backdoors}}
   \label{tbl:asssess.backdoors}
   \small
   \begin{tabular}{>{\ttfamily\itshape}p{.2\columnwidth} >{\ttfamily}p{.7\columnwidth}}
@@ -327,7 +326,7 @@ We consider $\alpha=100\%$ and various values of $\tau$ to assess whether a \gls
   \caption[
     \Gls{rasr} of targeted label-flipping attacks over time.
   ]{
-    \Gls{rasr} of targeted label-flipping attacks over time, with $\beta=512$, $\mathcal{E}=10$, and $\alpha=100\%$.
+    \Gls{rasr} of targeted label-flipping attacks over time, with $\beta=512$, $\mathcal{E}=10$, and $\alpha=1.0$.
     The $x$-axis represents the number of local epochs.
     The \gls{aasr} of the benign scenario is provided as a reference for each targeted class.
     \label{fig:backdoors}
@@ -344,7 +343,7 @@ While on \texttt{cicids}, some attacks can reach an \gls{asr} close to 1.0 given
 Some classes seem completely immune to the attack, such as ``Backdoor'', ``Shellcode'', and ``Worms''.
 Even the most successful attacks on \texttt{nb15} barely exceed 0.5.
 On \texttt{cicids}, on the other hand, the results are more convincing.
-hile 30\% of attackers are not enough to permanently impact the global model's accuracy, multiple classes can reach an \gls{rasr} close to 1.0 at least momentarily.
+While 30\% of attackers are not enough to permanently impact the global model's accuracy, multiple classes can reach an \gls{rasr} close to 1.0 at least momentarily.
 With $\tau=0.5$, the \gls{rasr} of ``Bot'', ``DDoS'', and ``Infiltation'' classes permanently reach 1.0 after a few rounds.
 Most importantly, the \gls{mta} of the global model remains close to its nominal performance, even when the \gls{rasr} of the targeted classes reaches 1.0, except for the ``DDoS'' class.
 Indeed, the ``DDoS'' class is the most represented in the dataset, with 5.29\% of the samples. 
@@ -356,7 +355,7 @@ All these targets yielded a \gls{rasr} close to 0.0.
 Second, as we consider binary classification tasks, any overlap between classes' characteristics can be used by the model to infer the correct associations using samples from unaffected classes.
 For instance, the ``Brute Force'' and ``DoS'' classes in \texttt{cicids} both imply a high number of connections from a single host, and both obtain subpar results when compared to the most efficient attacks.
 
-\begin{answerbox}{rq:assess.backdoors}
+\begin{answerbox}{Answering~\ref{rq:assess.backdoors} \normalfont\itshape\rqbackdoor}
   This type of attack has less impact on the global model's \gls{mta}, meaning that they are more likely to remain undetected.
   Although not all classes are equally impacted, \emph{\gls{ids} backdoors are possible using label-flipping attacks, given a sufficient number of attackers and a well-represented target.}
   Colluding attackers can realistically create a backdoor that may later be leveraged to evade detection, raising the question of the minimum \gls{dpr} and \gls{mpr} necessary for such attacks to be effective.
@@ -370,9 +369,15 @@ For instance, the ``Brute Force'' and ``DoS'' classes in \texttt{cicids} both im
 
 \subsection{Threshold for Effective Attacks\label{sec:results.impact}}
 
+\Cref{sec:assess.results.backdoors} suggests that the number of attackers is a critical factor in the effectiveness of targeted attacks.
+This experiment aims to understand the critical threshold where label-flipping attacks begin to impact the global model's accuracy by studying both the \gls{dpr} ($\alpha$) and the \gls{mpr} ($\tau$).
+\Cref{tbl:assess.threshold} summarizes the parameters used for this experiment.
+Our previous experiments highlighted the impact of the number of attackers on the global model's accuracy.
+
+
 \begin{table}
   \caption{
-    Experiment parameters for \ref{rq:assess.threshold}.
+    Experiment parameters for \ref{rq:assess.threshold}
     \label{tbl:assess.threshold}
   }
   \small
@@ -388,11 +393,6 @@ For instance, the ``Brute Force'' and ``DoS'' classes in \texttt{cicids} both im
   \end{tabular}
 \end{table}
 
-
-Our previous experiments highlighted the impact of the number of attackers on the global model's accuracy.
-\Cref{sec:assess.results.backdoors} suggests that the number of attackers is a critical factor in the effectiveness of targeted attacks.
-This experiment aims to understand the critical threshold where label-flipping attacks begin to impact the global model's accuracy by studying both the \gls{dpr} ($\alpha$) and the \gls{mpr} ($\tau$).
-\Cref{tbl:assess.threshold} summarizes the parameters used for this experiment.
 
 \begin{figure*}
   \centering
@@ -423,20 +423,20 @@ This experiment aims to understand the critical threshold where label-flipping a
   }
 \end{figure*}
 
-\Cref{fig:attacks} presents the \gls{rasr} of considered label-flipping attacks over time, both for untargeted and targeted attacks.
+\Cref{fig:assess.threshold} presents the \gls{rasr} of considered label-flipping attacks over time, both for untargeted and targeted attacks.
 The entire figure emphasizes on the importance of the number of attackers in the effectiveness of the attack, as most attacks are unimpactful with while $\tau \leq 0.3$.
 In particular, with one single attacker ($\tau=0.1$), the \gls{rasr} remains well below 0.1, even with a high poisoning rate ($\alpha=1.0$).
 $\tau=0.5$ represents a tipping point in our tests, with \gls{rasr} values orders of magnitude higher than with $\tau=0.3$.
 
 More importantly, we can infer from $\Gamma=\tau\times\alpha$ the overall quantity of poisoned data due to our \gls{iid} partitioning.
 For untargeted attacks in \texttt{cicids}, the \gls{rasr} exceeds 0.5 for $\Gamma>0.5$, and approach 1.0 for $\Gamma>0.67$.
-For targeted attacks, the \gls{rasr} exceeds 0.5 for $\Gamma>0.49$ and approaches 1.0 for  $\Gamma>56\%$.
+For targeted attacks, the \gls{rasr} exceeds 0.5 for $\Gamma>0.49$ and approaches 1.0 for  $\Gamma>0.56$.
 Untargeted attacks on \texttt{nb15} are slightly more effective, with the \gls{rasr} exceeding 0.5 for $\Gamma>0.49$ and approaching 1.0 for $\Gamma>0.63$.
 However, as highlighted in \Cref{sec:assess.results.backdoors}, targeted attacks on \texttt{nb15} are close to ineffective, with the \gls{rasr} never exceeding 0.25, even with $\Gamma=0.7$, our highest overall poisoning rate.
-Thus, \gls{rasr} and the tuple $(\alpha, \tau)$ exhibit fairly similar variations, albeit not linear: the higher are the \gls{dpr} and \gls{mpr}, the higher is the \gls{rasr}.
+Thus, \gls{rasr} and the tuple $(\alpha, \tau)$ exhibit fairly similar variations, albeit not linear: the higher the \gls{dpr} and \gls{mpr}, the higher the \gls{rasr}.
 However, poisoning the entire local dataset seems more powerful than instantiating more attackers: $\alpha=100$ and $\tau=50$ yield higher \gls{rasr} than $\alpha=80$ and $\tau=70$, although the latter represents more affected data overall.
 
-\begin{answerbox}{rq:assess.threshold}
+\begin{answerbox}{Answering~\ref{rq:assess.threshold} \normalfont\itshape\rqthreshold}
   The effectiveness of label-flipping attacks is directly related the overall quantity of poisoned data.
   However, this relationship is not linear, and there is a critical threshold when $\alpha$ is below 1.0.
   \Gls{fl} suffers from same caveat as numerous other distributed systems, where the majority of participants must be honest to ensure the system's security.
@@ -476,62 +476,56 @@ For instance, \textcite{tolpegin_DataPoisoningAttacks_2020} propose to use \gls{
 To assess the effectiveness of this strategy for \glspl{cids}, we explore the impact of different partitioning schemes (\cf \Cref{sec:assess.method.partition}) on the \gls{pca} analysis.
 \Cref{tbl:assess.similarity} summarizes the parameters used for this experiment.
 
-\begin{figure}[t]
+\begin{figure}
   \centering
-  \begin{subfigure}{\linewidth}
+  \begin{subfigure}[t]{0.48\linewidth}
     \centering
-    \includegraphics[width=.6\linewidth]{figures/cicids/similarity-untargeted-single}
+    \includegraphics[width=\linewidth]{figures/cicids/similarity-untargeted-single}
     \caption{
-      CIC-CSE-IDS2018
-      \label{fig:similarity.cicids-single}
+      Single attacker on CIC-CSE-IDS2018
+      \label{fig:assess.similarity.single-cicids}
     }
   \end{subfigure}
-  \begin{subfigure}{\linewidth}
+  \hfill
+  \begin{subfigure}[t]{0.48\linewidth}
     \centering
-    \includegraphics[width=.6\linewidth]{figures/nb15/similarity-untargeted-single}
+    \includegraphics[width=\linewidth]{figures/nb15/similarity-untargeted-single}
     \caption{
-      UNSW-NB15
-      \label{fig:similarity.nb15-single}
+      Single attacker on UNSW-NB15
+      \label{fig:assess.similarity.single-nb15}
     }
+    \vspace{\baselineskip}
   \end{subfigure}
-  \caption[
-    2D projection of gradients using \gls{pca} for different partitioning schemes with a single attacker.
-  ]{
-    2D projection of gradients using \gls{pca} for different partitioning schemes with a single attacker.
-    Results for the 10\textsuperscript{th} round with \texttt{seed=1128}, \tau=0.1, and \alpha=1.0. 
-    \label{fig:similarity-single}
-  }
-\end{figure}
 
-\begin{figure}[t]
-  \centering
-  \begin{subfigure}{\linewidth}
+  \begin{subfigure}[t]{0.48\linewidth}
     \centering
-    \includegraphics[width=.6\linewidth]{figures/cicids/similarity-untargeted-colluding}
+    \includegraphics[width=\linewidth]{figures/cicids/similarity-untargeted-colluding}
     \caption{
-      CIC-CSE-IDS2018
-      \label{fig:similarity.cicids-colluding}
+      Colluding attackers on CIC-CSE-IDS2018
+      \label{fig:assess.similarity.colluding-cicids}
     }
   \end{subfigure}
-  \begin{subfigure}{\linewidth}
+  \hfill
+  \begin{subfigure}[t]{0.48\linewidth}
     \centering
-    \includegraphics[width=.6\linewidth]{figures/nb15/similarity-untargeted-colluding}
+    \includegraphics[width=\linewidth]{figures/nb15/similarity-untargeted-colluding}
     \caption{
-      UNSW-NB15
-      \label{fig:similarity.nb15-colluding}
+      Colluding attackers on UNSW-NB15
+      \label{fig:assess.similarity.colluding-nb15}
     }
   \end{subfigure}
   \caption[
-    2D projection of gradients using \gls{pca} for different partitioning schemes with colluding attackers.
+    2D projection of gradients using \gls{pca} for different partitioning schemes.
   ]{
-    2D projection of gradients using \gls{pca} for different partitioning schemes with colluding attackers.
-    Results for the 10\textsuperscript{th} round with \texttt{seed=1128}, \tau=0.5, and \alpha=1.0. 
-    \label{fig:similarity-colluding}
+    2D projection of gradients using \gls{pca} for different partitioning schemes.
+    The top row represents the results for a single attacker (\ie, $\tau=0.1$), while the bottom row illustrates the results for colluding attackers (\ie, $\tau=0.5$).
+    Results for the 10\textsuperscript{th} round with \texttt{seed=1128} and $\alpha=1.0$. 
+    \label{fig:assess.similarity}
   }
 \end{figure}
 
 
-\Cref{fig:similarity-single,fig:similarity-colluding} present 2D projections of the participants' gradients using \gls{pca} for different partitioning schemes.
+\Cref{fig:assess.similarity} presents 2D projections of the participants' gradients using \gls{pca} for different partitioning schemes.
 Each point represents a client's contribution to the global model's update at the 10\textsuperscript{th} round.
 Since \texttt{FedAvg} aggregates models by default, we compute the gradients $g_i^r$ as the difference between the participant's model at round $r$ and the last global model, \ie,
 \begin{equation}
@@ -541,15 +535,15 @@ This allows us to compare the participants' \emph{direction}, rather than their 
 
 The results on the \verb|iid_full| setting are consistent with the literature: the benign participants' contributions are tightly clustered, and the attacker's contributions are easily identifiable as outliers~\cite{tolpegin_DataPoisoningAttacks_2020}.
 However, the more heterogeneous partitioning schemes make it less clear, especially with a single attacker.
-For instance, the \verb|kmeans_keep_1| partitioning scheme on \texttt{cicids} (\Cref{fig:similarity.cicids-single}) displays two outliers that are approximately as far from the benign participants, one of which is the attacker.
-In the \verb|kmeans_*| schemes, the attacker is sometimes indistinguishable from the benign participants.
+For instance, the \verb|kmeans_keep_1| partitioning scheme on \texttt{cicids} (\Cref{fig:assess.similarity.single-cicids}) displays two outliers that are approximately as far from the benign participants, one of which is the attacker.
+In the \verb|kmeans_*| schemes, the attacker is sometime s indistinguishable from the benign participants.
 Colluding attackers are more easily identifiable, as they are usually grouped together in the less heterogeneous settings.
-This quality disappears with the \verb|kmeans_*| schemes, especially with \texttt{cicids} (\Cref{fig:similarity.cicids-colluding}).
+This quality disappears with the \verb|kmeans_*| schemes, especially with \texttt{cicids} (\Cref{fig:assess.similarity.colluding-cicids}).
 The two datasets exhibit slightly different behaviors, with attackers being more easily identifiable on \texttt{nb15} than on \texttt{cicids}, depending on the partitioning scheme.
 
-\begin{answerbox}{rq:assess.similarity}
+\begin{answerbox}{Answering~\ref{rq:assess.similarity} \normalfont\itshape\rqsim}
   The \gls{pca} analysis provides an easy and visual way to detect attackers, as long as the data distribution is homogeneous enough.
   However, this defense mechanism is particularly challenged in more heterogeneous settings.
   Colluding attackers are more easily identifiable as they will usually form a cluster of their own, highlighting the relevance of mitigation strategies such as \texttt{FoolsGold}~\cite{fung_LimitationsFederatedLearning_2020} and \texttt{CONTRA}~\cite{awan_CONTRADefendingPoisoning_2021} which detect colluding attackers in heterogeneous environments using their similarity.
-  Overall, similarity-based defense mechanisms are effective in detecting attackers in homogeneous environments, \emph{but their effectiveness decreases with the heterogeneity of the data distribution.}
+  Overall, \emph{similarity-based defense mechanisms are effective in detecting attackers in homogeneous environments, but their effectiveness decreases with the heterogeneity of the data distribution.}
 \end{answerbox}
