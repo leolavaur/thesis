@@ -1,16 +1,11 @@
 # Improving Intrusion Detection in Distributed Systems with Federated Learning
 
+> [!WARNING]  
+> The thesis has not been defended yet!
+
+
 This repository hosts my PhD thesis, which studies the use challenges and opportunities of using federated learning to build collaborative intrusion detection systems. 
 
-```bibtex
-@phdthesis{lavaur2024flids,
-    title={Improving Intrusion Detection in Distributed Systems with Federated Learning},
-    author={Lavaur, Léo},
-    year={2024},
-    school={IMT Atlantique},
-    address={Rennes, France}
-}
-```
 
 ## Thesis Map-of-Content
 
