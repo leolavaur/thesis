@@ -1,3 +1,5 @@
+% LTeX: enabled=false
+
 @online{_1998DARPAIntrusion_,
   title = {1998 {{DARPA Intrusion Detection Evaluation Dataset}} \textbar{} {{MIT Lincoln Laboratory}}},
   url = {https://www.ll.mit.edu/r-d/datasets/1998-darpa-intrusion-detection-evaluation-dataset},
@@ -1688,6 +1690,22 @@
   author = {Bureau International des Poids et Mesures},
   date = {2012},
   url = {https://www.bipm.org/en/committees/jc/jcgm/publications}
+}
+
+@inproceedings{busnel_FTMBroadcastEfficientNetworkwide_2023,
+  title = {{{FTM-Broadcast}}: {{Efficient Network-wide Ranging}}},
+  shorttitle = {{{FTM-Broadcast}}},
+  booktitle = {2023 13th {{International Conference}} on {{Indoor Positioning}} and {{Indoor Navigation}} ({{IPIN}})},
+  author = {Busnel, Yann and Rivano, Herv\'e},
+  date = {2023-09},
+  pages = {1--6},
+  issn = {2471-917X},
+  doi = {10.1109/IPIN57070.2023.10332504},
+  url = {https://ieeexplore.ieee.org/document/10332504},
+  urldate = {2024-07-24},
+  abstract = {Indoor geolocation has witnessed a significant advancement through the refinement of the 802.11 FTM (Fine Timing Measurement) protocol. Accurate indoor geolocation has numerous applications in areas such as asset tracking, indoor navigation, and location-based services. The standard 802.11 FTM protocol enables accurate indoor positioning by measuring the time-of-flight between a mobile device and multiple access points (APs). It can be generalized to device-to-device ranging. However, the conventional implementation of FTM suffers from increased complexity as the number of devices grows, limiting its scalability. FTM indeed involves a point-to-point exchange of messages between each pair of devices, leading to a quadratic increase in the number of messages as the number of neighboring devices increases. In this article, a breakthrough method is proposed to enhance the FTM protocol by leveraging broadcast communication, resulting in a substantial reduction in message complexity from quadratic to linear. By taking into account broadcast in the protocol, our approach eliminates the need for multiple individual exchanges and devises a mechanism where a single message from the mobile device is broadcasted to all neighbors simultaneously. Each message exchanged will then be useful for computing every pairwise time-of-flight, by piggybacking all timestamps, making the protocol more efficient and scalable. We conducted extensive simulated experiments to evaluate the performance of the enhanced FTM protocol. The results demonstrated the effectiveness of the proposed method, showcasing a substantial reduction in computational overhead compared to the conventional FTM implementation.},
+  eventtitle = {2023 13th {{International Conference}} on {{Indoor Positioning}} and {{Indoor Navigation}} ({{IPIN}})},
+  keywords = {Broadcast,Complexity theory,Distance measurement,FTM,Geolocation,Geology,Indoor navigation,Mobile handsets,Piggybacking,Protocols,Scalability,Wi-Fi}
 }
 
 @thesis{busnel_Systemesinformationcollaboratifs_2008,
@@ -9518,6 +9536,22 @@
   abstract = {Distributed Denial-of-Service (DDoS) attacks are expected to continue plaguing service availability in emerging networks which rely on distributed edge clouds to offer critical, latency-sensitive applications. However, edge servers increase the network attack surface, which is exacerbated with the massive number of connected Internet of Things (IoT) devices that can be weaponized to launch DDoS attacks. Therefore, it is crucial to detect DDoS attacks early, i.e., at the network edge. In this paper, we empower the network edge with intelligent DDoS detection by learning from similarities between different data and DDoS attacks available across the edge servers. To this end, we develop a novel Outlier Exposure (OE)-enabled cross-silo Federated Learning framework, namely FedOE. FedOE enables distributed training of OE-based ML models using a limited number of labeled outliers (i.e., attack flows) experienced at edge servers. We propose a novel OE-based Autoencoder (oAE) that can better discriminate anomalies in comparison to the widely adopted traditional Autoencoder, using a tailored, OE-based loss function. We evaluate oAE in FedOE and demonstrate its ability to generalize to zero-day attacks, with just 50 labeled attack flows per edge server. The results show that oAE achieves a high F1-score for most DDoS attacks, outclassing its non-OE counterpart.},
   eventtitle = {{{IEEE Transactions}} on {{Dependable}} and {{Secure Computing}}},
   keywords = {anomaly detection,Anomaly detection,Computer crime,Data models,DDoS detection,Denial-of-service attack,Edge intelligence,federated learning,Image edge detection,outlier exposure,Servers,Training}
+}
+
+@online{powers_Evaluationprecisionrecall_2020,
+  title = {Evaluation: From Precision, Recall and {{F-measure}} to {{ROC}}, Informedness, Markedness and Correlation},
+  shorttitle = {Evaluation},
+  author = {Powers, David M. W.},
+  date = {2020-10-10},
+  eprint = {2010.16061},
+  eprinttype = {arXiv},
+  eprintclass = {cs, stat},
+  doi = {10.48550/arXiv.2010.16061},
+  url = {http://arxiv.org/abs/2010.16061},
+  urldate = {2024-07-30},
+  abstract = {Commonly used evaluation measures including Recall, Precision, F-Measure and Rand Accuracy are biased and should not be used without clear understanding of the biases, and corresponding identification of chance or base case levels of the statistic. Using these measures a system that performs worse in the objective sense of Informedness, can appear to perform better under any of these commonly used measures. We discuss several concepts and measures that reflect the probability that prediction is informed versus chance. Informedness and introduce Markedness as a dual measure for the probability that prediction is marked versus chance. Finally we demonstrate elegant connections between the concepts of Informedness, Markedness, Correlation and Significance as well as their intuitive relationships with Recall and Precision, and outline the extension from the dichotomous case to the general multi-class case.},
+  pubstate = {prepublished},
+  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning,Statistics - Methodology}
 }
 
 @online{prasad_ReconcilingSecurityCommunication_2022,
