@@ -530,3 +530,39 @@
 
 
 \usepackage{placeins}
+
+
+% half title
+\makeatletter 
+\def\makehalftitle{\par
+ \begingroup
+   \def\thefootnote{\fnsymbol{footnote}}%
+   \def\@makefnmark{\hbox
+       to\z@{$\m@th^{\@thefnmark}$\hss}}%
+   \if@twocolumn
+     \twocolumn[\@makehalftitle]%
+     \else \newpage
+     \global\@topnum\z@   % Prevents figures from going at top of page.
+     \@makehalftitle \fi\thispagestyle{empty}\@thanks
+     \par\penalty -\@M
+ \endgroup
+ \setcounter{footnote}{0}%
+ \let\makehalftitle\relax
+ \let\@makehalftitle\relax}
+
+\def\@makehalftitle{\newpage
+ \null
+ \vspace*{\fill}                 % Vertical space above title.
+  \begingroup
+    \centering
+    \def\and{\unskip, }
+    \parindent=\z@
+    \pretolerance=10000
+    {\scshape\Huge \@title \par}%     % Title set in \Huge size.
+    \vspace*{4em}           % Vertical space after title.
+    {\Large \@author \par}
+  \endgroup
+  
+  \vspace*{\fill}%
+}
+\makeatother

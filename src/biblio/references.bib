@@ -1,4 +1,3 @@
-% LTeX: enabled=false
 @online{_1998DARPAIntrusion_,
   title = {1998 {{DARPA Intrusion Detection Evaluation Dataset}} \textbar{} {{MIT Lincoln Laboratory}}},
   url = {https://www.ll.mit.edu/r-d/datasets/1998-darpa-intrusion-detection-evaluation-dataset},
@@ -996,7 +995,7 @@
   urldate = {2023-10-19},
   abstract = {The rise in popularity of Internet of Things (IoT) devices has attracted hackers to develop IoT-specific attacks. The microservice architecture of IoT devices relies on the Internet to provide their intended services. An unguarded IoT network makes inter-connected devices vulnerable to attacks. It will be a tedious and ineffective process to manually detect the attacks in the network, as the attackers frequently upgrade their attack strategies. Machine learning (ML)-assisted approaches have been proposed to build intrusion detection for cybersecurity automation in IoT networks. However, most such approaches focus on training an ML model using a single view of the dataset, which often fails to build insightful knowledge and understand each feature's impact on the ML model's decision-making ability. As such, the model training with a single view may result in an incomplete understanding of patterns in large feature-set datasets. Moreover, the current approaches are mainly designed in a centralized manner in which the raw data is transferred from the edge devices to the central server for training. This, in turn, may expose the data to all kinds of attacks without adhering to the privacy-preserving of data security. Multi-view learning has gained popularity for its ability to learn from different data views and deliver efficient performance with more distinguished predictions. This paper proposes a federated learning-based intrusion detection approach, called MV-FLID, that trains on multiple views of IoT network data in a decentralized format to detect, classify, and defend against attacks. The multi-view ensemble learning aspect helps in maximizing the learning efficiency of different classes of attacks. The Federated Learning (FL) aspect, wherein the device's data is not shared to the server, performs profile aggregation efficiently with the benefit of peer learning. Our evaluation results show that our proposed approach has higher accuracy compared to the traditional non-FL centralized approach.},
   langid = {english},
-  keywords = {\_read\_urgently}
+  keywords = {\_read\_urgently,obsidian}
 }
 
 @inproceedings{awan_CONTRADefendingPoisoning_2021,
@@ -3913,7 +3912,7 @@
   url = {https://www.sciencedirect.com/science/article/pii/S0743731522000570},
   urldate = {2024-04-12},
   abstract = {In this paper, we propose a federated learning-based intrusion detection system, named FELIDS, for securing agricultural-IoT infrastructures. Specifically, the FELIDS system protects data privacy through local learning, where devices benefit from the knowledge of their peers by sharing only updates from their model with an aggregation server that produces an improved detection model. In order to prevent Agricultural IoTs attacks, the FELIDS system employs three deep learning classifiers, namely, deep neural networks, convolutional neural networks, and recurrent neural networks. We study the performance of the proposed IDS on three different sources, including, CSE-CIC-IDS2018, MQTTset, and InSDN. The results demonstrate that the FELIDS system outperforms the classic/centralized versions of machine learning (non-federated learning) in protecting the privacy of IoT devices data and achieves the highest accuracy in detecting attacks.},
-  keywords = {Deep learning,Federated learning,Internet of Things,Privacy,Security}
+  keywords = {Deep learning,Federated learning,Internet of Things,obsidian,Privacy,Security}
 }
 
 @inproceedings{fu_LabelInferenceAttacks_2022,
@@ -6293,7 +6292,8 @@
   url = {https://linkinghub.elsevier.com/retrieve/pii/S0743731522000351},
   urldate = {2022-02-25},
   abstract = {The Internet of Things (IoT) is emerging as a new technology for the development of various critical applications. However, these applications are still working on centralized storage architecture and have various key challenges like privacy, security, and single point of failure. Recently, the blockchain technology has emerged as a backbone for the IoT-based application development. The blockchain can be leveraged to solve privacy, security, and single point of failure (third-part dependency) issues of IoT applications. The integration of blockchain with IoT can benefit both individual and society. However, 2017 Distributed Denial of Service (DDoS) attack on mining pool exposed the critical fault-lines among blockchain-enabled IoT network. Moreover, these application generates huge amount of data. Machine Learning (ML) gives complete autonomy in big data analysis, capabilities of decision making and therefore is used as an analytical tool. Thus, in order to address above challenges, this paper proposes a novel distributed Intrusion Detection System (IDS) using fog computing to detect DDoS attacks against mining pool in blockchain-enabled IoT Network. The performance is evaluated by training Random Forest (RF) and an optimized gradient tree boosting system (XGBoost) on distributed fog nodes. The proposed model e↵ectiveness is assessed using an actual IoT-based dataset i.e., BoT-IoT, which includes most recent attacks found in blockchain-enabled IoT network. The results indicate, for binary attack-detection XGBoost outperforms whereas for multi-attack detection Random Forest outperforms. Overall on distributed fog nodes RF takes less time for training and testing compared to XGBoost.},
-  langid = {english}
+  langid = {english},
+  keywords = {obsidian}
 }
 
 @article{kumar_FEDCLEANDEFENSEMECHANISM_,
@@ -9334,7 +9334,7 @@
   urldate = {2022-04-01},
   abstract = {With the widespread use of real-time sensors in various fields, such as IoT systems, it is important to improve the performance of most network traffic anomaly detection methods, which have low accuracy and high false alarm rates. However, there are two key challenges to address. In this study, we proposed a personalized federated anomaly detection framework for network traffic anomaly detection, in which data are aggregated under the premise of privacy protection and relatively personalized models are constructed by fine-tuning. Subsequently, a network traffic anomaly detection method based on the self-coding of long- and short-term memory networks was proposed. Real network traffic was tested to analyze the effects of the model structure and external noise on the detection performance, and the experimental results verified the correctness of the proposed method. Compared with other data-reconstruction-based detection methods, the proposed method has higher detection accuracy and better detection performance.},
   langid = {english},
-  keywords = {RETRACTED}
+  keywords = {obsidian,RETRACTED}
 }
 
 @article{pejo_QualityInferenceFederated_2023,
@@ -9583,7 +9583,8 @@
   url = {http://www.mdpi.com/2076-3417/8/12/2663},
   urldate = {2021-06-07},
   abstract = {The adoption of machine learning and deep learning is on the rise in the cybersecurity domain where these AI methods help strengthen traditional system monitoring and threat detection solutions. However, adversaries too are becoming more effective in concealing malicious behavior amongst large amounts of benign behavior data. To address the increasing time-to-detection of these stealthy attacks, interconnected and federated learning systems can improve the detection of malicious behavior by joining forces and pooling together monitoring data. The major challenge that we address in this work is that in a federated learning setup, an adversary has many more opportunities to poison one of the local machine learning models with malicious training samples, thereby influencing the outcome of the federated learning and evading detection. We present a solution where contributing parties in federated learning can be held accountable and have their model updates audited. We describe a permissioned blockchain-based federated learning method where incremental updates to an anomaly detection machine learning model are chained together on the distributed ledger. By integrating federated learning with blockchain technology, our solution supports the auditing of machine learning models without the necessity to centralize the training data. Experiments with a realistic intrusion detection use case and an autoencoder for anomaly detection illustrate that the increased complexity caused by blockchain technology has a limited performance impact on the federated learning, varying between 5 and 15\%, while providing full transparency over the distributed training process of the neural network. Furthermore, our blockchain-based federated learning solution can be generalized and applied to more sophisticated neural network architectures and other use cases.},
-  langid = {english}
+  langid = {english},
+  keywords = {obsidian}
 }
 
 @inproceedings{putra_DecentralisedTrustworthyCollaborative_2021,

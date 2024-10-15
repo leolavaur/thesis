@@ -39,35 +39,53 @@
 \loadglsentries{includes/glossary}
 
 \begin{document}
-
+\renewcommand{\thepage}{}
 
 % Front cover; most of the settings are in `template/` and are adapted from the official template for the "Collège Doctoral de Bretagne" by ED Mathisse.
 \input{includes/frontcover.tex}
 
-\selectlanguage{english} % My thesis is in English
+\cleardoublepage
 
+% Dedication
+\selectlanguage{french} 
+\vspace*{\fill}
+\begin{center}
+  \textit{À la mémoire de mon grand-père paternel, Michel-François Lavaur.}
+\end{center}
+\vspace*{\fill}
+
+\clearemptydoublepage
 \frontmatter
 \renewcommand{\thepage}{\roman{page}}% Roman numerals for page counter
 
+
+\selectlanguage{english} % My thesis is in English
+
 % Abstracts
-\clearemptydoublepage
 \chapter*{Abstracts\label{chap:abstracts}}
 \addcontentsline{toc}{chapter}{Abstracts}
 
 \selectlanguage{french}
 \section*{Résumé}
 \input{includes/abstract-fr}
+
+\vfill
+\begin{center}
+  \textit{Le reste de ce manuscrit est rédigé en anglais.}
+\end{center}
+\vfill\vfill
 \newpage
+
 \selectlanguage{english}
 \section*{Abstract}
 \input{includes/abstract-en}
 
 
-% Acknowledgements
-% \clearemptydoublepage
-% \chapter*{Acknowledgements\label{chap:ack}}
-% \addcontentsline{toc}{chapter}{Acknowledgements}
-% \input{includes/acknowledgment}
+%Acknowledgements
+\clearemptydoublepage
+\chapter*{Acknowledgements\label{chap:ack}}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\input{includes/acknowledgment}
 
 % \section*{Debugging}
 % Lengths:
@@ -103,6 +121,8 @@
 %\pagebreak % to ensure the numbering changes
 
 \mainmatter
+\clearemptydoublepage
+\makehalftitle
 % \vfill
 \pagebreak
 \renewcommand{\thepage}{\arabic{page}}
@@ -196,6 +216,7 @@
 
 % Appendices
 \clearemptydoublepage
+\setcounter{section}{0}
 \subincludefrom{appendices/}{main}
 
 
