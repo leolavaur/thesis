@@ -1,10 +1,7 @@
 # Improving Intrusion Detection in Distributed Systems with Federated Learning
 
-> [!WARNING]  
-> The thesis has not been defended yet! The defense is scheduled for **October, 7th 2024** at **IMT Atlantique**, Rennes, France, at **1:30 PM**.
-
-
-This repository hosts my PhD thesis, which studies the challenges and opportunities of using federated learning to build collaborative intrusion detection systems. 
+This repository hosts my PhD thesis, which studied the challenges and opportunities of using federated learning to build collaborative intrusion detection systems.
+The thesis was defended on October 7, 2024.
 
 
 ## Thesis Map-of-Content
