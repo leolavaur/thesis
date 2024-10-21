@@ -391,7 +391,7 @@
 \selectfontfrontcover % Set font style for front cover page
 
 {\HugeTwelve \textsc{Th\`{e}se de doctorat de} \\}
-
+\vspace{\baselineskip}
 \color{\@couleurpolice} % Some schools use white font
 
 % \vspace{5mm}
