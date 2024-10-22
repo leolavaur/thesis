@@ -391,7 +391,7 @@
 \selectfontfrontcover % Set font style for front cover page
 
 {\HugeTwelve \textsc{Th\`{e}se de doctorat de} \\}
-\vspace{\baselineskip}
+\vspace{1.5\baselineskip}
 \color{\@couleurpolice} % Some schools use white font
 
 % \vspace{5mm}
@@ -411,7 +411,7 @@
 {\normalTwelve Sp\'{e}cialit\'{e} : \textit{\@spec}}
 
 %\fontsize{12}{10}\selectfont
-\vspace{0.5cm}
+\vspace{0.8cm}
 \hspace{0.6cm}{\normalTwelve Par \vspace{0.15cm}}
 \par}
 \hspace{0.6cm}{\LARGETwelve \textbf{\@author}} \vspace{0.5cm}

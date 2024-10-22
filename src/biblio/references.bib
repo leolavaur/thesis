@@ -1289,6 +1289,22 @@
   keywords = {Federated Learning,Gower distance,Internet of Things,Intrusion Detection Systems}
 }
 
+@inproceedings{bellet_DCliquesCompensatingData_2022,
+  title = {D-{{Cliques}}: {{Compensating}} for {{Data Heterogeneity}} with {{Topology}} in {{Decentralized Federated Learning}}},
+  shorttitle = {D-{{Cliques}}},
+  booktitle = {2022 41st {{International Symposium}} on {{Reliable Distributed Systems}} ({{SRDS}})},
+  author = {Bellet, Aur\'elien and Kermarrec, Anne-Marie and Lavoie, Erick},
+  date = {2022-09},
+  pages = {1--11},
+  issn = {2575-8462},
+  doi = {10.1109/SRDS55811.2022.00011},
+  url = {https://ieeexplore.ieee.org/abstract/document/9996833?casa_token=CFdAsPWUkgEAAAAA:iUhHYOsPFVonGhfNtSzmsM4cKVa-XHqsxAp6dAf_spZCO_h5ZpVGG3rS_9YRAm30P3hr_DvEMhY},
+  urldate = {2024-10-21},
+  abstract = {The convergence speed of machine learning models trained with Federated Learning is significantly affected by heterogeneous data partitions, even more so in a fully decentralized setting without a central server. In this paper, we show that the impact of label distribution skew, an important type of data heterogeneity, can be significantly reduced by carefully designing the underlying communication topology. We present D-Cliques, a novel topology that reduces gradient bias by grouping nodes in sparsely interconnected cliques such that the label distribution in a clique is representative of the global label distribution. We also show how to adapt the updates of decentralized SGD to obtain unbiased gradients and implement an effective momentum with D-Cliques. Our extensive empirical evaluation on MNIST and CIFAR10 validates our design and demonstrates that our approach achieves similar convergence speed as a fully-connected topology, while providing a significant reduction in the number of edges and messages. In a 1000-node topology, D-Cliques require 98\% less edges and 96\% less total messages, with further possible gains using a small-world topology across cliques.},
+  eventtitle = {2022 41st {{International Symposium}} on {{Reliable Distributed Systems}} ({{SRDS}})},
+  keywords = {Computational modeling,Data models,Decentralized Learning,Distributed databases,Federated learning,Federated Learning,Heterogeneous Data,Network topology,Scalability,Stochastic Gradient Descent,Topology}
+}
+
 @article{bellet_DCliquesCompensatingNonIIDness_2021,
   title = {D-{{Cliques}}: {{Compensating NonIIDness}} in {{Decentralized Federated Learning}} with {{Topology}}},
   shorttitle = {D-{{Cliques}}},
@@ -4148,6 +4164,21 @@
   abstract = {As modern software-based systems and applications gain in versatility and functionality, the ability to manage inconsistent resources and service disparate user requirements becomes increasingly imperative. Furthermore, as systems increase in complexity, rectification of system faults and recovery from malicious attacks become more difficult, labor-intensive, expensive, and error-prone. These factors have actuated research dealing with the concept of self-healing systems. Self-healing systems attempt to ``heal'' themselves in the sense of recovering from faults and regaining normative performance levels independently the concept derives from the manner in which a biological system heals a wound. Such systems employ models, whether external or internal, to monitor system behavior and use inputs obtaining therefore to adapt themselves to the run-time environment. Researchers have approached this concept from several different angles this paper surveys research in this field and proposes a strategy of synthesis and classification. \copyright{} 2006 Elsevier B.V. All rights reserved.},
   langid = {english},
   keywords = {+survey}
+}
+
+@inproceedings{giaretta_GossipLearningBeaten_2019,
+  title = {Gossip {{Learning}}: {{Off}} the {{Beaten Path}}},
+  shorttitle = {Gossip {{Learning}}},
+  booktitle = {2019 {{IEEE International Conference}} on {{Big Data}} ({{Big Data}})},
+  author = {Giaretta, Lodovico and Girdzijauskas, \v Sar\=unas},
+  date = {2019-12},
+  pages = {1117--1124},
+  doi = {10.1109/BigData47090.2019.9006216},
+  url = {https://ieeexplore.ieee.org/abstract/document/9006216/authors#authors},
+  urldate = {2024-10-21},
+  abstract = {The growing computational demands of model training tasks and the increased privacy awareness of consumers call for the development of new techniques in the area of machine learning. Fully decentralized approaches have been proposed, but are still in early research stages. This study analyses gossip learning, one of these state-of-the-art decentralized machine learning protocols, which promises high scalability and privacy preservation, with the goal of assessing its applicability to real-world scenarios.Previous research on gossip learning presents strong and often unrealistic assumptions on the distribution of the data, the communication speeds of the devices and the connectivity among them. Our results show that lifting these requirements can, in certain scenarios, lead to slow convergence of the protocol or even unfair bias in the produced models. This paper identifies the conditions in which gossip learning can and cannot be applied, and introduces extensions that mitigate some of its limitations.},
+  eventtitle = {2019 {{IEEE International Conference}} on {{Big Data}} ({{Big Data}})},
+  keywords = {\_read\_urgently,Convergence,Data models,Machine learning,Network topology,Peer-to-peer computing,Protocols,Topology}
 }
 
 @online{gill_FedDebugSystematicDebugging_2023,
@@ -9967,6 +9998,23 @@
   abstract = {Recently, smart cities, smart homes, and smart medical systems have challenged the functionality and connectivity of the large-scale Internet of Things (IoT) devices. Thus, with the idea of offloading intensive computing tasks from them to edge nodes (ENs), edge computing emerged to supplement these limited devices. Benefit from this advantage, IoT devices can save more energy and still maintain the quality of the services they should provide. However, computational offload decisions involve federation and complex resource management and should be determined in the real-time face to dynamic workloads and radio environments. Therefore, in this work, we use multiple deep reinforcement learning (DRL) agents deployed on multiple edge nodes to indicate the decisions of the IoT devices. On the other hand, with the aim of making DRL-based decisions feasible and further reducing the transmission costs between the IoT devices and edge nodes, federated learning (FL) is used to train DRL agents in a distributed fashion. The experimental results demonstrate the effectiveness of the decision scheme and federated learning in the dynamic IoT system.}
 }
 
+@article{ren_IntelligentAdaptiveGossipBased_2024,
+  title = {Intelligent {{Adaptive Gossip-Based Broadcast Protocol}} for {{UAV-MEC Using Multi-Agent Deep Reinforcement Learning}}},
+  author = {Ren, Zhe and Li, Xinghua and Miao, Yinbin and Li, Zhuowen and Wang, Zihao and Zhu, Mengyao and Liu, Ximeng and Deng, Robert H.},
+  date = {2024-06},
+  journaltitle = {IEEE Transactions on Mobile Computing},
+  volume = {23},
+  number = {6},
+  pages = {6563--6578},
+  issn = {1558-0660},
+  doi = {10.1109/TMC.2023.3323296},
+  url = {https://ieeexplore.ieee.org/abstract/document/10275021},
+  urldate = {2024-10-21},
+  abstract = {Unmanned aerial vehicle (UAV)-assisted mobile edge computing (UAV-MEC) has been proposed to offer computing resources for smart devices and user equipment. UAV cluster aided MEC rather than one UAV-aided MEC as edge pool is the newest edge computing architecture. Unfortunately, the data packet exchange during edge computing within the UAV cluster hasn't received enough attention. UAVs need to collaborate for the wide implementation of MEC, relying on the gossip-based broadcast protocol. However, gossip has the problem of long propagation delay, where the forwarding probability and neighbors are two factors that are difficult to balance. The existing works improve gossip from only one factor, which cannot select suitable forwarding probability and avoid redundant messages. Besides, these schemes do not consider the historical packet reception of new neighbors when UAVs fly around, which decreases forwarding efficiency. To solve these problems, we first propose a data structure called Bitgraph that can record the historical packet reception of UAVs. Then, we formulate gossip broadcasting as a partially observable Markov decision process. Based on Bitgraph, we design the reward function. Finally, we design a multi-agent reinforcement learning algorithm, Branching Deep Graph Network (BDGN), which simultaneously makes decisions on forwarding probability and neighbors. Extensive experiments illustrate that our proposal gets more than 29\% advantage in terms of the propagation delay and 20\% advantage in terms of the redundant messages compared to the existing works.},
+  eventtitle = {{{IEEE Transactions}} on {{Mobile Computing}}},
+  keywords = {\_read\_urgently,Autonomous aerial vehicles,Floods,Gossip protocol,partially observable markov decision process,Propagation delay,Protocols,reinforcement learning,Reinforcement learning,Semantics,sparse rewards,Topology,UAVs}
+}
+
 @article{resnick_Reputationsystems_2000,
   title = {Reputation Systems},
   author = {Resnick, Paul and Kuwabara, Ko and Zeckhauser, Richard and Friedman, Eric},
@@ -11733,6 +11781,24 @@
   abstract = {The prosperity of machine learning has been accompanied by increasing attacks on the training process. Among them, poisoning attacks have become an emerging threat during model training. Poisoning attacks have profound impacts on the target models, e.g., making them unable to converge or manipulating their prediction results. Moreover, the rapid development of recent distributed learning frameworks, especially federated learning, has further stimulated the development of poisoning attacks. Defending against poisoning attacks is challenging and urgent. However, the systematic review from a unified perspective remains blank. This survey provides an in-depth and up-to-date overview of poisoning attacks and corresponding countermeasures in both centralized and federated learning. We firstly categorize attack methods based on their goals. Secondly, we offer detailed analysis of the differences and connections among the attack techniques. Furthermore, we present countermeasures in different learning framework and highlight their advantages and disadvantages. Finally, we discuss the reasons for the feasibility of poisoning attacks and address the potential research directions from attacks and defenses perspectives, separately.},
   keywords = {backdoor attack,Deep learning,federated learning,poisoning attack},
   annotation = {Just Accepted}
+}
+
+@article{tian_FedBroadcastExploitBroadcast_2023,
+  title = {{{FedBroadcast}}: {{Exploit Broadcast Channel}} for {{Fast Convergence}} in {{Wireless Federated Learning}}},
+  shorttitle = {{{FedBroadcast}}},
+  author = {Tian, Hao and Zhang, Hong and Jia, Juncheng and Dong, Mianxiong and Ota, Kaoru},
+  date = {2023-03},
+  journaltitle = {IEEE Internet of Things Journal},
+  volume = {10},
+  number = {5},
+  pages = {4652--4663},
+  issn = {2327-4662},
+  doi = {10.1109/JIOT.2022.3218729},
+  url = {https://ieeexplore.ieee.org/abstract/document/9933818?casa_token=-oFj6TWyvUEAAAAA:LRYTu4qbJOw7PyQHlm4lLzG526yCFf5_acUk3ZYaSdGtJeu072JgTqxzFOnDRleEFN3KGnptNQk},
+  urldate = {2024-10-21},
+  abstract = {With the fast development of modern networking technologies, the transmission rate and reliability of wireless networks have been greatly improved. Meanwhile, the fast-developing Internet of Things (IoT) devices provide continually increasing computation capability. Federated learning (FL) was proposed to leverage communication and computation resources to perform machine learning (ML) tasks on IoT devices. In wireless FL systems, devices train ML models with local data sets, and a base station (BS) aggregates these trained models so that data privacy is guaranteed by the isolation of data sets. However, in the existing works, the same global model is transmitted to devices individually over the wireless channel multiple times, while the updated local models are received only by the BS, which ignores the wireless broadcast channel, incurs large communication overhead, and slows down the overall training process. In this article, we propose the FedBroadcast protocol to efficiently exploit the shared wireless broadcast channel for the two-way model transmission in FL. In the downloading step, we let BS broadcast the global model once for all scheduled devices, and design a dynamic programming-based algorithm to schedule devices optimally. In the uploading step, we also leverage the wireless broadcast channel and select some devices to receive all the updated local models without waiting for model downloading in the next round. Finally, to solve the potential block-cyclic sampling problem brought by device scheduling, we adopt pluralistic averaging modification, which improves the convergence performance under extreme data distributions. Extensive experiments demonstrate that FedBroadcast outperforms the existing wireless FL under different system settings.},
+  eventtitle = {{{IEEE Internet}} of {{Things Journal}}},
+  keywords = {\_read\_urgently,Broadcast,Communication system security,Computational modeling,convergence,Convergence,Data models,federated learning (FL),Internet of Things,Protocols,scheduling,Training,wireless networks}
 }
 
 @inproceedings{tolpegin_DataPoisoningAttacks_2020,
