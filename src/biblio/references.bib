@@ -1,7 +1,15 @@
+% LTeX: enabled=false
 @online{_1998DARPAIntrusion_,
   title = {1998 {{DARPA Intrusion Detection Evaluation Dataset}} \textbar{} {{MIT Lincoln Laboratory}}},
   url = {https://www.ll.mit.edu/r-d/datasets/1998-darpa-intrusion-detection-evaluation-dataset},
   urldate = {2024-06-19}
+}
+
+@online{_Federatedlearningmodel_,
+  title = {Federated Learning through Model Gossiping in Wireless Sensor Networks \textbar{} {{IEEE Conference Publication}} \textbar{} {{IEEE Xplore}}},
+  url = {https://ieeexplore.ieee.org/abstract/document/9527886},
+  urldate = {2024-10-23},
+  keywords = {\_read\_urgently}
 }
 
 @online{_NetworkAnomalyDetection_,
@@ -2740,6 +2748,22 @@
   keywords = {⛔ No DOI found}
 }
 
+@inproceedings{danner_Decentralizedmachinelearning_2021,
+  title = {Decentralized Machine Learning Using Compressed Push-Pull Averaging},
+  booktitle = {Proceedings of the 1st {{International Workshop}} on {{Distributed Infrastructure}} for {{Common Good}}},
+  author = {Danner, G\'abor and Heged\H us, Istv\'an and Jelasity, M\'ark},
+  date = {2021-01-04},
+  series = {{{DICG}}'20},
+  pages = {31--36},
+  publisher = {Association for Computing Machinery},
+  location = {New York, NY, USA},
+  doi = {10.1145/3428662.3428792},
+  url = {https://dl.acm.org/doi/10.1145/3428662.3428792},
+  urldate = {2024-10-23},
+  abstract = {For decentralized learning algorithms communication efficiency is a central issue. On the one hand, good machine learning models require more and more parameters. On the other hand, there is a relatively large cost for transferring data via P2P channels due to bandwidth and unreliability issues. Here, we propose a novel compression mechanism for P2P machine learning that is based on the application of stateful codecs over P2P links. In addition, we also rely on transfer learning for extra compression. This means that we train a relatively small model on top of a high quality pre-trained feature set that is fixed. We demonstrate these contributions through an experimental analysis over a real smartphone trace.},
+  isbn = {978-1-4503-8197-0}
+}
+
 @article{darley_MachineLearningIntrusion_2022,
   title = {Machine {{Learning Intrusion Detection}} as a {{Solution}} to {{Security}} and {{Privacy Issues}} in {{IoT}}: {{A Systematic Review}}},
   shorttitle = {Machine {{Learning Intrusion Detection}} as a {{Solution}} to {{Security}} and {{Privacy Issues}} in {{IoT}}},
@@ -4959,6 +4983,23 @@
   abstract = {Anomaly detection plays an essential role in network security and traffic classification. Many studies have focused on anomaly detection to improve network security, including machine learning and deep learning methods. These methods often require numerous samples and must obtain the results by classifying the entire data set, thereby limiting their inflexibility. Although transfer and multitask learning have achieved some results in the model's transferability, these methods must manually label or reprocess the test set. These problems limit the application of previous methods in network security management. To solve these problems, we propose a transferable and adaptable network intrusion detection system (TA-NIDS) based on deep reinforcement learning. The interaction process between the agent and the environment varies every time. A small-scale data set can be used to produce many interactive processes. Therefore, robustness is guaranteed when there are few samples. Then, a reasonable reward function allows the agent to learn how to first choose outliers without classifying the entire data set. This makes the TA-NIDS more adaptable to the scene when we prioritize apparent outliers. More importantly, the original features are transformed into the state of the environment, so no requirement exists for the feature dimension. Furthermore, the general rather than the specific state of one data set makes the model transferable to other data sets. The experimental results for IDS2017, IDS2018, NSL-KDD, UNSW-NB15 and CIC-IoT2023 show that the proposed framework maintains good accuracy when prioritizing outliers and transferability are prioritized simultaneously.},
   eventtitle = {{{IEEE Transactions}} on {{Network}} and {{Service Management}}},
   keywords = {adaptable framework,anomaly detection,Anomaly detection,Behavioral sciences,Data models,Deep reinforcement learning,Feature extraction,Reinforcement learning,robustness,Telecommunication traffic,Training,transferable framework}
+}
+
+@article{hegedus_Decentralizedlearningworks_2021,
+  title = {Decentralized Learning Works: {{An}} Empirical Comparison of Gossip Learning and Federated Learning},
+  shorttitle = {Decentralized Learning Works},
+  author = {Heged\H us, Istv\'an and Danner, G\'abor and Jelasity, M\'ark},
+  date = {2021-02-01},
+  journaltitle = {Journal of Parallel and Distributed Computing},
+  shortjournal = {Journal of Parallel and Distributed Computing},
+  volume = {148},
+  pages = {109--124},
+  issn = {0743-7315},
+  doi = {10.1016/j.jpdc.2020.10.006},
+  url = {https://www.sciencedirect.com/science/article/pii/S0743731520303890},
+  urldate = {2024-10-23},
+  abstract = {Machine learning over distributed data stored by many clients has important applications in use cases where data privacy is a key concern or central data storage is not an option. Recently, federated learning was proposed to solve this problem. The assumption is that the data itself is not collected centrally. In a master--worker architecture, the workers perform machine learning over their own data and the master merely aggregates the resulting models without seeing any raw data, not unlike the parameter server approach. Gossip learning is a decentralized alternative to federated learning that does not require an aggregation server or indeed any central component. The natural hypothesis is that gossip learning is strictly less efficient than federated learning due to relying on a more basic infrastructure: only message passing and no cloud resources. In this empirical study, we examine this hypothesis and we present a systematic comparison of the two approaches. The experimental scenarios include a real churn trace collected over mobile phones, continuous and bursty communication patterns, different network sizes and different distributions of the training data over the devices. We also evaluate a number of additional techniques including a compression technique based on sampling, and token account based flow control for gossip learning. We examine the aggregated cost of machine learning in both approaches. Surprisingly, the best gossip variants perform comparably to the best federated learning variants overall, so they offer a fully decentralized alternative to federated learning.},
+  keywords = {Decentralized machine learning,Federated learning,Gossip learning}
 }
 
 @incollection{hegedus_GossipLearningDecentralized_2019,
@@ -8033,6 +8074,34 @@
   abstract = {With the purpose of identifying cyber threats and possible incidents, intrusion detection systems (IDSs) are widely deployed in various computer networks. In order to enhance the detection capability of a single IDS, collaborative intrusion detection networks (or collaborative IDSs) have been developed, which allow IDS nodes to exchange data with each other. However, data and trust management still remain two challenges for current detection architectures, which may degrade the effectiveness of such detection systems. In recent years, blockchain technology has shown its adaptability in many fields, such as supply chain management, international payment, interbanking, and so on. As blockchain can protect the integrity of data storage and ensure process transparency, it has a potential to be applied to intrusion detection domain. Motivated by this, this paper provides a review regarding the intersection of IDSs and blockchains. In particular, we introduce the background of intrusion detection and blockchain, discuss the applicability of blockchain to intrusion detection, and identify open challenges in this direction.}
 }
 
+@inproceedings{mertens_Federatedlearningmodel_2021,
+  title = {Federated Learning through Model Gossiping in Wireless Sensor Networks},
+  booktitle = {2021 {{IEEE International Black Sea Conference}} on {{Communications}} and {{Networking}} ({{BlackSeaCom}})},
+  author = {Mertens, J.S. and Galluccio, L. and Morabito, G.},
+  date = {2021-05},
+  pages = {1--6},
+  doi = {10.1109/BlackSeaCom52164.2021.9527886},
+  url = {https://ieeexplore.ieee.org/abstract/document/9527886},
+  urldate = {2024-10-23},
+  abstract = {Federated learning (FL) has been recently proposed to achieve distributed learning in communication in an efficient and privacy-preserving way. Unfortunately FL cannot be applied as it is in wireless sensor networks, because it requires a large number of transmissions of the model parameters and because it involves huge energy and communication resource consumption at nodes that are physically closer to the point where models calculated by the federated learners are aggregated. In this paper, such claim will be demonstrated and we will investigate how gossiping, combined with FL, can be used to achieve higher energy efficiency and bandwidth saving. Early results show that the gossiping can help in improving significantly the performance in terms of resource efficiency.},
+  eventtitle = {2021 {{IEEE International Black Sea Conference}} on {{Communications}} and {{Networking}} ({{BlackSeaCom}})},
+  keywords = {Computer aided instruction,Distance learning,distributed training,Energy resources,Federated Learning,Gossiping.,Knowledge engineering,Network topology,Wireless communication,Wireless sensor networks}
+}
+
+@inproceedings{mertens_Federatedlearningmodel_2021a,
+  title = {Federated Learning through Model Gossiping in Wireless Sensor Networks},
+  booktitle = {2021 {{IEEE International Black Sea Conference}} on {{Communications}} and {{Networking}} ({{BlackSeaCom}})},
+  author = {Mertens, J.S. and Galluccio, L. and Morabito, G.},
+  date = {2021-05},
+  pages = {1--6},
+  doi = {10.1109/BlackSeaCom52164.2021.9527886},
+  url = {https://ieeexplore.ieee.org/abstract/document/9527886},
+  urldate = {2024-10-23},
+  abstract = {Federated learning (FL) has been recently proposed to achieve distributed learning in communication in an efficient and privacy-preserving way. Unfortunately FL cannot be applied as it is in wireless sensor networks, because it requires a large number of transmissions of the model parameters and because it involves huge energy and communication resource consumption at nodes that are physically closer to the point where models calculated by the federated learners are aggregated. In this paper, such claim will be demonstrated and we will investigate how gossiping, combined with FL, can be used to achieve higher energy efficiency and bandwidth saving. Early results show that the gossiping can help in improving significantly the performance in terms of resource efficiency.},
+  eventtitle = {2021 {{IEEE International Black Sea Conference}} on {{Communications}} and {{Networking}} ({{BlackSeaCom}})},
+  keywords = {Computer aided instruction,Distance learning,distributed training,Energy resources,Federated Learning,Gossiping.,Knowledge engineering,Network topology,Wireless communication,Wireless sensor networks}
+}
+
 @inproceedings{merzouk_Parameterizingpoisoningattacks_2023,
   title = {Parameterizing Poisoning Attacks in Federated Learning-Based Intrusion Detection},
   booktitle = {Proceedings of the 18th {{International Conference}} on {{Availability}}, {{Reliability}} and {{Security}}},
@@ -10070,6 +10139,24 @@
   doi = {10.11591/ijece.v9i2.pp1249-1257},
   url = {http://ijece.iaescore.com/index.php/IJECE/article/view/10176},
   abstract = {In game theory, cooperative and non-cooperative approaches are distinguished in terms of two elements. The first refers to the player's ability to engage: in a non-cooperative context, they are entirely free to make decisions when they make their choices; However, in a cooperative context, they have the opportunity to engage contractually the strategies that should be adopted during the game, that during a phase of discussions held before the game and during combinations which may be formed.In this context, the problem is not so much to predict the outcome of the game between players to leave the benefit of cooperation. To achieve this, and this is the second major difference with the non-cooperative approach, it adopts an axiomatic approach (or normative) by which we set upstream properties a priori reasonable (or desirable) on the outcome of the game. The purpose of this paper is to present briefly the main types of non-cooperative games and the tools that allow them to be analyzed in a complete information context where all aspects of the game are well known to decision makers.}
+}
+
+@article{riedel_Comparativeanalysisopensource_2024,
+  title = {Comparative Analysis of Open-Source Federated Learning Frameworks - a Literature-Based Survey and Review},
+  author = {Riedel, Pascal and Schick, Lukas and family=Schwerin, given=Reinhold, prefix=von, useprefix=true and Reichert, Manfred and Schaudt, Daniel and Hafner, Alexander},
+  date = {2024-11-01},
+  journaltitle = {International Journal of Machine Learning and Cybernetics},
+  shortjournal = {Int. J. Mach. Learn. \& Cyber.},
+  volume = {15},
+  number = {11},
+  pages = {5257--5278},
+  issn = {1868-808X},
+  doi = {10.1007/s13042-024-02234-z},
+  url = {https://doi.org/10.1007/s13042-024-02234-z},
+  urldate = {2024-10-24},
+  abstract = {While Federated Learning (FL) provides a privacy-preserving approach to analyze sensitive data without centralizing training data, the field lacks an detailed comparison of emerging open-source FL frameworks. Furthermore, there is currently no standardized, weighted evaluation scheme for a fair comparison of FL frameworks that would support the selection of a suitable FL framework. This study addresses these research gaps by conducting a comparative analysis of 15 individual open-source FL frameworks filtered by two selection criteria, using the literature review methodology proposed by Webster and Watson. These framework candidates are compared using a novel scoring schema with 15 qualitative and quantitative evaluation criteria, focusing on features, interoperability, and user friendliness. The evaluation results show that the FL framework Flower outperforms its peers with an overall score of 84.75\%, while Fedlearner lags behind with a total score of 24.75\%. The proposed comparison suite offers valuable initial guidance for practitioners and researchers in selecting an FL framework for the design and development of FL-driven systems. In addition, the FL framework comparison suite is designed to be adaptable and extendable accommodating the inclusion of new FL frameworks and evolving requirements.},
+  langid = {english},
+  keywords = {Artificial Intelligence,Federated learning,Framework comparison,Machine learning,Open source,Privacy}
 }
 
 @inproceedings{rieger_CrowdGuardFederatedBackdoor_2024,
