@@ -3,7 +3,6 @@
 \setcounter{section}{0}
 \renewcommand*{\theHsection}{app.\the\value{section}}
 \renewcommand{\thesection}{\Alph{section}}
-\AddToHook{cmd/section/before}{\clearpage}
 
 \section{Additional Figures\label{sec:append.figures}}
 
@@ -14,9 +13,10 @@
     Topic embedding of the \gls{fids} literature using a \gls{nmf} model with 20 topics.
     Each point represents a paper, and each are labelled with the topic they are the most associated with.
     \label{fig:append.figure1}
-  }
+    }
 \end{figure}
-
+  
+\AddToHook{cmd/section/before}{\clearpage}
 
 \section{Bibliography for the Automated Literature Review\label{sec:append.biblio}}
 
@@ -26,3 +26,5 @@
 \input{french-synthesis.tex}
 
 \input{french-acknowledgements.tex}
+
+\RemoveFromHook{cmd/section/before}
