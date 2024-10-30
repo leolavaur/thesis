@@ -1,9 +1,11 @@
 \chapter*{Appendices\label{part:appendices}}
 \addcontentsline{toc}{chapter}{Appendices}
-
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{app.\the\value{section}}
 \renewcommand{\thesection}{\Alph{section}}
-\section{Additional Figures\label{sec:append.figures}}
+\AddToHook{cmd/section/before}{\clearpage}
 
+\section{Additional Figures\label{sec:append.figures}}
 
 \begin{figure}[H]
   \centering
@@ -15,14 +17,12 @@
   }
 \end{figure}
 
-\newpage
+
 \section{Bibliography for the Automated Literature Review\label{sec:append.biblio}}
 
 {\small
 \input{soa-paper-list.tex}}
 
-\newpage
 \input{french-synthesis.tex}
 
-\newpage
 \input{french-acknowledgements.tex}
